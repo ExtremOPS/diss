@@ -1,0 +1,139 @@
+\documentclass[
+  fontsize=13pt,
+  a4paper,
+  chapterprefix,
+    ]{scrbook}
+
+\usepackage{emptypage}
+
+\usepackage{geometry}
+\geometry{a4paper,top=30mm,left=22mm,right=22mm,bottom=30mm,headsep=10mm,footskip=12mm}
+\renewcommand{\baselinestretch}{1.05}\normalsize %Zeilenabstand
+%vor Boston: 1.1 Zeilenabstand, Grösse 13 pt top=30mm,left=18mm,right=18mm,bottom=30mm,headsep=10mm,footskip=12mm
+
+%distance between floats on the top or the bottom and the text, standard: 20.0pt plus 2.0pt minus 4.0pt
+\setlength{\textfloatsep}{7pt plus 1.0pt minus 2.0pt}
+% distance between two floats, standard: 12.0pt plus 2.0pt minus 2.0pt:
+\setlength{\floatsep}{7pt plus 1.0pt minus 2.0pt}
+%distance between floats inserted inside the page text (using h) and the text, standard: 12.0pt plus 2.0pt minus 2.0pt:
+\setlength{\intextsep}{7pt plus 1.0pt minus 2.0pt}
+
+\usepackage{indentfirst} %Einzug bei jedem Abschnitt
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xfrac}
+
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+% must be after hyperref and amsmath
+\usepackage[nameinlink]{cleveref}
+  \crefname{figure}{FIG.}{FIGs.}
+  \crefname{table}{TAB.}{TABs.}
+  \crefname{equation}{EQ.}{EQs.}
+  \crefname{section}{Section}{Section}
+
+\usepackage{floatflt}
+\usepackage{moresize}
+\usepackage[]{ethimes}               % New styles and commands
+\setcounter{tocdepth}{3} \setcounter{secnumdepth}{3}
+\usepackage{fancyhdr}                % Headings
+\usepackage{graphicx}                % EPS figures
+  \graphicspath{
+      {SECTION/30_Timeconstant/10_Figures/LaTeX/}
+      {SECTION/30_Timeconstant/10_Figures/PGF/}
+      {SECTION/30_Timeconstant/10_Figures/}
+    }
+\usepackage[dvips]{epsfig}           % EPS figures
+\usepackage{epstopdf}
+\usepackage{float}                   % Placement of floating objects
+\usepackage{here}                   % Placement of floating objects
+\usepackage{lipsum}                   %um eine Fussnote zu platzieren ohne Nr
+\usepackage[ngerman, spanish, english]{babel}           %für Gänsefüsschen etc
+\usepackage[utf8]{inputenc}\DeclareUnicodeCharacter{2212}{-}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx} %SI units
+
+\usepackage{rotating} % Rotating table
+\usepackage{booktabs}
+  \newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{array}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}
+
+% \usepackage{cite}                    % bei Referenzen [15,12,11,10] sortiert es zu [10-12, 15]
+\usepackage[
+  backend=biber,
+  url=false,
+    ]{biblatex}
+\addbibresource{All.bib}
+% \usepackage[square,numbers]{biblatex}
+\usepackage{bm}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\usepackage[
+  textformat=simple,
+  labelfont=bf,
+  format=hang]{caption}  %Caption options
+\usepackage{afterpage}
+\usepackage{subcaption}
+
+
+\input{Style} % Kapitel-Header-Stil
+\input{SECTION/10_Commands} % Kapitel-Header-Stil
+
+\renewcommand{\\}{\par}
+%damit wird jeder Abschnitt zum Paragraph, wodurch man unten mittels
+%\setlength{\parindent}{5mm} einen Einzug definieren kann nach jedem "\\"
+
+\begin{document}
+
+\hyphenation{ acou-sto-pho-re-sis re-so-na-tors wave-length quar-ter}
+\pagenumbering{roman}
+\pagestyle{fancy}                   % Special headings
+
+\setlength{\parindent}{4mm}       % Paragraph Einzug am Anfang jedes Paragraphen
+
+\input{SECTION/00_Titlepage}
+\input{SECTION/01_Preface}
+
+\tableofcontents
+
+\cleardoublepage
+\pagenumbering{arabic}
+\include{SECTION/20_Abstract}
+\include{SECTION/30_Zusammenfassung}
+
+\cleardoublepage
+\include{SECTION/30_Timeconstant/timeconstant}
+
+% \appendix
+% \begin{appendix}
+% \include{SECTION/05_Appendix}
+% \end{appendix}
+% \cleardoublepage
+
+% \renewcommand{\bibname}{References} %Rename chapter to References
+\addcontentsline{toc}{chapter}{References} %add references to Outline
+% \bibliographystyle{siam}
+% \bibliography{All}
+\printbibliography
+
+
+\setlength{\parindent}{0mm} %Abschnitt-Einzug auf 0 setzen
+\renewcommand{\\}{\newline} %damit wird wieder \\ \\ möglich für doppelte Zeilenabstände
+
+
+% \include{SECTION/06_Listofpub}
+% \include{SECTION/07_Cv}
+
+\end{document}

@@ -1,0 +1,116 @@
+\usepackage{fix-cm}
+\usepackage{titlesec}
+% \titleformat{\chapter}[display]
+% {\bfseries\LARGE}
+% {\vspace{-4ex}\selectfont\color{lightgray}\hfill
+%   \Large\textrm{\chaptertitlename}
+%   \fontsize{85}{70}\textbf{\thechapter}}
+% {4ex}
+% {}
+% [\vspace{1ex}\titlerule]
+
+\colorlet{chaptercolor}{blue!80!black}
+
+\setkomafont{chapter}{\normalfont\color{chaptercolor}\Huge}
+\setkomafont{chapterprefix}{\Large}
+\renewcommand*{\raggedchapter}{\raggedleft}
+\renewcommand*{\chapterformat}{%
+  \MakeUppercase{\chapappifchapterprefix{}}%
+  \rlap{\enskip\resizebox{!}{1.2cm}{\thechapter} \rule{15cm}{1.2cm} }%
+}
+\RedeclareSectionCommand[beforeskip=30pt,afterskip=20pt]{chapter}
+\renewcommand*\chapterheadmidvskip{\par\nobreak\vspace{10pt}}
+
+\titleformat{\section}
+{\normalfont\bfseries\Large}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\normalfont\bfseries\normalsize}
+{\thesubsection.}{0.5em}{}
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[OR]{\textbf{\thepage}}%
+  \renewcommand{\headrulewidth}{0pt}% Line at the header invisible
+  \renewcommand{\footrulewidth}{0pt}% Line at the footer visible
+}
+
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead{}
+\renewcommand{\chaptermark}[1]{
+  \markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{
+  \markright{\thesection.\ #1}}
+
+\fancyhead[LE]{\bfseries\leftmark}
+\fancyhead[RO]{\bfseries\rightmark}
+
+\fancyfoot[LE,RO]{\textbf{\thepage}}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\usepackage{tikz}
+  \usetikzlibrary{external}
+\tikzset{external/force remake}
+\tikzset{external/system call={
+  pdflatex \tikzexternalcheckshellescape -halt-on-error
+  -interaction=batchmode -jobname "\image" "\texsource" && % or ;
+  pdftops -eps "\image".pdf}}
+  \tikzexternalize[prefix=Plots/cache/]
+  % \tikzsetexternalprefix{Plots/Cache/}
+
+\usepackage{pgfplots}
+  % \usepgfplotslibrary{external}
+  % \tikzexternalize
+  \usepgfplotslibrary{groupplots}
+
+\pgfplotsset{
+  compat = 1.18,
+  cycle list = {
+    {black}, {lightgray},
+    {black, densely dashed}, {lightgray, densely dashed},
+    {black, dotted}, {lightgray, dotted},
+    {black, loosely dotted}, {lightgray, loosely dotted}
+  },
+  width = 12cm,
+  height = 9cm,
+  every axis/.append style = {
+    line width = 0.2mm,
+    tick style = {line width = 0.2mm}
+  },
+  every axis plot/.append style = {
+    line width = 0.4mm
+  },
+  enlarge x limits = false,
+  enlarge y limits = {value = 0.05, auto},
+  every axis legend/.append style = {
+    nodes = right
+  },
+  xticklabel style={/pgf/number format/fixed},
+  yticklabel style={/pgf/number format/fixed},
+}
+
+\makeatletter
+\pgfplotsset{
+/pgfplots/row step/.style={
+/pgfplots/x filter/.append code={
+        \ifnum\coordindex=0
+                \def\c@pgfplots@eachnthpoint@xfilter{0}
+                \edef\c@pgfplots@eachnthpoint@xfilter@cmp{#1}
+        \else
+                \pgfplotsutil@advancestringcounter\c@pgfplots@eachnthpoint@xfilter
+                \ifx\c@pgfplots@eachnthpoint@xfilter@cmp\c@pgfplots@eachnthpoint@xfilter
+                        \def\c@pgfplots@eachnthpoint@xfilter{0}
+                \else
+                        \let\pgfmathresult\pgfutil@empty
+                \fi
+        \fi
+}
+},
+}
+\makeatother
+\pgfplotsset{filter discard warning=false}
+
