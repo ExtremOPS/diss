@@ -1,0 +1,36 @@
+\tikzsetnextfilename{avgV_z_vs_dy}
+\begin{tikzpicture}
+  \begin{axis}[%
+      scale only axis,
+      width = 60mm,
+      height = 45mm,
+      xticklabel style={
+        /pgf/number format/fixed,
+        /pgf/number format/precision=2
+      },
+      legend style={
+        fill=lightgray,
+        font=\tiny,
+        at={(0.97,0.05)},
+        anchor=south east
+      },
+      legend cell align={left},
+      xlabel = {$\Dy$ [\si{\mm}]}]
+
+      \fill[fill=black!15!white] ({axis cs:-0.065,-0.0002}|-{rel axis cs:0,0}) 
+      rectangle ({axis cs:-0.025,0.0002}|-{rel axis cs:0,1});
+
+    \addplot[thick,mark=*,mark size=1pt] table[x=dy, y=DV_z_m10] 
+    {\relPath/10_Figures/TikZ/averaged_yz_mVoltages.dat};
+    \addlegendentry{$\Dz = -10$};
+
+    \addplot[thick, dotted,mark=*,mark size=1pt] table[x=dy, y=DV_z_m00] 
+    {\relPath/10_Figures/TikZ/averaged_yz_mVoltages.dat};
+    \addlegendentry{$\Dz = 0$};
+
+    \addplot[thick, dashed,mark=*,mark size=1pt] table[x=dy, y=DV_z_p10] 
+    {\relPath/10_Figures/TikZ/averaged_yz_mVoltages.dat};
+    \addlegendentry{$\Dz = +10$};
+
+  \end{axis}
+\end{tikzpicture}

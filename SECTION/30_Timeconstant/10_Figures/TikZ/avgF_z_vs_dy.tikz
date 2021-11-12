@@ -1,0 +1,59 @@
+\tikzsetnextfilename{avgF_z_vs_dy}
+\begin{tikzpicture}
+  \begin{axis}[%
+      scale only axis,
+      width = 60mm,
+      height = 5cm,
+      axis y line*=left,
+      legend style={
+        fill=blue!10!white,
+        font=\tiny,
+        at={(0.03,0.05)},
+        anchor=south west},
+      xlabel = {$\Dy$ [\si{\mm}]}]
+
+    \fill[fill=black!15!white] ({axis cs:-0.06,-2}|-{rel axis cs:0,0}) 
+    rectangle ({axis cs:-0.03,2}|-{rel axis cs:0,1});
+
+    \addlegendimage{empty legend}
+    \addlegendentry{\hspace{-.6cm}\textbf{$\Rfour$}}
+
+    \addplot[thick,blue] table[x=dy, y=F4_z1] 
+    {\relPath/10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{1}$};
+
+    \addplot[thick, blue, dashed] table[x=dy, y=F4_z2] 
+    {\relPath/10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{2}$};
+
+  \end{axis}
+  \pgfplotsset{every axis y label/.append style={rotate=180,yshift=86mm}}
+  \begin{axis}[%
+      scale only axis,
+      width = 60mm,
+      height = 5cm,
+    axis y line*=right,
+      yticklabel style={
+        /pgf/number format/fixed,
+        /pgf/number format/precision=2
+      },
+      legend style={
+        fill=lightgray,
+        font=\tiny,
+        at={(0.97,0.95)},
+        anchor=north east},
+      axis x line=none]
+
+    \addlegendimage{empty legend}
+    \addlegendentry{\hspace{-.6cm}\textbf{$\Rtwo$}}
+
+    \addplot[thick, dotted] table[x=dy, y=F2_z1] 
+    {\relPath/10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{1}$};
+
+    \addplot[thick,loosely dashed] table[x=dy, y=F2_z2] 
+    {\relPath/10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{2}$};
+
+  \end{axis}
+\end{tikzpicture}

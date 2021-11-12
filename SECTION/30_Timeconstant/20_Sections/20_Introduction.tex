@@ -1,0 +1,118 @@
+\section{Introduction\label{sec:introduction}}
+
+In recent years, acoustofluidics has provided many powerful tools. Due to being 
+contact-less, label-free, and biocompatible 
+\cite{Antfolk2015,Abdulla2020,Zielke2020,Binkley2020,Cai2020}, acoustofluidic 
+manipulation can be used in medical applications for cancer research
+\cite{Antfolk2015,Abdulla2020,Zielke2020,Binkley2020}, Alzheimer research 
+\cite{Cai2020}, targeted drug delivery \cite{Bose2015}, and for pumping medical 
+fluids \cite{Wu2019}. In addition, there are biological 
+\cite{Gerlt2020,Xie2019} and engineering applications (e.g., micro-pumping 
+\cite{Wu2019,Huang2014,Lin2019,Ozcelik2021}).
+
+Most of these applications utilize the acoustic radiation force (ARF) to 
+manipulate objects on the micro-scale. The ARF is a second-order time-averaged 
+effect that arises from the interaction of an acoustic field scattered at an 
+object surface and a background acoustic field 
+\cite{Doinikov1994,Hasegawa1969,Yosioka1955,Gorkov1962,Bruus2012}.
+These objects can be solid particles, air bubbles, fluid droplets, biological 
+samples, as long as their material properties (density $\rho$ and speed of 
+sound $c$) are different from the surrounding medium. However, there coexists 
+a fluid motion called acoustic streaming (AS) 
+\cite{Nyborg1965,Kolb1956,Nyborg1953}. This motion can arise either from
+viscous losses in the fluid (Eckhart type streaming \cite{Eckart1948}) or it 
+can arise in the viscous boundary layer at a fluid to wall interface 
+(Schlichting and Rayleigh streaming \cite{Riley1998,Schlichting1932}).
+
+
+The theoretical derivations usually describe the steady-state of the AS field. 
+A theoretical numerical study \cite{Muller2015} investigated the temporal build 
+up of the ARF and AS field. In contrast to the ARF, the viscous drag force 
+arising from AS is independent of the object material properties because it is 
+a motion of the fluid. The AS direction coincides with the direction of the 
+relative motion between fluid and particle.
+
+For a spherical object of radius $R$, the drag force in laminar flow scales 
+linearly with the object radius $\FAS \propto R$. In contrast to the $\FAS$, 
+the ARF scales with the volume $\FARF \propto \R^{3}$ \cite{Bruus2012-10}.  
+Based on the fluid and the object material properties, the $\FARF$ will 
+dominate over the $\FAS$ if the radius $\R$ is greater than the critical radius 
+$\R_{\text{crit}}$, where $\FAS = \FARF$ holds. The direction of $\FAS$ can be 
+different from the $\FARF$. Therefore, the $\FAS$ is usually undesired.
+
+The ARF and the AS occur not only in the bulk of the fluid, but also on sharp 
+edges of a device \cite{Doinikov2020a,Doinikov2020b,Leibacher2015,Nama2016}. 
+So-called micro-streaming around the surface of a spherical particle can even 
+cause a sign inversion of the ARF if the viscous boundary layer $\delta$ is 
+sufficiently large \cite{Baasch2019}. However, there are applications that take 
+advantage of the AS \cite{Antfolk2014,Mao2017,Hao2020}: a complete overview of 
+AS applications can be found in \cite{Wiklund2012a}.
+
+In literature, it is well understood how long it takes until the acoustic 
+field, and hence the ARF, needs to build up \cite{Muller2015} and how long the 
+particle focusing takes \cite{Bruus2012-10}. However, it is still not fully 
+clear how long it takes for the AS to build up, and what the definition for the 
+analytical AS time constant is. In the acoustofluidics community, it is 
+generally accepted that the build up for the AS field takes longer than the 
+build up of the ARF. By using a pulsed actuation of the acoustic field and 
+therefore exploiting this time offset, \citeauthor{Hoyos2013} prevented the 
+build up of AS \cite{Hoyos2013,Castro2016}. They varied the number of periods 
+for which the acoustic actuation is switched on and off, respectively. They 
+experimentally showed that for a ratio of about 1 to 1 between 500 on- and 500 
+off-periods the streaming velocity is less than 50\% of its steady-state 
+magnitude while the ARF is not affected by that much.
+
+\citeauthor{Muller2015} studied the build up of the acoustic energy density and 
+streaming velocity with a numerical model \cite{Muller2015}. Their model 
+consisted of a fluid cavity without any surrounding structure such as the 
+cavity walls. They found numerically that indeed the ARF builds up 
+significantly faster than the AS. However, the simulations with a pulsed 
+actuation of different ratios of on- to off-periods did not prevent the build 
+up of AS because its decay -- as the build up -- is slow compared to the ARF. 
+The streaming builds up significantly slower during the on-periods, however, it 
+does not decay to its initial value during the off-periods. Over time the 
+influence of AS increases because the ARF alternates between some magnitude in 
+the on-periods and zero in the off-periods. This implies, that the simulation 
+of \citeauthor{Muller2015} could not explain the experimental results by 
+\citeauthor{Hoyos2013}.
+
+In this work, we experimentally measure the time until a \Dtwo~spherical 
+silicon-dioxide (\SiO) particle moves with constant velocity when accelerated 
+by the ARF and AS. Instead of using a camera, we utilize a data acquisition 
+board (DAQ) with a sampling frequency of $f_{\text{s}} = \SI{1.25}{\MHz}$ to 
+measure the relative particle trajectory as soon as the ultra-sound (US) is 
+switched on. This high sampling frequency $f_{\text{s}}$ yields a high 
+temporal resolution of $ \Dt = \SI{0.8}{\us}$. Considering the acoustic 
+excitation frequency $\fex = \SI{4.015}{\MHz}$, we sample at least every fourth 
+excitation period.
+
+The optical tweezer (OT) for this study has already been successfully applied 
+in the fields of acoustofluidics for stationary force measurements within a 
+microfluidic chip \cite{Lamprecht2016,Lakaemper2015} as well as acoustic 
+viscous torque investigations \cite{Lamprecht2021}. Here, we characterize in a 
+first step the stationary force field in the bulk of the device to ensure, that 
+we measure in a second step the time resolved build up of AS and the ARF 
+separately and not their superposition. The separation is done by choosing a 
+particle position within the acoustic field, where the $\FAS$ and $\FARF$ are 
+orthogonal to each other. In order to measure in the second step solely the 
+effects of the acoustic field on the particle and not the characteristics of 
+the OT, we alter the usual trapping setup. The modification is that the 
+particle is released from the OT before the acoustic excitation starts and 
+retrapped after it.  Hence, during the measurement just gravity and the forces 
+of the acoustic field act upon the particle. With our modified trapping setup, 
+we are able to measure precisely the ARF and AS induced movement of a single 
+particle in the bulk of the fluid.
+
+Our manuscript is structured as follows: in \cref{sec:theory} we derive and 
+list all time constants in our system and we compute the traveled distances of 
+a free floating particle in an acoustic field. Those influences need to be 
+considered for our measurement protocol. In addition, we perform numerical AS 
+simulations of our device to further understand the AS field; in 
+\cref{sec:experimental-setup} we explain our experimental setup and its 
+modifications; in \cref{sec:experimental-procedure} we show the results of the 
+stationary force measurement, before explaining our time evolution measurement 
+protocol and the data post-processing; and in \cref{sec:results} we show and 
+discuss the results of this study.
+
+
+

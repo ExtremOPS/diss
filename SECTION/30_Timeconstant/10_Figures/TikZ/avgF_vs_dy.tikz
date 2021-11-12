@@ -1,0 +1,72 @@
+\begin{tikzpicture}
+   \begin{groupplot}[%
+       scale only axis,
+       group style={group size= 1 by 2},%
+       height=50mm,%
+       width=64mm,%
+        xticklabel style={
+          /pgf/number format/fixed,
+          /pgf/number format/precision=2
+        }]
+%%%%%%
+%%% FIRST PLOT
+%%%%%%
+
+   \nextgroupplot[%
+      axis y line*=left,
+      legend style={
+        fill=lightgray,
+        font=\tiny,
+        at={(0.03,0.05)},
+        anchor=south west},
+      xlabel = {$\Dy$ [\si{\mm}]}]
+
+    \fill[fill=black!15!white] ({axis cs:-0.06,-2}|-{rel axis cs:0,0}) 
+    rectangle ({axis cs:-0.03,2}|-{rel axis cs:0,1});
+
+    \addlegendimage{empty legend}
+    \addlegendentry{\hspace{-.6cm}\textbf{$D_{4}$}}
+
+    \addplot[thick] table[x=dy, y=F4_y1] 
+    {10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{1}$};
+
+    \addplot[thick, dashed] table[x=dy, y=F4_y2] 
+    {10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{2}$};
+
+
+    \draw[|-|] ({axis cs:-0.135,0}|-{rel axis cs:0,0.95}) -- ({axis 
+    cs:0.05,0}|-{rel axis cs:0,0.95}) node[midway,below] 
+    {$\sfrac{\lap}{2}=\laF$};
+
+  \end{groupplot}
+
+
+  \end{axis}
+  \pgfplotsset{every axis y label/.append style={rotate=180,yshift=86mm}}
+  \begin{axis}[%
+      scale only axis,
+      width = 65mm,
+      height = 5cm,
+      legend style={
+        fill=lightgray,
+        font=\tiny,
+        at={(0.97,0.95)},
+        anchor=north east},
+      axis x line=none,
+    axis y line*=right]
+
+    \addlegendimage{empty legend}
+    \addlegendentry{\hspace{-.6cm}\textbf{$D_{2}$}}
+
+    \addplot[thick, dotted] table[x=dy, y=F2_y1] 
+    {10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{1}$};
+
+    \addplot[thick,loosely dashed] table[x=dy, y=F2_y2] 
+    {10_Figures/TikZ/averaged_yz_Forces.dat};
+    \addlegendentry{$x_{2}$};
+
+  \end{axis}
+\end{tikzpicture}

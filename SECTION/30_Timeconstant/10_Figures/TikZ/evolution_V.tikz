@@ -1,0 +1,208 @@
+\tikzsetnextfilename{evolution_V}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\pgfplotstableread{\relPath/10_Figures/TikZ/evolution_yz_Voltages.dat}{\data}
+%%%%%%%
+% LINES FOR ALL GROUPPLOTS
+%%%%%%%
+\renewcommand{\tikzHelper}{
+  \fill[fill=black!10!white] (axis cs:-80,0) rectangle (axis cs:0,1);
+
+  \draw[dotted] (axis cs:0,0) -- (axis cs:0,1);
+  \draw[dotted] (axis cs:50,0) -- (axis cs:50,1);
+  \draw[dotted] (axis cs:100,0) -- (axis cs:100,1);
+  \draw[dotted] (axis cs:-80,0.5) -- (axis cs:120,0.5);
+  \draw[dotted] (axis cs:-80,0.5) -- (axis cs:120,0.5);
+}
+
+
+
+\begin{tikzpicture}
+   \begin{groupplot}[%
+       scale only axis,
+       group style={
+         group size= 2 by 4,
+         group name=plots,
+         vertical sep=4pt,%
+         horizontal sep=8pt},%
+       height=40mm,%
+       width=64mm,%
+        xticklabel style={
+          /pgf/number format/fixed,
+          /pgf/number format/precision=2
+        }]
+
+%%%%%%
+%%% PLOT (1,1)
+%%%%%%
+
+   \nextgroupplot[%
+      legend style={
+        fill=lightgray,
+        font=\tiny,
+        at={(0.03,0.95)},
+        anchor=north west
+      },
+      legend cell align={left},
+     xticklabels={,,},
+     % title={$\DV_{y}\,|\,\Dy = \SI{-0.06}{\milli\meter}$},%
+     title={Data for $y$-component ($m = y$)},%
+     ylabel={$\sfrac{\DV_{m}}{\DV_{m,\text{max}}}$}]
+
+      \tikzHelper
+      \draw[thick,|<->|] (axis cs:-80,0.25) -- (axis cs:0,0.25) node[midway, 
+      above] {US off};
+
+      \addplot[thick] table[x=dt, y=DV_y_m06_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_y_m06_m00] {\data};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_y_m06_p10] {\data};
+
+      \addlegendentry{$\Dz = \SI{-10}{\um}$};
+      \addlegendentry{$\Dz = \SI{0}{\um}$};
+      \addlegendentry{$\Dz = \SI{+10}{\um}$};
+
+
+
+%%%%%%
+%%% PLOT (1,2)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     yticklabels={,,},
+     title={Data for $z$-component ($m = z$)}]%
+   % title={$\DV_{z}\,|\,\Dy = \SI{-0.06}{\milli\meter}$}]
+
+      \tikzHelper
+
+      \addplot[thick] table[x=dt, y=DV_z_m06_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m06_m00] {\data};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_z_m06_p10] {\data};
+
+%%%%%%
+%%% PLOT (2,1)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     ylabel={$\sfrac{\DV_{m}}{\DV_{m,\text{max}}}$ },
+     % title={$\Dy = \SI{-0.05}{\milli\meter}$}
+   ]
+
+      \tikzHelper
+
+      \addplot[thick] table[x=dt, y=DV_y_m05_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_y_m05_m00] {\data};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_y_m05_p10] {\data};
+
+%%%%%%
+%%% PLOT (2,2)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     yticklabels={,,},
+     % title={$\Dy = \SI{-0.05}{\milli\meter}$}
+   ]
+
+      \tikzHelper
+
+      \addplot[thick] table[x=dt, y=DV_z_m05_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m05_m00] {\data};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_z_m05_p10] {\data};
+
+%%%%%%
+%%% PLOT (3,1)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     ylabel={$\sfrac{\DV_{m}}{\DV_{m,\text{max}}}$ },
+     % title={$\Dy = \SI{-0.04}{\milli\meter}$}
+   ]
+
+      \tikzHelper
+
+      \addplot[thick] table[x=dt, y=DV_y_m04_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_y_m04_m00] {\data};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_y_m04_p10] {\data};
+
+%%%%%%
+%%% PLOT (3,2)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     yticklabels={,,},
+     % title={$\Dy = \SI{-0.04}{\milli\meter}$}
+   ]
+
+      \tikzHelper
+
+      \addplot[thick] table[x=dt, y=DV_z_m04_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m04_m00] {\data};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_z_m04_p10] {\data};
+
+
+%%%%%%
+%%% PLOT (4,1)
+%%%%%%
+
+   \nextgroupplot[%
+     ylabel={$\sfrac{\DV_{m}}{\DV_{m,\text{max}}}$},
+     xlabel={$10^{3}\,\sfrac{t}{t_{0}}$ },
+     % title={$\Dy = \SI{-0.03}{\milli\meter}$}
+   ]
+
+      \tikzHelper
+
+      \addplot[thick] table[x=dt, y=DV_y_m03_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_y_m03_m00] {\data};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_y_m03_p10] {\data};
+
+%%%%%%
+%%% PLOT (4,2)
+%%%%%%
+
+   \nextgroupplot[%
+     yticklabels={,,},
+     xlabel={$10^{3}\,\sfrac{t}{t_{0}}$},
+     % title={$\Dy = \SI{-0.03}{\milli\meter}$}
+   ]
+
+      \tikzHelper
+
+      \addplot[thick] table[x=dt, y=DV_z_m03_m10] {\data};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m03_m00] {\data};
+
+  \end{groupplot}
+
+%%%%%%
+%%% TEXT NEXT TO PLOTS
+%%%%%%
+  \node[rotate=90] at (plots c2r1.east) [yshift=-5mm] {$\Dy = 
+  \SI{-0.06}{\milli\meter}$};
+  \node[rotate=90] at (plots c2r2.east) [yshift=-5mm] {$\Dy = 
+  \SI{-0.05}{\milli\meter}$};
+  \node[rotate=90] at (plots c2r3.east) [yshift=-5mm] {$\Dy = 
+  \SI{-0.04}{\milli\meter}$};
+  \node[rotate=90] at (plots c2r4.east) [yshift=-5mm] {$\Dy = 
+  \SI{-0.03}{\milli\meter}$};
+
+\end{tikzpicture}

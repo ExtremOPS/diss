@@ -1,0 +1,115 @@
+\begin{tikzpicture}
+   \begin{groupplot}[%
+       scale only axis,
+       group style={group size= 2 by 2},%
+       height=40mm,%
+       width=64mm,%
+        xticklabel style={
+          /pgf/number format/fixed,
+          /pgf/number format/precision=2
+        }]
+
+%%%%%%
+%%% FIRST PLOT
+%%%%%%
+
+   \nextgroupplot[%
+      legend style={
+        fill=lightgray,
+        font=\tiny,
+        at={(0.03,0.95)},
+        anchor=north west
+      },
+      legend cell align={left},
+     xticklabels={,,},
+     title={$\Dy = \SI{-0.06}{\milli\meter}$},%
+   ylabel={$\sfrac{\DV_{z}}{\DV_{z,\text{max}}}$ [-]}]
+
+     \fill[fill=black!10!white] (axis cs:-80,0) rectangle (axis cs:0,1);
+
+      \draw[dotted] (axis cs:0,0) -- (axis cs:0,1);
+      \draw[dotted] (axis cs:-80,0.5) -- (axis cs:120,0.5);
+      \draw[thick,|-|] (axis cs:-80,0.25) -- (axis cs:0,0.25) node[midway, 
+      above] {US off};
+
+      \addplot[thick] table[x=dt, y=DV_z_m06_m10] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m06_m00] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_z_m06_p10] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+    \addlegendentry{$\Dz = -10$};
+    \addlegendentry{$\Dz = 0$};
+    \addlegendentry{$\Dz = +10$};
+
+
+
+%%%%%%
+%%% NEXT PLOT
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     yticklabels={,,},
+     title={$\Dy = \SI{-0.05}{\milli\meter}$}]%
+
+     \fill[fill=black!10!white] (axis cs:-80,0) rectangle (axis cs:0,1);
+      \draw[dotted] (axis cs:0,0) -- (axis cs:0,1);
+      \draw[dotted] (axis cs:-80,0.5) -- (axis cs:120,0.5);
+
+      \addplot[thick] table[x=dt, y=DV_z_m05_m10] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m05_m00] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_z_m05_p10] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+%%%%%%
+%%% NEXT PLOT
+%%%%%%
+
+   \nextgroupplot[%
+     title={$\Dy = \SI{-0.04}{\milli\meter}$},
+     xlabel={$\sfrac{t}{t_{0}} (\times 1000)$ [-]},%
+   ylabel={$\sfrac{\DV_{z}}{\DV_{z,\text{max}}}$ [-]}]
+
+     \fill[fill=black!10!white] (axis cs:-80,0) rectangle (axis cs:0,1);
+      \draw[dotted] (axis cs:0,0) -- (axis cs:0,1);
+      \draw[dotted] (axis cs:-80,0.5) -- (axis cs:120,0.5);
+
+      \addplot[thick] table[x=dt, y=DV_z_m04_m10] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m04_m00] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+      \addplot[thick, dashed] table[x=dt, y=DV_z_m04_p10] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+%%%%%%
+%%% NEXT PLOT
+%%%%%%
+
+   \nextgroupplot[%
+     yticklabels={,,},
+     title={$\Dy = \SI{-0.03}{\milli\meter}$},
+     xlabel={$\sfrac{t}{t_{0}} (\times 1000)$ [-]}]
+
+     \fill[fill=black!10!white] (axis cs:-80,0) rectangle (axis cs:0,1);
+      \draw[dotted] (axis cs:0,0) -- (axis cs:0,1);
+      \draw[dotted] (axis cs:-80,0.5) -- (axis cs:120,0.5);
+
+      \addplot[thick] table[x=dt, y=DV_z_m03_m10] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+      \addplot[thick, dotted] table[x=dt, y=DV_z_m03_m00] 
+      {10_Figures/TikZ/evolution_yz_Voltages.dat};
+
+
+  \end{groupplot}
+\end{tikzpicture}

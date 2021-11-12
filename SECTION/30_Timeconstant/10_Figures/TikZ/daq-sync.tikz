@@ -1,0 +1,37 @@
+\tikzsetnextfilename{daq-sync}
+\begin{tikzpicture}
+  \tikzset{nodestyle/.style={pos=0.0, above, anchor=south west}}
+  % \draw[white, fill=black!10!white] (2.5,0) rectangle ++(1.5,3.5);
+  % \draw[|<->|] (2.5,3.5) -- ++(1.5,0) node[midway,above=2mm,align=center] 
+  % {\small Shutter open\\US on\\laser power low};
+
+  % \draw[|<->|] (1.0, 0.5) -- ++(6.0,0) node[midway, above] {particle is free to 
+  % float and move};
+  % axis system
+  \draw[thick,->] (-0.2,0) -- ++(6.5,0) node[anchor=north west] {$t$ 
+  [\si{\milli\second}]};
+
+  % time ticks
+  \draw (0, 2pt) -- ++(0, -4pt) node[anchor=north] {$-25$};
+  \draw (1.0, 2pt) -- ++(0, -4pt) node[anchor=north] {$-24$};
+  \draw (2.5, 2pt) -- ++(0, -4pt) node[anchor=north] {$0$};
+  \draw (4.0, 2pt) -- ++(0, -4pt) node[anchor=north] {$30$};
+  \draw (5.0, 2pt) -- ++(0, -4pt) node[anchor=north] {$55$};
+  \draw (6.0, 2pt) -- ++(0, -4pt) node[anchor=north] {$75$};
+
+  % laser power
+  \draw[dashed] (-0.5,2.7) -- node[nodestyle] {$P_{\text{trapping}}$} ++(1.5,0) 
+  -- ++(0,-1.0) -- node[nodestyle] {$P_{\text{measure}}$} ++(5.0,0) -- 
+  ++(0,1.0) -- ++(1,0) node[nodestyle] {laser};
+
+  % shutter
+  \draw[dotted] (-0.5,4) -- node[nodestyle] {closed} ++(0.5,0) -- ++(1.5,-1.5) 
+  -- node[nodestyle] {open} ++(2.5,0) -- ++(1.5, 1.5) -- ++(1.5,0) 
+  node[nodestyle] {shutter};
+
+  % US
+  \draw[] (-0.5, 0.2) -- node[nodestyle] {off} ++(3.0,0) -- ++(0,1) -- 
+  node[nodestyle] {on} ++(2.5,0) -- ++(0,-1) -- node[nodestyle] {US} ++(1.5,0);
+
+
+\end{tikzpicture}

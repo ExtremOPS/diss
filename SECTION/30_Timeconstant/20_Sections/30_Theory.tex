@@ -1,0 +1,289 @@
+\section{Preliminary Theoretical Considerations\label{sec:theory}}
+\subsection{Time Constants}
+
+\begin{figure}[ht]
+  \centering
+  \def\svgwidth{\figWidth}
+  \svginput{\relPath/10_Figures/LaTeX/Device.pdf_tex}
+  \caption{Sketch of device. The light-gray area is the silicon channel walls, 
+    the light-blue is the fluid cavity, and the dark-gray block the 
+    piezoelectric element. The total length of the device is \SI{76}{\mm}. All 
+dimensions are as listed in \cref{tab:device-dimensions}.}\label{fig:device}
+\end{figure}
+
+\begin{table}
+  \centering
+  \begin{tabular}{l *{8}{x{10mm}}}
+    \toprule
+    \toprule
+    Symbol & $W$ & $H$ & $W_{D}$ & $H_{T}$ & $H_{B}$ & $l$ & $w$ & $h$ \\
+    Value [\si{\milli\meter}] & 3 & 0.1 & 26 & 0.13 & 0.9 & 20 & 4 & 0.5\\
+    \bottomrule
+    \bottomrule
+  \end{tabular}
+  \caption{Overview of device dimensions}\label{tab:device-dimensions}
+\end{table}
+
+
+In our experiments there are multiple time constants that need to be considered. 
+In the center of interest are the evolution of the ARF and the AS field. The 
+acoustic energy $E_{\text{ac}}$, and hence the ARF, has the characteristic 
+time constant \cite{Muller2015}
+\begin{equation}
+    \tarf = \frac{Q}{\omega_{0}} = \frac{Q}{2\pi\,\fex}
+  \label{eq:tau-arf}
+\end{equation}
+with $Q$ being the quality factor of the considered acoustic pressure mode and 
+$\fex$ the excitation frequency. For the AS field, a theoretical expression for 
+the time constant does not exist. Nevertheless, \citeauthor{Muller2015} report 
+a \emph{momentum diffusion time}
+\begin{equation}
+  \tas = \frac{1}{2\nu}  L^{2} = \frac{\rhof}{2\muef} L^{2}
+  \label{eq:tau-nu}
+\end{equation}
+as the time constant for the AS field. Here, $L$ is half the radius of a 
+streaming roll, $\nu=\sfrac{\muef}{\rhof}$ the kinematic viscosity, $\rhof$ the 
+density, and $\muef$ the dynamic viscosity of the fluid. This formula is except 
+for a factor of $\sfrac{1}{2}$ the same to $\tiner$ (equation 1.88) in 
+\cite{Bruus2015}, which is the time a Poisseuille flow needs to fully stop in a 
+circular tube of radius $L$ after the immediate removal of its driving 
+pressure. To the best of the authors' knowledge, there is so far no better 
+approximation for the time constant of the AS field.
+
+When a particle is stably trapped, our OT has the properties of a linear 
+mechanical spring \cite{Lamprecht2016}. This spring-like behavior of the OT has 
+also a time constant until an acting force moves the trapped particle in its 
+equilibrium position. The stiffness of the OT $k_{i}$ is linearly related to a 
+characterization parameter of the OT called the cut-off frequency $f_{\text{c}} 
+= \sfrac{k_{i}}{2\pi\,\gamma}$ with $\gamma$ being Stokes' drag coefficient 
+\cite{Lamprecht2016,Lamprecht2017}. This frequency is the \SI{-3}{\dB} point 
+in the Brownian motion power spectrum (more detail in 
+\cite{Lakaemper2015,Lamprecht2016}). We can therefore compute the time 
+constant of the OT as
+\begin{equation}
+  \tOT = \frac{1}{2\pi\,f_{c}}.
+  \label{eq:tau-OT}
+\end{equation}
+Lastly, our DAQ system has the time constant $\tqpd$ which describes how fast we 
+can measure a sudden change in laser intensity of the OT. This parameter is 
+found by changing the laser intensity at a precise point in time and then 
+extracting the temporal difference until the DAQ measures it. 
+
+With the parameters of our experiment (see \cref{tab:parameters}) the mentioned 
+time constants are as listed in \cref{tab:time-constants}. Hence, with the 
+usual trapping mode of the OT, we cannot measure the ARF and AS because $\tOT 
+\approx \tas$ and $\tOT\gg\tarf$. In the limit of zero laser power there is no 
+trapping potential and hence $\tarf$ and $\tas$ can be measured.
+
+\begin{table}
+  \centering
+  \begin{tabular}{lccr}
+    \toprule
+    \toprule
+    {\bfseries Parameter} & {\bfseries Symbol} & {\bfseries Value} & {\bfseries 
+    Unit}\\
+    \midrule
+    \textbf{Fluid} & & \\
+    Density & $\rhof$ & 1000 & \si{\kg\per\cubic\meter} \\
+    Speed of sound & $\cfl$ & 1500 & \si{\m\per\s} \\
+    Compressibility & $\kappa_{\text{f}}$ & 4.4E-10 & \si{\per\pascal} \\
+    Dynamic viscosity & $\muef$ & 890 & \si{\micro\pascal\second} \\
+    Kinematic viscosity & $\nu_{\text{f}}=\sfrac{\muef}{\rhof}$ & 0.890 & 
+    \si{\square\mm\per\second} \\
+    \midrule
+    \textbf{Particle} & & \\
+    Density & $\rhop$ & 1850 & \si{\kg\per\cubic\meter} \\
+    Radius & $\Rtwo$ & 1.03 & \si{\um}\\
+    Radius & $\Rfour$ & 2.195 & \si{\um}\\
+    Compressibility & $\kappa_{\text{p}}$ & 1.6E-11 & \si{\per\pascal} \\
+    \midrule
+    Device quality factor & $Q$ & 36 & - \\
+    Corner frequency of OT & $f_{\text{c}}$ & $\approx 100$ & \si{\hertz} \\
+    \midrule
+    Excitation frequency & $\fex$ & 4.015 & \si{\MHz} \\
+    \bottomrule
+    \bottomrule
+    
+  \end{tabular}
+  \caption{Symbols and physical properties of the fluid, the particle, and the 
+    experimental setup. The quality factor $Q$ is extracted from an admittance 
+    measurement of the device filled with water and fixed in the microscope as 
+for all measurements. The magnitude of $f_{\text{c}}$ is the usual value in 
+stationary force measurements for the OT.}\label{tab:parameters}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{l S[table-format=7.5]S[table-format=7.1]}
+    \toprule
+    \toprule
+    {\bfseries Symbol} & {\bfseries $\tau_{i}$ [\si{\ms}]} & {\bfseries 
+    $\sfrac{\tau_{i}}{t_{0}}$ [-]}  \\
+    \midrule
+    $\tOT$ & 1.59 & 6383.9 \\
+    $\tqpd$ & 0.050 & 200.8 \\
+    $\tarf$ & 0.0014 & 5.6 \\
+    $\tas\vert_{L=\sfrac{H}{2}}$ & 1.44 & 5781.6\\
+    $\tas\vert_{L=\sfrac{H}{4}}$ & 0.35 & 1405.3\\
+    $\tdrag$ & 0.00049 & 2.0 \\
+    \midrule
+    $\Dt_{\text{DAQ}}$ & 0.0008 & 3.2 \\
+    \bottomrule
+    \bottomrule
+    
+  \end{tabular}
+  \caption{Overview of time constants $\tau_{\text{i}}$ for the system. The 
+    values are obtained by using the values from \cref{tab:parameters} and 
+    \cref{eq:tau-nu,eq:tau-arf,eq:tau-OT,eq:tau-drag}. $\tqpd$ is measured, 
+    $\Dt_{\text{DAQ}} = \sfrac{1}{f_{\text{s}}}$, and 
+$t_{0}=\sfrac{1}{\fex}$.}\label{tab:time-constants}
+\end{table}
+
+\subsection{Free Particle Motion}
+
+If there is no trapping laser power, the spherical particle with mass $m$ will 
+move in the fluid due to some acting force $F$; this force can be gravity, the 
+ARF, the drag force from AS, or a combination of them. The one dimensional 
+dynamic equation for the particle displacement $q$ far away from any walls is 
+the same for the three spatial directions $\ex, \ey$ and $\ez$.
+\begin{equation}
+  \ddot{q} = - \frac{F}{m} - \frac{\gamma}{m}\,\dot{q} =
+  - \tilde{F} - \frac{1}{\tdrag}\,\dot{q}
+  \label{eq:free-fall}
+\end{equation}
+with $F$ being a force acting along the direction of $q$ and
+\begin{equation}
+  \tdrag = \frac{m}{\gamma} = \frac{V\,\rhop}{6\pi\,\R\,\muef}
+  = \frac{2}{9}\,\R^{2}\,\frac{\rhop}{\muef}.
+  \label{eq:tau-drag}
+\end{equation}
+Here, $\R$ is the particle radius, $V$ the particle volume, and $\rhop$ the 
+particle density. In microfluidics the viscous effects dominate over the 
+inertial effects \cite{Bruus2015}. Therefore, we neglect $\ddot{q}$ for further 
+calculations. Solving the modified first order ordinary differential equation
+\begin{equation}
+    \dot{q}= - \tdrag\,\tilde{F} = -\frac{F}{m}\,\tdrag
+  \label{eq:mod-free-fall}
+\end{equation}
+with the initial condition $q\vert_{t=0} = 0$, gives the linear relation $q(t) 
+= - \tdrag\,\tilde{F}\,t$ with the integration constant being zero.
+
+As already mentioned, we measure while there is no trapping potential of the 
+OT. Therefore, on the particle act only gravity and the forces from the 
+acoustic field. In our experiment we have for $F$ along $\ey$ a spatially 
+varying force with a maximal value of \SI{0.5}{\pico\newton} and along $\ez$ 
+the buoyancy corrected gravitational force $\tilde{m}g=V\,\left( \rhop-\rhof 
+\right)\,g$ with a magnitude of \SI{38.2}{\femto\newton} and an acoustic force 
+with a maximal value of \SI{0.25}{\pico\newton} (for acoustic force magnitudes 
+see \cref{fig:2um_map}). As we will explain later (see 
+\cref{sec:experimental-procedure}), we have \SI{25}{\ms} without any laser 
+power where the particle will solely move due to gravity and then \SI{30}{\ms} 
+of US excitation where also the acoustic forces are acting.
+
+Hence, a spherical \SiO~$\Rtwo=\SI{1.03}{\um}$~particle will have moved 
+$0\Rtwo$ along $\ey$ and $0.05\Rtwo$ along $\ez$ after $\SI{25}{\ms}$ with just 
+gravity acting. And, after $\SI{55}{\ms}$, when there are additionally 
+constant acoustic forces, the particle will have traveled distances of 
+$0.84\Rtwo$ and $0.54\Rtwo$ along $\ey$ and $\ez$, respectively. For the 
+latter, $0.54\Rtwo$ is the sum of $0.12\Rtwo$ due to gravity and $0.42\Rtwo$ 
+due the force from the acoustic field.
+
+\subsection{Numerical Streaming Simulations}
+
+To understand the influences and implications of the AS on our measurements, we 
+simulate with {\ttfamily COMSOL Multiphysics 5.6} (COMSOL Inc., Stockholm, 
+Sweden) 2 two-dimensional structures that relate to the experimental device; 
+one with just the fluid cavity as the baseline model (cavity-only model); and 
+the other with added structure around the cavity to reflect our real device 
+(whole-device model). See \cite{supplemental} for both models as one {\ttfamily 
+.mph} file. For both we follow the work of \citeauthor{Muller2015} 
+\cite{Muller2015} in terms of the fluid mesh size.
+
+\afterpage{
+  \vspace*{\fill}
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{\figWidthDouble}
+    \centering
+      \caption{Streaming simulation for cavity-only model at $f_{\text{max}} = 
+      \SI{3.987}{\MHz}$.}\label{subfig:JC-streamingrolls}
+    \def\svgwidth{\figWidthDouble}
+    \textsf{\tiny % that is for the added unit @ the axis
+    % \input{10_Figures/LaTeX/JC-streaming-rolls.pdf_tex}
+    \svginput{\relPath/10_Figures/LaTeX/JC-streaming-rolls_paraview.pdf_tex}}
+    \end{subfigure}\\%k
+  \begin{subfigure}{\figWidthDouble}
+    \centering
+    \caption{Streaming simulation for whole-device model at $f_{\text{max}} = 
+    \SI{3.745}{\MHz}$. The gray area is the structure around the 
+  cavity.} \label{subfig:FD-streamingrolls}
+    \def\svgwidth{\figWidthDouble}
+    \textsf{\tiny % that is for the added unit @ the axis
+    \svginput{\relPath/10_Figures/LaTeX/FD-streaming-rolls_paraview.pdf_tex}}
+    % \input{10_Figures/LaTeX/FD-streaming-rolls.pdf_tex}
+  \end{subfigure}
+  \caption{Results for streaming simulations of a cavity-only model (a) and a 
+    model with surrounding structure (b). The colormap shows the total acoustic 
+    pressure and the white arrows the streaming flow. For both simulations 
+    $f_{\text{max}}$ is the frequency of maximal acoustic energy density 
+    $E_{\text{ac}}$ for a pressure mode with 16 nodal lines. The pressure mode 
+  for both simulations is the same besides the phase shift of 
+$\pi$.}\label{fig:comsol-streaming}
+\end{figure}
+\vspace*{\fill}
+  \clearpage
+}
+
+We model a two-dimensional $yz$ slice of the whole device as seen in 
+\cref{fig:device} without the piezoelectric transducer (PZT) and its glue 
+layer. Therefore this whole-device model consists of two glass, two silicon, 
+and one water domain. We utilize the Solid Mechanics \comsol{solid} interface 
+for the silicon and glass. For the cavity we employ the Creeping Flow 
+\comsol{spf} interface with the spatial variation of the Reynolds Stress as 
+source and the Stokes drift as the boundary condition. Also in the cavity, we 
+use the Thermoviscous Acoustics \comsol{ta} interface. Lastly, we couple the 
+Solid Mechanics with the Thermoviscous Acoustics via Thermoviscous 
+Acoustic-structure Boundary \comsol{tsb}. The cavity-only model solely needs 
+the Creeping Flow and the Thermoviscous Acoustics interface without 
+multiphysics coupling.
+
+Besides the added structure around the cavity, the main difference between the 
+two models is the location of the excitation. The whole-device model has as 
+boundary condition a prescribed displacement along $\ez$ of 
+$z_{\text{BD}}=\SI{0.1}{\nm}$, where the PZT is glued onto the device. The 
+cavity-only model, however, has a prescribed constant velocity of its left 
+cavity wall along $\ey$ of $\dot{y}_{\text{BD}} = \SI{25}{\mm\per\second}$. 
+This magnitude corresponds to the mean wall velocity of the whole-device model, 
+where the excitation is at the PZT. With those two boundary conditions the 
+acoustic pressure is \SI{310}{\kPa} for the whole-model and \SI{550}{\kPa} for 
+the cavity-only model at their respective 16 nodal pressure line frequency with 
+maximal acoustic energy density $E_{\text{ac}}$. The discrepancy in pressure 
+amplitude comes from the applied boundary conditions of respective models.
+
+The respective frequencies of maximal $E_{\text{ac}}$ 
+(\SI{3.9876}{\MHz} and \SI{3.7450}{\MHz}) inside the cavity while having a 16 
+nodal line mode were determined with a frequency sweep. This is the same mode 
+we have in our experiment as well. For the streaming simulation, we employ a 
+stationary study of the Creeping Flow interface that uses the results from the 
+frequency domain study in its source term and as the boundary conditions.
+
+\Cref{fig:comsol-streaming} shows the results for the pressure and streaming 
+fields of both models. The magnifications correspond to the area where we 
+perform our measurements in the experiment. One can see that the simulated 
+pressure fields are qualitatively the same, however, the streaming fields 
+differ to a great extent. The cavity-only simulation depicts spatially 
+repetitive streaming rolls over the whole fluid domain. In the bulk of the 
+fluid is Rayleigh streaming. However, near-boundary Schlichting streaming is 
+not visible because the viscous boundary layer is relatively small. In contrast 
+to that, the simulation for the whole-device model has a non-spatially 
+repetitive streaming field. There are regions where its similar to the 
+cavity-only model streaming field. But, the streaming pattern is non-repetitive 
+and exhibits strong local differences. As a consequence, care must be taken to 
+chose a measuring point where the $\FAS$ and $\FARF$ are orthogonal to each 
+other to ensure no superposition of forces.
+
+Although the clamping of the microscope setup and the oil immersion layer for 
+the lens are excluded in the model with structure, one can see that the 
+streaming field is a local, non-periodic effect, whereas the pressure field is 
+spatially periodic. We expect that these tendencies remain the same when the 
+clamping, the immersion layer, and the PZT are added.
