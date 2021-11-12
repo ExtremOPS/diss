@@ -17,7 +17,7 @@
 *.docx
 .DS_store
 
-Plots/cache/
+Plots/cache/*
 !Plots/cache/*.eps
 
 ## Visual Code folder
