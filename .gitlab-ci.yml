@@ -1,0 +1,15 @@
+image: texlive/texlive:latest
+
+
+stages:
+  - build
+
+pdf:
+  stage: build
+  script:
+    - sudo apt install latexmk
+    - latexmk main.tex
+  artifacts:
+    paths:
+      - main.pdf
+    expire_in: 1 day
