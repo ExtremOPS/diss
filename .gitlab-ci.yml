@@ -8,7 +8,7 @@ pdf:
   stage: build
   script:
     - apt install latexmk
-    - latexmk main.tex
+    - latexmk -pdf main.tex
   artifacts:
     paths:
       - main.pdf
