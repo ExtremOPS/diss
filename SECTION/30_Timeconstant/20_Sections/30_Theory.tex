@@ -8,7 +8,7 @@
   \caption{Sketch of device. The light-gray area is the silicon channel walls, 
     the light-blue is the fluid cavity, and the dark-gray block the 
     piezoelectric element. The total length of the device is \SI{76}{\mm}. All 
-dimensions are as listed in \cref{tab:TC-device-dimensions}.}\label{fig:device}
+dimensions are as listed in \cref{tab:TC-device-dimensions}.}\label{fig:TC-device}
 \end{figure}
 
 \begin{table}
@@ -175,7 +175,7 @@ varying force with a maximal value of \SI{0.5}{\pico\newton} and along $\ez$
 the buoyancy corrected gravitational force $\tilde{m}g=V\,\left( \rhop-\rhof 
 \right)\,g$ with a magnitude of \SI{38.2}{\femto\newton} and an acoustic force 
 with a maximal value of \SI{0.25}{\pico\newton} (for acoustic force magnitudes 
-see \cref{fig:2um_map}). As we will explain later (see 
+see \cref{fig:TC-2um_map}). As we will explain later (see 
 \cref{sec:TC-experimental-procedure}), we have \SI{25}{\ms} without any laser 
 power where the particle will solely move due to gravity and then \SI{30}{\ms} 
 of US excitation where also the acoustic forces are acting.
@@ -206,7 +206,7 @@ the other with added structure around the cavity to reflect our real device
   \begin{subfigure}{\figWidthDouble}
     \centering
       \caption{Streaming simulation for cavity-only model at $f_{\text{max}} = 
-      \SI{3.987}{\MHz}$.}\label{subfig:JC-streamingrolls}
+      \SI{3.987}{\MHz}$.}\label{subfig:TC-JC-streamingrolls}
     \def\svgwidth{\figWidthDouble}
     \textsf{\tiny % that is for the added unit @ the axis
     % \input{10_Figures/LaTeX/JC-streaming-rolls.pdf_tex}
@@ -216,7 +216,7 @@ the other with added structure around the cavity to reflect our real device
     \centering
     \caption{Streaming simulation for whole-device model at $f_{\text{max}} = 
     \SI{3.745}{\MHz}$. The gray area is the structure around the 
-  cavity.} \label{subfig:FD-streamingrolls}
+  cavity.} \label{subfig:TC-FD-streamingrolls}
     \def\svgwidth{\figWidthDouble}
     \textsf{\tiny % that is for the added unit @ the axis
     \svginput{\relPath/10_Figures/LaTeX/FD-streaming-rolls_paraview.pdf_tex}}
@@ -228,14 +228,14 @@ the other with added structure around the cavity to reflect our real device
     $f_{\text{max}}$ is the frequency of maximal acoustic energy density 
     $E_{\text{ac}}$ for a pressure mode with 16 nodal lines. The pressure mode 
   for both simulations is the same besides the phase shift of 
-$\pi$.}\label{fig:comsol-streaming}
+$\pi$.}\label{fig:TC-comsol-streaming}
 \end{figure}
 \vspace*{\fill}
   \clearpage
 }
 
 We model a two-dimensional $yz$ slice of the whole device as seen in 
-\cref{fig:device} without the piezoelectric transducer (PZT) and its glue 
+\cref{fig:TC-device} without the piezoelectric transducer (PZT) and its glue 
 layer. Therefore this whole-device model consists of two glass, two silicon, 
 and one water domain. We utilize the Solid Mechanics \comsol{solid} interface 
 for the silicon and glass. For the cavity we employ the Creeping Flow 
@@ -267,7 +267,7 @@ we have in our experiment as well. For the streaming simulation, we employ a
 stationary study of the Creeping Flow interface that uses the results from the 
 frequency domain study in its source term and as the boundary conditions.
 
-\Cref{fig:comsol-streaming} shows the results for the pressure and streaming 
+\Cref{fig:TC-comsol-streaming} shows the results for the pressure and streaming 
 fields of both models. The magnifications correspond to the area where we 
 perform our measurements in the experiment. One can see that the simulated 
 pressure fields are qualitatively the same, however, the streaming fields 

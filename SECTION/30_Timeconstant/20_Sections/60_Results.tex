@@ -1,9 +1,9 @@
 \section{Results and Discussion\label{sec:TC-results}}
 
-\Cref{subfig:res_DV_y} shows that the maximal averaged voltage difference 
+\Cref{subfig:TC-res_DV_y} shows that the maximal averaged voltage difference 
 $\DV_{y}$ for the \Dtwo~particle while having the leaser in the 
 $P_{\text{measure}}$ mode. It has the same shape as the stationary force 
-measurement in \cref{subfig:F_y}.  However, the smoothness of $\DV_{y}$ is 
+measurement in \cref{subfig:TC-F_y}.  However, the smoothness of $\DV_{y}$ is 
 worse. We attribute this to the nature of the experiment, as the recorded 
 motion of the particle is caused by two effects; one is the acoustic field and 
 the other is the always present Brownian motion.  For the stationary force 
@@ -13,9 +13,9 @@ Brownian motion is negligible.
 By measuring the same shape with the two experiments, we could validate our 
 measurement protocol. As for the stationary measurements, the SNR of the 
 evolution measurement and also shape are better for the in-plane $\ey$ than the 
-axial $\ez$ (see \cref{subfig:F_y} and \cref{subfig:F_z}). Nevertheless, 
-\cref{subfig:F_z} and \cref{subfig:res_DV_z} also show similar shapes. We want 
-to stress again, that the amplitudes of \cref{fig:DV_vs_dy} are not comparable 
+axial $\ez$ (see \cref{subfig:TC-F_y} and \cref{subfig:F_z}). Nevertheless, 
+\cref{subfig:TC-F_z} and \cref{subfig:res_DV_z} also show similar shapes. We want 
+to stress again, that the amplitudes of \cref{fig:TC-DV_vs_dy} are not comparable 
 to each other for $\ey$ and $\ez$ (see \cref{sec:TC-experimental-setup}).
 % This step enables data comparability, because the raw magnitudes are 
 % inherently different. As stated before, the in-plane position detection along 
@@ -25,7 +25,7 @@ The numerical streaming simulations of a fluid cavity with and without the
 surrounding structure showed that the streaming field is a local effect in a
 model with surrounding structure. In our experiments we saw similar tendencies.  
 However, not all measured spatial locations had enough actual signal strength 
-to further investigate. In \Cref{fig:evolutioin-V} we plot the time evolution 
+to further investigate. In \Cref{fig:TC-evolutioin-V} we plot the time evolution 
 of the signal for four different $\Dy$ where it is clear that the signal is due 
 to the acoustic field and not to noise or Brownian motion.
 
@@ -33,13 +33,13 @@ to the acoustic field and not to noise or Brownian motion.
   \centering
   \begin{subfigure}{\figWidth}
     \centering
-    \caption{Data for $y$-component ($m = y$)}\label{subfig:res_DV_y}
+    \caption{Data for $y$-component ($m = y$)}\label{subfig:TC-res_DV_y}
     % \input{\relPath/10_Figures/TikZ/avgV_y_vs_dy.tikz}
     \includegraphics[]{Plots/cache/avgV_y_vs_dy.eps}
   \end{subfigure}%
   \begin{subfigure}{\figWidth}
     \centering
-    \caption{Data for $z$-component ($m = z$)}\label{subfig:res_DV_z}
+    \caption{Data for $z$-component ($m = z$)}\label{subfig:TC-res_DV_z}
     % \input{\relPath/10_Figures/TikZ/avgV_z_vs_dy.tikz}
     \includegraphics[]{Plots/cache/avgV_z_vs_dy.eps}
   \end{subfigure}%
@@ -50,17 +50,17 @@ to the acoustic field and not to noise or Brownian motion.
     represents the $\Dy_{i}$ of best signal strength for $\max\left( 
     \DV_{z}\left( t \right) \right)$. The data points of best strength are 
     taken for the time evolution results. The wavelength marker represents the 
-  same length as in \cref{subfig:F_y}.}\label{fig:DV_vs_dy}
+  same length as in \cref{subfig:TC-F_y}.}\label{fig:DV_vs_dy}
 \end{figure}%
 
 Since we show $\DV_{m}$ rather than the absolute voltage amplitudes, we can 
 further validate our protocol. For $\sfrac{t}{t_{0}} < 0$, where $t_{0} = 
 \sfrac{1}{\fex}$ and $\sfrac{t}{t_{0}}=0$ represents the time when the US is 
-switched on (in \cref{fig:daq-sync} $t = \SI{0}{\ms}$), all data series in 
-\cref{fig:evolutioin-V} are zero. All data series for $\ez$ are more noisy than 
+switched on (in \cref{fig:TC-daq-sync} $t = \SI{0}{\ms}$), all data series in 
+\cref{fig:TC-evolutioin-V} are zero. All data series for $\ez$ are more noisy than 
 for $\ey$. However, we also have the same amplitude of noise in $\ey$ 
 direction. But, the normalization value for the data series for $\ey$ is 
-inherently larger than for $\ez$ (see \cref{fig:DV_vs_dy}).
+inherently larger than for $\ez$ (see \cref{fig:TC-DV_vs_dy}).
 
 \afterpage{
 \begin{figure}[ht]
@@ -74,11 +74,11 @@ inherently larger than for $\ez$ (see \cref{fig:DV_vs_dy}).
     \SIlist[list-units=single, list-final-separator = {, }, 
     list-pair-separator= {, }] {-0.06;-0.05;-0.04;-0.03}{\mm}$. The gray shaded 
     area of each plot marks the time when the US is off; 
-  $t_{0}=\sfrac{1}{\fex}$.}\label{fig:evolutioin-V}
+  $t_{0}=\sfrac{1}{\fex}$.}\label{fig:TC-evolutioin-V}
 \end{figure}
 }
 
-For all 12 positions $(y_{i}, z_{j})$ in \cref{fig:evolutioin-V} the signal 
+For all 12 positions $(y_{i}, z_{j})$ in \cref{fig:TC-evolutioin-V} the signal 
 along $\ey$ starts changing as soon as the US is switched on. This 
 is in line with the estimation of \cref{eq:TC-tau-arf} for $\tarf$. For all data 
 series $m = z$ it takes significantly more time until the movement with 
@@ -135,7 +135,7 @@ $\sfrac{\text{d}\,\DV_{m}}{\text{d}t} = const.$, implies a constant particle
 speed along the $\ey$ direction. The particle trajectory in $\ez$ direction is 
 predominantly affected by the streaming field. This fluid motion takes more 
 time until it is established. With the same reasoning as before, a linear slope 
-for the $z$ movement ($m=z$) in \cref{fig:evolutioin-V} implies a constant 
+for the $z$ movement ($m=z$) in \cref{fig:TC-evolutioin-V} implies a constant 
 force and constant particle speed. A constant speed means a non-changing 
 streaming field and therefore a constant streaming velocity.
 

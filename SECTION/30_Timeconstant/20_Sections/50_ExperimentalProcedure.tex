@@ -8,7 +8,7 @@
     $\fex=\SI{4.015}{\MHz}$ and $V_{\text{pp}} = \SI{10.7}{\volt}$. The top row 
     depicts the forces along $\ey$ and the bottom along $\ez$. The two columns 
     correspond to two different measurement $yz$-planes at $x=\SI{-0.1}{\mm}$ 
-  and $x=\SI{0.1}{\mm}$, respectively.}\label{fig:4um-map}
+  and $x=\SI{0.1}{\mm}$, respectively.}\label{fig:TC-4um-map}
 \end{figure}
 
 \begin{figure}[H]
@@ -19,7 +19,7 @@
     $\fex=\SI{4.015}{\MHz}$ and $V_{\text{pp}} = \SI{10.7}{\volt}$. The top row 
     depicts the forces along $\ey$ and the bottom along $\ez$. The two columns 
   correspond to two different measurement $yz$-planes at $x=\SI{-0.1}{\mm}$ and 
-$x=\SI{0.1}{\mm}$, respectively.}\label{fig:2um-map}
+$x=\SI{0.1}{\mm}$, respectively.}\label{fig:TC-2um-map}
 \end{figure}
 \clearpage
 }
@@ -56,14 +56,14 @@ the theoretical acoustic wavelength of $\lap = \sfrac{\cfl}{\fex} \approx
 averaged the forces over the \SI{3}{\second} timespan and also over the 5 
 repetitions.
 
-\Cref{fig:4um-map,fig:2um-map} visualize stationary force measurement results 
+\Cref{fig:TC-4um-map,fig:2um-map} visualize stationary force measurement results 
 as contour plots for the two particle sizes. In addition, 
-\Cref{fig:averaged_forces_vs_dy} depicts the measured forces in $\ey$ and $\ez$ 
+\Cref{fig:TC-averaged_forces_vs_dy} depicts the measured forces in $\ey$ and $\ez$ 
 directions, when the data is additionally averaged over the 7 different heights 
-$\Dz$. For \Cref{subfig:F_y,subfig:F_z}, the left vertical axis is the scale 
+$\Dz$. For \Cref{subfig:TC-F_y,subfig:F_z}, the left vertical axis is the scale 
 for the \Dfour~particle and the right vertical axis for \Dtwo~particles.
 
-In \Cref{subfig:F_y} the force wavelength $\laF$ is estimated to be 
+In \Cref{subfig:TC-F_y} the force wavelength $\laF$ is estimated to be 
 \SI{180}{\um} which is in line with the theoretical wavelength $\laF = 
 \sfrac{\lap}{2}$. One can also note that the shape of two force measurements is 
 consistent. The ratio of the mean maximal force amplitudes $\frac{1.25}{0.17} = 
@@ -76,12 +76,12 @@ Based on the theoretical scaling laws we conclude that the forces in the $\ey$
 direction are ARF dominant.
 
 
-In \Cref{subfig:F_z} one can see the measured forces in $\ez$ for both particle 
+In \Cref{subfig:TC-F_z} one can see the measured forces in $\ez$ for both particle 
 sizes and both measurement $yz$ planes. As for the forces in $\ey$ direction, 
-in \Cref{subfig:F_y}, the forces in $\ez$ direction are averaged over all 
+in \Cref{subfig:TC-F_y}, the forces in $\ez$ direction are averaged over all 
 $\Dz$. The force magnitude for both sizes is smaller than in $\ey$ direction 
 for both particle sizes. The shapes, however, are similar but not as consistent 
-as in \Cref{subfig:F_y}. The ratio of the mean maximal force amplitudes 
+as in \Cref{subfig:TC-F_y}. The ratio of the mean maximal force amplitudes 
 $\frac{0.25}{0.08} \approx 3.1$ is about the same as the ratio of the two 
 diameters, which suggests that in the $\ez$ direction the forces on the 
 particle are AS dominated (see \Cref{eq:TC-ARF-AS-scaling}).
@@ -90,7 +90,7 @@ particle are AS dominated (see \Cref{eq:TC-ARF-AS-scaling}).
   \centering
   \begin{subfigure}{\figWidth}
     \centering
-    \caption{$F_{y}$ [\si{\pico\newton}]}\label{subfig:F_y}
+    \caption{$F_{y}$ [\si{\pico\newton}]}\label{subfig:TC-F_y}
     % \input{\relPath/10_Figures/TikZ/avgF_y_vs_dy.tikz}
     % \includegraphics[width=\subfigWidth]{Plots/cache/avgF_y_vs_dy.eps}
     \includegraphics[]{Plots/cache/avgF_y_vs_dy.eps}
@@ -99,7 +99,7 @@ particle are AS dominated (see \Cref{eq:TC-ARF-AS-scaling}).
     \centering
     % \input{\relPath/10_Figures/TikZ/avgF_z_vs_dy.tikz}
     % \includegraphics[width=\subfigWidth]{Plots/cache/avgF_z_vs_dy.eps}
-    \caption{$F_{z}$ [\si{\pico\newton}]}\label{subfig:F_z}
+    \caption{$F_{z}$ [\si{\pico\newton}]}\label{subfig:TC-F_z}
     \includegraphics[]{Plots/cache/avgF_z_vs_dy.eps}
   \end{subfigure}%
   \caption{Measured steady-state acoustic forces when averaged over the cavity 
@@ -107,7 +107,7 @@ particle are AS dominated (see \Cref{eq:TC-ARF-AS-scaling}).
     $y$-axis is the measured force on the \Dfour~($D_{4}$) particle and the 
     right one for the \Dtwo~($D_{2}$) particle, respectively.
     The gray shaded area corresponds to the positions where the time evolution 
-  is measured.}\label{fig:averaged_forces_vs_dy}
+  is measured.}\label{fig:TC-averaged_forces_vs_dy}
 \end{figure}
 
 \subsection{Measurement Protocol for Time Evolution}
@@ -131,7 +131,7 @@ this procedure 50 times before moving to the next location.
 For the time evolution measurement, we acquire with a sampling rate of $\fs 
 =\SI{1.25}{\MHz}$ ($\Dt = \SI{0.8}{\us}$) for \SI{125}{\ms} the three QPD 
 signals, the signal for the shutter, and the DC signal for the laser as soon as 
-the shutter starts opening ($t = \SI{-25}{\ms}$ in \Cref{fig:daq-sync}). 
+the shutter starts opening ($t = \SI{-25}{\ms}$ in \Cref{fig:TC-daq-sync}). 
 Between $t =\SI{0}{\ms}$ and $t = \SI{30}{\ms}$ the shutter is completely open 
 and the US is switched on. Extending the measurement time further has no 
 benefit because the particle will be outside the linear regimes of the QPDs and 

@@ -12,7 +12,7 @@ near-infrared diode laser (LuxX 785-200, Omicron Laser, Rodgau-Dudenhofen,
 Germany) for the optical trapping and also for the optical position detection.  
 We detect the position of the trapped particle relative to the trap center by 
 monitoring the voltages of two quadrant photo diodes (QPD) placed in the back 
-focal plane (see \cref{fig:laserpath}). It is possible to resolve the movement 
+focal plane (see \cref{fig:TC-laserpath}). It is possible to resolve the movement 
 of the particle in all three dimensions. However, the in-plane ($xy$) and the 
 axial ($z$) position detection differ.
 
@@ -22,11 +22,11 @@ axial ($z$) position detection differ.
   \svginput{\relPath/10_Figures/LaTeX/Microscope.pdf_tex}
   \caption{Shutter location in laser path and schematic of laser path through 
   microscope setup; full details on the setup in 
-  \cite{Lamprecht2016,Lamprecht2017}.}\label{fig:laserpath}
+  \cite{Lamprecht2016,Lamprecht2017}.}\label{fig:TC-laserpath}
 \end{figure}
 
 For the $xy$ position the laser beam is focused onto the QPDxy (see also 
-\cref{fig:laserpath}) such that the spot diameter is about five times smaller 
+\cref{fig:TC-laserpath}) such that the spot diameter is about five times smaller 
 than the opening aperture of the QPDxy \cite{Lamprecht2017}. An in-plane 
 movement of the trapped particle changes the spot location on the QPDxy which 
 results in a voltage change on the four quadrants. As long as the spot is 
@@ -36,7 +36,7 @@ can get the values corresponding to a movement along $\ex$ and $\ey$ separately
 \cite{Lamprecht2017}.
 
 For the axial $z$ position a second QPD is needed and this QPD is overfilled 
-with the laser spot (see also \cref{fig:laserpath}). When the particle moves 
+with the laser spot (see also \cref{fig:TC-laserpath}). When the particle moves 
 axially the spot diameter changes its size. If the diameter decreases more 
 intensity is measured by QPDz and leads to a higher voltage and vice versa. For 
 small movements ($\Dz < \R$) the relation is linear \cite{Dreyer2004}.
@@ -87,7 +87,7 @@ is between \SI{100}{\mW} and \SI{175}{\mW}.
       US. During the $P_{\text{measure}}$ state the particle is not trapped by 
   the OT. In the time interval $[\SI{0}{\ms}, \SI{30}{\ms}]$ (1) the shutter is 
   fully opened, (2) the US is switched on, and (3) the particle is free to 
-  move. During this interval the measurement is performed.}\label{fig:daq-sync}
+  move. During this interval the measurement is performed.}\label{fig:TC-daq-sync}
 \end{figure}
 
 \subsection{Controller Timing and Data Acquisition}
@@ -97,7 +97,7 @@ USA), the laser power, the piezo excitation voltage, and the shutter
 transmittance are actuated in a defined sequence. We use an Arduino Board with 
 two 12-Bit DAC units (MCP4725, Adafruit, New York, NY, USA) for controlling the 
 timing and the DC voltage for the laser. The timings are depicted in 
-\cref{fig:daq-sync}. For $t<-\SI{24}{\ms}$ the laser is in its high power state 
+\cref{fig:TC-daq-sync}. For $t<-\SI{24}{\ms}$ the laser is in its high power state 
 and keeps the particle fixed in position against external forces. At 
 $t=\SI{-25}{\ms}$ the shutter starts opening. The opening time is specified 
 with less than \SI{15}{\ms} from 0\% transmittance to 90\%. At 
@@ -115,7 +115,7 @@ is fully at rest again.
 
 Our device is a glass-silicon-glass device manufactured by Gesim GmbH 
 (Radeberg, Germany). The material of the two glasses is B33 from Schott (Mainz, 
-Germany). A sketch is shown in \cref{fig:device} and its dimensions are listed 
+Germany). A sketch is shown in \cref{fig:TC-device} and its dimensions are listed 
 in \cref{tab:TC-device-dimensions}. The top glass and the fluid cavity are limited 
 in the $\ez$ direction because our microscope setup cannot focus deeper than 
 \SI{250}{\um} \cite{Lamprecht2016,Lamprecht2017}. We define the origin of our 

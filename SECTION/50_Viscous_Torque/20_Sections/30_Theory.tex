@@ -14,16 +14,17 @@ at the fluid-particle interface, where $f$ is the frequency (of excitation),
 $\mu_{f}$ the dynamic fluid viscosity, and $\rho_{f}$ the density of the fluid. 
 The resulting viscous surface stress on the particle results in a non-zero 
 torque. This torque is called the acoustic VT and is qualitatively shown in 
-\cref{fig:Fig1} for two orthogonal standing waves with a phase shift of $\zeta = 
-\sfrac{\pi}{2}$.
+\cref{fig:VT-VT-Fig1} for two orthogonal standing waves with a phase shift of 
+$\zeta = \sfrac{\pi}{2}$.
 
 %%%%%%%%%%%
 \begin{figure}
     \centering
-    \includegraphics[width=84mm]{Fig1.png}
+    \includegraphics[width=84mm]{\relPath/10_Figures/Fig1.png}
     \caption{Schematic of the time-averaged acoustic VT acting on a sphere. At a 
-    constant rotational rate $\Omega$ of the particle the propulsive acoustic VT 
-is in balance with its counteracting viscous drag torque.\label{fig:Fig1}}
+    constant rotational rate $\Omega$ of the particle the propulsive acoustic 
+  VT is in balance with its counteracting viscous drag 
+torque.\label{fig:VT-VT-Fig1}}
 \end{figure}%
 %%%%%%%%%%%
 
@@ -34,13 +35,13 @@ $\Gamma_{\text{tot}}(\Omega)$ on a small rotating spherical particle
 %%%%%%%%%%%%%%%%%%%
 \begin{equation}
   \label{eq:VT-Eq1}
-  \eqalign{
+  \begin{split}
      \fl &\Gamma_{\text{tot}}(\Omega) = \\
      \fl &= \frac{3}{4} \frac{\delta S_s A_{X} A_{Y}}{\rho_{f} c_{f}^{2}} \sin\zeta \cos(kX)
      \cos(kY) - 8 \pi \mu_f R^3\,\Omega \\
      &= \Gamma_{\text{IN}} - \tilde{D}\,\Omega
-  }
-\end{equation}
+   \end{split}
+ \end{equation}
 %%%%%%%%%%%%%%%%%%%
 where $S_s$ is the sphere surface area, and $c_f$ the speed of sound of the 
 fluid, $k=\sfrac{2\pi}{\lambda}$ the wavenumber in the fluid, and ($A_{X}$; 
