@@ -1,4 +1,4 @@
-\section{Preliminary Theoretical Considerations\label{sec:theory}}
+\section{Preliminary Theoretical Considerations\label{sec:TC-theory}}
 \subsection{Time Constants}
 
 \begin{figure}[ht]
@@ -8,7 +8,7 @@
   \caption{Sketch of device. The light-gray area is the silicon channel walls, 
     the light-blue is the fluid cavity, and the dark-gray block the 
     piezoelectric element. The total length of the device is \SI{76}{\mm}. All 
-dimensions are as listed in \cref{tab:device-dimensions}.}\label{fig:device}
+dimensions are as listed in \cref{tab:TC-device-dimensions}.}\label{fig:device}
 \end{figure}
 
 \begin{table}
@@ -21,7 +21,7 @@ dimensions are as listed in \cref{tab:device-dimensions}.}\label{fig:device}
     \bottomrule
     \bottomrule
   \end{tabular}
-  \caption{Overview of device dimensions}\label{tab:device-dimensions}
+  \caption{Overview of device dimensions}\label{tab:TC-device-dimensions}
 \end{table}
 
 
@@ -31,7 +31,7 @@ acoustic energy $E_{\text{ac}}$, and hence the ARF, has the characteristic
 time constant \cite{Muller2015}
 \begin{equation}
     \tarf = \frac{Q}{\omega_{0}} = \frac{Q}{2\pi\,\fex}
-  \label{eq:tau-arf}
+  \label{eq:TC-tau-arf}
 \end{equation}
 with $Q$ being the quality factor of the considered acoustic pressure mode and 
 $\fex$ the excitation frequency. For the AS field, a theoretical expression for 
@@ -39,7 +39,7 @@ the time constant does not exist. Nevertheless, \citeauthor{Muller2015} report
 a \emph{momentum diffusion time}
 \begin{equation}
   \tas = \frac{1}{2\nu}  L^{2} = \frac{\rhof}{2\muef} L^{2}
-  \label{eq:tau-nu}
+  \label{eq:TC-tau-nu}
 \end{equation}
 as the time constant for the AS field. Here, $L$ is half the radius of a 
 streaming roll, $\nu=\sfrac{\muef}{\rhof}$ the kinematic viscosity, $\rhof$ the 
@@ -62,15 +62,15 @@ in the Brownian motion power spectrum (more detail in
 constant of the OT as
 \begin{equation}
   \tOT = \frac{1}{2\pi\,f_{c}}.
-  \label{eq:tau-OT}
+  \label{eq:TC-tau-OT}
 \end{equation}
 Lastly, our DAQ system has the time constant $\tqpd$ which describes how fast we 
 can measure a sudden change in laser intensity of the OT. This parameter is 
 found by changing the laser intensity at a precise point in time and then 
 extracting the temporal difference until the DAQ measures it. 
 
-With the parameters of our experiment (see \cref{tab:parameters}) the mentioned 
-time constants are as listed in \cref{tab:time-constants}. Hence, with the 
+With the parameters of our experiment (see \cref{tab:TC-parameters}) the mentioned 
+time constants are as listed in \cref{tab:TC-time-constants}. Hence, with the 
 usual trapping mode of the OT, we cannot measure the ARF and AS because $\tOT 
 \approx \tas$ and $\tOT\gg\tarf$. In the limit of zero laser power there is no 
 trapping potential and hence $\tarf$ and $\tas$ can be measured.
@@ -109,7 +109,7 @@ trapping potential and hence $\tarf$ and $\tas$ can be measured.
     experimental setup. The quality factor $Q$ is extracted from an admittance 
     measurement of the device filled with water and fixed in the microscope as 
 for all measurements. The magnitude of $f_{\text{c}}$ is the usual value in 
-stationary force measurements for the OT.}\label{tab:parameters}
+stationary force measurements for the OT.}\label{tab:TC-parameters}
 \end{table}
 
 \begin{table}
@@ -133,10 +133,10 @@ stationary force measurements for the OT.}\label{tab:parameters}
     
   \end{tabular}
   \caption{Overview of time constants $\tau_{\text{i}}$ for the system. The 
-    values are obtained by using the values from \cref{tab:parameters} and 
-    \cref{eq:tau-nu,eq:tau-arf,eq:tau-OT,eq:tau-drag}. $\tqpd$ is measured, 
+    values are obtained by using the values from \cref{tab:TC-parameters} and 
+    \cref{eq:TC-tau-nu,eq:tau-arf,eq:tau-OT,eq:tau-drag}. $\tqpd$ is measured, 
     $\Dt_{\text{DAQ}} = \sfrac{1}{f_{\text{s}}}$, and 
-$t_{0}=\sfrac{1}{\fex}$.}\label{tab:time-constants}
+$t_{0}=\sfrac{1}{\fex}$.}\label{tab:TC-time-constants}
 \end{table}
 
 \subsection{Free Particle Motion}
@@ -149,13 +149,13 @@ the same for the three spatial directions $\ex, \ey$ and $\ez$.
 \begin{equation}
   \ddot{q} = - \frac{F}{m} - \frac{\gamma}{m}\,\dot{q} =
   - \tilde{F} - \frac{1}{\tdrag}\,\dot{q}
-  \label{eq:free-fall}
+  \label{eq:TC-free-fall}
 \end{equation}
 with $F$ being a force acting along the direction of $q$ and
 \begin{equation}
   \tdrag = \frac{m}{\gamma} = \frac{V\,\rhop}{6\pi\,\R\,\muef}
   = \frac{2}{9}\,\R^{2}\,\frac{\rhop}{\muef}.
-  \label{eq:tau-drag}
+  \label{eq:TC-tau-drag}
 \end{equation}
 Here, $\R$ is the particle radius, $V$ the particle volume, and $\rhop$ the 
 particle density. In microfluidics the viscous effects dominate over the 
@@ -163,7 +163,7 @@ inertial effects \cite{Bruus2015}. Therefore, we neglect $\ddot{q}$ for further
 calculations. Solving the modified first order ordinary differential equation
 \begin{equation}
     \dot{q}= - \tdrag\,\tilde{F} = -\frac{F}{m}\,\tdrag
-  \label{eq:mod-free-fall}
+  \label{eq:TC-mod-free-fall}
 \end{equation}
 with the initial condition $q\vert_{t=0} = 0$, gives the linear relation $q(t) 
 = - \tdrag\,\tilde{F}\,t$ with the integration constant being zero.
@@ -176,7 +176,7 @@ the buoyancy corrected gravitational force $\tilde{m}g=V\,\left( \rhop-\rhof
 \right)\,g$ with a magnitude of \SI{38.2}{\femto\newton} and an acoustic force 
 with a maximal value of \SI{0.25}{\pico\newton} (for acoustic force magnitudes 
 see \cref{fig:2um_map}). As we will explain later (see 
-\cref{sec:experimental-procedure}), we have \SI{25}{\ms} without any laser 
+\cref{sec:TC-experimental-procedure}), we have \SI{25}{\ms} without any laser 
 power where the particle will solely move due to gravity and then \SI{30}{\ms} 
 of US excitation where also the acoustic forces are acting.
 

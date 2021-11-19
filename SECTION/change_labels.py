@@ -28,4 +28,4 @@ for name in names:
     with open(name, "wt") as myfile:
         for line in data:
             #  print(line)
-            myfile.write(re.sub(pattern, r'\1:TC-\2}', line))
+            myfile.write(re.sub(pattern, r'\1:'+prefix+r'-\2}', line))
