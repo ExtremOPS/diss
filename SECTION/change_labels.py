@@ -2,8 +2,8 @@ import re
 import os
 import glob
 root = os.path.dirname(os.path.abspath(__file__))
-folder = '30_Timeconstant'
-prefix = 'TC'
+folder = '50_Viscous_Torque'
+prefix = 'VT'
 
 
 class File(object):
