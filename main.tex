@@ -56,17 +56,25 @@
 \usepackage[utf8]{inputenc}\DeclareUnicodeCharacter{2212}{-}
 \usepackage[T1]{fontenc}
 \usepackage{siunitx} %SI units
-
+    \DeclareSIUnit\samples{S} % frames per second
+    \DeclareSIUnit\MS{\mega\samples\per\second} % frames per second
+    % \DeclareSIUnit\Vrms{\volt_{rms}} % volt RMS
+    \DeclareSIUnit\Vrms{V_{rms}} % volt RMS
+    \DeclareSIUnit\fps{fps} % frames per second
 \usepackage{rotating} % Rotating table
 \usepackage{booktabs}
   \newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 \usepackage{array}
 \usepackage[table,xcdraw]{xcolor}
+
 \usepackage{tabularx}
 
 % \usepackage{cite}                    % bei Referenzen [15,12,11,10] sortiert es zu [10-12, 15]
 \usepackage[
   backend=biber,
+  hyperref,
+  giveninits=true,
+  doi=true,
   url=false,
     ]{biblatex}
 \addbibresource{All.bib}
@@ -115,6 +123,9 @@
 
 \cleardoublepage
 \include{SECTION/30_Timeconstant/timeconstant}
+
+\cleardoublepage
+\include{SECTION/50_Viscous_Torque/viscoustorque}
 
 % \appendix
 % \begin{appendix}

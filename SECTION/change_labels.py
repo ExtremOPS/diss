@@ -5,6 +5,9 @@ root = os.path.dirname(os.path.abspath(__file__))
 folder = '50_Viscous_Torque'
 prefix = 'VT'
 
+folder = '30_Timeconstant'
+prefix = 'TC'
+
 
 class File(object):
     def __init__(self, file_name, method):
@@ -17,7 +20,8 @@ class File(object):
         self.file_obj.close()
 
 
-pattern = r'(sec|tab|eq):(.+)}'
+pattern = r'(sec|tab|eq|fig):(.+)(,|})'
+#  pattern = r'(fig):(.+)}'
 
 
 search_folder = os.path.join(root, folder, '20_Sections/')

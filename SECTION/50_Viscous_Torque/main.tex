@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a general template file for the LaTeX package SVJour3
+% for Springer journals.          Springer Heidelberg 2010/09/16
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{iopart}
+% \documentclass[10pt]{iopart}
+\usepackage[numbers,sort&compress]{natbib}
+\def\newblock{\ }
+\usepackage{bm}
+\usepackage{graphicx}   % need for figures
+    \graphicspath{{10_Figures/}}
+\usepackage{verbatim}   % useful for program listings
+\usepackage{xcolor}      % use if color is used in text
+\usepackage{subfigure}  % use for side-by-side figures
+\usepackage{hyperref}   % use for hypertext links, including those to external 
+% % documents and URLs
+
+\usepackage{tikz}
+    \usetikzlibrary{spy,intersections}
+\usepackage{etoolbox}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest} 
+
+\makeatletter
+%\def\cl@chapter{\cl@chapter \@elt {theorem}}%bug in class
+\def\cl@chapter{\@elt {theorem}}
+\makeatother
+
+\usepackage[capitalize]{cleveref}
+
+\usepackage{xfrac}
+
+\usepackage{siunitx}
+    \DeclareSIUnit\Vrms{\volt_{rms}} % volt RMS
+    \DeclareSIUnit\fps{fps} % frames per second
+    \DeclareSIUnit\MS{\mega S\per\second} % frames per second
+
+
+    \input{05_Helpers/10_commands.tex}
+
+%
+\begin{document}
+
+\title[Rotation Measurement of Particles with an Optial Tweezer]{Rotational 
+Speed Measurements of Small Spherical Particles driven by Acoustic Viscous 
+Torques utilizing an Optical Trap}
+
+\author{Andreas Lamprecht$^1$, Christoph Goering$^1$\footnote{A.L and C.G.  
+contributed equally to this work}, Iwan A.T. Schaap$^2$, Jurg Dual$^1$}
+
+\address{$^1$ ETH Zurich, Institute for Mechanical Systems, Tannenstr 3, 8092 
+Zurich, Switzerland}
+\address{$^2$ SmarAct GmbH, Oldenburg, Germany}
+
+\ead{goering@imes.mavt.ethz.ch}
+\vspace{10pt}
+\begin{indented}
+    \item[] \today
+\end{indented}
+
+\begin{abstract}
+    \input{20_Sections/10_Abstract.tex}
+\end{abstract}
+
+% Uncomment for keywords
+\vspace{2pc}
+\noindent{\it Keywords}: Optical Tweezers, Acoustofluidic, Acoustic Viscous 
+Torque, Microfluidics, Rotation Measurement
+
+% Uncomment for Submitted to journal title message
+\submitto{\JMM}
+
+% \ioptwocol
+
+
+
+    \input{20_Sections/20_Introduction.tex}
+    \input{20_Sections/30_Theory.tex}
+    \input{20_Sections/40_Experimental_Set-Up.tex}
+    \input{20_Sections/50_Experimental_Procedure.tex}
+    \input{20_Sections/60_Conclusion.tex}
+
+
+% BibTeX users please use one of
+% \bibliographystyle{iopart-num}
+\bibliographystyle{unsrtnat}
+% \printbibliography
+\bibliography{alle_referenzen.bib} 
+
+\end{document}
