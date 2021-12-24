@@ -1,0 +1,88 @@
+% Refraction
+% Author: Jimi Oke
+\documentclass[11pt]{standalone}
+\usepackage{tikz}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+
+\tikzstyle arrowstyle=[scale=1]
+
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+
+\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
+
+\begin{document}
+
+
+
+\tikzset{SnellNode/.style={text width=10mm, align=center}}
+\begin{tikzpicture}
+  \def\W{5}
+  \def\H{4}
+  \def\x{0.95}
+  \def\alpha{0}
+  \pgfmathsetmacro{\y}{{(1-\x)*\H}}
+  \pgfmathsetmacro{\R}{(\W^2+\y^2)/2/\y}
+  \pgfmathsetmacro{\alpha}{{asin(\W/\R)}}
+  \pgfmathsetmacro{\s}{{90+\alpha}}
+  \pgfmathsetmacro{\e}{{90-\alpha}}
+
+  \pgfmathsetmacro{\beta}{{0.8*\alpha}}
+  \pgfmathsetmacro{\p}{{(\R-\H)*sin(\beta)}}
+  \pgfmathsetmacro{\px}{{\R*sin(\beta)}}
+  \pgfmathsetmacro{\py}{{-\R*(1-cos(\beta))}}
+
+
+  % define coordinates
+  \coordinate (O) at (0,0) ;
+  \coordinate (A) at (0,\H) ;
+  \coordinate (B) at (0,-\H) ;
+
+  % media
+  \fill[blue!20,opacity=.3] (-\W,0) rectangle (\W,\H);
+  \fill[black!10!,opacity=.3] (-\W,0) rectangle (\W,-\H);
+  \node[right, SnellNode] at (2,1.5) {{Medium\\ $n_{\mathrm{f}}$}};
+  \node[left, SnellNode] at (-2,-2) {{Particle\\ $n_{\mathrm{p}}$}};
+
+  % axis
+  \draw[dash pattern=on5pt off3pt] (A) -- (B) ;
+  % normal
+  \draw[|->, thick] (0,0) -- node[right, pos=1] {$n$} (0, 2.5);
+
+
+  % ray representation
+  \def\gamma{130}
+  \draw[red, variable=\x, domain=2.5:\W, samples=100] (0,\H) plot 
+  ({\x*cos(\gamma)-cos(\x*pi r*3)/4*sin(\gamma)},{sin(\gamma)*\x+cos(\x*pi 
+  r*3)/4*cos(\gamma)});
+
+  % rays
+  \draw[red,ultra thick,reverse directed] (O) -- node[left, xshift=-1mm, 
+  pos=0.2] {$P_{\mathrm{i}}$} (130:5.2);
+
+  \draw[red,ultra thick,directed] (O) -- node[right, xshift=1mm, pos=0.2] 
+  {$P_{\mathrm{r}}$} (50:5.2);
+
+  \draw[blue,directed,ultra thick] (O) -- node[right, xshift=1mm, pos=0.2] 
+  {$P_{\mathrm{t}}$} (-70:4.24);
+
+  % particle circumference
+  \draw (-\W,-\y) arc (\s:\e:\R);
+  \draw[black,->|,>=stealth'] (\p,-\H) -- node[right, pos=0.7] {$R$} (\px, 
+  \py);
+
+  % angles
+  \draw[->,>=stealth'] (0,1) arc (90:130:1);
+  \draw[->,>=stealth'] (0,1) arc (90:50:1);
+  \draw[->,>=stealth'] (0,-1.4) arc (270:290:1.4);
+
+  \node[] at (280:1.8)  {$\theta_{\mathrm{t}}$};
+  \node[] at (110:1.4)  {$\theta_{\mathrm{i}}$};
+  \node[] at (70:1.4)  {$\theta_{\mathrm{r}}$};
+
+\end{tikzpicture}
+\end{document}

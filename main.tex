@@ -43,6 +43,7 @@
 \usepackage{fancyhdr}                % Headings
 \usepackage{graphicx}                % EPS figures
   \graphicspath{
+      {SECTION/20_Theory/10_Figures/}
       {SECTION/30_Timeconstant/10_Figures/LaTeX/}
       {SECTION/30_Timeconstant/10_Figures/PGF/}
       {SECTION/30_Timeconstant/10_Figures/}
@@ -81,6 +82,8 @@
 \addbibresource{supplemental.bib}
 % \usepackage[square,numbers]{biblatex}
 \usepackage{bm}
+
+\usepackage{csquotes}
 
 \newcommand\blfootnote[1]{%
   \begingroup
@@ -121,6 +124,9 @@
 \pagenumbering{arabic}
 \include{SECTION/20_Abstract}
 \include{SECTION/30_Zusammenfassung}
+
+\cleardoublepage
+\include{SECTION/20_Theory/theory}
 
 \cleardoublepage
 \include{SECTION/30_Timeconstant/timeconstant}

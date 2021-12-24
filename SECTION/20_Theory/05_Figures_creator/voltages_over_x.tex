@@ -1,0 +1,72 @@
+\documentclass[]{standalone}
+
+\usepackage{tikz}
+\usepackage{xfrac}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{colormaps}%
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs}
+\usepackage{siunitx}
+  \DeclareSIUnit\mW{\milli\watt}
+
+\begin{document}
+
+\newcommand{\tikzhelper}{
+  \filldraw[black!10!, opacity=0.5] (-1,-1.1) rectangle (1,1.1);
+}
+
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={
+        group name=myplot,
+        group size= 1 by 3,
+        vertical sep=8mm,
+        },
+    height=40mm,
+    width=120mm,
+    ymin=-1.1,
+    ymax=1.1,
+    ]
+    \nextgroupplot[
+    % ylabel={$\tilde{I}$},
+      xticklabels={,,},
+      title={$y = \sfrac{-0.64}{R}$},
+      title style={yshift=-2mm},
+      ]
+      \tikzhelper
+      \addplot[dotted] table[x=x,y=Vx_1] {V_line.dat};
+      \addlegendentry{$V_{\mathrm{x}}$};
+      \addplot[] table[x=x,y=Vy_1] {V_line.dat};
+      \addlegendentry{$V_{\mathrm{y}}$};
+      \addplot[dashed] table[x=x,y=V_1] {V_line.dat};
+      \addlegendentry{$V_{\mathrm{t}}$};
+    \nextgroupplot[
+      % ylabel={$\tilde{I}$},
+      title={$y = \sfrac{0}{R}$},
+      title style={yshift=-2mm},
+      xticklabels={,,},
+      ylabel={Normalized Intensity $\tilde{I}$},
+      every axis y label/.append style={at=(ticklabel cs:0.5)}
+      ]
+      \tikzhelper
+      \addplot[dotted] table[x=x,y=Vx_2] {V_line.dat};
+      \addplot[] table[x=x,y=Vy_2] {V_line.dat};
+      \addplot[dashed] table[x=x,y=V_2] {V_line.dat};
+    \nextgroupplot[
+      % ylabel={$\tilde{I}$},
+      xlabel={$\sfrac{x}{R}$},
+      title={$y = \sfrac{0.64}{R}$},
+      title style={yshift=-2mm},
+      ]
+      \tikzhelper
+      \addplot[dotted] table[x=x,y=Vx_3] {V_line.dat};
+      \addplot[] table[x=x,y=Vy_3] {V_line.dat};
+      \addplot[dashed] table[x=x,y=V_3] {V_line.dat};
+\end{groupplot}
+
+
+\end{tikzpicture}
+
+
+\end{document}

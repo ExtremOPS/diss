@@ -1,0 +1,41 @@
+\documentclass[]{standalone}
+
+\usepackage{tikz}
+\usepackage{xfrac}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{colormaps}%
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs}
+\usepackage{siunitx}
+  \DeclareSIUnit\mW{\milli\watt}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[view={0}{90},
+        xlabel={$a$ [-]},
+        ylabel={$\beta$ [\si{\degree}]},
+        % title=View from top,
+        height=60mm,
+        point meta min=0,
+        point meta max=90,
+        width=60mm,
+        colormap name=viridis,
+        colorbar,
+        colorbar horizontal,
+        colorbar style={
+          title={$\gamma$ [\si{\degree}]},
+          at={(0,1.3)},
+          anchor=north west,
+          % ylabel={$I$},
+          xtick={0,30,60,90},
+        },
+        ytick={0,24,48,72},
+      ]
+      \addplot3[surf,mesh/rows=51,shader=interp] table[x=a,y=beta,z=gamma] 
+      {angles_mat.dat};
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}
