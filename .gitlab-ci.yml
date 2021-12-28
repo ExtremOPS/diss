@@ -8,6 +8,8 @@ pdf:
   stage: build
   script:
     - apt install latexmk
+    - pdflatex main.tex
+    - makeindex main.nlo -s nomencl.ist -o main.nls
     - latexmk -pdf -f main.tex
   artifacts:
     paths:
