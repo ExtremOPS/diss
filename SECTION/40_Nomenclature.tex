@@ -1,0 +1,44 @@
+\markboth{Nomenclature}{Nomenclature}                     % heading
+\addcontentsline{toc}{chapter}{Nomenclature}          % list in table of
+
+\newcommand{\nomen}[4]{
+  \nomenclature[#1]{\(#2\)}{#3\nomunit{\si{#4}}}
+}
+\newcommand{\nomenR}[3][]{
+  \nomen{R}{#2}{#3}{#1}
+}
+\newcommand{\nomenG}[3][]{
+  \nomen{G}{#2}{#3}{#1}
+}
+\newcommand{\nomenO}[3][]{
+  \nomen{O}{#2}{#3}{#1}
+}
+\newcommand{\nomenS}[3][]{
+  \nomen{S}{#2}{#3}{#1}
+}
+
+% roman alphabet
+\nomenR[\m]{R}{particle radius}
+\nomenR[\m]{D}{particle diameter}
+\nomenR[\m\per\s]{c}{speed of sound}
+\nomenR[\watt]{P}{laser power}
+\nomenR{\ex}{unit vector along $x$ coordinate}
+% greek alphabet
+\nomenG[\per\m]{\alpha}{optical absorption coefficient}
+\nomenG[\m]{\lambda_{\mathrm{l}}}{laser wavelength}
+\nomenG[\m]{\lambda_{\mathrm{a}}}{acoustic wavelength}
+% sub and superscripot
+\nomenS{\Box_{\mathrm{f}}}{property of fluid}
+\nomenS{\Box_{\mathrm{s}}}{property of solid}
+\nomenS{\Box_{i}}{$i$-th term in pertubation theory}
+% operators
+\nomenO{\grad}{gradient}
+\nomenO{\div}{divergence}
+\nomenO{\curl}{curl}
+\nomenO{\laplacian}{laplacian}
+\nomenO{\order{\Box}}{order of}
+\nomenO{\real{\{\Box}\}}{real part}
+\nomenO{\imaginary{\{\Box}\}}{imaginary part}
+\nomenO{\conj{\Box}}{complex conjugate}
+
+\printnomenclature[20mm]
