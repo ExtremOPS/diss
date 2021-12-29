@@ -1,5 +1,50 @@
 \section{Acoustic\label{sec:Th-acoustic}}
 
+
+\begin{equation}
+  \pdv{\rhof}{t} + \pdv{x_{i}}(\rhof\,\vel_{i}) = 0
+  \label{eq:Th-massconservatio}
+\end{equation}
+
+\begin{equation}
+  \rhof\left( \pdv{\vel_{i}}{t} + \vel_{j}\pdv{\vel_{i}}{x_{j}}\right) = 
+  \pdv{\stress}{x_{j}}
+  \label{eq:Th-navier}
+\end{equation}
+
+\begin{equation}
+  \stress = \muef\left[ \pdv{\vel_{i}}{x_{j}} + \pdv{\vel_{j}}{x_{i}} \right] + 
+  \left[ \mu_{\mathrm{B}} - \frac{2}{3}\,\muef \right] \pdv{\vel_{k}}{x_{k}} 
+  \,\delta_{ij} - \pre\,\delta_{ij}
+  \label{eq:Th-stress}
+\end{equation}
+
+\begin{equation}
+  \pdv{t}\left( \rhof\,\vel_{i} \right) = \pdv{x_{j}} \left( \stress - 
+  \rhof\,\vel_{i}\,\vel_{j} \right)
+    \label{eq:Th-navierconservative}
+\end{equation}
+
+\begin{equation}
+  \pre = \pre\left( \rhof \right)
+  \label{eq:Th-state}
+\end{equation}
+
+\begin{subequations}
+\begin{alignat}{4}
+  \pre & = \pre^{(0)} & + \pre^{(1)} & + \pre^{(2)} & + \ldots \label{eq:Th-per-pre}\\
+  \rhof & = \rhof^{(0)} & + \rhof^{(1)} & + \rhof^{(2)} & + \ldots \label{eq:Th-per-rho}\\
+  \stress & = \stress^{(0)} & + \stress^{(1)} & + \stress^{(2)} & + \ldots 
+  \label{eq:Th-per-stress} \\
+  \vel_{i} & = 0 & + \vel_{i}^{(1)} & + \vel_{i}^{(2)} & + \ldots 
+  \label{eq:Th-per-vel}
+\end{alignat}
+\end{subequations}
+
+
+
+
+
 \subsection{First Order Solution\label{sec:Th-firstorder}}
 
 \subsection{Second Order Solution\label{sec:Th-firstorder}}
