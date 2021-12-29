@@ -2,37 +2,76 @@
 \addcontentsline{toc}{chapter}{Nomenclature}          % list in table of
 
 \newcommand{\nomen}[4]{
+  \nomenclature[#1]{#2}{#3\nomunit{\si{#4}}}
+}
+\newcommand{\nomenmath}[4]{
   \nomenclature[#1]{\(#2\)}{#3\nomunit{\si{#4}}}
 }
+\newcommand{\nomenA}[3][]{
+  \nomen{A}{#2}{#3}{#1}
+}
 \newcommand{\nomenR}[3][]{
-  \nomen{R}{#2}{#3}{#1}
+  \nomenmath{R}{#2}{#3}{#1}
 }
 \newcommand{\nomenG}[3][]{
-  \nomen{G}{#2}{#3}{#1}
+  \nomenmath{G}{#2}{#3}{#1}
 }
 \newcommand{\nomenO}[3][]{
-  \nomen{O}{#2}{#3}{#1}
+  \nomenmath{O}{#2}{#3}{#1}
 }
 \newcommand{\nomenS}[3][]{
-  \nomen{S}{#2}{#3}{#1}
+  \nomenmath{S}{#2}{#3}{#1}
 }
 
 % roman alphabet
-\nomenR[\m]{R}{particle radius}
-\nomenR[\m]{D}{particle diameter}
-\nomenR[\m\per\s]{c}{speed of sound}
+\nomenR[\m]{\R}{particle radius}
+\nomenR[\per\m]{\wavenumber, \wavevector}{wavenumber}
+\nomenR[\watt\per\square\m]{\intensity}{laser intensity}
+\nomenR[\hertz]{f}{frequency}
+\nomenR[\s]{t}{time}
+\nomenR[\m\per\s]{\speed}{speed of light}
+\nomenR[\m\per\s]{\speed_{\Box}}{speed of sound}
 \nomenR[\watt]{P}{laser power}
-\nomenR{\ex}{unit vector along $x$ coordinate}
+\nomenR{\ex, \ey, \ez}{unit vector along $x, y,$ and $z$ coordinate}
+\nomenR{\refraction}{refraction index}
+\nomenR{\normal, \normalvector}{surface normal}
+\nomenR[\m\per\s]{\vel, \velvector}{fluid velocity}
+\nomenR[\newton]{\force_{\mathrm{ARF}}, \FARF}{acoustic radiation force}
+\nomenR[\newton]{\force_{\mathrm{AS}}, \FAS}{drag force from acoustic 
+streaming}
+\nomenR{\fresnelR}{Fresnel coefficient of reflection}
+\nomenR{\fresnelT}{Fresnel coefficient of transmission}
+
 % greek alphabet
+\nomenG[\radian]{\theta}{ray angle}
+\nomenG[\radian]{\lbeta}{half cone laser angle}
 \nomenG[\per\m]{\alpha}{optical absorption coefficient}
-\nomenG[\m]{\lambda_{\mathrm{l}}}{laser wavelength}
-\nomenG[\m]{\lambda_{\mathrm{a}}}{acoustic wavelength}
+\nomenG[\m]{\vbl}{viscous boundary layer thickness}
+\nomenG[\newton\per\square\m]{\stress, \stresstensor}{stress tensor}
+\nomenG[\radian\per\s]{\omega}{angular frequency}
+\nomenG[\kg\per\cubic\m]{\density}{density}
+\nomenG[\pascal\s]{\viscosity}{dynamic viscosity}
+\nomenG[\pascal\s]{\kinematicviscosity}{kinematic viscosity}
+\nomenG[\m]{\lambda}{wavelength}
+\nomenG[\square\m\per\s]{\velpotential}{velocity potential}
+\nomenG[\pascal]{\pre}{acoustic pressure}
+
+\newcommand{\boxsubscript}[1]{\Box_{\mathrm{#1}}}
 % sub and superscripot
-\nomenS{\Box_{\mathrm{f}}}{property of fluid}
-\nomenS{\Box_{\mathrm{s}}}{property of solid}
-\nomenS{\Box_{i}}{$i$-th term in pertubation theory}
+\nomenS{\boxsubscript{f}}{fluid quantity}
+\nomenS{\boxsubscript{F}}{force quantity}
+\nomenS{\boxsubscript{p}}{pressure quantity}
+\nomenS{\boxsubscript{l}}{laser quantity}
+\nomenS{\boxsubscript{i}, \boxsubscript{r}, \boxsubscript{t}}{incident, 
+refracted, and transmitted quantity}
+\nomenS{\boxsubscript{s}}{solid qunatity}
+\nomenS{\Box_{i}}{$i$-th order term in pertubation theory}
+
 % operators
 \nomenO{\grad}{gradient}
+\nomenO{\iu}{imaginary unit ($\sqrt{-1}$)}
+\nomenO{\normalized{\Box}}{normalized quantity}
+\nomenO{\timeaverage{\Box}}{timeaverage ($\sfrac{1}{T}\int_{T}\Box(t)\dd{t}$)}
 \nomenO{\div}{divergence}
 \nomenO{\curl}{curl}
 \nomenO{\laplacian}{laplacian}
@@ -41,4 +80,11 @@
 \nomenO{\imaginary{\{\Box}\}}{imaginary part}
 \nomenO{\conj{\Box}}{complex conjugate}
 
-\printnomenclature[20mm]
+% abbreviations
+\nomenA{ARF}{acoustic radiation force}
+\nomenA{AS}{acoustic streaming}
+\nomenA{US}{ultrasound}
+\nomenA{OT}{optical trap}
+\nomenA{QPD}{quadrant photo detector}
+
+\printnomenclature[25mm]

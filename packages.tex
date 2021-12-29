@@ -103,6 +103,9 @@
 \usepackage{afterpage}
 \usepackage{subcaption}
 
+% bold math
+\usepackage{bm}
+
 % nomenclature
 \usepackage{nomencl}
 \makenomenclature
@@ -115,7 +118,8 @@
   \ifstrequal{#1}{R}{Roman Alphabet}{%
   \ifstrequal{#1}{G}{Greek Alphabet}{%
   \ifstrequal{#1}{O}{Operators}{%
-  \ifstrequal{#1}{S}{Sub- and Superscripts}{}}}}%
+  \ifstrequal{#1}{A}{Abbreviations}{%
+  \ifstrequal{#1}{S}{Sub- and Superscripts}{}}}}}%
 ]}
 % -----------------------------------------
 
