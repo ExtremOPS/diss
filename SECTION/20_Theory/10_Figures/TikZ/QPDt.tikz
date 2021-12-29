@@ -1,0 +1,33 @@
+\tikzsetnextfilename{QPDt}
+
+\pgfplotsset{%
+    colormap={bwr}{
+      color=(blue);
+      color=(white);
+      color=(red);
+    }%
+}
+\begin{tikzpicture}
+  \begin{axis}[view={0}{90},
+      xlabel=$\sfrac{x}{\R}$,
+      yticklabels={,,},
+      height=50mm,
+      width=50mm,
+      colorbar,
+      colormap = {whiteblack}{color(0cm)  = (black);color(1cm) = (white)},
+      colorbar horizontal,
+      colorbar style={
+        title={\footnotesize Normalized Intensity $\normalized{\intensity}$},
+        at={(0,1.4)},
+        anchor=north west,
+        xtick={0,0.5,1},
+      }
+    ]
+      \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V] 
+      {\relPath/10_Figures/TikZ/V_mat.dat};
+
+  \draw[white] (-1,0,0)--(1,0,0);
+  \draw[white] (0,-1,0)--(0,1,0);
+  \draw[white] (0,0,0) circle (1);
+  \end{axis}
+\end{tikzpicture}

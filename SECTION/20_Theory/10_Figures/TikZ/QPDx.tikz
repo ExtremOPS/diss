@@ -1,0 +1,38 @@
+\tikzsetnextfilename{QPDx}
+
+\renewcommand{\tikzHelper}{
+  \draw[black] (-1,0,0)--(1,0,0);
+  \draw[black] (0,-1,0)--(0,1,0);
+  \draw[black] (0,0,0) circle (1);
+}
+
+\pgfplotsset{%
+    colormap={bwr}{
+      color=(blue);
+      color=(white);
+      color=(red);
+    }%
+}
+
+\begin{tikzpicture}
+  \begin{axis}[view={0}{90},
+      xlabel=$\sfrac{x}{\R}$,
+      ylabel=$\sfrac{y}{\R}$,
+      point meta min=-1,
+      point meta max=1,
+      height=50mm,
+      width=50mm,
+      colorbar,
+      colorbar horizontal,
+      colorbar style={
+        title={\footnotesize Normalized Intensity $\normalized{\intensity}$},
+        at={(0,1.4)},
+        anchor=north west,
+        xtick={-1,-0.5,...,1},
+      }
+    ]
+      \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=Vy] 
+      {\relPath/10_Figures/TikZ/V_mat.dat};
+    \tikzHelper
+  \end{axis}
+\end{tikzpicture}

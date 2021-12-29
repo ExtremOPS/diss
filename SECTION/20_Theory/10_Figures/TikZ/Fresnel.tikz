@@ -1,0 +1,65 @@
+\tikzsetnextfilename{Fresnel}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\pgfplotstableread{\relPath/10_Figures/TikZ/Fresnel.dat}{\data}
+
+\begin{tikzpicture}
+  \begin{groupplot}[
+    axis on top=true,
+    group style={
+      group size=2 by 1,
+      horizontal sep = 13mm,
+    },
+    xmin=0,
+    ymin=0,
+    height=55mm,
+    width=83mm,
+    no markers,
+  ]
+  \nextgroupplot[
+    xlabel={Incident angle $\incident$ [\si{\degree}]},
+    ylabel={\footnotesize Fresnel Coefficient [-]},
+    xtick={0,0.16666,0.333333,0.5},
+    xticklabels={0, 30, 60, 90},
+    legend style={
+      at={(axis cs:0.01,0.5)},
+      anchor=west,
+      font=\footnotesize,
+    }
+  ]
+  \filldraw[black!10!,opacity=0.7] (0.155,0) rectangle ({0.5,1}|-{rel axis 
+  cs:1,1});
+
+    \addplot[dashed] table[x=theta,y=R_M2P] {\data};
+    \addlegendentry{$\fresnelR_{\mathrm{f\rightarrow s}}$};
+    \addplot[] table[x=theta,y=T_M2P] {\data};
+    \addlegendentry{$\fresnelT_{\mathrm{f\rightarrow s}}$};
+
+    \addplot[thick, blue, dashed] table[x=theta,y=R_P2M] {\data};
+    \addlegendentry{$\fresnelR_{\mathrm{s\rightarrow f}}$};
+    \addplot[thick, blue] table[x=theta,y=T_P2M] {\data};
+    \addlegendentry{$\fresnelT_{\mathrm{s\rightarrow f}}$};
+
+    \nextgroupplot[
+    xlabel={Incident angle $\incident$ [\si{\degree}]},
+    xmax=0.167,
+    ymin=0.001,
+    ymode=log,
+    xtick={0,0.05555,0.11111,0.1666666},
+    xticklabels={0, 10, 20, 30},
+  ]
+
+  \filldraw[black!10!,opacity=0.7] (0.155,0.00001) rectangle ({0.167,1}|-{rel 
+  axis cs:1,1});
+
+    \addplot[dashed] table[x=theta,y=R_M2P] {\data};
+    \addplot[] table[x=theta,y=T_M2P] {\data};
+
+    \addplot[thick, blue, dashed] table[x=theta,y=R_P2M] {\data};
+    \addplot[thick, blue] table[x=theta,y=T_P2M] {\data};
+
+  \end{groupplot}
+  % \draw[thick,blue,->,shorten >=2pt,shorten <=2pt] (group c1r1.east) -- (group 
+  % c2r1.west);
+\end{tikzpicture}

@@ -1,0 +1,30 @@
+\tikzsetnextfilename{theta_i}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+
+\begin{tikzpicture}
+    \begin{axis}[view={0}{90},
+        xlabel={$a$ [-]},
+        ylabel={$\beta$ [\si{\degree}]},
+        xmax=0.5,
+        height=60mm,
+        point meta min=0,
+        point meta max=30,
+        width=60mm,
+        colormap name=viridis,
+        colorbar,
+        colorbar horizontal,
+        colorbar style={
+          title={$\incident$ [\si{\degree}]},
+          at={(0,1.3)},
+          anchor=north west,
+          xtick={0,10,20,30},
+        },
+        ytick={0,24,48,72},
+        xtick={0,0.25,0.5},
+      ]
+      \addplot3[surf,mesh/rows=51,shader=interp] table[x=a,y=beta,z=theta] 
+      {\relPath/10_Figures/TikZ/angles_mat.dat};
+    \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,41 @@
+\tikzsetnextfilename{angles}
+
+\tikzstyle arrowstyle=[scale=2]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+
+\begin{tikzpicture}[scale=1.3]
+    \coordinate (O) at (0,0);
+    \coordinate (I) at (4,3);
+    \coordinate (A) at (0,1.4);
+
+    \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=below:{$M$}] 
+    at (O) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=left:{$f$}] at 
+    (A) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=above:{$I$}] 
+    at (I) {};
+
+    % \draw (O) -- node[midway, below, xshift=1mm] {$R$} (I) -- node[above, 
+    % midway, xshift=-1mm] {$y$} (A) -- node[midway, left] {$a\,R$} cycle;
+    \draw (O) -- node[midway, below, xshift=1mm] {$\R$} (I) -- (A) -- 
+    node[midway, left] {$a\,\R$} cycle;
+
+    % \draw[dotted] (O) rectangle (I);
+    \draw[dotted] (A) -- ++(0,1);
+
+    \draw[->,>=stealth'] (I) -- node[above,midway] {$\normalvector$} (36.86:6);
+
+    \draw[directed,red] (34.0:6.2) -- (I);
+
+
+    \draw[] (0,0.5) arc (90:37:0.5) node[midway, above] {$\gamma$};
+    \draw[] (0,1.9) arc (90:22:0.5) node[midway, above] {$\beta$};
+    \draw[] (0,1.1) arc (-90:22:0.3) node[midway, right] 
+    {$\sfrac{\pi}{2}-\beta$};
+    \draw[] (36.8:3.5) arc (216:200.5:1.5) node[pos=.3, left] {$\incident$};
+
+    \draw[] (I) arc (36.86:48:5);
+    \draw[] (I) arc (36.86:-3:5);
+
+\end{tikzpicture}

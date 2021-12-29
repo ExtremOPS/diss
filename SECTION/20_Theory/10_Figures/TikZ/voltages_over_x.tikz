@@ -1,0 +1,59 @@
+\tikzsetnextfilename{voltages_over_x}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\pgfplotstableread{\relPath/10_Figures/TikZ/V_line.dat}{\data}
+
+\renewcommand{\tikzHelper}{
+  \filldraw[black!10!, opacity=0.5] (-1,-1.1) rectangle (1,1.1);
+}
+
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={
+        group name=myplot,
+        group size= 1 by 3,
+        vertical sep=8mm,
+        },
+    height=40mm,
+    width=120mm,
+    ymin=-1.1,
+    ymax=1.1,
+    ]
+    \nextgroupplot[
+    % ylabel={$\tilde{I}$},
+      xticklabels={,,},
+      title={$y = \sfrac{-0.64}{\R}$},
+      title style={yshift=-2mm},
+      ]
+      \tikzHelper
+      \addplot[dotted] table[x=x,y=Vx_1] {\data};
+      \addlegendentry{$V_{\mathrm{x}}$};
+      \addplot[] table[x=x,y=Vy_1] {\data};
+      \addlegendentry{$V_{\mathrm{y}}$};
+      \addplot[dashed] table[x=x,y=V_1] {\data};
+      \addlegendentry{$V_{\mathrm{t}}$};
+    \nextgroupplot[
+      % ylabel={$\tilde{I}$},
+      title={$y = \sfrac{0}{\R}$},
+      title style={yshift=-2mm},
+      xticklabels={,,},
+      ylabel={Normalized Intensity $\normalized{\intensity}$},
+      every axis y label/.append style={at=(ticklabel cs:0.5)}
+      ]
+      \tikzHelper
+      \addplot[dotted] table[x=x,y=Vx_2] {\data};
+      \addplot[] table[x=x,y=Vy_2] {\data};
+      \addplot[dashed] table[x=x,y=V_2] {\data};
+    \nextgroupplot[
+      % ylabel={$\tilde{I}$},
+      xlabel={$\sfrac{x}{\R}$},
+      title={$y = \sfrac{0.64}{\R}$},
+      title style={yshift=-2mm},
+      ]
+      \tikzHelper
+      \addplot[dotted] table[x=x,y=Vx_3] {\data};
+      \addplot[] table[x=x,y=Vy_3] {\data};
+      \addplot[dashed] table[x=x,y=V_3] {\data};
+\end{groupplot}
+\end{tikzpicture}

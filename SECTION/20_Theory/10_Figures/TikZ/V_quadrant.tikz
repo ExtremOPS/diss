@@ -1,0 +1,77 @@
+\tikzsetnextfilename{V_quadrant}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\pgfplotstableread{\relPath/10_Figures/TikZ/V_mat.dat}{\data}
+
+\renewcommand{\tikzHelper}{
+  \draw[black] (-1,0,0)--(1,0,0);
+  \draw[black] (0,-1,0)--(0,1,0);
+  \draw[black] (0,0,0) circle (1);
+  }
+
+\pgfplotsset{%
+    colormap={bwr}{
+      color=(blue);
+      color=(white);
+      color=(red);
+    }%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Voltages per Quadrant
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tikzpicture}
+  \begin{groupplot}[view={0}{90},
+    % xlabel=$x$,
+    % ylabel=$y$,
+    height=5cm,
+    width=5cm,
+    point meta min=0,
+    point meta max=1,
+    colormap={}{ gray(0cm)=(1); gray(1cm)=(0);},
+    group/xlabels at = edge bottom,
+    group style = {
+      group size = 2 by 2,
+      horizontal sep=4mm,
+      vertical sep=3mm,
+      xlabels at = edge bottom,
+      ylabels at = edge bottom
+    }]
+
+    \nextgroupplot[
+      xticklabels={,,},
+      ylabel={$\sfrac{y}{\R}$},
+    ]
+        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V4] {\data};
+        \tikzHelper
+
+    \nextgroupplot[
+      yticklabels={,,},
+      xticklabels={,,},
+      colorbar right,
+      every colorbar/.append style={
+        ylabel={Normalized Intensity $\normalized{\intensity}$},
+        height=2*\pgfkeysvalueof{/pgfplots/parent axis height}+
+        \pgfkeysvalueof{/pgfplots/group/vertical sep}}]
+        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V1] {\data};
+        \tikzHelper
+
+    \nextgroupplot[
+      xlabel={$\sfrac{x}{\R}$},
+      ylabel={$\sfrac{y}{\R}$},
+    ]
+        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V3]
+        {\data};
+        \tikzHelper
+
+    \nextgroupplot[
+      xlabel={$\sfrac{x}{\R}$},
+      yticklabels={,,},
+    ]
+        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V2] {\data};
+        \tikzHelper
+
+
+  \end{groupplot}
+\end{tikzpicture}
