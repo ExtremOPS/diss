@@ -2,6 +2,12 @@
 
 \subsection{Ray Optics\label{sec:Th-rayoptics}}
 
+\begin{equation}
+  \nf\,\sin\incident = \ns\,\sin\transmitted
+  \label{eq:Th-Snell}
+\end{equation}
+
+
 \lipsum[1-2]
 
 \begin{figure}[htp]
@@ -66,6 +72,13 @@
   \label{fig:Th-gamma_theta}
 \end{figure}
 
+\begin{equation}
+  \frac{\sin\left( \frac{\pi}{2}-\beta \right)}{\R} = 
+  \frac{\sin\incident}{a\,\R}
+  \label{eq:Th-sine-law}
+\end{equation}
+
+
 \subsection{Optical Position Detection\label{sec:Th-QPD}}
 
 \subsection{Laser Induced Temperature Change\label{sec:Th-temperature}}
@@ -111,6 +124,74 @@
 \end{figure}
 
 \lipsum[1-2]
+
+non-magnetic approximation
+
+Fresnel equations specify the relation of the incident, reflected, and 
+transmitted electrical field of an electromagnetic wave \cite{Jackson2013}
+
+
+
+\begin{subequations}
+\begin{align}
+  \fresnelr_{\mathrm{s}} & =
+  \frac{2\,\nf\,\cos\incident}{\nf\,\cos\incident + \ns\,\cos\reflected} 
+  \label{eq:th-fresnel-rs}\\[3mm]
+  \fresnelt_{\mathrm{s}} & = \frac{\nf\,\cos\incident - 
+  \ns\,\cos\reflected}{\nf\,\cos\incident + \ns\,\cos\reflected} 
+  \label{eq:th-fresnel-ts}\\[3mm]
+  \fresnelr_{\mathrm{p}} & =
+  \frac{2\,\nf\,\cos\incident}{\ns\,\cos\incident + \nf\,\cos\reflected} 
+  \label{eq:th-fresnel-rp}\\[3mm]
+  \fresnelt_{\mathrm{p}} & = \frac{\ns\,\cos\incident - 
+  \nf\,\cos\reflected}{\ns\,\cos\incident + \nf\,\cos\reflected}
+\label{eq:th-fresnel-tp}
+\end{align}
+\end{subequations}
+
+power of electromagnetic wave
+
+\begin{equation}
+  P = \intensity\,A \propto \refraction\,\abs{\vb{E}_{0}}^{2}\,A
+\end{equation}
+
+\begin{equation}
+  P_{\mathrm{i}} = P_{\mathrm{r}} + P_{\mathrm{t}}
+\end{equation}
+
+
+\begin{equation}
+  \fresnelR_{i} = \frac{P_{\mathrm{r}}}{P_{\mathrm{i}}} = 
+  \frac{\intensity_{\mathrm{r}}\,\nf\,w_{\mathrm{r}}}{\intensity_{\mathrm{i}}\,\nf\,w_{\mathrm{i}}} 
+  =\frac{\abs{\fresnelr_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}} = 
+  \fresnelr_{i}^{2}
+\end{equation}
+
+\begin{equation}
+  \fresnelT_{i} = \frac{P_{\mathrm{t}}}{P_{\mathrm{i}}} = 
+  \frac{\intensity_{\mathrm{t}}\,\ns\,w_{\mathrm{t}}}{\intensity_{\mathrm{i}}\,\nf\,w_{\mathrm{i}}} 
+  =\frac{\abs{\fresnelt_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}}\,\frac{\ns\,w_{\mathrm{t}}}{\nf\,w_{\mathrm{i}}} 
+  = \fresnelt_{i}^{2}\,\frac{\ns\,\cos\transmitted}{\nf\,\cos\incident}
+\end{equation}
+
+
+% \begin{subequations}
+% \begin{align}
+  % \fresnelR_{\mathrm{s,p}} & = \fresnelr_{\mathrm{s,p}}^{2} 
+  % \label{eq:Th-fresnel-R}\\
+  % \fresnelT_{\mathrm{s,p}} & = \fresnelt_{\mathrm{s,p}}^{2}\,
+  % \frac{\ns\,\cos\reflected}{\nf\,\cos\incident}
+  % \label{eq:Th-fresnel-T}
+% \end{align}
+% \end{subequations}
+
+\begin{equation}
+  \fresnelR + \fresnelT = 
+  \frac{\fresnelR_{\mathrm{s}}+\fresnelR_{\mathrm{p}}}{2} +
+  \frac{\fresnelT_{\mathrm{s}}+\fresnelT_{\mathrm{p}}}{2} = 1 
+  \label{eq:Th-fresnel}
+\end{equation}
+
 
 \begin{figure}[htp]
   \centering
