@@ -35,7 +35,7 @@
   % media
   \fill[blue!20,opacity=.3] (-\W,0) rectangle (\W,\H);
   \fill[black!10!,opacity=.3] (-\W,0) rectangle (\W,-\H);
-  \node[right, SnellNode] at (2,1.5) {{Fluid\\ $\nf$}};
+  \node[right, SnellNode] at (3,1.5) {{Fluid\\ $\nf$}};
   \node[left, SnellNode] at (-2,-2) {{Particle\\ $\ns$}};
 
   % axis
@@ -57,8 +57,21 @@
   \draw[red,ultra thick,directed] (O) -- node[right, xshift=1mm, pos=0.2] 
   {$P_{\mathrm{r}}$} (50:5.2);
 
+  \draw[red,thick,dotted] ([xshift=1cm]O) -- ([xshift=1cm]130:5.2);
+  \draw[red,thick,dotted] ([xshift=1cm]O) -- ([xshift=1cm]50:5.2);
+
+  \draw[red,|<->|,>=stealth'] (50:4) -- node[above,pos=0.7] {$w_{\mathrm{r}}$} 
+  ++(-40:0.775);
+
   \draw[blue,directed,ultra thick] (O) -- node[right, xshift=1mm, pos=0.2] 
   {$P_{\mathrm{t}}$} (-70:4.24);
+
+  \draw[blue,thick,dotted] ([xshift=1cm]O) -- ([xshift=1cm]-70:4.24);
+
+  \draw[blue,|<->|,>=stealth'] (-70:3) -- node[above,pos=0.4] 
+  {$w_{\mathrm{t}}$} ++(20:0.945);
+
+\draw[thick,|<->|,>=stealth'] (O) -- node[midway,below] {$w$} ++(1,0);
 
   % particle circumference
   \draw (-\W,-\y) arc (\s:\e:\radius);
@@ -72,6 +85,6 @@
 
   \node[] at (280:1.8)  {$\transmitted$};
   \node[] at (110:1.4)  {$\incident$};
-  \node[] at (70:1.4)  {$\refracted$};
+  \node[] at (70:1.4)  {$\reflected$};
 
 \end{tikzpicture}
