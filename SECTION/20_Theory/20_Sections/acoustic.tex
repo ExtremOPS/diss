@@ -43,10 +43,92 @@
 \end{alignat}
 \end{subequations}
 
-
-
-
-
 \subsection{First Order Solution\label{sec:Th-firstorder}}
 
-\subsection{Second Order Solution\label{sec:Th-firstorder}}
+\begin{equation}
+  \pdv{\stOrder{\rhof}}{t} + \zeOrder{\rhof}\,\pdv{\stOrder{\vel_{i}}}{x_{i}} = 
+  0
+  \label{eq:Th-st-massconservatio}
+\end{equation}
+
+\begin{equation}
+  \zeOrder{\rhof} \pdv{\stOrder{\vel_{i}}}{t} = \pdv{\stOrder{\stress}}{x_{j}}
+  \label{eq:Th-st-navier}
+\end{equation}
+
+\begin{equation}
+  \stOrder{\stress} = \muef\left[ \pdv{\stOrder{\vel_{i}}}{x_{j}} + 
+  \pdv{\stOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\mathrm{B}} - 
+  \frac{2}{3}\,\muef \right] \pdv{\stOrder{\vel_{k}}}{x_{k}} \,\delta_{ij} - 
+  \stOrder{\pre}\,\delta_{ij}
+  \label{eq:Th-st-stress}
+\end{equation}
+
+\begin{equation}
+  \stOrder{\pre} = \cfl^{2}\,\stOrder{\rhof}
+  \label{eq:Th-st-pre}
+\end{equation}
+
+
+
+\subsection{Second Order Solution\label{sec:Th-secondorder}}
+
+\begin{equation}
+  \pdv{\ndOrder{\rhof}}{t} + 
+  \pdv{x_{i}}\left(\stOrder{\rhof}\,\stOrder{\vel_{i}} + 
+  \zeOrder{\rhof}\,\ndOrder{\vel_{i}} \right) = 0
+  \label{eq:Th-nd-massconservatio}
+\end{equation}
+
+\begin{equation}
+  \stOrder{\rhof}\,\pdv{\stOrder{\vel_{i}}}{t} + \zeOrder{\rhof} 
+  \pdv{\ndOrder{\vel_{i}}}{t} + 
+  \zeOrder{\rhof}\,\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}} = 
+  \pdv{\ndOrder{\stress}}{x_{j}}
+  \label{eq:Th-nd-navier}
+\end{equation}
+
+\begin{equation}
+  \ndOrder{\stress} = \muef\left[ \pdv{\ndOrder{\vel_{i}}}{x_{j}} + 
+  \pdv{\ndOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\mathrm{B}} - 
+  \frac{2}{3}\,\muef \right] \pdv{\ndOrder{\vel_{k}}}{x_{k}} \,\delta_{ij} - 
+  \ndOrder{\pre}\,\delta_{ij}
+  \label{eq:Th-nd-stress}
+\end{equation}
+
+
+\subsection{Time-averaged Second Order Solution\label{Th-avg-nd-order}}
+
+\begin{equation}
+  \timeaverage{\pdv{t}\,f(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
+    \left[ \frac{1}{\tau}\,\left( f(\vb{x}; \tau) - f(\vb{x}; 0) \right) 
+  \right]} = 0
+  \label{eq:Th-avg-property}
+\end{equation}
+
+
+\begin{equation}
+  \pdv{x_{i}}\left( \timeaverage{\ndOrder{\vel_{i}}} \right) = 
+  -\frac{1}{\zeOrder{\rhof}} \pdv{x_{i}}\left(\timeaverage{ 
+  \stOrder{\rhof}\,\stOrder{\vel_{i}} }\right)
+  \label{eq:Th-avg-massconservatio}
+\end{equation}
+
+\begin{equation}
+  \timeaverage{\stOrder{\rhof} \pdv{\stOrder{\vel_{i}}}{t}} + 
+  \zeOrder{\rhof}\,\timeaverage{\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}}} 
+  = \pdv{x_{j}}\left( \timeaverage{\ndOrder{\stress}} \right)
+  \label{eq:Th-avg-navier}
+\end{equation}
+
+first term remains because it is a product of first order fields
+
+timeaverage of a constant function is the function itself
+
+\subsection{Acoustic Radiation Force\label{sec:Th-ARF}}
+
+\begin{equation}
+  F_{\mathrm{ARF}\,i} = \timeaverage{\int_{S(t)}\,\stress\,\normal(t)\,\dd{S}}
+  \label{eq:Th-def-ARF}
+\end{equation}
+
