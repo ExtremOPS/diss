@@ -32,12 +32,14 @@
 
 \begin{subequations}
 \begin{alignat}{4}
-  \pre & = \pre^{(0)} & + \pre^{(1)} & + \pre^{(2)} & + \ldots \label{eq:Th-per-pre}\\
-  \rhof & = \rhof^{(0)} & + \rhof^{(1)} & + \rhof^{(2)} & + \ldots \label{eq:Th-per-rho}\\
-  \stress & = \stress^{(0)} & + \stress^{(1)} & + \stress^{(2)} & + \ldots 
-  \label{eq:Th-per-stress} \\
-  \vel_{i} & = 0 & + \vel_{i}^{(1)} & + \vel_{i}^{(2)} & + \ldots 
-  \label{eq:Th-per-vel}
+  \pre & = \zeOrder{\pre} & + \stOrder{\pre} & + \ndOrder{\pre} & + \ldots 
+  \label{eq:Th-per-pre}\\
+  \rhof & = \zeOrder{\rhof} & + \stOrder{\rhof} & + \ndOrder{\rhof} & + \ldots 
+  \label{eq:Th-per-rho}\\
+  \stress & = \zeOrder{\stress} & + \stOrder{\stress} & + \ndOrder{\stress} & + 
+  \ldots \label{eq:Th-per-stress} \\
+  \vel_{i} & =  & \phantom{+} \stOrder{\vel_{i}} & + \ndOrder{\vel_{i}} & + 
+  \ldots \label{eq:Th-per-vel}
 \end{alignat}
 \end{subequations}
 
