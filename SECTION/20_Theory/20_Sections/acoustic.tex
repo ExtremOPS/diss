@@ -14,7 +14,7 @@
 
 \begin{equation}
   \stress = \muef\left[ \pdv{\vel_{i}}{x_{j}} + \pdv{\vel_{j}}{x_{i}} \right] + 
-  \left[ \mu_{\mathrm{B}} - \frac{2}{3}\,\muef \right] \pdv{\vel_{k}}{x_{k}} 
+  \left[ \mu_{\MR{B}} - \frac{2}{3}\,\muef \right] \pdv{\vel_{k}}{x_{k}} 
   \,\delta_{ij} - \pre\,\delta_{ij}
   \label{eq:Th-stress}
 \end{equation}
@@ -58,7 +58,7 @@
 
 \begin{equation}
   \stOrder{\stress} = \muef\left[ \pdv{\stOrder{\vel_{i}}}{x_{j}} + 
-  \pdv{\stOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\mathrm{B}} - 
+  \pdv{\stOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\MR{B}} - 
   \frac{2}{3}\,\muef \right] \pdv{\stOrder{\vel_{k}}}{x_{k}} \,\delta_{ij} - 
   \stOrder{\pre}\,\delta_{ij}
   \label{eq:Th-st-stress}
@@ -90,7 +90,7 @@
 
 \begin{equation}
   \ndOrder{\stress} = \muef\left[ \pdv{\ndOrder{\vel_{i}}}{x_{j}} + 
-  \pdv{\ndOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\mathrm{B}} - 
+  \pdv{\ndOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\MR{B}} - 
   \frac{2}{3}\,\muef \right] \pdv{\ndOrder{\vel_{k}}}{x_{k}} \,\delta_{ij} - 
   \ndOrder{\pre}\,\delta_{ij}
   \label{eq:Th-nd-stress}
@@ -128,7 +128,7 @@ timeaverage of a constant function is the function itself
 \subsection{Acoustic Radiation Force\label{sec:Th-ARF}}
 
 \begin{equation}
-  F_{\mathrm{ARF}\,i} = \timeaverage{\int_{S(t)}\,\stress\,\normal(t)\,\dd{S}}
+  F_{\MR{ARF}\,i} = \timeaverage{\int_{S(t)}\,\stress\,\normal(t)\,\dd{S}}
   \label{eq:Th-def-ARF}
 \end{equation}
 

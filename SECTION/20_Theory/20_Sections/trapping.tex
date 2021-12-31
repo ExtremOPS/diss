@@ -137,8 +137,8 @@ transmitted electrical field of an electromagnetic wave
 
 \begin{subequations}
 \begin{align}
-  \vb{E}_{\mathrm{r}} & =\fresnelr_{i}\,\vb{E}_{\mathrm{i}} \\[3mm]
-  \vb{E}_{\mathrm{t}} & =\fresnelt_{i}\,\vb{E}_{\mathrm{i}}
+  \vb{E}_{\MR{r}} & =\fresnelr_{i}\,\vb{E}_{\MR{i}} \\[3mm]
+  \vb{E}_{\MR{t}} & =\fresnelt_{i}\,\vb{E}_{\MR{i}}
 \end{align}
 \end{subequations}
 
@@ -146,16 +146,16 @@ transmitted electrical field of an electromagnetic wave
 
 \begin{subequations}
 \begin{align}
-  \fresnelr_{\mathrm{s}} & =
+  \fresnelr_{\MR{s}} & =
   \frac{2\,\nf\,\cos\incident}{\nf\,\cos\incident + \ns\,\cos\reflected} 
   \label{eq:th-fresnel-rs}\\[3mm]
-  \fresnelt_{\mathrm{s}} & = \frac{\nf\,\cos\incident - 
+  \fresnelt_{\MR{s}} & = \frac{\nf\,\cos\incident - 
   \ns\,\cos\reflected}{\nf\,\cos\incident + \ns\,\cos\reflected} 
   \label{eq:th-fresnel-ts}\\[3mm]
-  \fresnelr_{\mathrm{p}} & =
+  \fresnelr_{\MR{p}} & =
   \frac{2\,\nf\,\cos\incident}{\ns\,\cos\incident + \nf\,\cos\reflected} 
   \label{eq:th-fresnel-rp}\\[3mm]
-  \fresnelt_{\mathrm{p}} & = \frac{\ns\,\cos\incident - 
+  \fresnelt_{\MR{p}} & = \frac{\ns\,\cos\incident - 
   \nf\,\cos\reflected}{\ns\,\cos\incident + \nf\,\cos\reflected}
 \label{eq:th-fresnel-tp}
 \end{align}
@@ -166,7 +166,7 @@ power of electromagnetic wave
 \cite[Chapter 7]{Jackson2013}
 
 
-for plane emw in free space with $\mu_{\mathrm{r}} = 1$ (non-magnetic)
+for plane emw in free space with $\mu_{\MR{r}} = 1$ (non-magnetic)
 
 \begin{equation}
   \intensity = \timeaverage{\abs{\vb{S}}} = 
@@ -180,30 +180,30 @@ for plane emw in free space with $\mu_{\mathrm{r}} = 1$ (non-magnetic)
 \end{equation}
 
 \begin{equation}
-  P_{\mathrm{i}} = P_{\mathrm{r}} + P_{\mathrm{t}}
+  P_{\MR{i}} = P_{\MR{r}} + P_{\MR{t}}
 \end{equation}
 
 
 \begin{equation}
-  \fresnelR_{i} = \frac{P_{\mathrm{r}}}{P_{\mathrm{i}}} = 
-  \frac{\intensity_{\mathrm{r}}\,\nf\,w_{\mathrm{r}}}{\intensity_{\mathrm{i}}\,\nf\,w_{\mathrm{i}}} 
+  \fresnelR_{i} = \frac{P_{\MR{r}}}{P_{\MR{i}}} = 
+  \frac{\intensity_{\MR{r}}\,\nf\,w_{\MR{r}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
   =\frac{\abs{\fresnelr_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}} = 
   \fresnelr_{i}^{2}
 \end{equation}
 
 \begin{equation}
-  \fresnelT_{i} = \frac{P_{\mathrm{t}}}{P_{\mathrm{i}}} = 
-  \frac{\intensity_{\mathrm{t}}\,\ns\,w_{\mathrm{t}}}{\intensity_{\mathrm{i}}\,\nf\,w_{\mathrm{i}}} 
-  =\frac{\abs{\fresnelt_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}}\,\frac{\ns\,w_{\mathrm{t}}}{\nf\,w_{\mathrm{i}}} 
+  \fresnelT_{i} = \frac{P_{\MR{t}}}{P_{\MR{i}}} = 
+  \frac{\intensity_{\MR{t}}\,\ns\,w_{\MR{t}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
+  =\frac{\abs{\fresnelt_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}}\,\frac{\ns\,w_{\MR{t}}}{\nf\,w_{\MR{i}}} 
   = \fresnelt_{i}^{2}\,\frac{\ns\,\cos\transmitted}{\nf\,\cos\incident}
 \end{equation}
 
 
 % \begin{subequations}
 % \begin{align}
-  % \fresnelR_{\mathrm{s,p}} & = \resnelr_{\mathrm{s,p}}^{2} 
+  % \fresnelR_{\MR{s,p}} & = \resnelr_{\MR{s,p}}^{2} 
   % \label{eq:Th-fresnel-R}\\
-  % \fresnelT_{\mathrm{s,p}} & = \fresnelt_{\mathrm{s,p}}^{2}\,
+  % \fresnelT_{\MR{s,p}} & = \fresnelt_{\MR{s,p}}^{2}\,
   % \frac{\ns\,\cos\reflected}{\nf\,\cos\incident}
   % \label{eq:Th-fresnel-T}
 % \end{align}
@@ -211,8 +211,8 @@ for plane emw in free space with $\mu_{\mathrm{r}} = 1$ (non-magnetic)
 
 \begin{equation}
   \fresnelR + \fresnelT = 
-  \frac{\fresnelR_{\mathrm{s}}+\fresnelR_{\mathrm{p}}}{2} +
-  \frac{\fresnelT_{\mathrm{s}}+\fresnelT_{\mathrm{p}}}{2} = 1 
+  \frac{\fresnelR_{\MR{s}}+\fresnelR_{\MR{p}}}{2} +
+  \frac{\fresnelT_{\MR{s}}+\fresnelT_{\MR{p}}}{2} = 1 
   \label{eq:Th-fresnel}
 \end{equation}
 

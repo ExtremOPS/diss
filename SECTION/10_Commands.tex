@@ -32,6 +32,7 @@
   \pertubationorder{#1}{2}
 }
 
+\newcommand{\MR}[1]{\mathrm{#1}}
 
 %%%%%%%%%%%%%%%%%%%%
 %%%% MATH Commands
@@ -49,9 +50,9 @@
 \newcommand{\fresnelr}{r}
 \newcommand{\fresnelt}{t}
 
-\newcommand{\incident}{\theta_{\mathrm{i}}}
-\newcommand{\reflected}{\theta_{\mathrm{r}}}
-\newcommand{\transmitted}{\theta_{\mathrm{t}}}
+\newcommand{\incident}{\theta_{\MR{i}}}
+\newcommand{\reflected}{\theta_{\MR{r}}}
+\newcommand{\transmitted}{\theta_{\MR{t}}}
 
 \newcommand{\lbeta}{\beta}
 
@@ -61,8 +62,8 @@
 
 \newcommand{\refraction}{n}
 
-\newcommand{\nf}{\refraction_{\mathrm{f}}}
-\newcommand{\ns}{\refraction_{\mathrm{s}}}
+\newcommand{\nf}{\refraction_{\MR{f}}}
+\newcommand{\ns}{\refraction_{\MR{s}}}
 
 
 \newcommand{\normal}{n_{i}}
@@ -82,15 +83,15 @@
 \newcommand{\force}{F}
 \newcommand{\forcevector}{\vb{\force}}
 
-\newcommand{\FARF}{\forcevector_{\mathrm{ARF}}}
-\newcommand{\FAS}{\forcevector_{\mathrm{AS}}}
+\newcommand{\FARF}{\forcevector_{\MR{ARF}}}
+\newcommand{\FAS}{\forcevector_{\MR{AS}}}
 
 \newcommand{\DV}{\Delta V}
 \newcommand{\Dx}{\Delta x}
 \newcommand{\Dy}{\Delta y}
 \newcommand{\Dz}{\Delta z}
 
-\newcommand{\fs}{f_{\mathrm{s}}}
+\newcommand{\fs}{f_{\MR{s}}}
 
 \newcommand{\Dfour}{\SI{4.39}{\micro\meter}}
 \newcommand{\Dtwo}{\SI{2.06}{\micro\meter}}
@@ -106,26 +107,26 @@
 \newcommand{\ey}{\vb{e}_{y}}
 \newcommand{\ez}{\vb{e}_{z}}
 
-\newcommand{\fex}{f_{\mathrm{ex}}}
+\newcommand{\fex}{f_{\MR{ex}}}
 
 \newcommand{\wavelength}{\lambda}
 
-\newcommand{\lap}{\wavelength_{\mathrm{p}}}
-\newcommand{\laF}{\wavelength_{\mathrm{F}}}
-\newcommand{\lal}{\wavelength_{\mathrm{l}}}
+\newcommand{\lap}{\wavelength_{\MR{p}}}
+\newcommand{\laF}{\wavelength_{\MR{F}}}
+\newcommand{\lal}{\wavelength_{\MR{l}}}
 
 \newcommand{\viscosity}{\mu}
 \newcommand{\density}{\rho}
 \newcommand{\kinematicviscosity}{\nu}
 
 % fluid properties
-\newcommand{\cfl}{c_{\mathrm{f}}}
-\newcommand{\muef}{\viscosity_{\mathrm{f}}}
-\newcommand{\rhof}{\density_{\mathrm{f}}}
+\newcommand{\cfl}{c_{\MR{f}}}
+\newcommand{\muef}{\viscosity_{\MR{f}}}
+\newcommand{\rhof}{\density_{\MR{f}}}
 
-\newcommand{\rhop}{\density{\mathrm{p}}}
+\newcommand{\rhop}{\density{\MR{p}}}
 
-\newcommand{\timeconstant}[1]{\tau_{\mathrm{#1}}}
+\newcommand{\timeconstant}[1]{\tau_{\MR{#1}}}
 
 \newcommand{\tdrag}{\timeconstant{drag}}
 \newcommand{\tOT}{\timeconstant{OT}}
@@ -139,10 +140,10 @@
 \newcommand{\trho}{\tilde{\rho}}
 \newcommand{\tdelta}{\tilde{\delta}}
 % imaginary unit
-\newcommand{\iu}{\mathrm{i}\mkern1mu}
+\newcommand{\iu}{\MR{i}\mkern1mu}
 
 \newcommand{\um}{\si{\micro\meter}}
 \newcommand{\rpm}{rpm}
 
 \newcommand{\normBdLayer}{\tilde{\delta}}
-\newcommand{\finalOmega}{\Omega_{\mathrm{equ}}}
+\newcommand{\finalOmega}{\Omega_{\MR{equ}}}
