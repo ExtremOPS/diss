@@ -83,6 +83,43 @@
 
 \subsection{Optical Position Detection\label{sec:Th-QPD}}
 
+\begin{equation}
+  \intensity = \intensity(x, y) = \frac{1}{2\pi\,R_{0}^{2}}\,\exp\left[ 
+  -\frac{1}{2}\,\frac{(x-x_{0})^{2} + (y - y_{0})^{2}}{R_{0}^{2}} \right]
+    \label{eq:Th-intensity}
+\end{equation}
+
+$R_{0}=\sfrac{\RA}{5}$
+
+
+\begin{subequations}
+\begin{align}
+  V_{\MR{1}} & = \int_{0}^{\sfrac{\pi}{2}}\int_{0}^{\RA}
+  \intensity\left( r\cos\varphi, r\sin\varphi \right)\,r\,\dd{r}\dd{\varphi} 
+  \\[3mm]
+  V_{\MR{2}} & = \int_{\sfrac{\pi}{2}}^{\pi}\int_{0}^{\RA}
+  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
+  \\[3mm]
+  V_{\MR{3}} & = \int_{\pi}^{\sfrac{3\pi}{2}}\int_{0}^{\RA}
+  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
+  \\[3mm]
+  V_{\MR{4}} & = \int_{\sfrac{3\pi}{2}}^{2\pi}\int_{0}^{\RA}
+  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
+\end{align}
+\end{subequations}
+
+
+\begin{subequations}
+\begin{align}
+  V_{\MR{x}} & = \left( V_{\MR{1}}+V_{\MR{4}} \right) - \left( V_{\MR{2}} + 
+  V_{\MR{3}}  \right) \\
+  V_{\MR{y}} & = \left( V_{\MR{1}}+V_{\MR{2}} \right) - \left( V_{\MR{3}} + 
+  V_{\MR{4}}  \right) \\
+  V_{\MR{t}} & = V_{\MR{1}}+V_{\MR{2}} + V_{\MR{3}} + V_{\MR{4}}
+\end{align}
+\end{subequations}
+
+
 \subsection{Laser Induced Temperature Change\label{sec:Th-temperature}}
 
 \lipsum[1-2]
