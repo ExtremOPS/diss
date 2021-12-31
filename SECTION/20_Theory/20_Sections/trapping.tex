@@ -2,6 +2,8 @@
 
 \subsection{Ray Optics\label{sec:Th-rayoptics}}
 
+\cite[Chapter 7]{Jackson2013}
+
 \begin{equation}
   \nf\,\sin\incident = \ns\,\sin\transmitted
   \label{eq:Th-Snell}
@@ -128,9 +130,19 @@
 non-magnetic approximation
 
 Fresnel equations specify the relation of the incident, reflected, and 
-transmitted electrical field of an electromagnetic wave \cite{Jackson2013}
+transmitted electrical field of an electromagnetic wave
 
 
+\cite[Chapter 7]{Jackson2013}
+
+\begin{subequations}
+\begin{align}
+  \vb{E}_{\mathrm{r}} & =\fresnelr_{i}\,\vb{E}_{\mathrm{i}} \\[3mm]
+  \vb{E}_{\mathrm{t}} & =\fresnelt_{i}\,\vb{E}_{\mathrm{i}}
+\end{align}
+\end{subequations}
+
+\cite[Chapter 7]{Jackson2013}
 
 \begin{subequations}
 \begin{align}
@@ -150,6 +162,18 @@ transmitted electrical field of an electromagnetic wave \cite{Jackson2013}
 \end{subequations}
 
 power of electromagnetic wave
+
+\cite[Chapter 7]{Jackson2013}
+
+
+for plane emw in free space with $\mu_{\mathrm{r}} = 1$ (non-magnetic)
+
+\begin{equation}
+  \intensity = \timeaverage{\abs{\vb{S}}} = 
+  \timeaverage{\abs{\vb{E}_{0}\times\vb{H}_{0}}} = 
+  \frac{1}{2}\,\frac{\refraction}{Z_{0}}\,\abs{\vb{E}_{0}}^{2} = 
+  \frac{1}{2}\,\refraction\,c\epsilon_{0}\,\abs{\vb{E}_{0}}^{2}
+\end{equation}
 
 \begin{equation}
   P = \intensity\,A \propto \refraction\,\abs{\vb{E}_{0}}^{2}\,A
@@ -177,7 +201,7 @@ power of electromagnetic wave
 
 % \begin{subequations}
 % \begin{align}
-  % \fresnelR_{\mathrm{s,p}} & = \fresnelr_{\mathrm{s,p}}^{2} 
+  % \fresnelR_{\mathrm{s,p}} & = \resnelr_{\mathrm{s,p}}^{2} 
   % \label{eq:Th-fresnel-R}\\
   % \fresnelT_{\mathrm{s,p}} & = \fresnelt_{\mathrm{s,p}}^{2}\,
   % \frac{\ns\,\cos\reflected}{\nf\,\cos\incident}
