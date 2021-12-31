@@ -47,7 +47,7 @@
       \addplot[dashed] table[x=x,y=V_2] {\data};
     \nextgroupplot[
       % ylabel={$\tilde{I}$},
-      xlabel={$\sfrac{x}{\RA}$},
+      xlabel={$\sfrac{x_{0}}{\RA}$},
       title={$y = \sfrac{0.64}{\RA}$},
       title style={yshift=-2mm},
       ]

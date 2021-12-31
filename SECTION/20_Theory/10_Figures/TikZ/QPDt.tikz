@@ -9,7 +9,7 @@
 }
 \begin{tikzpicture}
   \begin{axis}[view={0}{90},
-      xlabel=$\sfrac{x}{\RA}$,
+      xlabel=$\sfrac{x_{0}}{\RA}$,
       yticklabels={,,},
       height=50mm,
       width=50mm,

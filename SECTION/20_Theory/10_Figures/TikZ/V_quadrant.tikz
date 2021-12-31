@@ -41,7 +41,7 @@
 
     \nextgroupplot[
       xticklabels={,,},
-      ylabel={$\sfrac{y}{\RA}$},
+      ylabel={$\sfrac{y_{0}}{\RA}$},
     ]
         \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V4] {\data};
         \tikzHelper
@@ -58,15 +58,15 @@
         \tikzHelper
 
     \nextgroupplot[
-      xlabel={$\sfrac{x}{\RA}$},
-      ylabel={$\sfrac{y}{\RA}$},
+      xlabel={$\sfrac{x_{0}}{\RA}$},
+      ylabel={$\sfrac{y_{0}}{\RA}$},
     ]
         \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V3]
         {\data};
         \tikzHelper
 
     \nextgroupplot[
-      xlabel={$\sfrac{x}{\RA}$},
+      xlabel={$\sfrac{x_{0}}{\RA}$},
       yticklabels={,,},
     ]
         \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V2] {\data};

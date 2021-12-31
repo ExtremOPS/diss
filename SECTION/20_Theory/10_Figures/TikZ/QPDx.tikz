@@ -16,8 +16,8 @@
 
 \begin{tikzpicture}
   \begin{axis}[view={0}{90},
-      xlabel=$\sfrac{x}{\RA}$,
-      ylabel=$\sfrac{y}{\RA}$,
+      xlabel=$\sfrac{x_{0}}{\RA}$,
+      ylabel=$\sfrac{y_{0}}{\RA}$,
       point meta min=-1,
       point meta max=1,
       height=50mm,

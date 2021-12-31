@@ -16,7 +16,7 @@
 
 \begin{tikzpicture}
   \begin{axis}[view={0}{90},
-      xlabel=$\sfrac{x}{\RA}$,
+      xlabel=$\sfrac{x_{0}}{\RA}$,
       yticklabels={,,},
       point meta min=-1,
       point meta max=1,
