@@ -23,19 +23,19 @@
     \nextgroupplot[
     % ylabel={$\tilde{I}$},
       xticklabels={,,},
-      title={$y = \sfrac{-0.64}{\R}$},
+      title={$y = \sfrac{-0.64}{\RA}$},
       title style={yshift=-2mm},
       ]
       \tikzHelper
       \addplot[dotted] table[x=x,y=Vx_1] {\data};
-      \addlegendentry{$V_{\mathrm{x}}$};
+      \addlegendentry{$V_{\MR{x}}$};
       \addplot[] table[x=x,y=Vy_1] {\data};
-      \addlegendentry{$V_{\mathrm{y}}$};
+      \addlegendentry{$V_{\MR{y}}$};
       \addplot[dashed] table[x=x,y=V_1] {\data};
-      \addlegendentry{$V_{\mathrm{t}}$};
+      \addlegendentry{$V_{\MR{t}}$};
     \nextgroupplot[
       % ylabel={$\tilde{I}$},
-      title={$y = \sfrac{0}{\R}$},
+      title={$y = \sfrac{0}{\RA}$},
       title style={yshift=-2mm},
       xticklabels={,,},
       ylabel={Normalized Intensity $\normalized{\intensity}$},
@@ -47,8 +47,8 @@
       \addplot[dashed] table[x=x,y=V_2] {\data};
     \nextgroupplot[
       % ylabel={$\tilde{I}$},
-      xlabel={$\sfrac{x}{\R}$},
-      title={$y = \sfrac{0.64}{\R}$},
+      xlabel={$\sfrac{x}{\RA}$},
+      title={$y = \sfrac{0.64}{\RA}$},
       title style={yshift=-2mm},
       ]
       \tikzHelper
