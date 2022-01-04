@@ -2,12 +2,12 @@
 
 
 \begin{equation}
-  \pdv{\rhof}{t} + \pdv{x_{i}}(\rhof\,\vel_{i}) = 0
+  \pdv{\density}{t} + \pdv{x_{i}}(\density\,\vel_{i}) = 0
   \label{eq:Th-massconservatio}
 \end{equation}
 
 \begin{equation}
-  \rhof\left( \pdv{\vel_{i}}{t} + \vel_{j}\pdv{\vel_{i}}{x_{j}}\right) = 
+  \density\left( \pdv{\vel_{i}}{t} + \vel_{j}\pdv{\vel_{i}}{x_{j}}\right) = 
   \pdv{\stress}{x_{j}}
   \label{eq:Th-navier}
 \end{equation}
@@ -20,13 +20,13 @@
 \end{equation}
 
 \begin{equation}
-  \pdv{t}\left( \rhof\,\vel_{i} \right) = \pdv{x_{j}} \left( \stress - 
-  \rhof\,\vel_{i}\,\vel_{j} \right)
+  \pdv{t}\left( \density\,\vel_{i} \right) = \pdv{x_{j}} \left( \stress - 
+  \density\,\vel_{i}\,\vel_{j} \right)
     \label{eq:Th-navierconservative}
 \end{equation}
 
 \begin{equation}
-  \pre = \pre\left( \rhof \right)
+  \pre = \pre\left( \density \right)
   \label{eq:Th-state}
 \end{equation}
 
@@ -34,7 +34,7 @@
 \begin{alignat}{4}
   \pre & = \zeOrder{\pre} & + \stOrder{\pre} & + \ndOrder{\pre} & + \ldots 
   \label{eq:Th-per-pre}\\
-  \rhof & = \zeOrder{\rhof} & + \stOrder{\rhof} & + \ndOrder{\rhof} & + \ldots 
+  \density & = \zeOrder{\density} & + \stOrder{\density} & + \ndOrder{\density} & + \ldots 
   \label{eq:Th-per-rho}\\
   \stress & = \zeOrder{\stress} & + \stOrder{\stress} & + \ndOrder{\stress} & + 
   \ldots \label{eq:Th-per-stress} \\
@@ -46,13 +46,12 @@
 \subsection{First Order Solution\label{sec:Th-firstorder}}
 
 \begin{equation}
-  \pdv{\stOrder{\rhof}}{t} + \zeOrder{\rhof}\,\pdv{\stOrder{\vel_{i}}}{x_{i}} = 
-  0
+  \pdv{\stOrder{\density}}{t} + \zeOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{x_{i}} = 0
   \label{eq:Th-st-massconservatio}
 \end{equation}
 
 \begin{equation}
-  \zeOrder{\rhof} \pdv{\stOrder{\vel_{i}}}{t} = \pdv{\stOrder{\stress}}{x_{j}}
+  \zeOrder{\density} \pdv{\stOrder{\vel_{i}}}{t} = \pdv{\stOrder{\stress}}{x_{j}}
   \label{eq:Th-st-navier}
 \end{equation}
 
@@ -65,7 +64,7 @@
 \end{equation}
 
 \begin{equation}
-  \stOrder{\pre} = \cfl^{2}\,\stOrder{\rhof}
+  \stOrder{\pre} = \cfl^{2}\,\stOrder{\density}
   \label{eq:Th-st-pre}
 \end{equation}
 
@@ -74,16 +73,15 @@
 \subsection{Second Order Solution\label{sec:Th-secondorder}}
 
 \begin{equation}
-  \pdv{\ndOrder{\rhof}}{t} + 
-  \pdv{x_{i}}\left(\stOrder{\rhof}\,\stOrder{\vel_{i}} + 
-  \zeOrder{\rhof}\,\ndOrder{\vel_{i}} \right) = 0
+  \pdv{\ndOrder{\density}}{t} + \pdv{x_{i}}\left(\stOrder{\density}\,\stOrder{\vel_{i}} 
+  + \zeOrder{\density}\,\ndOrder{\vel_{i}} \right) = 0
   \label{eq:Th-nd-massconservatio}
 \end{equation}
 
 \begin{equation}
-  \stOrder{\rhof}\,\pdv{\stOrder{\vel_{i}}}{t} + \zeOrder{\rhof} 
+  \stOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{t} + \zeOrder{\density} 
   \pdv{\ndOrder{\vel_{i}}}{t} + 
-  \zeOrder{\rhof}\,\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}} = 
+  \zeOrder{\density}\,\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}} = 
   \pdv{\ndOrder{\stress}}{x_{j}}
   \label{eq:Th-nd-navier}
 \end{equation}
@@ -109,14 +107,14 @@
 
 \begin{equation}
   \pdv{x_{i}}\left( \timeaverage{\ndOrder{\vel_{i}}} \right) = 
-  -\frac{1}{\zeOrder{\rhof}} \pdv{x_{i}}\left(\timeaverage{ 
-  \stOrder{\rhof}\,\stOrder{\vel_{i}} }\right)
+  -\frac{1}{\zeOrder{\density}} \pdv{x_{i}}\left(\timeaverage{ 
+  \stOrder{\density}\,\stOrder{\vel_{i}} }\right)
   \label{eq:Th-avg-massconservatio}
 \end{equation}
 
 \begin{equation}
-  \timeaverage{\stOrder{\rhof} \pdv{\stOrder{\vel_{i}}}{t}} + 
-  \zeOrder{\rhof}\,\timeaverage{\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}}} 
+  \timeaverage{\stOrder{\density} \pdv{\stOrder{\vel_{i}}}{t}} + 
+  \zeOrder{\density}\,\timeaverage{\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}}} 
   = \pdv{x_{j}}\left( \timeaverage{\ndOrder{\stress}} \right)
   \label{eq:Th-avg-navier}
 \end{equation}
