@@ -41,7 +41,11 @@
   \path (9.5,-3.25) -- ++(1,0) node[above, midway, anchor=south] {Focussing 
   lens};
 
-  \shade[ball color=black!10] (8.5,-4) circle (.25);
+  \coordinate (M) at (8.5,-4);
+  \draw[black,thin,->] (M) -- node[above,pos=0.9] {\tiny$\ex$} ++(0,0.5);
+  \draw[black,thin,->] (M) -- node[above,pos=0.9] {\tiny$\ey$} ++(0.4,0.4);
+  \draw[black,thin,->] (M) -- node[above,pos=0.9] {\tiny$\ez$} ++(-0.5,0);
+  \shade[ball color=black!10] (M) circle (.25);
 
   \path (8.25,-4.5) -- ++(0.5,0) node[below, midway] {particle};
 
