@@ -1,13 +1,16 @@
-\section{Acoustic\label{sec:Th-acoustic}}
-
-
 \begin{equation}
   \pdv{\density}{t} + \pdv{x_{i}}(\density\,\vel_{i}) = 0
   \label{eq:Th-massconservatio}
 \end{equation}
 
 \begin{equation}
-  \density\left( \pdv{\vel_{i}}{t} + \vel_{j}\pdv{\vel_{i}}{x_{j}}\right) = 
+  \pdv{t}\left( \density\,\vel_{i} \right) = \pdv{x_{j}} \left( \stress - 
+  \density\,\vel_{i}\,\vel_{j} \right)
+    \label{eq:Th-navierconservative}
+\end{equation}
+
+\begin{equation}
+  \density\left( \pdv{\vel_{i}}{t} + \vel_{i}\pdv{\vel_{j}}{x_{j}}\right) = 
   \pdv{\stress}{x_{j}}
   \label{eq:Th-navier}
 \end{equation}
@@ -20,13 +23,7 @@
 \end{equation}
 
 \begin{equation}
-  \pdv{t}\left( \density\,\vel_{i} \right) = \pdv{x_{j}} \left( \stress - 
-  \density\,\vel_{i}\,\vel_{j} \right)
-    \label{eq:Th-navierconservative}
-\end{equation}
-
-\begin{equation}
-  \pre = \pre\left( \density \right)
+  \pre \coloneqq \pre\left( \density \right)
   \label{eq:Th-state}
 \end{equation}
 
@@ -43,7 +40,7 @@
 \end{alignat}
 \end{subequations}
 
-\subsection{First Order Solution\label{sec:Th-firstorder}}
+\section{First Order Solution\label{sec:Th-firstorder}}
 
 \begin{equation}
   \pdv{\stOrder{\density}}{t} + \zeOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{x_{i}} = 0
@@ -70,7 +67,7 @@
 
 
 
-\subsection{Second Order Solution\label{sec:Th-secondorder}}
+\section{Second Order Solution\label{sec:Th-secondorder}}
 
 \begin{equation}
   \pdv{\ndOrder{\density}}{t} + \pdv{x_{i}}\left(\stOrder{\density}\,\stOrder{\vel_{i}} 
@@ -95,7 +92,7 @@
 \end{equation}
 
 
-\subsection{Time-averaged Second Order Solution\label{Th-avg-nd-order}}
+\section{Time-averaged Second Order Solution\label{Th-avg-nd-order}}
 
 \begin{equation}
   \timeaverage{\pdv{t}\,f(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
@@ -104,6 +101,8 @@
   \label{eq:Th-avg-property}
 \end{equation}
 
+timeaverage of first and second order fields is zero --> but not the product of 
+them BAASCH2020
 
 \begin{equation}
   \pdv{x_{i}}\left( \timeaverage{\ndOrder{\vel_{i}}} \right) = 
@@ -123,11 +122,20 @@ first term remains because it is a product of first order fields
 
 timeaverage of a constant function is the function itself
 
-\subsection{Acoustic Radiation Force\label{sec:Th-ARF}}
+\section{Acoustic Radiation Force\label{sec:Th-ARF}}
 
 \begin{equation}
-  F_{\MR{ARF}\,i} \coloneqq
+  F^{\MR{rad}}_{i} \coloneqq
   \timeaverage{\int_{S(t)}\,\stress\,\normal(t)\,\dd{S}}
-  \label{eq:Th-def-ARF}
+  \label{eq:Th-def-rad}
 \end{equation}
+
+
+\begin{equation}
+  F^{\MR{rad}}_{i} \approx
+  \timeaverage{\int_{S(t)}\,\stOrder{\stress}\,\normal(t)\,\dd{S}} +
+  \int_{\zeOrder{S}}\,\timeaverage{\ndOrder{\stress}}\,\normal\,\dd{S}
+  \label{eq:Th-def-approx-ARF}
+\end{equation}
+
 

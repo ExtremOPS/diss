@@ -1,5 +1,3 @@
-\section{Optical Trapping\label{sec:Th-trapping}}
-
 The interaction of light with any other object is described best with a set of 
 equations called the Maxwell equations. This set of equations fully capture and 
 describes the electromagnetic wave nature of light. It relates point wise the 
@@ -38,7 +36,7 @@ differentiate between quantitative and qualitative analysis. In all here
 presented results we use our optical trapping setup as tool for relating 
 results qualitatively.
 
-\subsection{Experimental Setup}
+\section{Experimental Setup}
 
 \begin{figure}[htp]
   \centering
@@ -98,43 +96,125 @@ here~\cite{Lamprecht2017}. An discussion of different calibration options is
 available from \citeauthor{Svoboda1994}~\cite{Svoboda1994} and 
 \citeauthor{Jun2004}~\cite{Jun2004}.
 
-\subsection{Ray Optics\label{sec:Th-rayoptics}}
+\section{Ray Optics\label{sec:Th-rayoptics}}
 
-\cite[Chapter 7]{Jackson2013}
-
+As said before, in the regime of ray optics the propagation of light is 
+visualized by single rays. The interaction of a single ray at an interface is 
+then studied geometrically. The defining property for these kind of 
+investigations is the so called refractive index $\refraction$. Light travels 
+in vacuum at speed of light $c=\SI{299792458}{\m\per\s}$. In other mediums than 
+vacuum the speed of light has a different (smaller) magnitude. The refractive 
+index relates the speed of light of vacuum $c$ to any other material $c_{\Box}$
 \begin{equation}
-  \nf\,\sin\incident = \ns\,\sin\transmitted
-  \label{eq:Th-Snell}
+  c_{\Box} = \frac{c}{n}.
+  \label{eq:Th-lightspeed}
 \end{equation}
-
+Since there is nothing faster than the speed of light, the refractive index 
+$\refraction$ cannot be smaller than 1. This index is not constant for one 
+material but a function of the wavelength $\lambda$. Additionally, the 
+refractive is in general a complex quantity
 \begin{equation}
-  \text{NA} = \nf\,\sin\incident
-  \label{eq:Th-NA}
+  \refraction\geq 1 \quad \wedge \quad \refraction \coloneqq 
+  \refraction(\lambda) = \refraction(\lambda) - \iu\alpha(\lambda)
+  \label{eq:Th-refractive-index}
 \end{equation}
-
-\begin{equation}
-  \theta_{\MR{TIR}} \text{~for~} \sin^{-1}\left( \frac{\ns}{\nf}\,\sin\incident 
-  \right) > 1
-  \label{eq:Th-TIR}
-\end{equation}
-
-\begin{equation}
-  \theta_{\MR{B}} = \tan^{-1}\left( \frac{\ns}{\nf} \right)
-  \label{eq:Th-brewster}
-\end{equation}
-
-\lipsum[1-2]
+where $\alpha$ is called the absorption coefficient~\cite{Jackson2013}. Any ray 
+of any wavelength is attenuated when propagating through any medium, e.g. in a 
+depth of approximately \SI{1}{\kilo\meter} it is completely dark in the ocean 
+because all the intensity of the sunlight is attenuated there. The absorption 
+coefficient captures how fast this attenuation occurs.
 
 \begin{figure}[htp]
   \centering
   % \input{\relPath/10_Figures/TikZ/Snell.tikz}
   \includegraphics[]{Plots/cache/Snell.pdf}
-  \caption{Caption}
-  \label{fig:Th-snell}
+  \caption{Visualization of \emph{Snell's Law} for rays at an interface of two 
+  media with different refractive indices $\refraction_{\Box}$.}
+  \label{fig:Th-Snell}
 \end{figure}
 
+The most important relation in the ray optics regime is \emph{Snell's Law} (see 
+also \cref{fig:Th-Snell})
+\begin{equation}
+  \nf\,\sin\incident = \ns\,\sin\transmitted.
+  \label{eq:Th-Snell}
+\end{equation}
+It connects the angle of incident $\incident$ with the transmitted angle 
+$\transmitted$ at an interface of two different media with refractive indices 
+$\ns$ and $\nf$, respectively. This law is based on the fact that a ray of 
+light travels on the fastest path (not the shortest) between two 
+points~\cite{Born1980Ch3}. The angle of the reflected ray is equal to the 
+incident angle ($\reflected=\incident$).
 
-\lipsum[1-2]
+There is one more angle of special interest. It is the angle of total internal 
+reflection $\theta_{\MR{TIR}}$
+\begin{equation}
+  \theta_{\MR{TIR}}=\incident \quad\forall\quad \frac{\nf}{\ns}\,\sin\incident 
+  > 1.
+  \label{eq:Th-TIR}
+\end{equation}
+For incident angles of this magnitude or greater 
+($\incident>\theta_{\MR{TIR}}$), no ray is transmitted into the other medium. 
+This can only occur if the index of refraction of the incident medium is 
+greater than the transmitted medium ($\nf>\ns$ in \cref{fig:Th-Snell}) 
+otherwise the ratio $\sfrac{\nf}{\ns}$ of \cref{eq:Th-TIR} is always smaller 
+than unity and there is physically no total internal reflection possible.
+
+% The other angle of special interest is the so called \emph{Brewster Angle} 
+% $\theta_{\MR{B}}$
+% \begin{equation}
+  % \theta_{\MR{B}} = \tan^{-1}\left( \frac{\ns}{\nf} \right).
+  % \label{eq:Th-brewster}
+% \end{equation}
+% At this angle there does not occur an reflection and hence all the intensity is 
+% transmitted.
+
+So far, \cref{eq:Th-Snell} calculates in which direction a ray will travel 
+after an interface of two media. The magnitude of the reflected and transmitted 
+ray can be computed with the so called \emph{Fresnel 
+Equations}~\cite{Jackson2013,Born1980Ch1}. Although we think of light as rays, 
+the theory behind those equations is based on the electromagnetic wave 
+character of light. For time harmonic electromagnetic waves the amplitude of 
+the incident electric wave vector $\vb{E}_{\MR{i}}$ to the transmitted 
+$\vb{E}_{\MR{t}}$ and to the reflected $\vb{E}_{\MR{t}}$ electric wave vector 
+is related by $\fresnelr_{i}$ and $\fresnelt_{i}$
+\begin{subequations}
+\begin{align}
+  \vb{E}_{\MR{r}} & =\fresnelr_{i}\,\vb{E}_{\MR{i}} \\[3mm]
+  \vb{E}_{\MR{t}} & =\fresnelt_{i}\,\vb{E}_{\MR{i}}
+\end{align}
+\end{subequations}
+where the subscript $i$ can either be $i=\MR{p}$ for p-polarized light or 
+$i=\MR{s}$ for s-polarized light~\cite{Jackson2013,Born1980Ch1}. ``s'' and 
+``p'' stand for the German words ``parallel'' (parallel) and ``senkrecht'' 
+(perpendicular), respectively. They refer to the to the orientation of the 
+incident electric field $\vb{E}_{\MR{i}}$ to the plane of incident. For the 
+special cases of ``p'' and ``s'' polarized light the Fresnel coefficient are 
+\begin{subequations}
+\begin{align}
+  \fresnelr_{\MR{s}} & =
+  \frac{2\,\nf\,\cos\incident}{\nf\,\cos\incident + \ns\,\cos\reflected} 
+  \label{eq:th-fresnel-rs}\\[3mm]
+  \fresnelt_{\MR{s}} & = \frac{\nf\,\cos\incident - 
+  \ns\,\cos\reflected}{\nf\,\cos\incident + \ns\,\cos\reflected} 
+  \label{eq:th-fresnel-ts}\\[3mm]
+  \fresnelr_{\MR{p}} & =
+  \frac{2\,\nf\,\cos\incident}{\ns\,\cos\incident + \nf\,\cos\reflected} 
+  \label{eq:th-fresnel-rp}\\[3mm]
+  \fresnelt_{\MR{p}} & = \frac{\ns\,\cos\incident - 
+  \nf\,\cos\reflected}{\ns\,\cos\incident + \nf\,\cos\reflected}
+\label{eq:th-fresnel-tp}
+\end{align}
+\end{subequations}
+for the assumption that both media are non-magnetic ($\mu_{\MR{f}} = 
+\mu_{\MR{s}} = \mu_{0} = 1$)~\cite{Born1980Ch1}.
+
+
+
+\begin{equation}
+  \text{NA} = \nf\,\sin\incident
+  \label{eq:Th-NA}
+\end{equation}
 
 \begin{figure}[htp]
   \centering
@@ -194,7 +274,7 @@ available from \citeauthor{Svoboda1994}~\cite{Svoboda1994} and
 \end{equation}
 
 
-\subsection{Optical Position Detection\label{sec:Th-QPD}}
+\section{Optical Position Detection\label{sec:Th-QPD}}
 
 \begin{equation}
   \intensity = \intensity(x, y) = \frac{1}{2\pi\,R_{0}^{2}}\,\exp\left[ 
@@ -233,7 +313,7 @@ $R_{0}=\sfrac{\RA}{5}$
 \end{subequations}
 
 
-\subsection{Laser Induced Temperature Change\label{sec:Th-temperature}}
+\section{Laser Induced Temperature Change\label{sec:Th-temperature}}
 
 \lipsum[1-2]
 
@@ -283,33 +363,6 @@ Fresnel equations specify the relation of the incident, reflected, and
 transmitted electrical field of an electromagnetic wave
 
 
-\cite[Chapter 7]{Jackson2013}
-
-\begin{subequations}
-\begin{align}
-  \vb{E}_{\MR{r}} & =\fresnelr_{i}\,\vb{E}_{\MR{i}} \\[3mm]
-  \vb{E}_{\MR{t}} & =\fresnelt_{i}\,\vb{E}_{\MR{i}}
-\end{align}
-\end{subequations}
-
-\cite[Chapter 7]{Jackson2013}
-
-\begin{subequations}
-\begin{align}
-  \fresnelr_{\MR{s}} & =
-  \frac{2\,\nf\,\cos\incident}{\nf\,\cos\incident + \ns\,\cos\reflected} 
-  \label{eq:th-fresnel-rs}\\[3mm]
-  \fresnelt_{\MR{s}} & = \frac{\nf\,\cos\incident - 
-  \ns\,\cos\reflected}{\nf\,\cos\incident + \ns\,\cos\reflected} 
-  \label{eq:th-fresnel-ts}\\[3mm]
-  \fresnelr_{\MR{p}} & =
-  \frac{2\,\nf\,\cos\incident}{\ns\,\cos\incident + \nf\,\cos\reflected} 
-  \label{eq:th-fresnel-rp}\\[3mm]
-  \fresnelt_{\MR{p}} & = \frac{\ns\,\cos\incident - 
-  \nf\,\cos\reflected}{\ns\,\cos\incident + \nf\,\cos\reflected}
-\label{eq:th-fresnel-tp}
-\end{align}
-\end{subequations}
 
 power of electromagnetic wave
 
@@ -365,6 +418,17 @@ for plane emw in free space with $\mu_{\MR{r}} = 1$ (non-magnetic)
   \frac{\fresnelT_{\MR{s}}+\fresnelT_{\MR{p}}}{2} = 1 
   \label{eq:Th-fresnel}
 \end{equation}
+
+\begin{subequations}
+  \begin{alignat}{2}
+  P_{\MR{t}}^{(1)} & = \fresnelT\,P_{\MR{i}}^{(1)} & \\
+  P_{\MR{r}}^{(2)} & = \fresnelR\,P_{\MR{t}}^{(1)} & = 
+  \fresnelR\fresnelT\,P_{\MR{i}}^{(1)} \\
+  P_{\MR{t}}^{(2)} & = \fresnelT\,P_{\MR{t}}^{(1)} & = 
+  \fresnelT^{2}\,P_{\MR{i}}^{(1)} > 0.99\,P_{\MR{i}}^{(1)}
+\end{alignat}
+\end{subequations}
+
 
 
 \begin{figure}[htp]
