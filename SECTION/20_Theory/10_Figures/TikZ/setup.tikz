@@ -55,8 +55,8 @@
   \path (6.5,-3.25) -- ++(1,0) node[above, midway, anchor=south] {Condensor 
   lens};
 
-  \filldraw[color=black, fill=black!50] (5.5,-4.5) rectangle ++(-1,1);
-  \path (4.5,-4.5) -- ++(1,0) node[below, midway, anchor=north] {Filter};
+  \filldraw[color=black, fill=black!50] (5.8,-4.5) rectangle ++(-1,1);
+  \path (4.8,-4.5) -- ++(1,0) node[below, midway, anchor=north] {Filter};
 
   \fill[tempcolor] (2.5,-4) ellipse (0.15 and 0.75);
   \path (2,-3.25) -- ++(1,0) node[above, midway, anchor=south] {Lens 3};
@@ -65,13 +65,30 @@
   \draw[thick,black,dotted] (0,-4) -- ++(0.8,0);
   \draw[thick,black,dotted] (0.4,-4.4) -- ++(0,0.8);
 
-  \path (0,-3.5) -- ++(0.8,0) node[above, midway, anchor=south] {QPDs};
+  \path (0,-3.5) -- ++(0.8,0) node[above, midway, anchor=south] {QPDxy};
   \filldraw[color=red!50] (0.4,-4) circle (.2);
 
-  \draw[red, thick] (11, -3.6) -- ++(-1,0) -- ++(-3,-0.8) -- (5.5,-4.4);
-  \draw[red, thick] (11, -4.4) -- ++(-1,0) -- ++(-3,+0.8) -- (5.5,-3.6);
-  \draw[red!50, thick, dashed]  (4.5,-4.4) -- (2.5,-4.4) -- (0.4,-3.8);
-  \draw[red!50, thick, dashed]  (4.5,-3.6) -- (2.5,-3.6) -- (0.4,-4.2);
+  \draw[red, thick] (11, -3.6) -- ++(-1,0) -- ++(-3,-0.8) -- (5.8,-4.4);
+  \draw[red, thick] (11, -4.4) -- ++(-1,0) -- ++(-3,+0.8) -- (5.8,-3.6);
+  \draw[red!50, thick, dashed]  (4.8,-4.4) -- (2.5,-4.4) -- (0.4,-3.8);
+  \draw[red!50, thick, dashed]  (4.8,-3.6) -- (2.5,-3.6) -- (0.4,-4.2);
+
+  % beam splitter
+  \draw[gray,very thick] (3.2,-3.5) -- ++(1,-1);
+  \path (3.2,-4.5) -- ++(1,0) node[below,midway] {Splitter};
+
+  \fill[tempcolor] (3.7,-2.5) ellipse (0.75 and 0.15);
+  \path (4.6,-2.5) -- ++(1,0) node[midway] {Lens 4};
+
+  \filldraw[color=black, fill=black!10] (3.3,-2.0) rectangle ++(0.8,0.8);
+  \draw[thick,black,dotted] (3.7,-2) -- ++(0,0.8);
+  \draw[thick,black,dotted] (3.3,-1.6) -- ++(0.8,0);
+  \path (2.9,-1.6) -- ++(-0.8,0) node[midway] {QPDz};
+
+  \filldraw[color=red!50,opacity=0.3] (3.7,-1.6) circle (0.6);
+
+  \draw[red!50, thick, dashed]  (3.3,-3.6) -- ++(0,1.1) -- (4.3,-2);
+  \draw[red!50, thick, dashed]  (4.1,-4.4) -- ++(0,1.9) -- (3.1,-2);
 
 
 \begin{axis}[
