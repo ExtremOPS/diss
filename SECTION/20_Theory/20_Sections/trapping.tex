@@ -1,13 +1,12 @@
 \section{Optical Trapping\label{sec:Th-trapping}}
 
 The interaction of light with any other object is described best with a set of 
-equations called the Maxwell equations. This set of equations fully captures 
-and describes the electromagnetic wave nature of light. It relates point wise 
-the electric wave vector $\vb{E}$, the magnetic induction $\vb{E}$, the 
-electric current density $\vb{j}$, the electric displacement $\vb{D}$, and the 
-magnetic vector $\vb{H}$ with each other for objects where the physical 
-properties are continuous in the neighbourhood of the point of 
-interest~\cite{Born1980Ch1}
+equations called the Maxwell equations. This set of equations fully capture and 
+describes the electromagnetic wave nature of light. It relates point wise the 
+electric wave vector $\vb{E}$, the magnetic induction $\vb{B}$, the electric 
+current density $\vb{j}$, the electric displacement $\vb{D}$, and the magnetic 
+vector $\vb{H}$ with each other for objects where the physical properties are 
+continuous in the neighbourhood of the point of interest~\cite{Born1980Ch1}
 \begin{subequations}
   \begin{align}
     \curl{\vb{H}} - \frac{1}{c}\pdv{t}\vb{D} &=\frac{4\pi}{c}\vb{j} 
@@ -20,25 +19,26 @@ interest~\cite{Born1980Ch1}
     \label{eq:Th-gauss-mag}
   \end{align}
 \end{subequations}
-where $c$ is the speed of light and $\rho_{\MR{E}}$ the total electric charge 
+with $c$ being the speed of light and $\rho_{\MR{E}}$ the total electric charge 
 density. Although, 
 \cref{eq:Th-ampere,eq:Th-faraday,eq:Th-gauss,eq:Th-gauss-mag} describe the 
 behavior of light fully, it is often more convenient to think of light as a 
 collection of single rays. In the limit of a vanishing small light wavelengths 
-$\lambda_{\text{light}}$ compared to the object size, the approximation of 
+$\lambda_{\text{light}}$ compared to the object size $R$, the approximation of 
 light as single rays is valid~\cite{Born1980Ch3}. This branch of describing the 
 propagation of light is called -- amongst others -- \emph{Ray Optics}.
 
 Our laser has a wavelength of $\lal=\SI{785}{\nm}$ and the smallest object we 
 use has a radius of $R=\SI{1.03}{\um}$. The ratio $\sfrac{2R}{\lal}\approx 2.6$ 
 is close to unity and the application of ray optics in our case might be 
-questionable. However, previous works 
+questionable. However, previous works with our optical trap
 \cite{Lakaemper2015,Lamprecht2016,Lamprecht2017} have shown that the ray 
-approximation is a reasonable approach for our case. In addition, one has to 
+approximation is a reasonable approach in our case. In addition, one has to 
 differentiate between quantitative and qualitative analysis. In all here 
 presented results we use our optical trapping setup as tool for relating 
 results qualitatively.
 
+\subsection{Experimental Setup}
 
 \begin{figure}[htp]
   \centering
