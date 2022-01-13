@@ -51,6 +51,53 @@ depicted.}
   \label{fig:Th-setup}
 \end{figure}
 
+Before highlighting important parts from ray optics it is advantageous to 
+understand our optical trapping setup which is based upon the work of Arthur 
+Ashkin~\cite{Ashkin1978,Ashkin1987,Ashkin2002,Ashkin1986,Ashkin1992,Ashkin1997}. 
+\cref{fig:Th-setup} depicts a basic schematic of the laser path from the laser 
+source to the quadrant photo detectors (QPDs) in the back focal plane. A 
+complete overview of our setup with a list and explanation of every used part 
+is available in~\cite{Lamprecht2017}.
+
+Our laser diode emits a tightly confined laser beam in the near-infrared regime 
+(non-visible) with a wavelength of $\lal=\SI{785}{\nm}$ and a maximal power of 
+$P=\SI{200}{\milli\watt}$ and with a transverse electromagnetic mode of order 
+00 (TEM$_{00}$). This laser profile is axisymmetric to the light propagation 
+direction and can be visualized with a rotating Gaussian bell curve. Next, the 
+beam is expanded such that it is much larger than the opening of the microscope 
+housing. The magnitude of the trapping forces are proportional to the laser 
+intensity of the beam. The biggest contribution to the total force stems from 
+the outer parts of the beam. Therefore, it is advantageous to broaden the beam 
+before guiding it to the focusing lens. The opening of the microscope is 
+overfilled by the broadened beam and the laser intensity after this cutoff can 
+be approximated with a flat-top profile. Hence, every light wave (also the ones 
+contributing most to the total trapping force) carries the same intensity.
+
+The next step is the focusing of the beam with a high numerical aperture (NA) 
+oil immersion lens. Here, the actual trapping of the particle occurs. If more 
+than just the trapping of particles is of interest, the beam needs to be 
+investigated further. The relative movement of the particle within the trap 
+contains the necessary information. In order to image the movement in the $\ex$ 
+and $\ey$ direction the beam is collimated again by the condensor lens after it 
+passed the particle and filtered to reduce its total intensity to prevent 
+damage of the QPDs. Before the beam is focussed, it is split into two because 
+the axial movement detection for $\ez$ and the in plane movement detection for 
+$\ex$ and $\ey$ have inherently different working principles.
+
+If the particle moves within the trap the spot on the QPDxy will also move. By 
+measuring the voltage on each quadrant of the QPDxy and summing and subtracting 
+certain quadrants it is possible to retrieve the information about the movement 
+in each direction separately. For the axial direction the opening of the QPDz 
+is overfilled. An axial movement of the particle causes a change of total 
+intensity on this QPD. By measuring the QPDz total intensity we have the 
+information about the relative movement of the particle within the trap. After 
+the calibration of the OT the measured voltages that are proportional to the 
+particle movement can be converted to the physical unit meter. The calibration 
+process itself is not relevant for this thesis but is available 
+here~\cite{Lamprecht2017}. An discussion of different calibration options is 
+available from \citeauthor{Svoboda1994}~\cite{Svoboda1994} and 
+\citeauthor{Jun2004}~\cite{Jun2004}.
+
 \subsection{Ray Optics\label{sec:Th-rayoptics}}
 
 \cite[Chapter 7]{Jackson2013}
