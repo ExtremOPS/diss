@@ -1,0 +1,48 @@
+\tikzsetnextfilename{n_water}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+
+\begin{tikzpicture}
+\begin{axis}[
+  height=80mm,
+  width=120mm,
+  no markers,
+  xlabel={$\lambda$ [\si{\nm}]},
+  ylabel={$n$ [-]},
+  x filter/.code={\pgfmathparse{#1*1000}\pgfmathresult}
+ ]
+
+    \addplot[black] table[x=wl,y=n] 
+    {\relPath/10_Figures/TikZ/Segelstein1981.dat};
+
+    \label{plot_n}
+    \draw[dashed,<->,latex-latex] ({axis cs:785,0}|-{rel axis cs:0,0.0}) -- 
+    (785,1.326244) -- node[above,pos=0.65,fill=white] {\footnotesize 1.326} 
+    ({0,1.326244}-|{rel axis cs:0,0});
+\end{axis}
+\begin{axis}[
+  height=80mm,
+  width=120mm,
+  axis y line*=right,
+  axis x line=none,
+  ylabel={$k$ [-]},
+  x filter/.code={\pgfmathparse{#1*1000}\pgfmathresult},
+  no markers,
+  ymode = log,
+]
+    \addlegendimage{/pgfplots/refstyle=plot_n}\addlegendentry{$n$}
+    \addplot[black,dash dot] table[x=wl,y=k] 
+    {\relPath/10_Figures/TikZ/Segelstein1981.dat};
+    \addlegendentry{$k$}
+
+    \draw[dashed,<->,latex-latex] ({axis cs:785,0}|-{rel axis cs:0,0.0}) -- 
+    (785,1.339e-07) -- node[above,pos=0.73] {\footnotesize 1.339e-07} 
+    ({0,1.339e-07}-|{rel axis cs:1,0});
+
+    \draw[dotted,<->,latex-latex] ({axis cs:1060,0}|-{rel axis cs:0,0.0}) -- 
+    (1060,1.2989431e-06) -- node[above,pos=0.53,fill=white] {\footnotesize 
+    1.299-06} ({0,1.299e-06}-|{rel axis cs:1,0});
+    % 1.2989431e-06
+\end{axis}
+\end{tikzpicture}
