@@ -1,0 +1,28 @@
+\tikzsetnextfilename{absorbed_energies}
+
+\begin{tikzpicture}
+  \begin{axis}[
+      view={0}{90},
+      ylabel={$a$ [-]},
+      xlabel={$R$ [\si{\um}]},
+      height=50mm,
+      width=100mm,
+      point meta min=0.2,
+      point meta max=2.7,
+      colorbar,
+      colormap = {whiteblack}{
+        color(0cm) = (white);
+        color(1cm) = (black)},
+      colorbar horizontal,
+      colorbar style={
+        title={\footnotesize Relative absorbed Energy ($\times 10^{4}$)},
+        at={(0,1.4)},
+        anchor=north west,
+        xtick={0.2,0.5,1.0,1.5,2.0,2.5},
+      },
+    ]
+      \addplot3[surf,mesh/rows=21,shader=interp] table[x=R,y=a,z=alpha] 
+      {\relPath/10_Figures/TikZ/absorbed_energies.dat};
+
+  \end{axis}
+\end{tikzpicture}
