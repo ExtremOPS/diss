@@ -1,12 +1,5 @@
 \tikzsetnextfilename{QPDt}
 
-\pgfplotsset{%
-    colormap={bwr}{
-      color=(blue);
-      color=(white);
-      color=(red);
-    }%
-}
 \begin{tikzpicture}
   \begin{axis}[view={0}{90},
       xlabel=$\sfrac{x_{0}}{\RA}$,
