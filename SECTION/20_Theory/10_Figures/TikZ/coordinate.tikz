@@ -1,0 +1,35 @@
+\tikzsetnextfilename{coordinate}
+
+\begin{tikzpicture}[line cap=round, line join=round, >=Triangle, scale=1.5]
+
+\clip(-2.1,-2.1) rectangle (2.38,2.58);
+\filldraw[blue!20,opacity=.3] (-2.1,-2.1) rectangle (2.38,2.58);
+\filldraw[white] (0,0) circle (2cm);
+
+\draw[ball color=gray!20!white, fill opacity=0.6] (0,0) circle (2cm);
+
+\draw [rotate around={0.:(0.,0.)},dash pattern=on 3pt off 3pt] (0,0) ellipse 
+(2cm and 0.9cm);
+
+\draw (0,0) -- (0.70,1.07) node[right, pos=0.4] {$r$};
+
+
+\draw[-latex,line width=0.7pt]   (0,0) -- +(0,2) node[above] {$\ez$};
+\draw[-latex,line width=0.7pt]   (0,0) -- +(-0.83,-0.81) node [left, 
+yshift=-1.8mm] {$\ex$};
+\draw[-latex,line width=0.7pt]  (0,0) -- +(2,0) node [right] {$\ey$};
+
+
+\draw [-Latex, <-, >=stealth', shift={(0,0)}, black, fill opacity=1] (56.7:0.4) 
+arc (56.7:90.:0.4) node[above, pos=0.3] {$\theta$};
+
+\begin{scope}[rotate around x=10, y=10, xshift=1, yshift=-4.6]
+    \draw [-Latex, ->, >=stealth', shift={(0,0)}, black, fill opacity=1] 
+    (-135.7:0.4) arc (-135.7:-33.2:0.4) node[below,pos=0.4] {$\varphi$};
+\end{scope}
+
+\draw [dotted] (0.7,1)-- (0.7,-0.46);
+\draw [dotted] (0,0)-- (0.7,-0.46);
+\draw [fill] (0,0) circle (1.5pt);
+\draw [fill] (0.7,1.07) circle (0.5pt);
+\end{tikzpicture}

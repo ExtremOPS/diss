@@ -54,7 +54,15 @@
 
 \usepackage{tikz}
   \usetikzlibrary{external}
-  \usetikzlibrary{calc,arrows,shapes,positioning,decorations.markings}
+  \usetikzlibrary{
+    calc,
+    arrows,
+    arrows.meta,
+    shapes,
+    positioning,
+    decorations.markings,
+    angles
+    }
 \tikzset{external/force remake}
 \tikzset{external/system call={
   pdflatex \tikzexternalcheckshellescape -halt-on-error
