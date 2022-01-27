@@ -115,16 +115,43 @@ material but a function of the wavelength $\lambda$. Additionally, the
 refractive is in general a complex quantity
 \begin{equation}
   \refraction\geq 1 \quad \wedge \quad \refraction \coloneqq 
-  \refraction(\lambda) = \refraction(\lambda) - \iu\alpha(\lambda)
+  \refraction(\lambda) = \refraction(\lambda) - \iu k(\lambda)
   \label{eq:Th-refractive-index}
 \end{equation}
-where $\alpha$ is called the absorption coefficient~\cite{Jackson2013}. Any ray 
-of any wavelength is attenuated when propagating through any medium, e.g. in a 
-depth of approximately \SI{1}{\kilo\meter} it is completely dark in the ocean 
-because all the intensity of the sunlight is attenuated there. The absorption 
-coefficient captures how fast this attenuation occurs.
+where $k$ is called the extinction coefficient~\cite{Jackson2013}. 
+\Cref{fig:Th-n_water} depicts $n$ and $k$ of water for different wavelengths 
+$\lambda$. Whereas the real part of \cref{eq:Th-refractive-index} is about 
+constant for $\lambda > \SI{400}{\nm}$, the complex part changes its magnitude 
+over 4 orders of magnitude in the same interval.
 
-\begin{figure}[htp]
+\begin{figure}[]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/n_water.tikz}
+  \includegraphics[]{Plots/cache/n_water.eps}
+  \caption{Index of refraction $n$ and extinction coefficient $k$ for water 
+  over wavelength $\lambda$. Data taken from \cite{Hale1973,Segelstein1981}.}
+  \label{fig:Th-n_water}
+\end{figure}
+
+
+The absorption coefficient~\cite{Hecht2017}
+\begin{equation}
+  \alpha = \frac{4\pi f k}{c} = \frac{4\pi}{\lambda}k
+  \label{eq:Th-alpha}
+\end{equation}
+converts the dimensionless quantity $k$ into a physical parameter with unit 
+\si{\per\meter}. Any ray of any wavelength is attenuated when propagating 
+through a medium. The \emph{Beer-Lambert Law}
+\begin{equation}
+  \intensity(s) = \intensity_{0}\exp(-\alpha s)
+  \label{eq:Th-beer-lambert}
+\end{equation}
+captures the change of intensity while moving along the path $s$ where 
+$\intensity_{0}$ is the intensity at the start. E.g. in a depth of 
+approximately \SI{1}{\kilo\meter} it is completely dark in the ocean because 
+all the intensity of the sunlight is attenuated there.
+
+\begin{figure}[]
   \centering
   % \input{\relPath/10_Figures/TikZ/Snell.tikz}
   \includegraphics[]{Plots/cache/Snell.pdf}
@@ -133,8 +160,9 @@ coefficient captures how fast this attenuation occurs.
   \label{fig:Th-Snell}
 \end{figure}
 
-The most important relation in the ray optics regime is \emph{Snell's Law} (see 
-also \cref{fig:Th-Snell})
+With the real part of the complex refractive index, it is possible to define 
+the most important relation in the ray optics regime. The \emph{Snell's Law} 
+(see also \cref{fig:Th-Snell}) is defined as
 \begin{equation}
   \nf\,\sin\incident = \ns\,\sin\transmitted.
   \label{eq:Th-Snell}
@@ -154,9 +182,9 @@ reflection $\theta_{\MR{TIR}}$
   \label{eq:Th-TIR}
 \end{equation}
 For incident angles of this magnitude or greater 
-($\incident>\theta_{\MR{TIR}}$), no ray is transmitted into the other medium. 
-This can only occur if the index of refraction of the incident medium is 
-greater than the transmitted medium ($\nf>\ns$ in \cref{fig:Th-Snell}) 
+($\incident\geq\theta_{\MR{TIR}}$), no ray is transmitted into the other 
+medium. This can only occur if the index of refraction of the incident medium 
+is greater than the transmitted medium ($\nf>\ns$ in \cref{fig:Th-Snell}) 
 otherwise the ratio $\sfrac{\nf}{\ns}$ of \cref{eq:Th-TIR} is always smaller 
 than unity and there is physically no total internal reflection possible.
 
@@ -170,8 +198,8 @@ than unity and there is physically no total internal reflection possible.
 % transmitted.
 
 So far, \cref{eq:Th-Snell} calculates in which direction a ray will travel 
-after an interface of two media. The magnitude of the reflected and transmitted 
-ray can be computed with the so called \emph{Fresnel 
+after an interface of two media. The amplitude of the reflected and transmitted 
+rays can be computed with the so called \emph{Fresnel 
 Equations}~\cite{Jackson2013,Born1980Ch1}. Although we think of light as rays, 
 the theory behind those equations is based on the electromagnetic wave 
 character of light. For time harmonic electromagnetic waves the amplitude of 
@@ -189,25 +217,87 @@ $i=\MR{s}$ for s-polarized light~\cite{Jackson2013,Born1980Ch1}. ``s'' and
 ``p'' stand for the German words ``parallel'' (parallel) and ``senkrecht'' 
 (perpendicular), respectively. They refer to the to the orientation of the 
 incident electric field $\vb{E}_{\MR{i}}$ to the plane of incident. For the 
-special cases of ``p'' and ``s'' polarized light the Fresnel coefficient are 
+special cases of ``p'' and ``s'' polarized light the Fresnel coefficient with 
+the assumption that both media are non-magnetic ($\mu_{\MR{f}} = \mu_{\MR{s}} = 
+\mu_{0} = 1$)~\cite{Born1980Ch1} are
 \begin{subequations}
 \begin{align}
   \fresnelr_{\MR{s}} & =
   \frac{2\,\nf\,\cos\incident}{\nf\,\cos\incident + \ns\,\cos\reflected} 
-  \label{eq:th-fresnel-rs}\\[3mm]
+  \label{eq:Th-fresnel-rs}\\[3mm]
   \fresnelt_{\MR{s}} & = \frac{\nf\,\cos\incident - 
   \ns\,\cos\reflected}{\nf\,\cos\incident + \ns\,\cos\reflected} 
-  \label{eq:th-fresnel-ts}\\[3mm]
+  \label{eq:Th-fresnel-ts}\\[3mm]
   \fresnelr_{\MR{p}} & =
   \frac{2\,\nf\,\cos\incident}{\ns\,\cos\incident + \nf\,\cos\reflected} 
-  \label{eq:th-fresnel-rp}\\[3mm]
+  \label{eq:Th-fresnel-rp}\\[3mm]
   \fresnelt_{\MR{p}} & = \frac{\ns\,\cos\incident - 
-  \nf\,\cos\reflected}{\ns\,\cos\incident + \nf\,\cos\reflected}
-\label{eq:th-fresnel-tp}
+  \nf\,\cos\reflected}{\ns\,\cos\incident + \nf\,\cos\reflected}.
+\label{eq:Th-fresnel-tp}
 \end{align}
 \end{subequations}
-for the assumption that both media are non-magnetic ($\mu_{\MR{f}} = 
-\mu_{\MR{s}} = \mu_{0} = 1$)~\cite{Born1980Ch1}.
+So far, the Fresnel coefficients relate the amplitudes of the incident 
+electrical field to the transmitted and reflected electrical field. In general, 
+the sum of $\fresnelr$ and $\fresnelt$ does not add up to unity.
+
+For \cref{sec:Th-temperature}, it is necessary to know how much of the incident 
+power $P_{\MR{i}}$ is transmitted and how much is reflected. The power 
+$P=\intensity A$ is a product of the intensity $\intensity$ and the area $A$ it 
+is acting on. The intensity is defined as the timeaverage of the Ponyting 
+vector $\vb{S}$
+\begin{equation}
+  \intensity = \timeaverage{\abs{\vb{S}}} = 
+  \timeaverage{\abs{\vb{E}_{0}\times\vb{H}_{0}}} = 
+  \frac{1}{2}\,\frac{\refraction}{Z_{0}}\,\abs{\vb{E}_{0}}^{2} = 
+  \frac{1}{2}\,\refraction\,c\epsilon_{0}\,\abs{\vb{E}_{0}}^{2}
+\end{equation}
+where $Z_{0}$ is the electrical impedance of free space and $\epsilon_{0}$ is 
+the vacuum permittivity. With 
+\cref{eq:Th-fresnel-rs,eq:Th-fresnel-ts,eq:Th-fresnel-rp,eq:Th-fresnel-tp} the 
+scaling of the electrical field at the interface is defined. With the relation 
+(see also \cref{fig:Th-Snell})
+\begin{equation}
+  w = \frac{w_{\MR{i}}}{\cos\incident} = \frac{w_{\MR{r}}}{\cos\reflected} = 
+  \frac{w_{\MR{t}}}{\cos\transmitted}
+  \label{eq:Th-area}
+\end{equation}
+and the scaling of the power
+\begin{equation}
+  P = \intensity A \propto \refraction\,\abs{\vb{E}_{0}}^{2}A \propto
+  \refraction\,\abs{\vb{E}_{0}}^{2}w
+\end{equation}
+one can calculate the reflectance $\fresnelR_{i}$ as the ratio of the reflected 
+power $P_{\MR{r}}$ to the incident power $P_{\MR{i}}$ as
+\begin{equation}
+  \fresnelR_{i} = \frac{P_{\MR{r}}}{P_{\MR{i}}} = 
+  \frac{\intensity_{\MR{r}}\,\nf\,w_{\MR{r}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
+  =\frac{\abs{\fresnelr_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}} = 
+  \fresnelr_{i}^{2}
+\end{equation}
+where again the italic $i$ in the subscript ($\Box_{i}$) is the polarization. 
+Similarly one finds the transmittance $\fresnelT_{i}$ as
+\begin{equation}
+  \fresnelT_{i} = \frac{P_{\MR{t}}}{P_{\MR{i}}} = 
+  \frac{\intensity_{\MR{t}}\,\ns\,w_{\MR{t}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
+  =\frac{\abs{\fresnelt_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}}\,\frac{\ns\,w_{\MR{t}}}{\nf\,w_{\MR{i}}} 
+  = \fresnelt_{i}^{2}\,\frac{\ns\,\cos\transmitted}{\nf\,\cos\incident}.
+\end{equation}
+For unploarized rays one can take the arithmetic average of $\Box_{\MR{s}}$ and 
+$\Box_{\MR{p}}$ polarization values. Other than the Fresnel coefficients the 
+sum of the reflectance $\fresnelR$ and the transmittance $\fresnelT$ for one 
+angle of incidence need to be unity
+\begin{equation}
+  \fresnelR + \fresnelT = 
+  \frac{\fresnelR_{\MR{s}}+\fresnelR_{\MR{p}}}{2} +
+  \frac{\fresnelT_{\MR{s}}+\fresnelT_{\MR{p}}}{2} = 1 
+  \label{eq:Th-fresnel}
+\end{equation}
+because the incident power $P_{\MR{i}}$ is either reflected or transmitted
+\begin{equation}
+  P_{\MR{i}} = P_{\MR{r}} + P_{\MR{t}} = P_{\MR{i}}\left( \fresnelR + \fresnelT 
+  \right).
+\end{equation}
+
 
 
 
