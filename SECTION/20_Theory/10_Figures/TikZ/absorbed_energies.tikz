@@ -15,7 +15,7 @@
         color(1cm) = (black)},
       colorbar horizontal,
       colorbar style={
-        title={\footnotesize Relative absorbed Energy ($\times 10^{4}$)},
+        title={\footnotesize Relative absorbed Energy ($\times 10^{-4}$)},
         at={(0,1.4)},
         anchor=north west,
         xtick={0.2,0.5,1.0,1.5,2.0,2.5},
