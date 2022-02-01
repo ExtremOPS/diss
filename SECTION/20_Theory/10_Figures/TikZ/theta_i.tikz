@@ -12,7 +12,10 @@
         point meta min=0,
         point meta max=30,
         width=60mm,
-        colormap name=viridis,
+        % colormap name=viridis,
+        colormap = {whiteblack}{
+          color(0cm) = (white);
+          color(1cm) = (black)},
         colorbar,
         colorbar horizontal,
         colorbar style={
