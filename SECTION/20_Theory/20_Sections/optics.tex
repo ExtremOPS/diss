@@ -151,7 +151,7 @@ $\intensity_{0}$ is the intensity at the start. E.g. in a depth of
 approximately \SI{1}{\kilo\meter} it is completely dark in the ocean because 
 all the intensity of the sunlight is attenuated there.
 
-\begin{figure}[]
+\begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/Snell.tikz}
   \includegraphics[]{Plots/cache/Snell.pdf}
@@ -298,6 +298,130 @@ because the incident power $P_{\MR{i}}$ is either reflected or transmitted
   \right).
 \end{equation}
 
+\section{Laser Induced Temperature Change\label{sec:Th-temperature}}
+
+A laser is a (highly focused) coherent beam of electromagnetic waves of a 
+single wavelength $\lal$. Intensities with the orders of 
+\si{\mega\watt\per\square\meter} and more are common. For comparison, the 
+average intensity of the sun on to the earth in Central Europe is about 
+\SI{1.36}{\kilo\watt\per\square\meter}, and the laser of our setup has with its 
+peak power of \SI{200}{\milli\watt} and a specified beam diameter of 
+\SI{1}{\mm} a maximal intensity of about 
+\SI{0.25}{\mega\watt\per\square\meter}. As described with the Beer-Lambert-Law
+(\cref{eq:Th-beer-lambert}) some of the laser intensity is attenuated while 
+traveling through any medium. The attenuation of intensity will lead to an 
+increase of temperature in the absorbing medium.
+
+The intensity of a focused laser is highest in the region of the focal point 
+because all its power is confined to a small area. Direct temperature 
+measurements in the vicinity of the laser focus are due to the microscopic 
+region of interest up to now not possible. Precise knowledge of the temperature 
+change is of interest, e.g., for the calibration process of the OT but also for 
+objects that need to stay below a certain temperature, e.g. living cells.
+
+In the following, we will first discuss the current research regarding 
+temperature increase in OTs and then motivate a temperature approximation based 
+on simple ray optics.
+
+\subsection{State of the Art}
+
+\cyear{Liu1995} measured the temperature dependent change in fluorescence of 
+biological cells while being trapped with a wavelength of 
+$\lal=\SI{1064}{\nm}$. They found a linear relation between temperature 
+increase and applied laser power of about \SI{15}{\degreeCelsius\per\watt}. In 
+addition, they solved the heat problem also analytically. For that, they 
+neglected the trapped object and modeled as water because their cells of 
+interest consist mainly out of water. The experiments as well as the 
+analytical solution show an almost instantaneous change in temperature after 
+the laser is switched on. \cyear{Celliers2000} measured the local change in the 
+index of refraction for water while being subjected to a laser with a 
+wavelength of \SI{985}{\nm}. During the measurements no objects was trapped in 
+the laser focus. They measured a temperature increase of \SI{4}{\degreeCelsius} 
+with a laser power of \SI{55}{\milli\watt} in the focus of the laser. An 
+analytical model that utilized an improved source term compared to 
+\cite{Liu1995} validated their results.
+
+\cyear{Peterman2003} measured with a OT of \SI{1064}{\nm} wavelength the 
+effects of the temperature increase in the vicinity of the laser focus. A 
+change of temperature in the fluid will lead to a change of the fluid 
+viscosity. The viscosity change alters the calibration parameters of the OT. By 
+fitting the calibration parameters for different laser powers to the 
+theoretical relation they found a temperature increase of roughly 
+\SI{8}{\degreeCelsius\per\watt} for water as fluid medium and silica beads as 
+trapped object. More interestingly, their analytical model revealed that most 
+of the heat absorption is in the fluid rather than the trapped object. In 
+addition, usual glass coverslips act as fast heat conductor compared to water 
+such that measurements close to the top or bottom surface of the fluid cavity 
+lead to a minor temperature increase.
+
+\cyear{Moreau2015} injected Rhodamine B (RhB) in cells to measure the 
+temperature change of an OT with \SI{800}{\nm} wavelength. RhB is a temperature 
+sensitive dye which changes its fluorescence linearly with the temperature. 
+Since they injected the RhB into the cell the measured temperature difference 
+was around the focal point. As before, the increase of the temperature occurs 
+almost instantaneously and is about \SI{9}{\degreeCelsius\per\watt}. Lastly, in 
+\citeyear{Catala2017}, \cname{Catala2017} studied the effects of different 
+experimental parameters (numerical aperture (NA), material of trapped object, 
+distance to coverslips, object radius) to the magnitude of the temperature 
+increase with an OT of \SI{1064}{\nm} wavelength. A numerical model validated 
+their experimental findings. Their source term which is an extension to 
+\cname{Peterman2003} takes account of the NA, the finite focal spot size, and 
+the wavelength of the laser itself. In agreement to the others they found the 
+heat increase to be about \SI{20}{\degreeCelsius\per\watt}.
+
+All of the aforementioned studies (see also \cref{tab:Th-heating}) validated in 
+their experiments the linear relation of the applied laser power to the 
+increase in temperature. In addition, they agree that the main absorption 
+occurs in the fluid medium (water or glycerol) rather than the trapped object 
+(polystyrene or silica) itself because the absorption coefficient $\alpha$ is 
+greater. However, as can be seen in \cref{fig:Th-n_water}, the extinction 
+coefficient is dependent on the wavelength $\lal$. Besides \cite{Moreau2015} 
+all studies operate at a wavelength of \SI{1064}{\nm}. Our OT operates at 
+\SI{785}{\nm} and the extinction coefficient $k$ for this wavelength is about 
+one order of magnitude smaller than it is at \SI{1064}{\nm},
+$k(\SI{785}{\nm}) \approx 1.339\cdot 10^{-7} \rightarrow \alpha(\SI{785}{\nm}) 
+\approx \SI{2.14}{\per\meter} $ and $k(\SI{1064}{\nm}) \approx 1.299\cdot 
+10^{-6} \rightarrow \alpha(\SI{1064}{\nm}) \approx \SI{15.4}{\per\meter} $ 
+respectively. The magnitude of the absorption coefficient $\alpha$ is the 
+measure for how much intensity gets absorbed. It contributes linear in the heat 
+equation.
+
+Besides the results of \cname{Peterman2003} the measured temperature increase 
+is larger for the wavelength of \SI{1064}{\nm}. The magnitudes of the 
+respective absorption coefficients $\alpha$ ($\sfrac{15.4}{2.14}\approx 7.2$) 
+suggest a seven times greater heating for the larger wavelength. However, only 
+the results of \cname{Celliers2000} compared to \cname{Moreau2015} match this 
+interpolation. But they used an inherently different method for approximating 
+the temperature increase where no object was trapped during the measurement. 
+Despite having non-coherent results, we take a heating value of 
+\SI{10}{\degreeCelsius\per\watt} for our wavelength of \SI{785}{\nm} as given 
+for the following section if the focus of the OT is at least \SI{10}{\um} away 
+from any surrounding surface.
+
+\begin{table}
+  \centering
+  \begin{tabular}{l *{6}{c}}
+    \toprule
+    \toprule
+    Author & $\lambda$ & Heating & Mat. & Exp.  & Ana. & Num. \\
+    & [\si{\nm}] & [\si{\degreeCelsius\per\watt}] \\
+    \midrule
+    \cname{Liu1995} & 1064 & 15 & Cells & $\checkmark$ & $\checkmark$ & & 
+    \\[-5mm]
+    \cname{Celliers2000} & 985 & 72 & - & $\checkmark$ & $\checkmark$ & & 
+    \\[-5mm]
+    \cname{Peterman2003} & 1064 & 8 & Si & $\checkmark$ & $\checkmark$ & & 
+    \\[-5mm]
+    \cname{Moreau2015} & 800 & 9 & Cells & $\checkmark$ & & & \\[-5mm]
+    \cname{Catala2017} & 1064 & 20 & Si & $\checkmark$ & $\checkmark$ & 
+    $\checkmark$ & \\[-5mm]
+    \bottomrule
+    \bottomrule
+  \end{tabular}
+  \caption{Overview of studies to laser induced heating in OTs. Mat.=Material 
+  type of the trapped object, Ex.=Experimental part, Ana.=Analytical model, 
+Num.=Numerical model}\label{tab:Th-heating}
+\end{table}
 
 
 
