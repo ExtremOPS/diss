@@ -36,7 +36,7 @@
     \addplot[] table[x=theta,y=T_M2P] {\data};
     \addlegendentry{$\fresnelT_{\mathrm{f\rightarrow s}}$};
 
-    \addplot[thick, blue, dashed] table[x=theta,y=R_P2M] {\data};
+    \addplot[thick, blue, dotted] table[x=theta,y=R_P2M] {\data};
     \addlegendentry{$\fresnelR_{\mathrm{s\rightarrow f}}$};
     \addplot[thick, blue] table[x=theta,y=T_P2M] {\data};
     \addlegendentry{$\fresnelT_{\mathrm{s\rightarrow f}}$};
@@ -56,7 +56,7 @@
     \addplot[dashed] table[x=theta,y=R_M2P] {\data};
     \addplot[] table[x=theta,y=T_M2P] {\data};
 
-    \addplot[thick, blue, dashed] table[x=theta,y=R_P2M] {\data};
+    \addplot[thick, blue, dotted] table[x=theta,y=R_P2M] {\data};
     \addplot[thick, blue] table[x=theta,y=T_P2M] {\data};
 
   \end{groupplot}
