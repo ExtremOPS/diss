@@ -328,7 +328,7 @@ In the following, we will first discuss the current research regarding
 temperature increase in OTs, discuss the path of a ray through the particle, 
 and then motivate a temperature approximation based on simple ray optics.
 
-\subsection{State of the Art}
+\subsection{State of the Art}\label{sec:Th-state}
 
 \cyear{Liu1995} measured the temperature dependent change in fluorescence of 
 biological cells while being trapped with a wavelength of 
@@ -633,6 +633,66 @@ the particle itself.
 
 \subsection{Ray Optics Heat Approximation}
 
+With the knowledge of the relative absorbed energy of the particle, we solve 
+the state heat equation for the particle
+\begin{equation}
+  \laplacian{T} = \frac{1}{\kappa} \pdv{T}{t} - \frac{q}{K}
+  \label{eq:Th-heat-prob}
+\end{equation}
+where $T$ is the temperature inside the particle, $q$ is the absorbed energy of 
+unit volume, $K$ the thermal conductivity, and $\kappa$ the thermal 
+diffusivity. Further, we neglect the time-dependence $\pdv{T}{t}= 0$
+\begin{equation}
+  \laplacian{T} = - \frac{q}{K}
+  \label{eq:Th-heat-stat}
+\end{equation}
+because all publications presented in \cref{sec:Th-state} state that the 
+heating occurs within \si{\ms} and is negligible afterwards. In addition, we 
+assume a spherical particle and solve the problem with spherical coordinate 
+system (see \cref{fig:Th-coordinate}) with its origin at the particle center. 
+Furthermore, we take the source term $q$ to be constant throughout the 
+particle. Therefore, we neglect all partial derivatives to the angles $\varphi$ 
+and $\theta$ and solve an ordinary differential equation
+\begin{equation}
+    \frac{1}{r^{2}}\pdv{r}\left( r^{2}\pdv{T}{r} \right) = - \frac{q}{K}
+  \label{eq:Th-heat-spherical}
+\end{equation}
+with only a $r$ dependence and constant source term. We complete the problem, 
+with two boundary conditions
+\begin{subequations}
+\begin{align}
+  \eval{\pdv{T}{r}}_{r=0} &= 0\\[3mm]
+  \eval{T}_{r=R_{0}} &= T_{0}.
+\end{align}
+\end{subequations}
+The first one implies a bounded temperature at the origin ($r=0$) and the 
+second one fixes the temperature at the surface of the particle ($r=R_{0}$).  
+After two consecutive integration and applying of the boundary conditions one 
+finds the difference temperature to be
+\begin{equation}
+  \Delta T(r) = T(r) - T_{0} = \frac{q}{6K}\left( R_0^2 - r^{2} \right).
+  \label{eq:Th-heat-sol}
+\end{equation}
+The average temperature over the whole particle is the volume integral of 
+\cref{eq:Th-heat-sol}
+\begin{equation}
+  \overline{\Delta T} = \frac{1}{V}\int_{V}\Delta T(r) \dd{V} = 
+  \frac{1}{15}\,\frac{q}{K}\,R^{2}_{0}.
+  \label{eq:Th-heat-avg}
+\end{equation}
+This can be further simplified since $q$ is the absorbed energy per unit volume
+\begin{equation}
+  q = \frac{\delta\,P}{V} = \frac{3\delta\,P}{4\,\pi\,R_{0}^{3}}
+\end{equation}
+where $P$ is the power of the laser and $\delta$ the relative absorbed energy 
+of the particle. Finally, the average temperature increase of the spherical 
+particle is
+\begin{equation}
+  \overline{\Delta T} = \frac{1}{20\,\pi}\,\frac{\delta\,P}{R_{0}\,K}.
+  \label{eq:Th-heat-sol-simp}
+\end{equation}
+
+
 An important parameter for the calibration of the OT is the dynamic viscosity 
 $\muef$ of the fluid. The viscosity is in general a function of the temperature 
 $\muef\coloneqq\muef(T)$. For our calibration routine the absolute measured 
@@ -648,6 +708,7 @@ Temperature deviations of $\SI{25}{\degreeCelsius}\pm\SI{5}{\degreeCelsius}$
 lead to force magnitude errors of less than $\pm$6\%.
 
 
+\section{Optical Position Detection\label{sec:Th-QPD}}
 
 \begin{figure}[tbp]
   \centering
@@ -657,41 +718,6 @@ lead to force magnitude errors of less than $\pm$6\%.
   \label{fig:Th-coordinate}
 \end{figure}
 
-
-
-\begin{equation}
-  \laplacian{T} = \frac{1}{\kappa} \pdv{T}{t} - \frac{q}{K}
-  \label{eq:Th-heat-prob}
-\end{equation}
-
-\begin{equation}
-  \laplacian{T} = - \frac{q}{K}
-  \label{eq:Th-heat-stat}
-\end{equation}
-
-
-\begin{subequations}
-\begin{align}
-  \eval{\pdv{T}{r}}_{r=0} &= 0\\[3mm]
-  \eval{T}_{r=R_{0}} &= T_{0}
-\end{align}
-\end{subequations}
-
-\begin{equation}
-  \Delta T(r) = T(r) - T_{0} = \frac{q}{6K}\left( R_0^2 - r^{2} \right)
-  \label{eq:Th-heat-sol}
-\end{equation}
-
-\begin{equation}
-  \overline{\Delta T} = \frac{1}{V}\int_{V}\Delta T(r) \dd{V} = 
-  \frac{1}{15}\,\frac{q}{K}\,R^{2}_{0}
-  \label{eq:Th-heat-avg}
-\end{equation}
-
-
-
-
-\lipsum[1-2]
 
 \begin{figure}[tbp]
   \centering
@@ -731,31 +757,6 @@ lead to force magnitude errors of less than $\pm$6\%.
   \label{fig:QPDs}
 \end{figure}
 
-\lipsum[1-2]
-
-non-magnetic approximation
-
-Fresnel equations specify the relation of the incident, reflected, and 
-transmitted electrical field of an electromagnetic wave
-
-
-
-power of electromagnetic wave
-
-\cite[Chapter 7]{Jackson2013}
-
-
-% \begin{subequations}
-% \begin{align}
-  % \fresnelR_{\MR{s,p}} & = \resnelr_{\MR{s,p}}^{2} 
-  % \label{eq:Th-fresnel-R}\\
-  % \fresnelT_{\MR{s,p}} & = \fresnelt_{\MR{s,p}}^{2}\,
-  % \frac{\ns\,\cos\reflected}{\nf\,\cos\incident}
-  % \label{eq:Th-fresnel-T}
-% \end{align}
-% \end{subequations}
-
-
 
 \begin{figure}[tbp]
   \centering
@@ -765,7 +766,6 @@ power of electromagnetic wave
   \label{fig:Th-voltages_over_x}
 \end{figure}
 
-\section{Optical Position Detection\label{sec:Th-QPD}}
 
 \begin{equation}
   \intensity = \intensity(x, y) = \frac{1}{2\pi\,R_{0}^{2}}\,\exp\left[ 
