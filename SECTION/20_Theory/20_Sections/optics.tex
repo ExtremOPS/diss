@@ -38,7 +38,7 @@ results qualitatively.
 
 \section{Experimental Setup}
 
-\begin{figure}[htp]
+\begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/setup.tikz}
   \includegraphics[]{Plots/cache/setup.pdf}
@@ -96,6 +96,9 @@ here~\cite{Lamprecht2017}. An discussion of different calibration options is
 available from \citeauthor{Svoboda1994}~\cite{Svoboda1994} and 
 \citeauthor{Jun2004}~\cite{Jun2004}.
 
+
+\textcolor{red}{which material parameters if fluid or water}
+
 \section{Ray Optics\label{sec:Th-rayoptics}}
 
 As said before, in the regime of ray optics the propagation of light is 
@@ -124,7 +127,7 @@ $\lambda$. Whereas the real part of \cref{eq:Th-refractive-index} is about
 constant for $\lambda > \SI{400}{\nm}$, the complex part changes its magnitude 
 over 4 orders of magnitude in the same interval.
 
-\begin{figure}[]
+\begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/n_water.tikz}
   \includegraphics[]{Plots/cache/n_water.eps}
@@ -273,6 +276,7 @@ power $P_{\MR{r}}$ to the incident power $P_{\MR{i}}$ as
   \frac{\intensity_{\MR{r}}\,\nf\,w_{\MR{r}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
   =\frac{\abs{\fresnelr_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}} = 
   \fresnelr_{i}^{2}
+  \label{eq:Th-fresnelR}
 \end{equation}
 where again the italic $i$ in the subscript ($\Box_{i}$) is the polarization. 
 Similarly one finds the transmittance $\fresnelT_{i}$ as
@@ -281,6 +285,7 @@ Similarly one finds the transmittance $\fresnelT_{i}$ as
   \frac{\intensity_{\MR{t}}\,\ns\,w_{\MR{t}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
   =\frac{\abs{\fresnelt_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}}\,\frac{\ns\,w_{\MR{t}}}{\nf\,w_{\MR{i}}} 
   = \fresnelt_{i}^{2}\,\frac{\ns\,\cos\transmitted}{\nf\,\cos\incident}.
+  \label{eq:Th-fresnelT}
 \end{equation}
 For unploarized rays one can take the arithmetic average of $\Box_{\MR{s}}$ and 
 $\Box_{\MR{p}}$ polarization values. Other than the Fresnel coefficients the 
@@ -320,8 +325,8 @@ change is of interest, e.g., for the calibration process of the OT but also for
 objects that need to stay below a certain temperature, e.g. living cells.
 
 In the following, we will first discuss the current research regarding 
-temperature increase in OTs and then motivate a temperature approximation based 
-on simple ray optics.
+temperature increase in OTs, discuss the path of a ray through the particle, 
+and then motivate a temperature approximation based on simple ray optics.
 
 \subsection{State of the Art}
 
@@ -371,14 +376,16 @@ heat increase to be about \SI{20}{\degreeCelsius\per\watt}.
 
 All of the aforementioned studies (see also \cref{tab:Th-heating}) validated in 
 their experiments the linear relation of the applied laser power to the 
-increase in temperature. In addition, they agree that the main absorption 
-occurs in the fluid medium (water or glycerol) rather than the trapped object 
-(polystyrene or silica) itself because the absorption coefficient $\alpha$ is 
-greater. However, as can be seen in \cref{fig:Th-n_water}, the extinction 
-coefficient is dependent on the wavelength $\lal$. Besides \cite{Moreau2015} 
-all studies operate at a wavelength of \SI{1064}{\nm}. Our OT operates at 
-\SI{785}{\nm} and the extinction coefficient $k$ for this wavelength is about 
-one order of magnitude smaller than it is at \SI{1064}{\nm},
+increase in temperature. Also, they showed that the temperature change occurs 
+almost instantaneously and that a steady system is established in the range of 
+\si{\ms}. In addition, they agree that the main absorption occurs in the fluid 
+medium (water or glycerol) rather than the trapped object (polystyrene or 
+silica) itself because the absorption coefficient $\alpha$ is greater. However, 
+as can be seen in \cref{fig:Th-n_water}, the extinction coefficient is 
+dependent on the wavelength $\lal$. Besides \cite{Moreau2015} all studies 
+operate at a wavelength of \SI{1064}{\nm}. Our OT operates at \SI{785}{\nm} and 
+the extinction coefficient $k$ for this wavelength is about one order of 
+magnitude smaller than it is at \SI{1064}{\nm},
 $k(\SI{785}{\nm}) \approx 1.339\cdot 10^{-7} \rightarrow \alpha(\SI{785}{\nm}) 
 \approx \SI{2.14}{\per\meter} $ and $k(\SI{1064}{\nm}) \approx 1.299\cdot 
 10^{-6} \rightarrow \alpha(\SI{1064}{\nm}) \approx \SI{15.4}{\per\meter} $ 
@@ -419,115 +426,274 @@ from any surrounding surface.
 Num.=Numerical model}\label{tab:Th-heating}
 \end{table}
 
+\subsection[Ray Path \& absorbed Energy]{Ray Path through Particle and absorbed 
+Energy}
 
+Before approximating the heat distribution inside the trapped particle with ray 
+optics, it is necessary investigate the path of the ray though the particle. In 
+\cref{fig:Th-ray_particle} an ray with power $\power{i}{1}$ is incident on the 
+particle surface in point $I$. The direction of the ray is towards the focal 
+point $f$ which is slightly above the middle point $M$ of the particle because 
+the stable trapping position is the equilibrium of the trapping forces towards 
+the point $f$ and gravity. Because of the different refractive indices of the 
+fluid $\nf$ and the particle $\ns$ the ray gets deflected inside the particle. 
+The transmitted angle $\transmitted$ can easily be computed with 
+\cref{eq:Th-Snell}. However, for that the incident angle $\incident$ must be 
+known.
 
-\begin{equation}
-  \text{NA} = \nf\,\sin\incident
-  \label{eq:Th-NA}
-\end{equation}
-
-\begin{figure}[htp]
+\begin{figure}[thp]
   \centering
-  % \input{\relPath/10_Figures/TikZ/Fresnel.tikz}
-  \includegraphics[]{Plots/cache/Fresnel.pdf}
-  \caption{Fresnel}
-  \label{fig:Th-fresnel}
-\end{figure}
-
-\lipsum[1-2]
-
-\begin{figure}[htp]
-  \centering
-  % \input{\relPath/10_Figures/TikZ/angles.tikz}
-  \includegraphics[]{Plots/cache/angles.pdf}
-  \caption{Caption}
-  \label{fig:Th-angles}
-\end{figure}
-
-\lipsum[1-2]
-
-\begin{figure}[htp]
-  \centering
-  % \input{\relPath/10_Figures/TikZ/ray.tikz}
-  \includegraphics[]{Plots/cache/ray.pdf}
-  \caption{Caption}
+  \input{\relPath/10_Figures/TikZ/ray.tikz}
+  % \includegraphics[]{Plots/cache/ray.pdf}
+  \caption{Schematic of ray path through particle.}
   \label{fig:Th-ray_particle}
 \end{figure}
 
-\lipsum[1-2]
+With the convergence angle $\beta$ (see \cref{fig:Th-angles}) and the sine-law
+\begin{equation}
+  \frac{\sin\left( \frac{\pi}{2}-\beta \right)}{\R} = 
+  \frac{\sin\incident}{a\,\R}
+  \label{eq:Th-sine-law}
+\end{equation}
+one can compute $\incident$ as function of $\beta$. The angle $\beta$ is an 
+input parameter and therefore known. The maximal convergence angle 
+$\beta_{\MR{max}}$ is evaluated by the definition of the NA
+\begin{equation}
+  \text{NA} = \nf\,\sin\beta_{\MR{max}}.
+  \label{eq:Th-NA}
+\end{equation}
+Our lens has a NA of 1.27 and water has a refractive index of $\nf=1.33$ (see 
+\cref{fig:Th-n_water}) and therefore is our maximal convergence angle 
+$\beta_{\MR{max}} \approx \SI{72}{\degree}$.
+
+With the knowledge of $\transmitted^{1}$ the path of the ray inside the 
+particle is determined. At the next intersection point of the ray with the 
+particle surface $N$, the ray is again partly transmitted into the fluid and 
+partly reflected. Since the triangle $\bigtriangleup_{IMN}$ is an isosceles 
+triangle (two sides have the same length; here $R$) and per definition the 
+reflected angle equals the incident angle, all internal reflection angles for 
+one ray have the same magnitude 
+($\transmitted^{1}=\incident^{n}=\reflected^{n}$ for $n>1$).
+
+Now, the respective powers of one ray can be evaluated. The ray has the 
+incident power $\power{i}{1}$ with every reflection it gets split into two 
+portions. With \cref{eq:Th-fresnelR,eq:Th-fresnelT,eq:Th-fresnel} the powers 
+after each reflection is
+\begin{subequations}
+  \begin{alignat}{3}
+    \power{t}{1} & = \fresnelT\left( \incident^{1} \right)\,\power{i}{1} && \\
+    \power{r}{2} & = \fresnelR\left( \transmitted^{1} \right)\,\power{t}{1} && 
+    = \power{i}{1}\,\fresnelT\left( \incident^{1} \right)\,
+    \fresnelR\left( \transmitted^{1} \right) \\
+    \power{t}{2} & = \fresnelT\left( \transmitted^{1} \right)\,\power{t}{1} && 
+    = \power{i}{1}\,\fresnelT\left( \incident^{1} \right)\,
+    \fresnelT\left( \transmitted^{1} \right) \\
+    \power{r}{3} & = \fresnelR\left( \transmitted^{1} \right)\,\power{i}{3} && 
+    = \power{i}{1}\,\fresnelT\left( \incident^{1} \right)\,
+    \fresnelR^{2}\left( \transmitted^{1} \right).
+\end{alignat}
+\end{subequations}
+
+\begin{figure}[thp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/angles.tikz}
+  \includegraphics[]{Plots/cache/angles.pdf}
+  \caption{Sketch of incident ray onto particle surface.}
+  \label{fig:Th-angles}
+\end{figure}
+
+If a particle is stably trapped the distance $a$ of the particle center point 
+$M$ and the focal point $f$ (see also \cref{fig:Th-angles}) is about $a \approx 
+0.1\,R$~\cite{Lamprecht2017}. During the trapping process and due to external 
+forces this distances changes. If the focal point is outside the particle, the 
+trapping forces are negligible small.
+
+\cref{fig:Th-gamma_theta} depicts the values of $\gamma$ and $\incident$, 
+respectively, for different combinations of $a$ and $\beta$. As pointed out 
+before, the distance $a$ is about $0.1\,R$. For this value the maximal incident 
+angle $\incident$ over the whole range of $\beta$ is less than 
+\SI{10}{\degree}.
 
 \begin{figure}
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     % \input{\relPath/10_Figures/TikZ/gamma.tikz}
+    \caption{}
     \includegraphics[]{Plots/cache/gamma.pdf}
-    \caption{Caption}
     \label{fig:Th-gamma}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
     % \input{\relPath/10_Figures/TikZ/theta_i.tikz}
+    \caption{}
     \includegraphics[]{Plots/cache/theta_i.pdf}
-    \caption{Caption}
     \label{fig:Th-theta_i}
   \end{subfigure}
-  \caption{angles}
+    \caption{Magnitude of $\gamma$ and $\incident$ for different values of $a$ 
+    and $\beta$ (see also \cref{fig:Th-angles}).}
   \label{fig:Th-gamma_theta}
 \end{figure}
 
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/Fresnel.tikz}
+  \includegraphics[]{Plots/cache/Fresnel.pdf}
+  \caption{Fresnel coefficients of reflectance and transmittance (see 
+  \cref{eq:Th-fresnelR,eq:Th-fresnelT}) for a water-particle interface 
+  ($\Box_{\MR{f}\rightarrow\MR{s}}$) and a particle-water interface 
+($\Box_{\MR{s}\rightarrow\MR{f}}$). The right plot is a detail of the left one 
+with a logarithmic y-scale. The grey shaded area marks the interval of incident 
+angles $\incident$ that do not occur in our setup.}
+  \label{fig:Th-fresnel}
+\end{figure}
+
+Finally all is in place, to estimate the total absorbed energy by the particle. 
+\cref{eq:Th-intensity} defines the intensity after the distance $s$. Hence the 
+absorbed energy over this length is
 \begin{equation}
-  \frac{\sin\left( \frac{\pi}{2}-\beta \right)}{\R} = 
-  \frac{\sin\incident}{a\,\R}
-  \label{eq:Th-sine-law}
+    \intensity_{\MR{abs}} = \intensity_{0} \left( 1 - \exp(-\alpha\,s) \right).
+    \label{eq:Th-absorbed_energy}
+\end{equation}
+The distance $s$ for one passage through the particle can be computed as 
+function of $\beta$ as
+\begin{equation}
+  s\left( \beta \right) = 2\,R\,\cos\left( \transmitted\left[ \incident\left( 
+    \beta \right) \right]
+    \right).
+    \label{eq:Th-distance_s}
+\end{equation}
+And the power of a ray after $j$ reflections is
+\begin{equation}
+  \power{j}{i} =
+  \fresnelT_{\MR{f}\rightarrow\MR{s}}\left( \incident \right) \,
+  \fresnelR^{(j-1)}_{\MR{s}\rightarrow\MR{f}}\left( \transmitted \right)
+  \label{eq:Th-power}
+\end{equation}
+With \cref{eq:Th-absorbed_energy,eq:Th-distance_s,eq:Th-power} the absorbed 
+energy inside the particle can be approximated with discrete values
+\begin{equation}
+  \beta_{n} = \frac{n}{N}\,\beta_{\MR{max}}.
+  \label{eq:Th-beta-disc}
+\end{equation}
+to be
+\begin{equation}
+  \intensity_{\MR{tot.,abs.}} \approx
+  \frac{2\pi}{N}
+  \sum\limits_{n=1}^{N}
+  \sum\limits_{k=0}^{\infty}\power{i}{k-1}\left( \beta_{n} \right)\left[ 1 - 
+  \exp\left( -\alpha\,s\left( \beta_{n} \right) \right) \right]
+  \label{eq:Th-total-absorbed}
+\end{equation}
+where the factor $\sfrac{1}{N}$ is due to the assumption that each ray has the 
+same incident power when hitting the particle surface and the factor $2\pi$ for 
+considering the full volume of the particle. Per definition is the reflectance 
+$\fresnelR$ or the transmittance $\fresnelT$ smaller than 1. This property as 
+well as
+\begin{equation}
+  \sum\limits^{\infty}_{k=0} \Box^{k} = \frac{1}{1-\Box}
+  \quad\text{for}\quad\abs{\Box} < 1
+\end{equation}
+can be applied to \cref{eq:Th-total-absorbed} to simplify the double sum to
+\begin{equation}
+  \intensity_{\MR{tot.,abs.}} \approx
+  \frac{2\pi}{N}
+  \sum\limits_{n=1}^{N}
+  \fresnelT_{\MR{f}\rightarrow\MR{s}}\left( \incident \right)
+  \left[ 1 - \exp\left( -\alpha\,s\left( \beta_{n} \right) \right) \right]
+\,\frac{1}{1-\fresnelR_{\MR{s}\rightarrow\MR{f}}\left( \transmitted \right)}
+  \label{eq:Th-total-absorbed-simp}
+\end{equation}
+where $\incident$ and $\transmitted$ are also function of $\beta_{n}$.
+
+\cref{fig:Th-fresnel} depicts the values for $\fresnelT$ and $\fresnelR$ for 
+the fluid-particle interface and the particle-fluid interface. Noteworthy is 
+the fact, that for the occurring incident angles $\incident \leq 
+\SI{10}{\degree}$ the values of $\fresnelR$ for both interface are less than 
+$3\cdot 10^{-3}$. Therefore, most of the energy is transmitted and almost none 
+reflected. For example, the relative power after one internal reflection and 
+for an incident angle of $\incident=\SI{10}{\degree}$ is $\approx 2.07\cdot 
+10^{-3}\,\power{i}{1}$ and after two internal reflections already $\approx 
+4.31\cdot 10^{-6}\,\power{i}{1}$.
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/absorbed_energies.tikz}
+  \includegraphics[]{Plots/cache/absorbed_energies.pdf}
+  \caption{Results of \cref{eq:Th-total-absorbed-simp} for various relative 
+  distances $a$ and radii $R$ with $N=500$ }
+  \label{fig:Th-absorbed_energies}
+\end{figure}
+
+\cref{fig:Th-absorbed_energies} shows the relative absorbed energy inside a 
+particle for various radii $R$ and distances $a\,R$. As \cref{fig:Th-fresnel} 
+already suggested only a little fraction of the trapping energy is absorbed by 
+the particle itself.
+
+\subsection{Ray Optics Heat Approximation}
+
+An important parameter for the calibration of the OT is the dynamic viscosity 
+$\muef$ of the fluid. The viscosity is in general a function of the temperature 
+$\muef\coloneqq\muef(T)$. For our calibration routine the absolute measured 
+force of the OT scales with square root of the fluid viscosity 
+($\abs{\vb{\force}}\propto\sqrt{\muef}$). For the range of 
+\SIrange{20}{30}{\degreeCelsius} the dynamic viscosity of water (exact formula 
+from \cite{Peterman2003}) can be linearly approximated with
+\begin{equation}
+  \muef(T) = 8.9086\cdot 10^{-4} -2.0277\cdot10^{-5} (T-25).
+  \label{eq:Th-viscosity}
+\end{equation}
+Temperature deviations of $\SI{25}{\degreeCelsius}\pm\SI{5}{\degreeCelsius}$ 
+lead to force magnitude errors of less than $\pm$6\%.
+
+
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/coordinate.tikz}
+  \includegraphics[]{Plots/cache/coordinate.pdf}
+  \caption{Fresnel}
+  \label{fig:Th-coordinate}
+\end{figure}
+
+
+
+\begin{equation}
+  \laplacian{T} = \frac{1}{\kappa} \pdv{T}{t} - \frac{q}{K}
+  \label{eq:Th-heat-prob}
 \end{equation}
 
-
-\section{Optical Position Detection\label{sec:Th-QPD}}
-
 \begin{equation}
-  \intensity = \intensity(x, y) = \frac{1}{2\pi\,R_{0}^{2}}\,\exp\left[ 
-  -\frac{1}{2}\,\frac{(x-x_{0})^{2} + (y - y_{0})^{2}}{R_{0}^{2}} \right]
-    \label{eq:Th-intensity}
+  \laplacian{T} = - \frac{q}{K}
+  \label{eq:Th-heat-stat}
 \end{equation}
-
-$R_{0}=\sfrac{\RA}{5}$
 
 
 \begin{subequations}
 \begin{align}
-  V_{\MR{1}} & = \int_{0}^{\sfrac{\pi}{2}}\int_{0}^{\RA}
-  \intensity\left( r\cos\varphi, r\sin\varphi \right)\,r\,\dd{r}\dd{\varphi} 
-  \\[3mm]
-  V_{\MR{2}} & = \int_{\sfrac{\pi}{2}}^{\pi}\int_{0}^{\RA}
-  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
-  \\[3mm]
-  V_{\MR{3}} & = \int_{\pi}^{\sfrac{3\pi}{2}}\int_{0}^{\RA}
-  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
-  \\[3mm]
-  V_{\MR{4}} & = \int_{\sfrac{3\pi}{2}}^{2\pi}\int_{0}^{\RA}
-  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
+  \eval{\pdv{T}{r}}_{r=0} &= 0\\[3mm]
+  \eval{T}_{r=R_{0}} &= T_{0}
 \end{align}
 \end{subequations}
 
+\begin{equation}
+  \Delta T(r) = T(r) - T_{0} = \frac{q}{6K}\left( R_0^2 - r^{2} \right)
+  \label{eq:Th-heat-sol}
+\end{equation}
 
-\begin{subequations}
-\begin{align}
-  V_{\MR{x}} & = \left( V_{\MR{1}}+V_{\MR{4}} \right) - \left( V_{\MR{2}} + 
-  V_{\MR{3}}  \right) \\
-  V_{\MR{y}} & = \left( V_{\MR{1}}+V_{\MR{2}} \right) - \left( V_{\MR{3}} + 
-  V_{\MR{4}}  \right) \\
-  V_{\MR{t}} & = V_{\MR{1}}+V_{\MR{2}} + V_{\MR{3}} + V_{\MR{4}}
-\end{align}
-\end{subequations}
+\begin{equation}
+  \overline{\Delta T} = \frac{1}{V}\int_{V}\Delta T(r) \dd{V} = 
+  \frac{1}{15}\,\frac{q}{K}\,R^{2}_{0}
+  \label{eq:Th-heat-avg}
+\end{equation}
 
 
-\section{Laser Induced Temperature Change\label{sec:Th-temperature}}
+
 
 \lipsum[1-2]
 
-\begin{figure}[htp]
+\begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/V_quadrant.tikz}
   \includegraphics[]{Plots/cache/V_quadrant.pdf}
@@ -579,39 +745,6 @@ power of electromagnetic wave
 \cite[Chapter 7]{Jackson2013}
 
 
-for plane emw in free space with $\mu_{\MR{r}} = 1$ (non-magnetic)
-
-\begin{equation}
-  \intensity = \timeaverage{\abs{\vb{S}}} = 
-  \timeaverage{\abs{\vb{E}_{0}\times\vb{H}_{0}}} = 
-  \frac{1}{2}\,\frac{\refraction}{Z_{0}}\,\abs{\vb{E}_{0}}^{2} = 
-  \frac{1}{2}\,\refraction\,c\epsilon_{0}\,\abs{\vb{E}_{0}}^{2}
-\end{equation}
-
-\begin{equation}
-  P = \intensity\,A \propto \refraction\,\abs{\vb{E}_{0}}^{2}\,A
-\end{equation}
-
-\begin{equation}
-  P_{\MR{i}} = P_{\MR{r}} + P_{\MR{t}}
-\end{equation}
-
-
-\begin{equation}
-  \fresnelR_{i} = \frac{P_{\MR{r}}}{P_{\MR{i}}} = 
-  \frac{\intensity_{\MR{r}}\,\nf\,w_{\MR{r}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
-  =\frac{\abs{\fresnelr_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}} = 
-  \fresnelr_{i}^{2}
-\end{equation}
-
-\begin{equation}
-  \fresnelT_{i} = \frac{P_{\MR{t}}}{P_{\MR{i}}} = 
-  \frac{\intensity_{\MR{t}}\,\ns\,w_{\MR{t}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
-  =\frac{\abs{\fresnelt_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}}\,\frac{\ns\,w_{\MR{t}}}{\nf\,w_{\MR{i}}} 
-  = \fresnelt_{i}^{2}\,\frac{\ns\,\cos\transmitted}{\nf\,\cos\incident}
-\end{equation}
-
-
 % \begin{subequations}
 % \begin{align}
   % \fresnelR_{\MR{s,p}} & = \resnelr_{\MR{s,p}}^{2} 
@@ -622,29 +755,52 @@ for plane emw in free space with $\mu_{\MR{r}} = 1$ (non-magnetic)
 % \end{align}
 % \end{subequations}
 
-\begin{equation}
-  \fresnelR + \fresnelT = 
-  \frac{\fresnelR_{\MR{s}}+\fresnelR_{\MR{p}}}{2} +
-  \frac{\fresnelT_{\MR{s}}+\fresnelT_{\MR{p}}}{2} = 1 
-  \label{eq:Th-fresnel}
-\end{equation}
-
-\begin{subequations}
-  \begin{alignat}{2}
-  P_{\MR{t}}^{(1)} & = \fresnelT\,P_{\MR{i}}^{(1)} & \\
-  P_{\MR{r}}^{(2)} & = \fresnelR\,P_{\MR{t}}^{(1)} & = 
-  \fresnelR\fresnelT\,P_{\MR{i}}^{(1)} \\
-  P_{\MR{t}}^{(2)} & = \fresnelT\,P_{\MR{t}}^{(1)} & = 
-  \fresnelT^{2}\,P_{\MR{i}}^{(1)} > 0.99\,P_{\MR{i}}^{(1)}
-\end{alignat}
-\end{subequations}
 
 
-
-\begin{figure}[htp]
+\begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/voltages_over_x.tikz}
   \includegraphics[]{Plots/cache/voltages_over_x.pdf}
   \caption{Fresnel}
   \label{fig:Th-voltages_over_x}
 \end{figure}
+
+\section{Optical Position Detection\label{sec:Th-QPD}}
+
+\begin{equation}
+  \intensity = \intensity(x, y) = \frac{1}{2\pi\,R_{0}^{2}}\,\exp\left[ 
+  -\frac{1}{2}\,\frac{(x-x_{0})^{2} + (y - y_{0})^{2}}{R_{0}^{2}} \right]
+    \label{eq:Th-intensity}
+\end{equation}
+
+$R_{0}=\sfrac{\RA}{5}$
+
+
+\begin{subequations}
+\begin{align}
+  V_{\MR{1}} & = \int_{0}^{\sfrac{\pi}{2}}\int_{0}^{\RA}
+  \intensity\left( r\cos\varphi, r\sin\varphi \right)\,r\,\dd{r}\dd{\varphi} 
+  \\[3mm]
+  V_{\MR{2}} & = \int_{\sfrac{\pi}{2}}^{\pi}\int_{0}^{\RA}
+  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
+  \\[3mm]
+  V_{\MR{3}} & = \int_{\pi}^{\sfrac{3\pi}{2}}\int_{0}^{\RA}
+  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
+  \\[3mm]
+  V_{\MR{4}} & = \int_{\sfrac{3\pi}{2}}^{2\pi}\int_{0}^{\RA}
+  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
+\end{align}
+\end{subequations}
+
+
+\begin{subequations}
+\begin{align}
+  V_{\MR{x}} & = \left( V_{\MR{1}}+V_{\MR{4}} \right) - \left( V_{\MR{2}} + 
+  V_{\MR{3}}  \right) \\
+  V_{\MR{y}} & = \left( V_{\MR{1}}+V_{\MR{2}} \right) - \left( V_{\MR{3}} + 
+  V_{\MR{4}}  \right) \\
+  V_{\MR{t}} & = V_{\MR{1}}+V_{\MR{2}} + V_{\MR{3}} + V_{\MR{4}}
+\end{align}
+\end{subequations}
+
+
