@@ -1,0 +1,26 @@
+\tikzsetnextfilename{dT}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\begin{tikzpicture}
+    \begin{axis}[view={0}{90},
+        xlabel={$R$ [\si{\um}]},
+        ylabel={$P$ [\si{\milli\watt}]},
+        height=60mm,
+        width=100mm,
+        point meta min=0,
+        point meta max=70,
+        colormap = {whiteblack}{
+          color(0cm) = (white);
+          color(1cm) = (red)},
+        colorbar,
+        colorbar style={
+          ytick={0,35,70},
+          ylabel={$\overline{\Delta T}$ [\si{\milli\degreeCelsius}]},
+        },
+        xtick={1,5,10},
+      ]
+      \addplot3[surf,mesh/rows=21,shader=interp] table[x=R,y=P,z=dT] 
+      {\relPath/10_Figures/TikZ/dT.dat};
+    \end{axis}
+\end{tikzpicture}
