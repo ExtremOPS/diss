@@ -549,9 +549,9 @@ angles $\incident$ that do not occur in our setup.}
   \label{fig:Th-fresnel}
 \end{figure}
 
-Finally all is in place, to estimate the total absorbed energy by the particle. 
-\cref{eq:Th-intensity} defines the intensity after the distance $s$. Hence the 
-absorbed energy over this length is
+Finally all is in place, to estimate the total relative absorbed energy 
+$\delta$ by the particle.  \cref{eq:Th-intensity} defines the intensity after 
+the distance $s$.  Hence the relative absorbed energy over this length is
 \begin{equation}
     \intensity_{\MR{abs}} = \intensity_{0} \left( 1 - \exp(-\alpha\,s) \right).
     \label{eq:Th-absorbed_energy}
@@ -571,8 +571,9 @@ And the power of a ray after $j$ reflections is
   \fresnelR^{(j-1)}_{\MR{s}\rightarrow\MR{f}}\left( \transmitted \right)
   \label{eq:Th-power}
 \end{equation}
-With \cref{eq:Th-absorbed_energy,eq:Th-distance_s,eq:Th-power} the absorbed 
-energy inside the particle can be approximated with discrete values
+With \cref{eq:Th-absorbed_energy,eq:Th-distance_s,eq:Th-power} the relative 
+absorbed energy $\delta$ inside the particle can be approximated with discrete 
+values
 \begin{equation}
   \beta_{n} = \frac{n}{N}\,\beta_{\MR{max}}.
   \label{eq:Th-beta-disc}
@@ -626,15 +627,23 @@ for an incident angle of $\incident=\SI{10}{\degree}$ is $\approx 2.07\cdot
   \label{fig:Th-absorbed_energies}
 \end{figure}
 
-\cref{fig:Th-absorbed_energies} shows the relative absorbed energy inside a 
-particle for various radii $R$ and distances $a\,R$. As \cref{fig:Th-fresnel} 
-already suggested only a little fraction of the trapping energy is absorbed by 
-the particle itself.
+\cref{fig:Th-absorbed_energies} shows the relative absorbed energy $\delta$ 
+inside a particle for various radii $R$ and distances $a\,R$. As 
+\cref{fig:Th-fresnel} already suggested only a little fraction of the trapping 
+energy is absorbed by the particle itself.
 
 \subsection{Ray Optics Heat Approximation}
 
-With the knowledge of the relative absorbed energy of the particle, we solve 
-the state heat equation for the particle
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/coordinate.tikz}
+  \includegraphics[]{Plots/cache/coordinate.pdf}
+  \caption{Sketch of Cartesian and spherical coordinate system}
+  \label{fig:Th-coordinate}
+\end{figure}
+
+With the knowledge of the relative absorbed energy $\delta$ of the particle, we 
+solve the state heat equation for the particle
 \begin{equation}
   \laplacian{T} = \frac{1}{\kappa} \pdv{T}{t} - \frac{q}{K}
   \label{eq:Th-heat-prob}
@@ -666,7 +675,7 @@ with two boundary conditions
 \end{align}
 \end{subequations}
 The first one implies a bounded temperature at the origin ($r=0$) and the 
-second one fixes the temperature at the surface of the particle ($r=R_{0}$).  
+second one fixes the temperature at the surface of the particle ($r=R_{0}$). 
 After two consecutive integration and applying of the boundary conditions one 
 finds the difference temperature to be
 \begin{equation}
@@ -691,33 +700,51 @@ particle is
   \overline{\Delta T} = \frac{1}{20\,\pi}\,\frac{\delta\,P}{R_{0}\,K}.
   \label{eq:Th-heat-sol-simp}
 \end{equation}
+Interestingly, \cref{eq:Th-heat-sol-simp} seems to scale with $\propto 
+\sfrac{1}{R_{0}}$. However, the relative total absorbed energy $\delta$ is also 
+dependent on $R_{0}$ because the distance $s$ increases with the particle size 
+linearly. But $\delta$ scales with $\left[  1-\exp\left( -\alpha\,R_{0} 
+\right)\right]$ and therefore the average difference temperature 
+$\overline{\Delta T}$ is proportional to $\sfrac{\left[ 1-\exp\left( 
+-\alpha\,R_{0} \right) \right]}{R_{0}}$. This seems counter-intuitive, that 
+bigger particle sizes lead to less temperature increase. But this only holds 
+for the average temperature difference $\overline{\Delta T}$, the temperature 
+distribution $T(r)$ (\cref{eq:Th-heat-sol}) increases with the particle size.
 
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/dT.tikz}
+  \includegraphics[]{Plots/cache/dT.pdf}
+  \caption{$\overline{\Delta T}$ of \cref{eq:Th-heat-sol-simp} for various 
+  laser powers $P$ and particle radii $R$.}
+  \label{fig:Th-dT}
+\end{figure}
 
-An important parameter for the calibration of the OT is the dynamic viscosity 
-$\muef$ of the fluid. The viscosity is in general a function of the temperature 
-$\muef\coloneqq\muef(T)$. For our calibration routine the absolute measured 
-force of the OT scales with square root of the fluid viscosity 
-($\abs{\vb{\force}}\propto\sqrt{\muef}$). For the range of 
-\SIrange{20}{30}{\degreeCelsius} the dynamic viscosity of water (exact formula 
-from \cite{Peterman2003}) can be linearly approximated with
+\Cref{fig:Th-dT} depicts the average difference temperature for various 
+combinations of laser power $P$ and particle radius $R$. With the information 
+given in the aforementioned experimental studies regarding the heating by the 
+laser and these ray optics motivated results for the heat distribution inside 
+the particle, we conclude that the increase in temperature around and inside 
+the particle for our setup is less than \SI{2}{\degreeCelsius} with the laser 
+power in the low \si{\milli\watt} range we are applying.
+
+Having established an upper bound for the laser induced temperature increase, 
+we can estimate the effects of this increase to the absolute value of a 
+measured force with the OT. The parameter that changes the most with a change 
+in the temperature is the dynamic viscosity $\muef$ of the fluid. The viscosity 
+is in general a function of the temperature $\muef\coloneqq\muef(T)$. For our 
+calibration routine the absolute measured force of the OT scales with square 
+root of the fluid viscosity ($\abs{\vb{\force}}\propto\sqrt{\muef}$). For the 
+range of \SIrange{20}{30}{\degreeCelsius} the dynamic viscosity of water (exact 
+formula from \cite{Peterman2003}) can be linearly approximated with
 \begin{equation}
   \muef(T) = 8.9086\cdot 10^{-4} -2.0277\cdot10^{-5} (T-25).
   \label{eq:Th-viscosity}
 \end{equation}
-Temperature deviations of $\SI{25}{\degreeCelsius}\pm\SI{5}{\degreeCelsius}$ 
-lead to force magnitude errors of less than $\pm$6\%.
-
+Temperature deviations of $\SI{25}{\degreeCelsius}\pm\SI{2}{\degreeCelsius}$ 
+lead to force magnitude errors of less than $\pm$2.5\%.
 
 \section{Optical Position Detection\label{sec:Th-QPD}}
-
-\begin{figure}[tbp]
-  \centering
-  % \input{\relPath/10_Figures/TikZ/coordinate.tikz}
-  \includegraphics[]{Plots/cache/coordinate.pdf}
-  \caption{Fresnel}
-  \label{fig:Th-coordinate}
-\end{figure}
-
 
 \begin{figure}[tbp]
   \centering
