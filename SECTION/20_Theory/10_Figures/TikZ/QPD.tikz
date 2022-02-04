@@ -1,0 +1,37 @@
+\tikzsetnextfilename{QPD}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+
+\begin{tikzpicture}
+
+  \coordinate (M) at (-1.5, 0.2);
+
+
+  \draw[<->,latex-latex] (0, 3.5) -- node[above,pos=0] {$\ey$} (0,0) -- 
+  node[above,pos=1] {$\ex$}  (3.5, 0);
+
+
+  \draw[thick, black] (0,0) circle (3);
+  \draw[|latex-{latex}|] (-3, -3.5) -- node[below,midway] {$2\,R_{\MR{QPD}}$} 
+  ++(6,0);
+
+  \draw[thick, dotted, black] (-3,0) -- ++(6,0);
+  \draw[thick, dotted, black] (0,-3) -- ++(0,6);
+
+  \draw[dotted, thick, red, fill=red!50, opacity=0.3] (M) circle (1);
+  \draw[|latex-{latex}|] (-2.5, -1.5) -- node[above,midway] {$\approx 
+  \sfrac{2}{5}\,R_{\MR{QPD}}$} ++(2,0);
+
+  \fill (M) circle (0.5mm);
+  \node[yshift=3mm,right] at (M) {$M$};
+  \draw[thin] (M) -- node[pos=1,right] {\small$y_{0}$} ++(1.5,0);
+  \draw[thin] (M) -- node[pos=1,below] {\small$x_{0}$} ++(0,-0.2);
+
+
+  \foreach \angle [count = \xi] in {60,120,240,300}
+  {
+    \node at (\angle:2.7) {$V_{\xi}$};
+  }
+
+\end{tikzpicture}
