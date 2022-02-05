@@ -43,7 +43,7 @@
       xticklabels={,,},
       ylabel={$\sfrac{y_{0}}{\RA}$},
     ]
-        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V4] {\data};
+        \addplot3[surf,mesh/rows=99,shader=interp] table[x=x,y=y,z=V4] {\data};
         \tikzHelper
 
     \nextgroupplot[
@@ -54,14 +54,14 @@
         ylabel={Normalized Intensity $\normalized{\intensity}$},
         height=2*\pgfkeysvalueof{/pgfplots/parent axis height}+
         \pgfkeysvalueof{/pgfplots/group/vertical sep}}]
-        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V1] {\data};
+        \addplot3[surf,mesh/rows=99,shader=interp] table[x=x,y=y,z=V1] {\data};
         \tikzHelper
 
     \nextgroupplot[
       xlabel={$\sfrac{x_{0}}{\RA}$},
       ylabel={$\sfrac{y_{0}}{\RA}$},
     ]
-        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V3]
+        \addplot3[surf,mesh/rows=99,shader=interp] table[x=x,y=y,z=V3]
         {\data};
         \tikzHelper
 
@@ -69,7 +69,7 @@
       xlabel={$\sfrac{x_{0}}{\RA}$},
       yticklabels={,,},
     ]
-        \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=V2] {\data};
+        \addplot3[surf,mesh/rows=99,shader=interp] table[x=x,y=y,z=V2] {\data};
         \tikzHelper
 
 

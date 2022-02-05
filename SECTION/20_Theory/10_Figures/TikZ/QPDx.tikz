@@ -31,7 +31,7 @@
         xtick={-1,0,1},
       }
     ]
-      \addplot3[surf,mesh/rows=51,shader=interp] table[x=x,y=y,z=Vy] 
+      \addplot3[surf,mesh/rows=99,shader=interp] table[x=x,y=y,z=Vy] 
       {\relPath/10_Figures/TikZ/V_mat.dat};
     \tikzHelper
   \end{axis}
