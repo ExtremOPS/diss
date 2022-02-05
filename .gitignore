@@ -21,7 +21,7 @@
 .DS_store
 
 Plots/cache/*
-!Plots/cache/*.eps
+!Plots/cache/n_water.eps
 
 ## Visual Code folder
 .vscode/*
