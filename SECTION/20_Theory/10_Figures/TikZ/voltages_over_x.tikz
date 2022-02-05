@@ -33,6 +33,10 @@
       \addlegendentry{$V_{\MR{y}}$};
       \addplot[dashed] table[x=x,y=V_1] {\data};
       \addlegendentry{$V_{\MR{t}}$};
+
+      \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.3650) -- (axis 
+      cs:0.4,1.3650);
+
     \nextgroupplot[
       % ylabel={$\tilde{I}$},
       title={$y = \sfrac{0}{\RA}$},
@@ -45,6 +49,9 @@
       \addplot[dotted] table[x=x,y=Vx_2] {\data};
       \addplot[] table[x=x,y=Vy_2] {\data};
       \addplot[dashed] table[x=x,y=V_2] {\data};
+
+      \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.4630) -- (axis 
+      cs:0.4,1.4630);
     \nextgroupplot[
       % ylabel={$\tilde{I}$},
       xlabel={$\sfrac{x_{0}}{\RA}$},
@@ -55,5 +62,8 @@
       \addplot[dotted] table[x=x,y=Vx_3] {\data};
       \addplot[] table[x=x,y=Vy_3] {\data};
       \addplot[dashed] table[x=x,y=V_3] {\data};
+
+      \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.3650) -- (axis 
+      cs:0.4,1.3650);
 \end{groupplot}
 \end{tikzpicture}
