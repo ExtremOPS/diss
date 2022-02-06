@@ -24,15 +24,15 @@
     \nextgroupplot[
     % ylabel={$\tilde{I}$},
       xticklabels={,,},
-      title={$y = \sfrac{-0.6}{\RA}$},
+      title={$y = \sfrac{0.6}{\RA}$},
       title style={yshift=-2mm},
       ]
       \tikzHelper
-      \addplot[dotted] table[x=x,y=Vx_1] {\data};
+      \addplot[dotted] table[x=x,y=Vx_3] {\data};
       \addlegendentry{$V_{\MR{x}}$};
-      \addplot[] table[x=x,y=Vy_1] {\data};
+      \addplot[] table[x=x,y=Vy_3] {\data};
       \addlegendentry{$V_{\MR{y}}$};
-      \addplot[dashed] table[x=x,y=V_1] {\data};
+      \addplot[dashed] table[x=x,y=V_3] {\data};
       \addlegendentry{$V_{\MR{t}}$};
 
       \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.4026) -- (axis 
@@ -56,13 +56,13 @@
     \nextgroupplot[
       % ylabel={$\tilde{I}$},
       xlabel={$\sfrac{x_{0}}{\RA}$},
-      title={$y = \sfrac{0.6}{\RA}$},
+      title={$y = \sfrac{-0.6}{\RA}$},
       title style={yshift=-2mm},
       ]
       \tikzHelper
-      \addplot[dotted] table[x=x,y=Vx_3] {\data};
-      \addplot[] table[x=x,y=Vy_3] {\data};
-      \addplot[dashed] table[x=x,y=V_3] {\data};
+      \addplot[dotted] table[x=x,y=Vx_1] {\data};
+      \addplot[] table[x=x,y=Vy_1] {\data};
+      \addplot[dashed] table[x=x,y=V_1] {\data};
 
       \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.4026) -- (axis 
       cs:0.4,1.4026);
