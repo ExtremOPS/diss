@@ -4,6 +4,10 @@
   \draw[black] (-1,0,0)--(1,0,0);
   \draw[black] (0,-1,0)--(0,1,0);
   \draw[black] (0,0,0) circle (1);
+
+  \draw[black, dotted] (-1.5,0,0) -- (1.5,0,0);
+  \draw[black, dotted] (-1.5,-0.6,0) -- (1.5,-0.6,0);
+  \draw[black, dotted] (-1.5,0.6,0) -- (1.5,0.6,0);
 }
 
 \pgfplotsset{%
