@@ -443,8 +443,8 @@ known.
 
 \begin{figure}[thp]
   \centering
-  \input{\relPath/10_Figures/TikZ/ray.tikz}
-  % \includegraphics[]{Plots/cache/ray.pdf}
+  % \input{\relPath/10_Figures/TikZ/ray.tikz}
+  \includegraphics[]{Plots/cache/ray.pdf}
   \caption{Schematic of ray path through particle.}
   \label{fig:Th-ray_particle}
 \end{figure}
@@ -551,7 +551,7 @@ angles $\incident$ that do not occur in our setup.}
 
 Finally all is in place, to estimate the total relative absorbed energy 
 $\delta$ by the particle.  \cref{eq:Th-intensity} defines the intensity after 
-the distance $s$.  Hence the relative absorbed energy over this length is
+the distance $s$. Hence the relative absorbed energy over this length is
 \begin{equation}
     \intensity_{\MR{abs}} = \intensity_{0} \left( 1 - \exp(-\alpha\,s) \right).
     \label{eq:Th-absorbed_energy}
@@ -746,88 +746,179 @@ lead to force magnitude errors of less than $\pm$2.5\%.
 
 \section{Optical Position Detection\label{sec:Th-QPD}}
 
+Besides trapping the OT can also measure the relative movement of the trapped 
+object within the trap. After a calibration it is also possible to convert the 
+movement into the physical unit of meters and then also convert it into a force 
+with unit Newton. Besides doing the movement tracking visually with, e.g., a 
+high-speed camera, the most common approach is do utilize quadrant photo diodes 
+(QPDs). The latter is superior to the camera because higher sampling 
+frequencies are straightforward achievable, less data is produced during the 
+measurement, as well as, a full three dimensional resolution is at hand.
+
+In order to do so, the laser beam must be collimated after the object trapping 
+region and then focussed with separate lenses onto two QPDs (see 
+\cref{fig:Th-setup}). While the laser beam is focussed within the aperture of 
+the QPD for the in-plane $xy$-direction (QPDxy), the beam is focussed to 
+overfill the QPD aperture for the $z$-direction. For all measurements, where 
+the measured signal of the QPDs need to be converted to meters, it is crucial 
+to operate in the so-called \emph{linear range} of the QPD. In the following, 
+we will study what this terms stand for.
+
+A QPD consists of a diode divided into four separate regions. Each of the four 
+diodes measures the intensity of light on its respective area and return it as 
+voltage. \cref{fig:Th-QPD} is a schematic of the QPDxy where the focussed laser 
+spot midpoint $M$ is at $x=x_{0}$ and $y=y_{0}$ and the radius of the laser 
+spot is about $\sfrac{1}{5}\,R_{\MR{QPD}}$~\cite{Lamprecht2017}.
+
+The normalized intensity distribution can be defined as
+\begin{equation}
+  \tilde{\intensity} = \tilde{\intensity}(x, y) = 
+  \frac{1}{2\pi\,R_{\MR{spot}}^{2}}\,\exp\left[ 
+  -\frac{1}{2}\,\frac{(x-x_{0})^{2} + (y - y_{0})^{2}}{R_{\MR{spot}}^{2}} 
+\right]
+  \quad \text{with}\quad\int\limits_{\dd{A}}\tilde{\intensity}\dd{A} = 1
+    \label{eq:Th-intensity}
+\end{equation}
+where the radius of the spot is $R_{\MR{spot}}=\sfrac{\RA}{5}$.
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/QPD.tikz}
+  \includegraphics[]{Plots/cache/QPD.pdf}
+  \caption{Sketch of quadrant photo detectors for $x$-$y$ detection with center 
+  of laser image $M$ at $(x_{0}, y_{0})$.}
+  \label{fig:Th-QPD}
+\end{figure}
+
+The received intensity $V_{i}$ per quadrant can be evaluated with four 
+integrals over the respective areas
+\begin{subequations}
+\begin{align}
+  V_{\MR{1}} & = \int_{0}^{\sfrac{\pi}{2}}\int_{0}^{\RA}
+  \tilde{\intensity}\left( r\cos\varphi, r\sin\varphi 
+  \right)\,r\,\dd{r}\dd{\varphi}
+  \label{eq:Th-V1}
+  \\[3mm]
+  V_{\MR{2}} & = \int_{\sfrac{\pi}{2}}^{\pi}\int_{0}^{\RA}
+  \tilde{\intensity}\left(r\cos\varphi, 
+  r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
+  \label{eq:Th-V2}
+  \\[3mm]
+  V_{\MR{3}} & = \int_{\pi}^{\sfrac{3\pi}{2}}\int_{0}^{\RA}
+  \tilde{\intensity}\left(r\cos\varphi, 
+  r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
+  \label{eq:Th-V3}
+  \\[3mm]
+  V_{\MR{4}} & = \int_{\sfrac{3\pi}{2}}^{2\pi}\int_{0}^{\RA}
+  \tilde{\intensity}\left(r\cos\varphi, 
+  r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
+  \label{eq:Th-V4}
+\end{align}
+\end{subequations}
+where we used polar integration and polar coordinates $x=r\cos\varphi$ and 
+$y=r\sin\varphi$.
+
 \begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/V_quadrant.tikz}
   \includegraphics[]{Plots/cache/V_quadrant.pdf}
-  \caption{Caption}
+  \caption{Intensity per quadrant for various positions of laser image middle 
+    point $M$ (see \cref{eq:Th-V1,eq:Th-V2,eq:Th-V3,eq:Th-V4}). The top right 
+  plot is $V_{1}$, top left $V_{2}$, bottom left $V_{3}$, bottom right 
+$V_{4}$.}
   \label{fig:Th-quadrant_Intensity}
 \end{figure}
 
+If the particle moves within the trap the center of the laser image $M$ on the 
+QPDxy also moves. \cref{fig:Th-quadrant_Intensity} shows the intensity per 
+quadrant for different center positions. As expected, each quadrant is 
+measuring the highest intensity whenever most of the laser image is over the 
+respective area.
 
-\begin{figure}
+With these for separate values for $V_{1}$ through $V_{4}$, one can create a 
+measure that is proportional to the movement of the laser image center $M$ 
+along the $\ex$- and $\ey$-direction, respectively. The measure is a addition 
+and subtraction of the quadrants along one direction
+\begin{subequations}
+\begin{align}
+  V_{\MR{x}} & = \left( V_{\MR{1}}+V_{\MR{4}} \right) - \left( V_{\MR{2}} + 
+  V_{\MR{3}}  \right)
+  \label{eq:Th-Vx} \\
+  V_{\MR{y}} & = \left( V_{\MR{1}}+V_{\MR{2}} \right) - \left( V_{\MR{3}} + 
+  V_{\MR{4}}  \right)
+  \label{eq:Th-Vy} \\
+  V_{\MR{t}} & = V_{\MR{1}}+V_{\MR{2}} + V_{\MR{3}} + V_{\MR{4}}.
+  \label{eq:Th-Vt}
+\end{align}
+\end{subequations}
+
+ \begin{figure}
   \centering
   \begin{subfigure}[b]{0.35\textwidth}
     \centering
+    % \caption{$V_{\MR{x}}$}
     % \input{\relPath/10_Figures/TikZ/QPDx.tikz}
     \includegraphics[]{Plots/cache/QPDx.pdf}
-    \caption{Caption}
     \label{fig:Th-QPDx}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
+    % \caption{$V_{\MR{y}}$}
     % \input{\relPath/10_Figures/TikZ/QPDy.tikz}
     \includegraphics[]{Plots/cache/QPDy.pdf}
-    \caption{Caption}
     \label{fig:Th-QPDy}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
+    % \caption{$V_{\MR{t}}$}
     % \input{\relPath/10_Figures/TikZ/QPDt.tikz}
     \includegraphics[]{Plots/cache/QPDt.pdf}
-    \caption{Caption}
     \label{fig:Th-QPDt}
   \end{subfigure}
-  \caption{QPDs}
-  \label{fig:QPDs}
-\end{figure}
+  \caption{QPD measure $V_{\MR{x}}$ (left;~\cref{eq:Th-Vx}), $V_{\MR{y}}$ 
+    (center;~\cref{eq:Th-Vy}), and $V_{\MR{t}}$ (right;~\cref{eq:Th-Vt}) for 
+    various positions of laser image middle point $M$. The dotted horizontal 
+    lines are at $y=\sfrac{-0.6}{R_{\MR{QPD}}}$, $y=\sfrac{0}{R_{\MR{QPD}}}$, 
+  and $y=\sfrac{0.6}{R_{\MR{QPD}}}$ respectively.}
+  \label{fig:Th-QPDs}
+ \end{figure}
 
+As for the measured intensity per quadrant, the measured values are highest if 
+the laser image is over the respective quadrants (see \cref{fig:Th-QPDs}). 
+However, since $V_{\MR{x}}$ and $V_{\MR{y}}$ are composed by addition and 
+subtraction of the strictly positive values $V_{i}$ the magnitude can now also 
+be negative.
+
+In \cref{fig:Th-voltages_over_x} the three measures are plotted over $x_{0}$ 
+for three fixed values of $y_{0}$. This plot looks the same if $x_{0}$ is fixed 
+and $y_{0}$ is the changing variable. Additionally the curves $V_{\MR{x}}$ and 
+$V_{\MR{y}}$ change their behavior. It is clear, that there is a linear region 
+for which a little movement of the laser image middle point $M$ is converted 
+into a proportional change in the measured intensity on the QPD. However, this 
+\emph{linear regime} from $-0.15\,R_{\MR{QPD}}$ to $0.15\,R_{\MR{QPD}}$ is 
+rather little. Therefore, it is very important to check and adjust the offset 
+of the QPD before each measurement to ensure interpretability of the results.
+
+Noteworthy is also that for values of $\sfrac{\abs{x_{0}}}{R_{\MR{QPD}}} > 0.5$ 
+a further outwards movement does not lead to an increase of the respective 
+measure but to a decrease. If just one measure, here $V_{\MR{y}}$, is taken 
+into account then this decrease ($\sfrac{x_{0}}{R_{\MR{QPD}} > 0.5}$) is not 
+distinguishable from the increase coming from the middle 
+($\sfrac{x_{0}}{R_{\MR{QPD}} < 0.5}$). However, by also looking at the 
+evolution of $V_{\MR{t}}$ it is possible to identify in which direction the 
+laser image is moving on the QPD because this measure does not change its 
+magnitude between $\sfrac{\abs{x_{0}}}{R_{\MR{QPD}}} < 0.5$.
 
 \begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/voltages_over_x.tikz}
   \includegraphics[]{Plots/cache/voltages_over_x.pdf}
-  \caption{Fresnel}
+  \caption{QPD measure $V_{\MR{x}}$ (\cref{eq:Th-Vx}), $V_{\MR{y}}$
+    (\cref{eq:Th-Vy}), and $V_{\MR{t}}$ (\cref{eq:Th-Vt}) over $x_{0}$ for 
+  three fixed values of $y_{0}$. The light shaded gray area marks the 
+boundaries of the QPD and the dark shaded gray area the linear region of the 
+QPD from $-0.15\,R_{\MR{QPD}}$ to $0.15\,R_{\MR{QPD}}$.}
   \label{fig:Th-voltages_over_x}
 \end{figure}
-
-
-\begin{equation}
-  \intensity = \intensity(x, y) = \frac{1}{2\pi\,R_{0}^{2}}\,\exp\left[ 
-  -\frac{1}{2}\,\frac{(x-x_{0})^{2} + (y - y_{0})^{2}}{R_{0}^{2}} \right]
-    \label{eq:Th-intensity}
-\end{equation}
-
-$R_{0}=\sfrac{\RA}{5}$
-
-
-\begin{subequations}
-\begin{align}
-  V_{\MR{1}} & = \int_{0}^{\sfrac{\pi}{2}}\int_{0}^{\RA}
-  \intensity\left( r\cos\varphi, r\sin\varphi \right)\,r\,\dd{r}\dd{\varphi} 
-  \\[3mm]
-  V_{\MR{2}} & = \int_{\sfrac{\pi}{2}}^{\pi}\int_{0}^{\RA}
-  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
-  \\[3mm]
-  V_{\MR{3}} & = \int_{\pi}^{\sfrac{3\pi}{2}}\int_{0}^{\RA}
-  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi} 
-  \\[3mm]
-  V_{\MR{4}} & = \int_{\sfrac{3\pi}{2}}^{2\pi}\int_{0}^{\RA}
-  \intensity\left(r\cos\varphi, r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
-\end{align}
-\end{subequations}
-
-
-\begin{subequations}
-\begin{align}
-  V_{\MR{x}} & = \left( V_{\MR{1}}+V_{\MR{4}} \right) - \left( V_{\MR{2}} + 
-  V_{\MR{3}}  \right) \\
-  V_{\MR{y}} & = \left( V_{\MR{1}}+V_{\MR{2}} \right) - \left( V_{\MR{3}} + 
-  V_{\MR{4}}  \right) \\
-  V_{\MR{t}} & = V_{\MR{1}}+V_{\MR{2}} + V_{\MR{3}} + V_{\MR{4}}
-\end{align}
-\end{subequations}
-
-
