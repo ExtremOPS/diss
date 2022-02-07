@@ -81,11 +81,21 @@
 
 \tikzset{>=latex}
 
+\colorlet{colParticle}{black!10!}
+\colorlet{colFluid}{blue!20!white}
+
 \tikzset{
-particle/.style       = {ball color=blue!80!green}, 
-% Specifications for style of nodes:
-assumptionParticle/.style     = {formulation, fill=gray!30},
-assumptionFluid/.style      = {formulation, fill=blue!30},
+  fluid/.style = {
+    fill=colFluid,
+    fill opacity=.3,
+    color=black,
+  },
+  particle/.style = {
+    fill=colParticle,
+    fill opacity=.3,
+    color=black,
+  },
+  particleBall/.style = {ball color=colParticle},
 }
 
 

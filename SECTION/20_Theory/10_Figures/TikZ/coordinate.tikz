@@ -28,7 +28,8 @@
     node[anchor=south]{$\ez$};
 
   %Shade
-  \shade[particle,opacity=0.3] (\r,0) arc (0:90:\r) {[x={(0,0,\r)}] arc (90:0:\r)} {[y={(0,0,\r)}] arc (90:0:\r)};
+  \shade[particleBall,opacity=0.3] (\r,0) arc (0:90:\r) {[x={(0,0,\r)}] arc 
+  (90:0:\r)} {[y={(0,0,\r)}] arc (90:0:\r)};
 
     % Spherical coordinates
     \tdplotdrawarc[->]{(O)}{0.2}{0}{\phivec}{anchor=north}{$\varphi$}
