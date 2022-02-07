@@ -1,0 +1,28 @@
+\tikzsetnextfilename{deformed_circle}
+
+\pgfmathsetmacro{\R}{2.25}     % COS
+\begin{tikzpicture}
+  \fill[colFluid,opacity=0.3] (-4.6,-2.6) rectangle (4.6, 2.6);
+  \pgfmathsetseed{1} % choose a number which give a good shape to your circle
+  \path[draw, fill=white,color=white] plot[domain=0:350,smooth cycle] 
+  (\x:2+rnd*0.5);
+
+  % axes
+  \draw[ultra thin] (-2.5, 0) -- (2.5, 0);
+  \draw[ultra thin] (0, -2.5) -- (0, 2.5);
+  % undistorted sphere
+  \draw[ultra thin, dashed] (0, 0) circle (\R);
+  % distrorted sphere
+  \pgfmathsetseed{1} % choose a number which give a good shape to your circle
+  \path[draw, shading=ball, ball color=colParticle, fill opacity=0.3, thick, 
+  name path=curve] plot[domain=0:350,smooth cycle] (\x:2+rnd*0.5);
+
+  \draw[ultra thin, dashed, ->] (0:0) -- node[below, midway] {$R$} (190:\R);
+
+  \draw[-] (140:\R) to[out=50, in=0] ++(-.4*\R,.25*\R) node[left] 
+  {$\zeOrder{S}$};
+
+  \path[very thick, name path=line] (0:0) -- (60:3.5);
+  \draw [name intersections={of=curve and line, by=x}];
+  \draw[-] (x) to[out=-35, in=180] ++(.6*\R,-.25*\R) node[right] {$S(t)$};
+\end{tikzpicture}
