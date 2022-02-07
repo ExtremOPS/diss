@@ -61,8 +61,16 @@
     shapes,
     positioning,
     decorations.markings,
-    angles
+    angles,
+    intersections,
+    matrix,
+    fit,
+    quotes,
+    decorations.pathreplacing,%
+    decorations.pathmorphing,%
+    calligraphy,
     }
+
 \tikzset{external/force remake}
 \tikzset{external/system call={
   pdflatex \tikzexternalcheckshellescape -halt-on-error
@@ -71,11 +79,29 @@
   \tikzexternalize[prefix=Plots/cache/]
   % \tikzsetexternalprefix{Plots/Cache/}
 
+\tikzset{>=latex}
+
+\tikzset{
+particle/.style       = {ball color=blue!80!green}, 
+% Specifications for style of nodes:
+assumptionParticle/.style     = {formulation, fill=gray!30},
+assumptionFluid/.style      = {formulation, fill=blue!30},
+}
+
+
 \usepackage{pgfplots}
   % \usepgfplotslibrary{external}
   % \tikzexternalize
   \usepgfplotslibrary{groupplots}
   \usepgfplotslibrary{colormaps}
+  % Define layers
+  \pgfdeclarelayer{background}
+  \pgfdeclarelayer{foreground}
+  \pgfsetlayers{background,main,foreground}
+
+\usepackage{tkz-euclide, tikz-cd}
+\usepackage{tikz-3dplot}
+
 
 \pgfplotsset{
   compat = 1.18,

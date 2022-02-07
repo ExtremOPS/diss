@@ -1,0 +1,66 @@
+\tikzsetnextfilename{plane_wave}
+%----------------------
+%Plot display orientation
+\pgfmathsetmacro{\thetaC}{80}
+\pgfmathsetmacro{\phiC}{100}
+\tdplotsetmaincoords{\thetaC}{\phiC}
+%----------------------
+%Parameters 
+\pgfmathsetmacro{\R}{4}     % COS
+\pgfmathsetmacro{\k}{2.7}   % distance k vector
+\pgfmathsetmacro{\rvec}{2}  % Particle's radius
+\pgfmathsetmacro{\l}{4}   % width of planar wave
+\pgfmathsetmacro{\endl}{7}  % Azimuthal dashed line
+
+\begin{tikzpicture}[tdplot_main_coords]
+\coordinate (O) at (0,0,0);
+\coordinate (X) at (\R,0,0);
+\coordinate (Y) at (0,0,\R);
+\coordinate (Z) at (0,\R,0);
+\tdplotsetcoord{P}{2*\R}{-90}{0}
+
+%----------------------
+% Particle
+\shadedraw[tdplot_screen_coords,particle, opacity=.4](O) circle (\rvec);
+% Edges for labels
+\draw[-](0,.3*\R,.2*\R) to[out=40, in=180] ++(0,.4*\R,.45*\R)
+    node[right] {Particle};
+%-----------------------
+% Radial
+    \draw[thick,dashed] (O) -- (P);
+    %\tdplotdrawarc[->]{(P)}{0.7}{0}{90}{anchor=north}{$\theta$}
+\pic [draw, ->, "$\theta$", angle eccentricity=1.2,angle radius=1cm] {angle = Z--O--P};
+%-----------------------
+% Equator
+\draw[dashed] (\rvec,0,0) arc (0:360:\rvec);
+% Draw the arc which center is (O) from \phiC to \phiC-180 deg
+\draw[thick] ([shift=(\phiC:\rvec)]O) arc (\phiC:\phiC-180:\rvec);
+%-----------------------
+% Cartesian COS
+\begin{scope}[->,thick]
+    \draw (O) -- (X)
+        node[anchor=north east]{$\ey$};
+    \draw (O) -- (Y)
+        node[anchor=north west]{$\ex$};
+  \draw (O) -- (Z)
+    node[anchor=south east]{$\ez$};
+\end{scope}
+%----------------------
+%----------------------
+% Axis of symmetry
+\draw[dashed] ($(O)+(0,\endl-1.5,0)$) -- (0,-\endl+1,0);
+% Edges for labels
+\draw[-] ($(O)+(0,\endl-2,0)$) to[out=120, in=-90] ++($(O)+(0,\endl-8,.25*\R)$)
+    node[above]{Axis of symmetry};
+%----------------------
+% Incoming wave vector
+\coordinate (P) at (0,-\k,0);
+\draw[->,thick,color=red] (0,-1.5*\k,0) -- (P) 
+node[above,pos=.6]{$\vb{k}=k\vb{e}_{\MR{k}}$};
+ %----------------------
+% Incoming wave fronts
+\foreach \z in {-7,-6,-5}
+\draw [red, fill=red!20, opacity=.4] plot (\l,\z,1) -- (-\l,\z,1) --(-\l,\z,-1) -- (\l,\z,-1) -- cycle;
+\end{tikzpicture}
+
+
