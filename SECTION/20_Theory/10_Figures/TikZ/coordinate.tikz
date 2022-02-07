@@ -1,35 +1,65 @@
 \tikzsetnextfilename{coordinate}
+\tdplotsetmaincoords{60}{110}
+%
+% Parameters for vector
+\pgfmathsetmacro{\rvec}{1}
+\pgfmathsetmacro{\thetavec}{30}
+\pgfmathsetmacro{\phivec}{60}
+%
+%Parameters for COS
+\pgfmathsetmacro{\R}{1.2}
+\pgfmathsetmacro{\r}{1}
+%
+\begin{tikzpicture}[scale=3,tdplot_main_coords]
+    \coordinate (O) at (0,0,0);
+    \coordinate (X) at (\R,0,0);
+    \coordinate (Y) at (0,\R,0);
+    \coordinate (Z) at (0,0,\R);
 
-\begin{tikzpicture}[line cap=round, line join=round, >=Triangle, scale=1.5]
+    % Cartesian COS
+    \draw[thick,->] (O) -- (X)
+        %node[midway,sloped,above,color=note]{$x$}
+        node[anchor=north east]{$\ex$};
+    \draw[thick,->] (O) -- (Y)
+        %node[pos=.6,sloped,above,color=note]{$y$}
+        node[anchor=north west]{$\ey$};
+  \draw[thick,->] (O) -- (Z)
+    %node[midway,sloped,above,color=note]{$z$}
+    node[anchor=south]{$\ez$};
 
-% \clip(-2.1,-2.1) rectangle (2.38,2.58);
-\filldraw[blue!20,opacity=.3] (-2.1,-2.1) rectangle (2.98,2.98);
-\filldraw[white] (0,0) circle (2cm);
+  %Shade
+  \shade[particle,opacity=0.3] (\r,0) arc (0:90:\r) {[x={(0,0,\r)}] arc (90:0:\r)} {[y={(0,0,\r)}] arc (90:0:\r)};
 
-\draw[ball color=gray!20!white, fill opacity=0.6] (0,0) circle (2cm);
+    % Spherical coordinates
+    \tdplotdrawarc[->]{(O)}{0.2}{0}{\phivec}{anchor=north}{$\varphi$}
+    \tdplotsetthetaplanecoords{\phivec}
+    \tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{.5}{0}%
+        {\thetavec}{anchor=south west}{$\theta$}
 
-\draw [rotate around={0.:(0.,0.)},dash pattern=on 3pt off 3pt] (0,0) ellipse 
-(2cm and 0.9cm);
+     %Hilfslinien
+  \draw[dashed,tdplot_rotated_coords] (\rvec,0,0) arc (0:90:\rvec)node(Rxy){};
+    %\draw[dashed] (\rvec,0,0) arc (0:90:\rvec);
+    \draw[dashed] (O) -- (Rxy);
 
-\draw (0,0) -- (0.70,1.07) node[right, pos=0.4] {$r$};
+  % Vector
+    \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+    \draw[->,thick,color=red] (O) -- (P)
+    % label vector
+    node[above,left,color=red] at (P) {$\vb{r}$}
+    %label coordinate r
+        node[midway,below,sloped]{$r$};
+    \draw[dashed, color=red] (O) -- (Pxy);
+    \draw[dashed, color=red] (P) -- (Pxy);
 
-
-\draw[-latex,line width=0.7pt]   (0,0) -- +(0,2.5) node[above] {$\ez$};
-\draw[-latex,line width=0.7pt]   (0,0) -- +(-1.03,-1.01) node [left, 
-yshift=-1.8mm] {$\ex$};
-\draw[-latex,line width=0.7pt]  (0,0) -- +(2.5,0) node [right] {$\ey$};
-
-
-\draw [-Latex, <-, >=stealth', shift={(0,0)}, black, fill opacity=1] (56.7:0.4) 
-arc (56.7:90.:0.4) node[above, pos=0.3] {$\theta$};
-
-\begin{scope}[rotate around x=10, y=10, xshift=1, yshift=-4.6]
-    \draw [-Latex, ->, >=stealth', shift={(0,0)}, black, fill opacity=1] 
-    (-135.7:0.4) arc (-135.7:-33.2:0.4) node[below,pos=0.4] {$\varphi$};
-\end{scope}
-
-\draw [dotted] (0.7,1)-- (0.7,-0.46);
-\draw [dotted] (0,0)-- (0.7,-0.46);
-\draw [fill] (0,0) circle (1.5pt);
-\draw [fill] (0.7,1.07) circle (0.5pt);
+   %  New coordinate origin
+    \tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
+    \tdplotsetrotatedcoordsorigin{(P)}
+    % Spherical COS
+    \draw[thick,tdplot_rotated_coords,->] (P)
+        -- (.5,0,0) node[anchor=north west]{$\vb{e}_\theta$};
+    \draw[thick,tdplot_rotated_coords,->] (0,0,0)
+        -- (0,.5,0) node[anchor=west]{$\vb{e}_\varphi$};
+    \draw[thick,tdplot_rotated_coords,->] (0,0,0)
+        -- (0,0,.5) node[anchor=south]{$\vb{e}_r$};
 \end{tikzpicture}
+
