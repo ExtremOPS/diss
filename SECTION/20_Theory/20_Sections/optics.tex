@@ -8,18 +8,18 @@ continuous in the neighbourhood of the point of interest~\cite{Born1980Ch1}
 \begin{subequations}
   \begin{align}
     \curl{\vb{H}} - \frac{1}{c}\pdv{t}\vb{D} &=\frac{4\pi}{c}\vb{j} 
-    \label{eq:Th-ampere} \\
+    \label{eq:TO-ampere} \\
     \curl{\vb{E}} - \frac{1}{c}\pdv{t}\vb{B} &=  0
-    \label{eq:Th-faraday} \\
+    \label{eq:TO-faraday} \\
     \div{\vb{D}} &= 4\pi\rho_{\MR{E}}
-    \label{eq:Th-gauss} \\
+    \label{eq:TO-gauss} \\
     \div{\vb{B}} &= 0
-    \label{eq:Th-gauss-mag}
+    \label{eq:TO-gauss-mag}
   \end{align}
 \end{subequations}
 with $c$ being the speed of light and $\rho_{\MR{E}}$ the total electric charge 
 density. Although, 
-\cref{eq:Th-ampere,eq:Th-faraday,eq:Th-gauss,eq:Th-gauss-mag} describe the 
+\cref{eq:TO-ampere,eq:TO-faraday,eq:TO-gauss,eq:TO-gauss-mag} describe the 
 behavior of light fully, it is often more convenient to think of light as a 
 collection of single rays. In the limit of a vanishing small light wavelengths 
 $\lambda_{\text{light}}$ compared to the object size $R$, the approximation of 
@@ -46,13 +46,13 @@ results qualitatively.
   In the top half sketch red shading and the black lines the laser intensity 
 profile qualitatively. In the bottom half just the outer most laser rays are 
 depicted.}
-  \label{fig:Th-setup}
+  \label{fig:TO-setup}
 \end{figure}
 
 Before highlighting important parts from ray optics it is advantageous to 
 understand our optical trapping setup which is based upon the work of Arthur 
 Ashkin~\cite{Ashkin1978,Ashkin1987,Ashkin2002,Ashkin1986,Ashkin1992,Ashkin1997}. 
-\cref{fig:Th-setup} depicts a basic schematic of the laser path from the laser 
+\cref{fig:TO-setup} depicts a basic schematic of the laser path from the laser 
 source to the quadrant photo detectors (QPDs) in the back focal plane. A 
 complete overview of our setup with a list and explanation of every used part 
 is available in~\cite{Lamprecht2017}.
@@ -99,7 +99,7 @@ available from \citeauthor{Svoboda1994}~\cite{Svoboda1994} and
 
 \textcolor{red}{which material parameters if fluid or water}
 
-\section{Ray Optics\label{sec:Th-rayoptics}}
+\section{Ray Optics\label{sec:TO-rayoptics}}
 
 As said before, in the regime of ray optics the propagation of light is 
 visualized by single rays. The interaction of a single ray at an interface is 
@@ -110,7 +110,7 @@ vacuum the speed of light has a different (smaller) magnitude. The refractive
 index relates the speed of light of vacuum $c$ to any other material $c_{\Box}$
 \begin{equation}
   c_{\Box} = \frac{c}{n}.
-  \label{eq:Th-lightspeed}
+  \label{eq:TO-lightspeed}
 \end{equation}
 Since there is nothing faster than the speed of light, the refractive index 
 $\refraction$ cannot be smaller than 1. This index is not constant for one 
@@ -119,11 +119,11 @@ refractive is in general a complex quantity
 \begin{equation}
   \refraction\geq 1 \quad \wedge \quad \refraction \coloneqq 
   \refraction(\lambda) = \refraction(\lambda) - \iu k(\lambda)
-  \label{eq:Th-refractive-index}
+  \label{eq:TO-refractive-index}
 \end{equation}
 where $k$ is called the extinction coefficient~\cite{Jackson2013}. 
-\Cref{fig:Th-n_water} depicts $n$ and $k$ of water for different wavelengths 
-$\lambda$. Whereas the real part of \cref{eq:Th-refractive-index} is about 
+\Cref{fig:TO-n_water} depicts $n$ and $k$ of water for different wavelengths 
+$\lambda$. Whereas the real part of \cref{eq:TO-refractive-index} is about 
 constant for $\lambda > \SI{400}{\nm}$, the complex part changes its magnitude 
 over 4 orders of magnitude in the same interval.
 
@@ -133,21 +133,21 @@ over 4 orders of magnitude in the same interval.
   \includegraphics[]{Plots/cache/n_water.eps}
   \caption{Index of refraction $n$ and extinction coefficient $k$ for water 
   over wavelength $\lambda$. Data taken from \cite{Hale1973,Segelstein1981}.}
-  \label{fig:Th-n_water}
+  \label{fig:TO-n_water}
 \end{figure}
 
 
 The absorption coefficient~\cite{Hecht2017}
 \begin{equation}
   \alpha = \frac{4\pi f k}{c} = \frac{4\pi}{\lambda}k
-  \label{eq:Th-alpha}
+  \label{eq:TO-alpha}
 \end{equation}
 converts the dimensionless quantity $k$ into a physical parameter with unit 
 \si{\per\meter}. Any ray of any wavelength is attenuated when propagating 
 through a medium. The \emph{Beer-Lambert Law}
 \begin{equation}
   \intensity(s) = \intensity_{0}\exp(-\alpha s)
-  \label{eq:Th-beer-lambert}
+  \label{eq:TO-beer-lambert}
 \end{equation}
 captures the change of intensity while moving along the path $s$ where 
 $\intensity_{0}$ is the intensity at the start. E.g. in a depth of 
@@ -160,15 +160,15 @@ all the intensity of the sunlight is attenuated there.
   \includegraphics[]{Plots/cache/Snell.pdf}
   \caption{Visualization of \emph{Snell's Law} for rays at an interface of two 
   media with different refractive indices $\refraction_{\Box}$.}
-  \label{fig:Th-Snell}
+  \label{fig:TO-Snell}
 \end{figure}
 
 With the real part of the complex refractive index, it is possible to define 
 the most important relation in the ray optics regime. The \emph{Snell's Law} 
-(see also \cref{fig:Th-Snell}) is defined as
+(see also \cref{fig:TO-Snell}) is defined as
 \begin{equation}
   \nf\,\sin\incident = \ns\,\sin\transmitted.
-  \label{eq:Th-Snell}
+  \label{eq:TO-Snell}
 \end{equation}
 It connects the angle of incident $\incident$ with the transmitted angle 
 $\transmitted$ at an interface of two different media with refractive indices 
@@ -182,25 +182,25 @@ reflection $\theta_{\MR{TIR}}$
 \begin{equation}
   \theta_{\MR{TIR}}=\incident \quad\forall\quad \frac{\nf}{\ns}\,\sin\incident 
   > 1.
-  \label{eq:Th-TIR}
+  \label{eq:TO-TIR}
 \end{equation}
 For incident angles of this magnitude or greater 
 ($\incident\geq\theta_{\MR{TIR}}$), no ray is transmitted into the other 
 medium. This can only occur if the index of refraction of the incident medium 
-is greater than the transmitted medium ($\nf>\ns$ in \cref{fig:Th-Snell}) 
-otherwise the ratio $\sfrac{\nf}{\ns}$ of \cref{eq:Th-TIR} is always smaller 
+is greater than the transmitted medium ($\nf>\ns$ in \cref{fig:TO-Snell}) 
+otherwise the ratio $\sfrac{\nf}{\ns}$ of \cref{eq:TO-TIR} is always smaller 
 than unity and there is physically no total internal reflection possible.
 
 % The other angle of special interest is the so called \emph{Brewster Angle} 
 % $\theta_{\MR{B}}$
 % \begin{equation}
   % \theta_{\MR{B}} = \tan^{-1}\left( \frac{\ns}{\nf} \right).
-  % \label{eq:Th-brewster}
+  % \label{eq:TO-brewster}
 % \end{equation}
 % At this angle there does not occur an reflection and hence all the intensity is 
 % transmitted.
 
-So far, \cref{eq:Th-Snell} calculates in which direction a ray will travel 
+So far, \cref{eq:TO-Snell} calculates in which direction a ray will travel 
 after an interface of two media. The amplitude of the reflected and transmitted 
 rays can be computed with the so called \emph{Fresnel 
 Equations}~\cite{Jackson2013,Born1980Ch1}. Although we think of light as rays, 
@@ -227,23 +227,23 @@ the assumption that both media are non-magnetic ($\mu_{\MR{f}} = \mu_{\MR{s}} =
 \begin{align}
   \fresnelr_{\MR{s}} & =
   \frac{2\,\nf\,\cos\incident}{\nf\,\cos\incident + \ns\,\cos\reflected} 
-  \label{eq:Th-fresnel-rs}\\[3mm]
+  \label{eq:TO-fresnel-rs}\\[3mm]
   \fresnelt_{\MR{s}} & = \frac{\nf\,\cos\incident - 
   \ns\,\cos\reflected}{\nf\,\cos\incident + \ns\,\cos\reflected} 
-  \label{eq:Th-fresnel-ts}\\[3mm]
+  \label{eq:TO-fresnel-ts}\\[3mm]
   \fresnelr_{\MR{p}} & =
   \frac{2\,\nf\,\cos\incident}{\ns\,\cos\incident + \nf\,\cos\reflected} 
-  \label{eq:Th-fresnel-rp}\\[3mm]
+  \label{eq:TO-fresnel-rp}\\[3mm]
   \fresnelt_{\MR{p}} & = \frac{\ns\,\cos\incident - 
   \nf\,\cos\reflected}{\ns\,\cos\incident + \nf\,\cos\reflected}.
-\label{eq:Th-fresnel-tp}
+\label{eq:TO-fresnel-tp}
 \end{align}
 \end{subequations}
 So far, the Fresnel coefficients relate the amplitudes of the incident 
 electrical field to the transmitted and reflected electrical field. In general, 
 the sum of $\fresnelr$ and $\fresnelt$ does not add up to unity.
 
-For \cref{sec:Th-temperature}, it is necessary to know how much of the incident 
+For \cref{sec:TO-temperature}, it is necessary to know how much of the incident 
 power $P_{\MR{i}}$ is transmitted and how much is reflected. The power 
 $P=\intensity A$ is a product of the intensity $\intensity$ and the area $A$ it 
 is acting on. The intensity is defined as the timeaverage of the Ponyting 
@@ -256,13 +256,13 @@ vector $\vb{S}$
 \end{equation}
 where $Z_{0}$ is the electrical impedance of free space and $\epsilon_{0}$ is 
 the vacuum permittivity. With 
-\cref{eq:Th-fresnel-rs,eq:Th-fresnel-ts,eq:Th-fresnel-rp,eq:Th-fresnel-tp} the 
+\cref{eq:TO-fresnel-rs,eq:TO-fresnel-ts,eq:TO-fresnel-rp,eq:TO-fresnel-tp} the 
 scaling of the electrical field at the interface is defined. With the relation 
-(see also \cref{fig:Th-Snell})
+(see also \cref{fig:TO-Snell})
 \begin{equation}
   w = \frac{w_{\MR{i}}}{\cos\incident} = \frac{w_{\MR{r}}}{\cos\reflected} = 
   \frac{w_{\MR{t}}}{\cos\transmitted}
-  \label{eq:Th-area}
+  \label{eq:TO-area}
 \end{equation}
 and the scaling of the power
 \begin{equation}
@@ -276,7 +276,7 @@ power $P_{\MR{r}}$ to the incident power $P_{\MR{i}}$ as
   \frac{\intensity_{\MR{r}}\,\nf\,w_{\MR{r}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
   =\frac{\abs{\fresnelr_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}} = 
   \fresnelr_{i}^{2}
-  \label{eq:Th-fresnelR}
+  \label{eq:TO-fresnelR}
 \end{equation}
 where again the italic $i$ in the subscript ($\Box_{i}$) is the polarization. 
 Similarly one finds the transmittance $\fresnelT_{i}$ as
@@ -285,7 +285,7 @@ Similarly one finds the transmittance $\fresnelT_{i}$ as
   \frac{\intensity_{\MR{t}}\,\ns\,w_{\MR{t}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
   =\frac{\abs{\fresnelt_{i}\,\vb{E}_{0}}^{2}}{\abs{\vb{E}_{0}}^{2}}\,\frac{\ns\,w_{\MR{t}}}{\nf\,w_{\MR{i}}} 
   = \fresnelt_{i}^{2}\,\frac{\ns\,\cos\transmitted}{\nf\,\cos\incident}.
-  \label{eq:Th-fresnelT}
+  \label{eq:TO-fresnelT}
 \end{equation}
 For unploarized rays one can take the arithmetic average of $\Box_{\MR{s}}$ and 
 $\Box_{\MR{p}}$ polarization values. Other than the Fresnel coefficients the 
@@ -295,7 +295,7 @@ angle of incidence need to be unity
   \fresnelR + \fresnelT = 
   \frac{\fresnelR_{\MR{s}}+\fresnelR_{\MR{p}}}{2} +
   \frac{\fresnelT_{\MR{s}}+\fresnelT_{\MR{p}}}{2} = 1 
-  \label{eq:Th-fresnel}
+  \label{eq:TO-fresnel}
 \end{equation}
 because the incident power $P_{\MR{i}}$ is either reflected or transmitted
 \begin{equation}
@@ -303,7 +303,7 @@ because the incident power $P_{\MR{i}}$ is either reflected or transmitted
   \right).
 \end{equation}
 
-\section{Laser Induced Temperature Change\label{sec:Th-temperature}}
+\section{Laser Induced Temperature Change\label{sec:TO-temperature}}
 
 A laser is a (highly focused) coherent beam of electromagnetic waves of a 
 single wavelength $\lal$. Intensities with the orders of 
@@ -313,7 +313,7 @@ average intensity of the sun on to the earth in Central Europe is about
 peak power of \SI{200}{\milli\watt} and a specified beam diameter of 
 \SI{1}{\mm} a maximal intensity of about 
 \SI{0.25}{\mega\watt\per\square\meter}. As described with the Beer-Lambert-Law
-(\cref{eq:Th-beer-lambert}) some of the laser intensity is attenuated while 
+(\cref{eq:TO-beer-lambert}) some of the laser intensity is attenuated while 
 traveling through any medium. The attenuation of intensity will lead to an 
 increase of temperature in the absorbing medium.
 
@@ -328,7 +328,7 @@ In the following, we will first discuss the current research regarding
 temperature increase in OTs, discuss the path of a ray through the particle, 
 and then motivate a temperature approximation based on simple ray optics.
 
-\subsection{State of the Art}\label{sec:Th-state}
+\subsection{State of the Art}\label{sec:TO-state}
 
 \cyear{Liu1995} measured the temperature dependent change in fluorescence of 
 biological cells while being trapped with a wavelength of 
@@ -374,14 +374,14 @@ their experimental findings. Their source term which is an extension to
 the wavelength of the laser itself. In agreement to the others they found the 
 heat increase to be about \SI{20}{\degreeCelsius\per\watt}.
 
-All of the aforementioned studies (see also \cref{tab:Th-heating}) validated in 
+All of the aforementioned studies (see also \cref{tab:TO-heating}) validated in 
 their experiments the linear relation of the applied laser power to the 
 increase in temperature. Also, they showed that the temperature change occurs 
 almost instantaneously and that a steady system is established in the range of 
 \si{\ms}. In addition, they agree that the main absorption occurs in the fluid 
 medium (water or glycerol) rather than the trapped object (polystyrene or 
 silica) itself because the absorption coefficient $\alpha$ is greater. However, 
-as can be seen in \cref{fig:Th-n_water}, the extinction coefficient is 
+as can be seen in \cref{fig:TO-n_water}, the extinction coefficient is 
 dependent on the wavelength $\lal$. Besides \cite{Moreau2015} all studies 
 operate at a wavelength of \SI{1064}{\nm}. Our OT operates at \SI{785}{\nm} and 
 the extinction coefficient $k$ for this wavelength is about one order of 
@@ -423,7 +423,7 @@ from any surrounding surface.
   \end{tabular}
   \caption{Overview of studies to laser induced heating in OTs. Mat.=Material 
   type of the trapped object, Ex.=Experimental part, Ana.=Analytical model, 
-Num.=Numerical model}\label{tab:Th-heating}
+Num.=Numerical model}\label{tab:TO-heating}
 \end{table}
 
 \subsection[Ray Path \& absorbed Energy]{Ray Path through Particle and absorbed 
@@ -431,14 +431,14 @@ Energy}
 
 Before approximating the heat distribution inside the trapped particle with ray 
 optics, it is necessary investigate the path of the ray though the particle. In 
-\cref{fig:Th-ray_particle} an ray with power $\power{i}{1}$ is incident on the 
+\cref{fig:TO-ray_particle} an ray with power $\power{i}{1}$ is incident on the 
 particle surface in point $I$. The direction of the ray is towards the focal 
 point $f$ which is slightly above the middle point $M$ of the particle because 
 the stable trapping position is the equilibrium of the trapping forces towards 
 the point $f$ and gravity. Because of the different refractive indices of the 
 fluid $\nf$ and the particle $\ns$ the ray gets deflected inside the particle. 
 The transmitted angle $\transmitted$ can easily be computed with 
-\cref{eq:Th-Snell}. However, for that the incident angle $\incident$ must be 
+\cref{eq:TO-Snell}. However, for that the incident angle $\incident$ must be 
 known.
 
 \begin{figure}[thp]
@@ -446,24 +446,24 @@ known.
   % \input{\relPath/10_Figures/TikZ/ray.tikz}
   \includegraphics[]{Plots/cache/ray.pdf}
   \caption{Schematic of ray path through particle.}
-  \label{fig:Th-ray_particle}
+  \label{fig:TO-ray_particle}
 \end{figure}
 
-With the convergence angle $\beta$ (see \cref{fig:Th-angles}) and the sine-law
+With the convergence angle $\beta$ (see \cref{fig:TO-angles}) and the sine-law
 \begin{equation}
   \frac{\sin\left( \frac{\pi}{2}-\beta \right)}{\R} = 
   \frac{\sin\incident}{a\,\R}
-  \label{eq:Th-sine-law}
+  \label{eq:TO-sine-law}
 \end{equation}
 one can compute $\incident$ as function of $\beta$. The angle $\beta$ is an 
 input parameter and therefore known. The maximal convergence angle 
 $\beta_{\MR{max}}$ is evaluated by the definition of the NA
 \begin{equation}
   \text{NA} = \nf\,\sin\beta_{\MR{max}}.
-  \label{eq:Th-NA}
+  \label{eq:TO-NA}
 \end{equation}
 Our lens has a NA of 1.27 and water has a refractive index of $\nf=1.33$ (see 
-\cref{fig:Th-n_water}) and therefore is our maximal convergence angle 
+\cref{fig:TO-n_water}) and therefore is our maximal convergence angle 
 $\beta_{\MR{max}} \approx \SI{72}{\degree}$.
 
 With the knowledge of $\transmitted^{1}$ the path of the ray inside the 
@@ -477,7 +477,7 @@ one ray have the same magnitude
 
 Now, the respective powers of one ray can be evaluated. The ray has the 
 incident power $\power{i}{1}$ with every reflection it gets split into two 
-portions. With \cref{eq:Th-fresnelR,eq:Th-fresnelT,eq:Th-fresnel} the powers 
+portions. With \cref{eq:TO-fresnelR,eq:TO-fresnelT,eq:TO-fresnel} the powers 
 after each reflection is
 \begin{subequations}
   \begin{alignat}{3}
@@ -499,16 +499,16 @@ after each reflection is
   % \input{\relPath/10_Figures/TikZ/angles.tikz}
   \includegraphics[]{Plots/cache/angles.pdf}
   \caption{Sketch of incident ray onto particle surface.}
-  \label{fig:Th-angles}
+  \label{fig:TO-angles}
 \end{figure}
 
 If a particle is stably trapped the distance $a$ of the particle center point 
-$M$ and the focal point $f$ (see also \cref{fig:Th-angles}) is about $a \approx 
+$M$ and the focal point $f$ (see also \cref{fig:TO-angles}) is about $a \approx 
 0.1\,R$~\cite{Lamprecht2017}. During the trapping process and due to external 
 forces this distances changes. If the focal point is outside the particle, the 
 trapping forces are negligible small.
 
-\cref{fig:Th-gamma_theta} depicts the values of $\gamma$ and $\incident$, 
+\cref{fig:TO-gamma_theta} depicts the values of $\gamma$ and $\incident$, 
 respectively, for different combinations of $a$ and $\beta$. As pointed out 
 before, the distance $a$ is about $0.1\,R$. For this value the maximal incident 
 angle $\incident$ over the whole range of $\beta$ is less than 
@@ -521,7 +521,7 @@ angle $\incident$ over the whole range of $\beta$ is less than
     % \input{\relPath/10_Figures/TikZ/gamma.tikz}
     \caption{}
     \includegraphics[]{Plots/cache/gamma.pdf}
-    \label{fig:Th-gamma}
+    \label{fig:TO-gamma}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
@@ -529,11 +529,11 @@ angle $\incident$ over the whole range of $\beta$ is less than
     % \input{\relPath/10_Figures/TikZ/theta_i.tikz}
     \caption{}
     \includegraphics[]{Plots/cache/theta_i.pdf}
-    \label{fig:Th-theta_i}
+    \label{fig:TO-theta_i}
   \end{subfigure}
     \caption{Magnitude of $\gamma$ and $\incident$ for different values of $a$ 
-    and $\beta$ (see also \cref{fig:Th-angles}).}
-  \label{fig:Th-gamma_theta}
+    and $\beta$ (see also \cref{fig:TO-angles}).}
+  \label{fig:TO-gamma_theta}
 \end{figure}
 
 \begin{figure}[tbp]
@@ -541,20 +541,20 @@ angle $\incident$ over the whole range of $\beta$ is less than
   % \input{\relPath/10_Figures/TikZ/Fresnel.tikz}
   \includegraphics[]{Plots/cache/Fresnel.pdf}
   \caption{Fresnel coefficients of reflectance and transmittance (see 
-  \cref{eq:Th-fresnelR,eq:Th-fresnelT}) for a water-particle interface 
+  \cref{eq:TO-fresnelR,eq:TO-fresnelT}) for a water-particle interface 
   ($\Box_{\MR{f}\rightarrow\MR{s}}$) and a particle-water interface 
 ($\Box_{\MR{s}\rightarrow\MR{f}}$). The right plot is a detail of the left one 
 with a logarithmic y-scale. The grey shaded area marks the interval of incident 
 angles $\incident$ that do not occur in our setup.}
-  \label{fig:Th-fresnel}
+  \label{fig:TO-fresnel}
 \end{figure}
 
 Finally all is in place, to estimate the total relative absorbed energy 
-$\delta$ by the particle.  \cref{eq:Th-intensity} defines the intensity after 
+$\delta$ by the particle.  \cref{eq:TO-intensity} defines the intensity after 
 the distance $s$. Hence the relative absorbed energy over this length is
 \begin{equation}
     \intensity_{\MR{abs}} = \intensity_{0} \left( 1 - \exp(-\alpha\,s) \right).
-    \label{eq:Th-absorbed_energy}
+    \label{eq:TO-absorbed_energy}
 \end{equation}
 The distance $s$ for one passage through the particle can be computed as 
 function of $\beta$ as
@@ -562,21 +562,21 @@ function of $\beta$ as
   s\left( \beta \right) = 2\,R\,\cos\left( \transmitted\left[ \incident\left( 
     \beta \right) \right]
     \right).
-    \label{eq:Th-distance_s}
+    \label{eq:TO-distance_s}
 \end{equation}
 And the power of a ray after $j$ reflections is
 \begin{equation}
   \power{j}{i} =
   \fresnelT_{\MR{f}\rightarrow\MR{s}}\left( \incident \right) \,
   \fresnelR^{(j-1)}_{\MR{s}\rightarrow\MR{f}}\left( \transmitted \right)
-  \label{eq:Th-power}
+  \label{eq:TO-power}
 \end{equation}
-With \cref{eq:Th-absorbed_energy,eq:Th-distance_s,eq:Th-power} the relative 
+With \cref{eq:TO-absorbed_energy,eq:TO-distance_s,eq:TO-power} the relative 
 absorbed energy $\delta$ inside the particle can be approximated with discrete 
 values
 \begin{equation}
   \beta_{n} = \frac{n}{N}\,\beta_{\MR{max}}.
-  \label{eq:Th-beta-disc}
+  \label{eq:TO-beta-disc}
 \end{equation}
 to be
 \begin{equation}
@@ -585,7 +585,7 @@ to be
   \sum\limits_{n=1}^{N}
   \sum\limits_{k=0}^{\infty}\power{i}{k-1}\left( \beta_{n} \right)\left[ 1 - 
   \exp\left( -\alpha\,s\left( \beta_{n} \right) \right) \right]
-  \label{eq:Th-total-absorbed}
+  \label{eq:TO-total-absorbed}
 \end{equation}
 where the factor $\sfrac{1}{N}$ is due to the assumption that each ray has the 
 same incident power when hitting the particle surface and the factor $2\pi$ for 
@@ -596,7 +596,7 @@ well as
   \sum\limits^{\infty}_{k=0} \Box^{k} = \frac{1}{1-\Box}
   \quad\text{for}\quad\abs{\Box} < 1
 \end{equation}
-can be applied to \cref{eq:Th-total-absorbed} to simplify the double sum to
+can be applied to \cref{eq:TO-total-absorbed} to simplify the double sum to
 \begin{equation}
   \intensity_{\MR{tot.,abs.}} \approx
   \frac{2\pi}{N}
@@ -604,11 +604,11 @@ can be applied to \cref{eq:Th-total-absorbed} to simplify the double sum to
   \fresnelT_{\MR{f}\rightarrow\MR{s}}\left( \incident \right)
   \left[ 1 - \exp\left( -\alpha\,s\left( \beta_{n} \right) \right) \right]
 \,\frac{1}{1-\fresnelR_{\MR{s}\rightarrow\MR{f}}\left( \transmitted \right)}
-  \label{eq:Th-total-absorbed-simp}
+  \label{eq:TO-total-absorbed-simp}
 \end{equation}
 where $\incident$ and $\transmitted$ are also function of $\beta_{n}$.
 
-\cref{fig:Th-fresnel} depicts the values for $\fresnelT$ and $\fresnelR$ for 
+\cref{fig:TO-fresnel} depicts the values for $\fresnelT$ and $\fresnelR$ for 
 the fluid-particle interface and the particle-fluid interface. Noteworthy is 
 the fact, that for the occurring incident angles $\incident \leq 
 \SI{10}{\degree}$ the values of $\fresnelR$ for both interface are less than 
@@ -622,49 +622,41 @@ for an incident angle of $\incident=\SI{10}{\degree}$ is $\approx 2.07\cdot
   \centering
   % \input{\relPath/10_Figures/TikZ/absorbed_energies.tikz}
   \includegraphics[]{Plots/cache/absorbed_energies.pdf}
-  \caption{Results of \cref{eq:Th-total-absorbed-simp} for various relative 
+  \caption{Results of \cref{eq:TO-total-absorbed-simp} for various relative 
   distances $a$ and radii $R$ with $N=500$ }
-  \label{fig:Th-absorbed_energies}
+  \label{fig:TO-absorbed_energies}
 \end{figure}
 
-\cref{fig:Th-absorbed_energies} shows the relative absorbed energy $\delta$ 
+\cref{fig:TO-absorbed_energies} shows the relative absorbed energy $\delta$ 
 inside a particle for various radii $R$ and distances $a\,R$. As 
-\cref{fig:Th-fresnel} already suggested only a little fraction of the trapping 
+\cref{fig:TO-fresnel} already suggested only a little fraction of the trapping 
 energy is absorbed by the particle itself.
 
 \subsection{Ray Optics Heat Approximation}
-
-\begin{figure}[tbp]
-  \centering
-  % \input{\relPath/10_Figures/TikZ/coordinate.tikz}
-  \includegraphics[]{Plots/cache/coordinate.pdf}
-  \caption{Sketch of Cartesian and spherical coordinate system}
-  \label{fig:Th-coordinate}
-\end{figure}
 
 With the knowledge of the relative absorbed energy $\delta$ of the particle, we 
 solve the state heat equation for the particle
 \begin{equation}
   \laplacian{T} = \frac{1}{\kappa} \pdv{T}{t} - \frac{q}{K}
-  \label{eq:Th-heat-prob}
+  \label{eq:TO-heat-prob}
 \end{equation}
 where $T$ is the temperature inside the particle, $q$ is the absorbed energy of 
 unit volume, $K$ the thermal conductivity, and $\kappa$ the thermal 
 diffusivity. Further, we neglect the time-dependence $\pdv{T}{t}= 0$
 \begin{equation}
   \laplacian{T} = - \frac{q}{K}
-  \label{eq:Th-heat-stat}
+  \label{eq:TO-heat-stat}
 \end{equation}
-because all publications presented in \cref{sec:Th-state} state that the 
+because all publications presented in \cref{sec:TO-state} state that the 
 heating occurs within \si{\ms} and is negligible afterwards. In addition, we 
 assume a spherical particle and solve the problem with spherical coordinate 
-system (see \cref{fig:Th-coordinate}) with its origin at the particle center. 
+system (see \cref{fig:TA-coordinate}) with its origin at the particle center. 
 Furthermore, we take the source term $q$ to be constant throughout the 
 particle. Therefore, we neglect all partial derivatives to the angles $\varphi$ 
 and $\theta$ and solve an ordinary differential equation
 \begin{equation}
     \frac{1}{r^{2}}\pdv{r}\left( r^{2}\pdv{T}{r} \right) = - \frac{q}{K}
-  \label{eq:Th-heat-spherical}
+  \label{eq:TO-heat-spherical}
 \end{equation}
 with only a $r$ dependence and constant source term. We complete the problem, 
 with two boundary conditions
@@ -680,14 +672,14 @@ After two consecutive integration and applying of the boundary conditions one
 finds the difference temperature to be
 \begin{equation}
   \Delta T(r) = T(r) - T_{0} = \frac{q}{6K}\left( R_0^2 - r^{2} \right).
-  \label{eq:Th-heat-sol}
+  \label{eq:TO-heat-sol}
 \end{equation}
 The average temperature over the whole particle is the volume integral of 
-\cref{eq:Th-heat-sol}
+\cref{eq:TO-heat-sol}
 \begin{equation}
   \overline{\Delta T} = \frac{1}{V}\int_{V}\Delta T(r) \dd{V} = 
   \frac{1}{15}\,\frac{q}{K}\,R^{2}_{0}.
-  \label{eq:Th-heat-avg}
+  \label{eq:TO-heat-avg}
 \end{equation}
 This can be further simplified since $q$ is the absorbed energy per unit volume
 \begin{equation}
@@ -698,9 +690,9 @@ of the particle. Finally, the average temperature increase of the spherical
 particle is
 \begin{equation}
   \overline{\Delta T} = \frac{1}{20\,\pi}\,\frac{\delta\,P}{R_{0}\,K}.
-  \label{eq:Th-heat-sol-simp}
+  \label{eq:TO-heat-sol-simp}
 \end{equation}
-Interestingly, \cref{eq:Th-heat-sol-simp} seems to scale with $\propto 
+Interestingly, \cref{eq:TO-heat-sol-simp} seems to scale with $\propto 
 \sfrac{1}{R_{0}}$. However, the relative total absorbed energy $\delta$ is also 
 dependent on $R_{0}$ because the distance $s$ increases with the particle size 
 linearly. But $\delta$ scales with $\left[  1-\exp\left( -\alpha\,R_{0} 
@@ -709,18 +701,18 @@ $\overline{\Delta T}$ is proportional to $\sfrac{\left[ 1-\exp\left(
 -\alpha\,R_{0} \right) \right]}{R_{0}}$. This seems counter-intuitive, that 
 bigger particle sizes lead to less temperature increase. But this only holds 
 for the average temperature difference $\overline{\Delta T}$, the temperature 
-distribution $T(r)$ (\cref{eq:Th-heat-sol}) increases with the particle size.
+distribution $T(r)$ (\cref{eq:TO-heat-sol}) increases with the particle size.
 
 \begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/dT.tikz}
   \includegraphics[]{Plots/cache/dT.pdf}
-  \caption{$\overline{\Delta T}$ of \cref{eq:Th-heat-sol-simp} for various 
+  \caption{$\overline{\Delta T}$ of \cref{eq:TO-heat-sol-simp} for various 
   laser powers $P$ and particle radii $R$.}
-  \label{fig:Th-dT}
+  \label{fig:TO-dT}
 \end{figure}
 
-\Cref{fig:Th-dT} depicts the average difference temperature for various 
+\Cref{fig:TO-dT} depicts the average difference temperature for various 
 combinations of laser power $P$ and particle radius $R$. With the information 
 given in the aforementioned experimental studies regarding the heating by the 
 laser and these ray optics motivated results for the heat distribution inside 
@@ -739,12 +731,12 @@ range of \SIrange{20}{30}{\degreeCelsius} the dynamic viscosity of water (exact
 formula from \cite{Peterman2003}) can be linearly approximated with
 \begin{equation}
   \muef(T) = 8.9086\cdot 10^{-4} -2.0277\cdot10^{-5} (T-25).
-  \label{eq:Th-viscosity}
+  \label{eq:TO-viscosity}
 \end{equation}
 Temperature deviations of $\SI{25}{\degreeCelsius}\pm\SI{2}{\degreeCelsius}$ 
 lead to force magnitude errors of less than $\pm$2.5\%.
 
-\section{Optical Position Detection\label{sec:Th-QPD}}
+\section{Optical Position Detection\label{sec:TO-QPD}}
 
 Besides trapping the OT can also measure the relative movement of the trapped 
 object within the trap. After a calibration it is also possible to convert the 
@@ -757,7 +749,7 @@ measurement, as well as, a full three dimensional resolution is at hand.
 
 In order to do so, the laser beam must be collimated after the object trapping 
 region and then focussed with separate lenses onto two QPDs (see 
-\cref{fig:Th-setup}). While the laser beam is focussed within the aperture of 
+\cref{fig:TO-setup}). While the laser beam is focussed within the aperture of 
 the QPD for the in-plane $xy$-direction (QPDxy), the beam is focussed to 
 overfill the QPD aperture for the $z$-direction. For all measurements, where 
 the measured signal of the QPDs need to be converted to meters, it is crucial 
@@ -766,7 +758,7 @@ we will study what this terms stand for.
 
 A QPD consists of a diode divided into four separate regions. Each of the four 
 diodes measures the intensity of light on its respective area and return it as 
-voltage. \cref{fig:Th-QPD} is a schematic of the QPDxy where the focussed laser 
+voltage. \cref{fig:TO-QPD} is a schematic of the QPDxy where the focussed laser 
 spot midpoint $M$ is at $x=x_{0}$ and $y=y_{0}$ and the radius of the laser 
 spot is about $\sfrac{1}{5}\,R_{\MR{QPD}}$~\cite{Lamprecht2017}.
 
@@ -777,7 +769,7 @@ The normalized intensity distribution can be defined as
   -\frac{1}{2}\,\frac{(x-x_{0})^{2} + (y - y_{0})^{2}}{R_{\MR{spot}}^{2}} 
 \right]
   \quad \text{with}\quad\int\limits_{\dd{A}}\tilde{\intensity}\dd{A} = 1
-    \label{eq:Th-intensity}
+    \label{eq:TO-intensity}
 \end{equation}
 where the radius of the spot is $R_{\MR{spot}}=\sfrac{\RA}{5}$.
 
@@ -787,7 +779,7 @@ where the radius of the spot is $R_{\MR{spot}}=\sfrac{\RA}{5}$.
   \includegraphics[]{Plots/cache/QPD.pdf}
   \caption{Sketch of quadrant photo detectors for $x$-$y$ detection with center 
   of laser image $M$ at $(x_{0}, y_{0})$.}
-  \label{fig:Th-QPD}
+  \label{fig:TO-QPD}
 \end{figure}
 
 The received intensity $V_{i}$ per quadrant can be evaluated with four 
@@ -797,22 +789,22 @@ integrals over the respective areas
   V_{\MR{1}} & = \int_{0}^{\sfrac{\pi}{2}}\int_{0}^{\RA}
   \tilde{\intensity}\left( r\cos\varphi, r\sin\varphi 
   \right)\,r\,\dd{r}\dd{\varphi}
-  \label{eq:Th-V1}
+  \label{eq:TO-V1}
   \\[3mm]
   V_{\MR{2}} & = \int_{\sfrac{\pi}{2}}^{\pi}\int_{0}^{\RA}
   \tilde{\intensity}\left(r\cos\varphi, 
   r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
-  \label{eq:Th-V2}
+  \label{eq:TO-V2}
   \\[3mm]
   V_{\MR{3}} & = \int_{\pi}^{\sfrac{3\pi}{2}}\int_{0}^{\RA}
   \tilde{\intensity}\left(r\cos\varphi, 
   r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
-  \label{eq:Th-V3}
+  \label{eq:TO-V3}
   \\[3mm]
   V_{\MR{4}} & = \int_{\sfrac{3\pi}{2}}^{2\pi}\int_{0}^{\RA}
   \tilde{\intensity}\left(r\cos\varphi, 
   r\sin\varphi\right)\,r\,\dd{r}\dd{\varphi}
-  \label{eq:Th-V4}
+  \label{eq:TO-V4}
 \end{align}
 \end{subequations}
 where we used polar integration and polar coordinates $x=r\cos\varphi$ and 
@@ -823,14 +815,14 @@ $y=r\sin\varphi$.
   % \input{\relPath/10_Figures/TikZ/V_quadrant.tikz}
   \includegraphics[]{Plots/cache/V_quadrant.pdf}
   \caption{Intensity per quadrant for various positions of laser image middle 
-    point $M$ (see \cref{eq:Th-V1,eq:Th-V2,eq:Th-V3,eq:Th-V4}). The top right 
+    point $M$ (see \cref{eq:TO-V1,eq:TO-V2,eq:TO-V3,eq:TO-V4}). The top right 
   plot is $V_{1}$, top left $V_{2}$, bottom left $V_{3}$, bottom right 
 $V_{4}$.}
-  \label{fig:Th-quadrant_Intensity}
+  \label{fig:TO-quadrant_Intensity}
 \end{figure}
 
 If the particle moves within the trap the center of the laser image $M$ on the 
-QPDxy also moves. \cref{fig:Th-quadrant_Intensity} shows the intensity per 
+QPDxy also moves. \cref{fig:TO-quadrant_Intensity} shows the intensity per 
 quadrant for different center positions. As expected, each quadrant is 
 measuring the highest intensity whenever most of the laser image is over the 
 respective area.
@@ -843,12 +835,12 @@ and subtraction of the quadrants along one direction
 \begin{align}
   V_{\MR{x}} & = \left( V_{\MR{1}}+V_{\MR{4}} \right) - \left( V_{\MR{2}} + 
   V_{\MR{3}}  \right)
-  \label{eq:Th-Vx} \\
+  \label{eq:TO-Vx} \\
   V_{\MR{y}} & = \left( V_{\MR{1}}+V_{\MR{2}} \right) - \left( V_{\MR{3}} + 
   V_{\MR{4}}  \right)
-  \label{eq:Th-Vy} \\
+  \label{eq:TO-Vy} \\
   V_{\MR{t}} & = V_{\MR{1}}+V_{\MR{2}} + V_{\MR{3}} + V_{\MR{4}}.
-  \label{eq:Th-Vt}
+  \label{eq:TO-Vt}
 \end{align}
 \end{subequations}
 
@@ -859,7 +851,7 @@ and subtraction of the quadrants along one direction
     % \caption{$V_{\MR{x}}$}
     % \input{\relPath/10_Figures/TikZ/QPDx.tikz}
     \includegraphics[]{Plots/cache/QPDx.pdf}
-    \label{fig:Th-QPDx}
+    \label{fig:TO-QPDx}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.3\textwidth}
@@ -867,7 +859,7 @@ and subtraction of the quadrants along one direction
     % \caption{$V_{\MR{y}}$}
     % \input{\relPath/10_Figures/TikZ/QPDy.tikz}
     \includegraphics[]{Plots/cache/QPDy.pdf}
-    \label{fig:Th-QPDy}
+    \label{fig:TO-QPDy}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.3\textwidth}
@@ -875,23 +867,23 @@ and subtraction of the quadrants along one direction
     % \caption{$V_{\MR{t}}$}
     % \input{\relPath/10_Figures/TikZ/QPDt.tikz}
     \includegraphics[]{Plots/cache/QPDt.pdf}
-    \label{fig:Th-QPDt}
+    \label{fig:TO-QPDt}
   \end{subfigure}
-  \caption{QPD measure $V_{\MR{x}}$ (left;~\cref{eq:Th-Vx}), $V_{\MR{y}}$ 
-    (center;~\cref{eq:Th-Vy}), and $V_{\MR{t}}$ (right;~\cref{eq:Th-Vt}) for 
+  \caption{QPD measure $V_{\MR{x}}$ (left;~\cref{eq:TO-Vx}), $V_{\MR{y}}$ 
+    (center;~\cref{eq:TO-Vy}), and $V_{\MR{t}}$ (right;~\cref{eq:TO-Vt}) for 
     various positions of laser image middle point $M$. The dotted horizontal 
     lines are at $y=\sfrac{-0.6}{R_{\MR{QPD}}}$, $y=\sfrac{0}{R_{\MR{QPD}}}$, 
   and $y=\sfrac{0.6}{R_{\MR{QPD}}}$ respectively.}
-  \label{fig:Th-QPDs}
+  \label{fig:TO-QPDs}
  \end{figure}
 
 As for the measured intensity per quadrant, the measured values are highest if 
-the laser image is over the respective quadrants (see \cref{fig:Th-QPDs}). 
+the laser image is over the respective quadrants (see \cref{fig:TO-QPDs}). 
 However, since $V_{\MR{x}}$ and $V_{\MR{y}}$ are composed by addition and 
 subtraction of the strictly positive values $V_{i}$ the magnitude can now also 
 be negative.
 
-In \cref{fig:Th-voltages_over_x} the three measures are plotted over $x_{0}$ 
+In \cref{fig:TO-voltages_over_x} the three measures are plotted over $x_{0}$ 
 for three fixed values of $y_{0}$. This plot looks the same if $x_{0}$ is fixed 
 and $y_{0}$ is the changing variable. Additionally the curves $V_{\MR{x}}$ and 
 $V_{\MR{y}}$ change their behavior. It is clear, that there is a linear region 
@@ -915,10 +907,10 @@ magnitude between $\sfrac{\abs{x_{0}}}{R_{\MR{QPD}}} < 0.5$.
   \centering
   % \input{\relPath/10_Figures/TikZ/voltages_over_x.tikz}
   \includegraphics[]{Plots/cache/voltages_over_x.pdf}
-  \caption{QPD measure $V_{\MR{x}}$ (\cref{eq:Th-Vx}), $V_{\MR{y}}$
-    (\cref{eq:Th-Vy}), and $V_{\MR{t}}$ (\cref{eq:Th-Vt}) over $x_{0}$ for 
+  \caption{QPD measure $V_{\MR{x}}$ (\cref{eq:TO-Vx}), $V_{\MR{y}}$
+    (\cref{eq:TO-Vy}), and $V_{\MR{t}}$ (\cref{eq:TO-Vt}) over $x_{0}$ for 
   three fixed values of $y_{0}$. The light shaded gray area marks the 
 boundaries of the QPD and the dark shaded gray area the linear region of the 
 QPD from $-0.15\,R_{\MR{QPD}}$ to $0.15\,R_{\MR{QPD}}$.}
-  \label{fig:Th-voltages_over_x}
+  \label{fig:TO-voltages_over_x}
 \end{figure}
