@@ -1,78 +1,393 @@
+For the derivation and the discussion of the relevant forces coming from the 
+scattering of the incident acoustic field on to the object surface, we will 
+consider a viscous fluid and a rigid spherical object. We choose this 
+combination of fluid and object material because the viscous property of the 
+fluid causes the occurrence of the so-called acoustic streaming.
+
+We will follow closely the derivations given by \cname{Doinikov1994Rigid} who 
+solves this specific problem first \footnote{We will cite publications in this 
+chapter only if they are different to \cname{Doinikov1994Rigid}. Per default, 
+all information for this chapter if not stated otherwise is taken from there.}.
+
+\section{Governing Equations}
+
+Ultimately we want to compute the force acting on the particle. This force is 
+called acoustic radiation force (ARF) and is defined as the timeaveraged 
+surface integral of the stress tensor over the time varying surface $S(t)$ of 
+the particle (see \cref{fig:TA-deformed_circle})
 \begin{equation}
-  \pdv{\density}{t} + \pdv{x_{i}}(\density\,\vel_{i}) = 0
-  \label{eq:Th-massconservatio}
+  F^{\MR{rad}}_{i} \coloneqq
+  \timeaverage{\int_{S(t)}\,\stress\,\normal(t)\,\dd{S(t)}}
+  \label{eq:TA-def-rad}
+\end{equation}
+where $\normal(t)$ is the time dependent outward facing normal, repetitive 
+indices imply Einstein summation notation, and the angle bracket define the 
+timeaverage over one period $T$
+\begin{equation}
+  \timeaverage{\Box(t)} = \frac{1}{T}\,\int\limits_{0}^{T}\Box(t)\dd{t}.
+  \label{eq:TA-timeaverage}
 \end{equation}
 
-\begin{equation}
-  \pdv{t}\left( \density\,\vel_{i} \right) = \pdv{x_{j}} \left( \stress - 
-  \density\,\vel_{i}\,\vel_{j} \right)
-    \label{eq:Th-navierconservative}
-\end{equation}
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/deformed_circle.tikz}
+  \includegraphics[]{Plots/cache/deformed_circle.pdf}
+  \caption{Sketch of deformed time dependent particle surface $S(t)$ and 
+  particle surface at rest $\zeOrder{S}$.}
+  \label{fig:TA-deformed_circle}
+\end{figure}
 
-\begin{equation}
-  \density\left( \pdv{\vel_{i}}{t} + \vel_{i}\pdv{\vel_{j}}{x_{j}}\right) = 
-  \pdv{\stress}{x_{j}}
-  \label{eq:Th-navier}
-\end{equation}
-
+For a viscous fluid the stress tensor is given as
 \begin{equation}
   \stress = \muef\left[ \pdv{\vel_{i}}{x_{j}} + \pdv{\vel_{j}}{x_{i}} \right] + 
   \left[ \mu_{\MR{B}} - \frac{2}{3}\,\muef \right] \pdv{\vel_{k}}{x_{k}} 
   \,\delta_{ij} - \pre\,\delta_{ij}
-  \label{eq:Th-stress}
+  \label{eq:TA-stress}
 \end{equation}
+where $\muef$ is the fluid dynamic viscosity, $\mu_{\MR{B}}$ the fluid bulk 
+viscosity, $\vel_{i}$ the $i$-th component of the fluid velocity, $\pre$ the 
+acoustic pressure, and $\delta_{ij}$ the Kronecker delta.
 
+For the stress tensor the fluid velocity $\vel_{i}$ and the acoustic pressure 
+$\pre$ must be computed. These four unknowns (three as $\vel_{i}$ and one as 
+$\pre$) are linked by the scalar equation for the mass conservation
+\begin{equation}
+  \pdv{\density}{t} + \pdv{x_{i}}(\density\,\vel_{i}) = 0
+  \label{eq:TA-massconservation}
+\end{equation}
+where $\density$ is the density. This equation introduces the additional 
+unknown density $\density$. With the assumption of a barotropic fluid
 \begin{equation}
   \pre \coloneqq \pre\left( \density \right)
-  \label{eq:Th-state}
+  \label{eq:TA-state}
+\end{equation}
+the acoustic pressure $\pre$ is defined solely by the density $\density$. The 
+missing three equations are given by the Navier-Stokes equations for a viscous 
+fluid
+\begin{equation}
+  \pdv{t}\left( \density\,\vel_{i} \right) = \pdv{x_{j}} \left( \stress - 
+  \density\,\vel_{i}\,\vel_{j} \right).
+    \label{eq:TA-navierconservative}
 \end{equation}
 
+With the assumption, that the density $\density$ is constant in time and space 
+($\pdv{\density}{t} = 0$, $\pdv{\density}{x_{i}} =0$)
+\cref{eq:TA-navierconservative} can be rearranged to
+\begin{equation}
+  \density\left( \pdv{\vel_{i}}{t} + \vel_{i}\pdv{\vel_{j}}{x_{j}}\right) = 
+  \pdv{\stress}{x_{j}}.
+  \label{eq:TA-navier}
+\end{equation}
+
+This set of equations (\cref{eq:TA-massconservation,eq:TA-state} and 
+\cref{eq:TA-navierconservative} or \cref{eq:TA-navier})solve the problem of a 
+free floating rigid particle in a viscous fluid but are impossible to solve 
+analytically without further simplification. Most common is the expansion of 
+the unknowns into a converging -- not guaranteed~\cite{Baasch2020} -- series of 
+increasing order
 \begin{subequations}
 \begin{alignat}{4}
   \pre & = \zeOrder{\pre} & + \stOrder{\pre} & + \ndOrder{\pre} & + \ldots 
-  \label{eq:Th-per-pre}\\
+  \label{eq:TA-per-pre}\\
   \density & = \zeOrder{\density} & + \stOrder{\density} & + \ndOrder{\density} & + \ldots 
-  \label{eq:Th-per-rho}\\
+  \label{eq:TA-per-rho}\\
   \stress & = \zeOrder{\stress} & + \stOrder{\stress} & + \ndOrder{\stress} & + 
-  \ldots \label{eq:Th-per-stress} \\
+  \ldots \label{eq:TA-per-stress} \\
   \vel_{i} & =  & \phantom{+} \stOrder{\vel_{i}} & + \ndOrder{\vel_{i}} & + 
-  \ldots \label{eq:Th-per-vel}
+  \ldots \label{eq:TA-per-vel}.
 \end{alignat}
 \end{subequations}
+This method of expanding the variables is often called Pertubation expansion. 
+The superscript $\Box^{(i)}$ indicates the $i$-th order of the respective 
+parameter. The zero order fields $\zeOrder{\Box}$ are defined to be constant in 
+space and time. Additionally, we assume no constant flow of the fluid and, 
+hence, the zeroth order of the velocity $\zeOrder{\vel_{i}} = 0$.
 
-\section{First Order Solution\label{sec:Th-firstorder}}
-
+This series expansion is useful because it is known that the ARF occurs due to 
+second order effects. With that is possible to approximate 
+\cref{eq:TA-def-rad} as
 \begin{equation}
-  \pdv{\stOrder{\density}}{t} + \zeOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{x_{i}} = 0
-  \label{eq:Th-st-massconservatio}
+  F^{\MR{rad}}_{i} \approx
+  \timeaverage{\int_{S(t)}\,\stOrder{\stress}\,\normal(t)\,\dd{S(t)}} +
+  \int_{\zeOrder{S}}\,\timeaverage{\ndOrder{\stress}}\,
+  \normal\,\dd{\zeOrder{S}}
+  \label{eq:TA-def-approx-ARF}
+\end{equation}
+where $\zeOrder{S}$ is the particle surface at rest (see 
+\cref{fig:TA-deformed_circle}).
+
+It is possible to solve first for the first order fluid field, which is also 
+called acoustic scattering, and then use the first order solution to compute 
+the second order fields. In the following two section, we will solve those 
+sequentially.
+
+\section{First Order Solution\label{sec:TA-firstorder}}
+
+By applying the Pertubation expansion to \cref{eq:TA-massconservation} and by 
+only collection terms that are equal or less than first order the mass 
+conservation is
+\begin{equation}
+  \pdv{\stOrder{\density}}{t} + 
+  \zeOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{x_{i}} = 0.
+  \label{eq:TA-st-massconservation}
 \end{equation}
 
+With the same procedure the general Navier Stockes equation 
+(\cref{eq:TA-navier}) are
 \begin{equation}
-  \zeOrder{\density} \pdv{\stOrder{\vel_{i}}}{t} = \pdv{\stOrder{\stress}}{x_{j}}
-  \label{eq:Th-st-navier}
+  \zeOrder{\density} \pdv{\stOrder{\vel_{i}}}{t} = 
+  \pdv{\stOrder{\stress}}{x_{j}}.
+  \label{eq:TA-st-navier}
 \end{equation}
-
+with the stress $\stOrder{\stress}$ being
 \begin{equation}
   \stOrder{\stress} = \muef\left[ \pdv{\stOrder{\vel_{i}}}{x_{j}} + 
   \pdv{\stOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\MR{B}} - 
   \frac{2}{3}\,\muef \right] \pdv{\stOrder{\vel_{k}}}{x_{k}} \,\delta_{ij} - 
-  \stOrder{\pre}\,\delta_{ij}
-  \label{eq:Th-st-stress}
+  \stOrder{\pre}\,\delta_{ij}.
+  \label{eq:TA-st-stress}
 \end{equation}
 
+The acoustic pressure of first order is
 \begin{equation}
-  \stOrder{\pre} = \cfl^{2}\,\stOrder{\density}
-  \label{eq:Th-st-pre}
+  \stOrder{\pre} = c^{2}\,\stOrder{\density}
+  \label{eq:TA-st-pre}
+\end{equation}
+with $c$ being the speed of sound.
+
+The first order velocity field $\stOrder{\vel_{i}}$ can be approximated as
+\begin{equation}
+  \stOrder{\vel}_{i} = \pdv{\stOrder{\phi}}{x_{i}} + 
+  \epsilon_{kli}\,\pdv{\stOrder{\psi}_{l}}{x_{k}}
+  \label{eq:TA-st-vel}
+\end{equation}
+where $\phi$ is the scalar velocity potential, $\psi_{i}$ the vector 
+velocity potential, and $\psi_{kli}$ the Levi-Civita symbol to express the curl 
+of the vector velocity potential in index notation. Furthermore, the scalar can 
+be split up into the contributions from the incident velocity potential 
+$\phi_{\MR{in}}$ and the scattered velocity potential $\phi_{\MR{sc}}$
+\begin{equation}
+  \stOrder{\phi} = \phi_{\MR{in}} + \phi_{\MR{sc}}.
+  \label{eq:TA-scalar-potential}
 \end{equation}
 
+For the derivations we assume an axisymmetric incoming field and with the 
+wavevector $\vb{k}$ pointing along the $\ez$ direction (see 
+\cref{fig:TA-plane_wave}). Additionally, we use spherical coordinates $r, 
+\theta$, and $\varpi$ with the origin at the center of the particle in its 
+equilibrium configuration (see \cref{fig:TA-coordinate}).
 
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/plane_wave.tikz}
+  \includegraphics[]{Plots/cache/plane_wave.pdf}
+  \caption{Schematic of light path from laser head to quadrant photo detectors. 
+  In the top half sketch red shading and the black lines the laser intensity 
+profile qualitatively. In the bottom half just the outer most laser rays are 
+depicted.}
+  \label{fig:TA-plane_wave}
+\end{figure}
 
-\section{Second Order Solution\label{sec:Th-secondorder}}
+The scaler incident velocity potential can be for a general case represented as
+\begin{equation}
+  \phi_{\MR{in}} = \exp\left( -\iu\omega t \right) \sum\limits_{n=0}^{\infty} 
+  A_{n}\,\bessel{n}{kr}\,\legendre{n}{\cos\,\theta}
+  \label{eq:TA-incident-field}
+\end{equation}
+where $\omega$ is the angular velocity of the incoming acoustic wave, $t$ the 
+time, $A_{n}$ the amplitude of the incoming wave, $\bessel{n}{\Box}$ the $n$-th 
+order spherical Bessel function of first kind, $\legendre{n}{\Box}$ the 
+Legendre polynomial of order $n$, and $k$ the wavenumber
+\begin{equation}
+  k = 
+  \frac{\omega}{c}\,\frac{1}{\sqrt{1-\frac{\iu\,\omega}{\zeOrder{\density}\,c^{2}} 
+  \left( \mu_{\MR{B}} + \frac{4}{3}\,\muef \right)}}.
+  \label{eq:TA-wavenumber}
+\end{equation}
+
+\cref{eq:TA-incident-field} is given by the type of incident wave. 
+$\phi_{\MR{sc}}$ and $\psi_{i}$ can be separated into two independent 
+differential equations. For $\phi_{\MR{sc}}$ we take first 
+\cref{eq:TA-scalar-potential} and plug it into the mass conservation 
+\cref{eq:TA-st-massconservation}. With the property that the divergence of the 
+curl ($\pdv{\epsilon_{kli}\,\Box_{i}}{x_{i}} = 0$) is equal to zero and the 
+definition of the first order pressure \cref{eq:TA-st-pre} one can eliminate 
+$\psi_{i}$
+\begin{equation}
+  \pdv{\stOrder{\pre}}{t} = \zeOrder{\density}\,c^{2}\,\pdv[2]{\phi}{x_{i}}.
+  \label{eq:TA-st-tmp-step}
+\end{equation}
+The next step is to take \cref{eq:TA-st-tmp-step} and plug it into the partial 
+time derivative ($\pdv{\Box}{t}$) of \cref{eq:TA-st-navier}. This results in a 
+wave equation which can be further simplified because we assume time harmonic 
+acoustics fields ($\vel_{i}\propto\exp -\iu\omega t$) that have the property 
+$\pdv{\vel_{i}}{t}\propto -\iu\omega$ and
+$\pdv[2]{\vel_{i}}{t}\propto \omega^{2}$
+\begin{equation}
+  \label{eq:TA-st-nd-tmp-step}
+\begin{split}
+  \zeOrder{\density}\,\pdv[2]{\vel_{i}}{t} = & 
+  \zeOrder{\density}\,c^{2}\pdv{x_{i}}\left( \pdv[2]{\phi}{x_{j}} \right) \\
+  + & \mu\,\pdv[2]{x_{i}}\left( \pdv{\vel_{k}}{t} \right) \\
+    + & \left(\mu_{\MR{B}} + \frac{\mu}{3}\right)\pdv{t}
+    \left( \pdv{x_{i}}\left( \pdv[2]{\phi}{x_{j}} \right) \right).
+\end{split}
+\end{equation}
+
+The last step is to take the divergence of \cref{eq:TA-st-nd-tmp-step} to 
+eliminate $\psi_{i}$. Finally, the equations for $\phi$ is given as a Helmholtz 
+equation
+\begin{equation}
+  \pdv[2]{\phi}{x_{i}} + k^{2}\,\phi = 0.
+  \label{eq:TA-st-phi}
+\end{equation}
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/coordinate.tikz}
+  \includegraphics[]{Plots/cache/coordinate.pdf}
+  \caption{Sketch of Cartesian and spherical coordinate system}
+  \label{fig:TA-coordinate}
+\end{figure}
+
+Instead of taking the divergence of \cref{eq:TA-st-nd-tmp-step} but taking the 
+curl one gets a Helmholtz equation for $\psi_{i}$
+\begin{equation}
+  \pdv[2]{\psi_{j}}{x_{i}} + k_{\MR{v}}^{2}\,\psi_{i} = 0
+  \label{eq:TA-st-psi}
+\end{equation}
+by using $\epsilon_{kli}\,\pdv{x_{k}}\left( \pdv{\Box}{x_{l}} \right) = 0$ 
+(curl of the gradient of a scalar). In \cref{eq:TA-st-psi} $k_{\MR{v}}$ is 
+called the viscous wavenumber and is defined as
+\begin{equation}
+  k_{\MR{v}} = \frac{1 + \iu}{\delta} = \left( 1 + \iu \right)\, 
+  \sqrt{\frac{\omega\,\mu}{\zeOrder{\density}}}
+  \label{eq:TA-st-visc-wavenumber}
+\end{equation}
+where $\delta$ is also known as \emph{viscous penetration depth}.
+
+With the requirement that the solutions to \cref{eq:TA-st-phi,eq:TA-st-psi} 
+satisfy Sommerfeldt's radiation condition one finds
+\begin{equation}
+  \phi_{\MR{sc}} = \exp\left( -\iu\omega t \right)\,
+  \sum\limits^{\infty}_{n=0} 
+  \alpha_{n}\,A_{n}\,\hankel{n}{k\,r}\,\legendre{n}{\cos\theta}
+  \label{eq:TA-st-sol-phi}
+\end{equation}
+and
+\begin{equation}
+  \vb{\psi}^{(1)} = \exp\left( -\iu\omega t \right)\,\vb{e}_{\varphi}\,
+  \sum\limits^{\infty}_{n=1} 
+  \beta_{n}\,A_{n}\,\hankel{n}{k_{\MR{v}}\,r}\,P^{1}_{n}(\cos\theta)
+  \label{eq:TA-st-sol-psi}
+\end{equation}
+where $\alpha_{n}$ and $\beta_{n}$ are constants defined by the boundary 
+conditions, $\vb{e}_{\varphi}$ the unit vector of the spherical coordinate 
+system (see \cref{fig:TA-coordinate}), $\hankel{n}{\Box}$ the spherical Hankel 
+functions of the first kind, and $P^{1}_{n}\left( \Box \right)$ the associated 
+Legendre polynomial. The sum of \cref{eq:TA-st-sol-psi} starts with $n=1$ 
+because $\beta_{0}=0$.
+
+The boundary condition for the combination of a rigid spherical particle and a 
+viscous fluid is that the velocity of particle $\vel_{\MR{p}}$ surface must 
+match the fluid velocity
+\begin{equation}
+  \vel_{i,\MR{fluid}} = \vel_{i,\MR{p}}\quad\text{at}\quad r = R.
+  \label{eq:TA-st-BC}
+\end{equation}
+
+Using Newtown's second law and the first order stress tensor
+\begin{equation}
+  \frac{4}{3}\,\pi 
+  R^{3}\,\density_{\MR{p}}\,\dv{\vel_{i,\MR{p}}}{t} = 
+  \int\limits_{\zeOrder{S}}\stOrder{\stress}\dd{\zeOrder{S}}
+  \label{eq:TA-st-newton}
+\end{equation}
+where $\density_{\MR{p}}$ is the particle density, one finds the particle 
+velocity along the direction of the wave vector $\vb{e}_{k}$ as
+\begin{equation}
+  \vel_{\MR{p}} = \frac{\zeOrder{\density}A_{1}k}{x}\,
+  \left[
+    \bessel{1}{x} + \alpha_{1}\hankel{1}{x} + 2\beta_{1}\hankel{1}{\xv}
+  \right]
+  \,\exp\left( -\iu\omega t \right)
+  \label{eq:TA-st-particle-vel}
+\end{equation}
+with $x=kR$ and $\xv=k_{\MR{v}}R$.
+
+In order to calculate the unknown constants $\alpha_{n}$ and $\beta_{n}$ one 
+needs to enforce the boundary condition of \cref{eq:TA-st-BC} for every $n$ 
+separately. Besides for $n=1$, $\vel_{\MR{p}}$ is always zero; for $n=1$, 
+$\vel_{\MR{p}}$ is given by \cref{eq:TA-st-particle-vel}.
+
+For $n=0$ and $n=1$ the constant are
+\begin{subequations}
+\begin{align}
+  \alpha_{0} & = -\frac{\bessel{1}{x}}{\hankel{1}{x}} \\
+  \beta_{0} & = 0 \\
+  \alpha_{1} & = - \frac{1}{\chi_{4}} \left[ \chi_{1}\,\chi_{3} + 
+  2(1-\trho^{2})\bessel{1}{x}\hankel{1}{\xv} \right]
+    \label{eq:TA-alpha-one}\\
+    \beta_{1} &= - \frac{1-\trho}{\chi_{4}} \left[ \chi_{1}\,\hankel{1}{x} - 
+    \chi_{2}\,\bessel{1}{x} \right]
+    \label{eq:TA-beta-one}
+\end{align}
+\end{subequations}
+where $\trho = \sfrac{\rhof}{\density_{\MR{p}}}$ and
+\begin{subequations}
+\begin{align}
+\chi_{1} & = \trho\,\bessel{1}{x} - \trho\,\dbessel{1}{x}
+\label{eq:TA-chi-one} \\
+\chi_{2} & = \trho\,\hankel{1}{x} - \trho\,\dhankel{1}{x}
+\label{eq:TA-chi-two} \\
+\chi_{3} & = \left( 1 + 2 \trho\right)\hankel{1}{\xv} + 
+\xv\,\dhankel{1}{x}
+\label{eq:TA-chi-three} \\
+\chi_{4} & = \chi_{2}\,\chi_{3} + 2\left( 1 - \trho^{2} \right) 
+\hankel{1}{x}\,\hankel{1}{\xv}
+\label{eq:TA-chi-four}
+\end{align}
+\end{subequations}
+where the prime $\Box^{\prime}$ indicates the differentiation, e.g. 
+$\dbessel{n}{\xv}=\dv{\bessel{n}{\xv}}{\xv}$.
+
+For $n > 1$, one finds the coefficient $\alpha_{n}$ and $\beta_{n}$ to be
+\begin{subequations}
+\begin{align}
+  \alpha_{n} & =
+  - \frac{1}{\xi_{n}} \left[
+    n(n+1)\bessel{n}{x}\hankel{n}{\xv} - x \gamma_{n}\dbessel{n}{x}
+  \right]
+  \label{eq:TA-alpha-n}\\
+    \beta_{n} &= - \frac{1}{\xi_{n}} \left[
+      x\dbessel{n}{x}\hankel{n}{x} - x\bessel{n}{x}\dhankel{n}{x}
+    \right]
+    \label{eq:TA-beta-n}
+\end{align}
+\end{subequations}
+with
+\begin{subequations}
+\begin{align}
+  \gamma_{n} & =
+  \hankel{n}{\xv}+\xv\dhankel{n}{\xv}
+  \label{eq:TA-gamma-n}\\
+  \xi_{n} &= x\dhankel{n}{x}\gamma_{n} - n(n+1)\hankel{n}{x}\hankel{n}{\xv}.
+    \label{eq:TA-xi-n}
+\end{align}
+\end{subequations}
+
+Note here, that 
+\cref{eq:TA-alpha-one,eq:TA-beta-one,eq:TA-chi-three,eq:TA-chi-four,eq:TA-beta-n} 
+are different to the ones in \cite{Doinikov1994Rigid}; Equations (3.14), 
+(3.15), (3.18), (3.19), and (3.21) respectively. We found these typos in the 
+original publication and discussed it more extensively in \cname{Fankhauser2022}.
+
+\section{Second Order Solution\label{sec:TA-secondorder}}
 
 \begin{equation}
   \pdv{\ndOrder{\density}}{t} + \pdv{x_{i}}\left(\stOrder{\density}\,\stOrder{\vel_{i}} 
   + \zeOrder{\density}\,\ndOrder{\vel_{i}} \right) = 0
-  \label{eq:Th-nd-massconservatio}
+  \label{eq:TA-nd-massconservatio}
 \end{equation}
 
 \begin{equation}
@@ -80,7 +395,7 @@
   \pdv{\ndOrder{\vel_{i}}}{t} + 
   \zeOrder{\density}\,\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}} = 
   \pdv{\ndOrder{\stress}}{x_{j}}
-  \label{eq:Th-nd-navier}
+  \label{eq:TA-nd-navier}
 \end{equation}
 
 \begin{equation}
@@ -88,8 +403,11 @@
   \pdv{\ndOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\MR{B}} - 
   \frac{2}{3}\,\muef \right] \pdv{\ndOrder{\vel_{k}}}{x_{k}} \,\delta_{ij} - 
   \ndOrder{\pre}\,\delta_{ij}
-  \label{eq:Th-nd-stress}
+  \label{eq:TA-nd-stress}
 \end{equation}
+
+
+
 
 
 \section{Time-averaged Second Order Solution\label{Th-avg-nd-order}}
@@ -98,7 +416,7 @@
   \timeaverage{\pdv{t}\,f(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
     \left[ \frac{1}{\tau}\,\left( f(\vb{x}; \tau) - f(\vb{x}; 0) \right) 
   \right]} = 0
-  \label{eq:Th-avg-property}
+  \label{eq:TA-avg-property}
 \end{equation}
 
 timeaverage of first and second order fields is zero --> but not the product of 
@@ -108,34 +426,21 @@ them BAASCH2020
   \pdv{x_{i}}\left( \timeaverage{\ndOrder{\vel_{i}}} \right) = 
   -\frac{1}{\zeOrder{\density}} \pdv{x_{i}}\left(\timeaverage{ 
   \stOrder{\density}\,\stOrder{\vel_{i}} }\right)
-  \label{eq:Th-avg-massconservatio}
+  \label{eq:TA-avg-massconservatio}
 \end{equation}
 
 \begin{equation}
   \timeaverage{\stOrder{\density} \pdv{\stOrder{\vel_{i}}}{t}} + 
   \zeOrder{\density}\,\timeaverage{\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}}} 
   = \pdv{x_{j}}\left( \timeaverage{\ndOrder{\stress}} \right)
-  \label{eq:Th-avg-navier}
+  \label{eq:TA-avg-navier}
 \end{equation}
 
 first term remains because it is a product of first order fields
 
 timeaverage of a constant function is the function itself
 
-\section{Acoustic Radiation Force\label{sec:Th-ARF}}
+\section{Acoustic Radiation Force\label{sec:TA-ARF}}
 
-\begin{equation}
-  F^{\MR{rad}}_{i} \coloneqq
-  \timeaverage{\int_{S(t)}\,\stress\,\normal(t)\,\dd{S}}
-  \label{eq:Th-def-rad}
-\end{equation}
-
-
-\begin{equation}
-  F^{\MR{rad}}_{i} \approx
-  \timeaverage{\int_{S(t)}\,\stOrder{\stress}\,\normal(t)\,\dd{S}} +
-  \int_{\zeOrder{S}}\,\timeaverage{\ndOrder{\stress}}\,\normal\,\dd{S}
-  \label{eq:Th-def-approx-ARF}
-\end{equation}
 
 
