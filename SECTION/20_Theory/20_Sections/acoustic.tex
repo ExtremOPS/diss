@@ -267,7 +267,8 @@ called the viscous wavenumber and is defined as
 where $\delta$ is also known as \emph{viscous penetration depth}.
 
 With the requirement that the solutions to \cref{eq:TA-st-phi,eq:TA-st-psi} 
-satisfy Sommerfeldt's radiation condition one finds
+satisfy Sommerfeldt's radiation condition and using multipole expansion one 
+finds
 \begin{equation}
   \phi_{\MR{sc}} = \exp\left( -\iu\omega t \right)\,
   \sum\limits^{\infty}_{n=0} 
@@ -276,7 +277,7 @@ satisfy Sommerfeldt's radiation condition one finds
 \end{equation}
 and
 \begin{equation}
-  \vb{\psi}^{(1)} = \exp\left( -\iu\omega t \right)\,\vb{e}_{\varphi}\,
+  \vb*{\psi}^{(1)} = \exp\left( -\iu\omega t \right)\,\vb{e}_{\varphi}\,
   \sum\limits^{\infty}_{n=1} 
   \beta_{n}\,A_{n}\,\hankel{n}{k_{\MR{v}}\,r}\,P^{1}_{n}(\cos\theta)
   \label{eq:TA-st-sol-psi}
@@ -376,20 +377,84 @@ with
 \end{align}
 \end{subequations}
 
+\begin{table}
+  \centering
+  \begin{tabular}{lccr}
+    \toprule
+    \toprule
+    {\bfseries Parameter} & {\bfseries Symbol} & {\bfseries Value} & {\bfseries 
+    Unit}\\
+    \midrule
+    \textbf{Fluid} & & \\
+    Bulk viscosity & $\mu_{\MR{B}}$ & 2.47 & \si{\milli\pascal\second} \\
+    \midrule
+    \textbf{Wave} & & \\
+    Wavetype &  & travelling & - \\
+    Pressure & & 100.0 & \si{\kilo\pascal} \\
+    Frequency & $f$ & 1.0 & \si{\MHz} \\
+    \bottomrule
+    \bottomrule
+  \end{tabular}
+  \caption{Symbols and physical properties of the fluid, the particle, and the 
+  incident acoustic wave.}\label{tab:TA-parameters}
+\end{table}
+
 Note here, that 
 \cref{eq:TA-alpha-one,eq:TA-beta-one,eq:TA-chi-three,eq:TA-chi-four,eq:TA-beta-n} 
-are different to the ones in \cite{Doinikov1994Rigid}; Equations (3.14), 
+are different to the equations in \cname{Doinikov1994Rigid}; Equations (3.14), 
 (3.15), (3.18), (3.19), and (3.21) respectively. We found these typos in the 
-original publication and discussed it more extensively in \cname{Fankhauser2022}.
+original publication and discussed it more extensively in 
+\cname{Fankhauser2022}.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \caption{Modes through $n=5$}
+    \input{\relPath/10_Figures/TikZ/SC_all.tikz}
+    % \includegraphics[]{Plots/cache/SC_all.pdf}
+    \label{fig:TA-SC_all}
+  \end{subfigure}\\%
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \caption{Single mode one $n=1$}
+    % \input{\relPath/10_Figures/TikZ/SC_mode1.tikz}
+    \includegraphics[]{Plots/cache/SC_mode1.pdf}
+    \label{fig:TA-SC_mode1}
+  \end{subfigure}
+  \caption{First order fluid velocity field at different time steps. For both 
+  plots the same scaling applies. a) all modes through $n=5$; b) single mode 
+one for $n=1$. Material properties for the particle and the fluid are seen in 
+\cref{tab:TA-parameters,tab:TC-parameters}. The plotted data is generated with 
+the Pyhton module \emph{gorkov}~\cite{pypi}.}
+  \label{fig:TA-SC}
+\end{figure}
+
+We solved the first order velocity field for a rigid spherical particle and a 
+viscous fluid. The field inside the particle is a single velocity magnitude 
+with a distinct direction that is valid for all particle points. The particle 
+is modeled rigid and therefore it is only able to perform rigid-body motion. 
+The rigid-body mode in the multipole expansion is the so called \emph{dipole} 
+mode ($n=1$). Since the boundary conditions enforce a matching velocity at the 
+particle-fluid interface, the first order fluid velocity solution is also 
+dominated by that mode. This is also depicted in \cref{fig:TA-SC} where the 
+fluid velocity for water and a silicium dioxide particle (SiO$_{2}$) for the 
+sum of all modes through $n=5$ and the fluid velocity of the first mode $n=1$ 
+only is computed. \Cref{fig:TA-SC_all} and \Cref{fig:TA-SC_mode1} are 
+indistinguishable from each other meaning that the solution to the first order 
+velocity field is due to the rigid-body mode in the multipole expansion.
 
 \section{Second Order Solution\label{sec:TA-secondorder}}
 
+Similar to the first order equations one can collect all terms up to second 
+order. The general mass conservation (\cref{eq:TA-massconservation}) transform 
+to
 \begin{equation}
   \pdv{\ndOrder{\density}}{t} + \pdv{x_{i}}\left(\stOrder{\density}\,\stOrder{\vel_{i}} 
   + \zeOrder{\density}\,\ndOrder{\vel_{i}} \right) = 0
   \label{eq:TA-nd-massconservatio}
 \end{equation}
-
+and the second order Navier Stokes (\cref{eq:TA-navier}) becomes
 \begin{equation}
   \stOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{t} + \zeOrder{\density} 
   \pdv{\ndOrder{\vel_{i}}}{t} + 
@@ -397,18 +462,14 @@ original publication and discussed it more extensively in \cname{Fankhauser2022}
   \pdv{\ndOrder{\stress}}{x_{j}}
   \label{eq:TA-nd-navier}
 \end{equation}
-
+where the second order tress tensor (\cref{eq:TA-stress}) is
 \begin{equation}
   \ndOrder{\stress} = \muef\left[ \pdv{\ndOrder{\vel_{i}}}{x_{j}} + 
   \pdv{\ndOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\MR{B}} - 
   \frac{2}{3}\,\muef \right] \pdv{\ndOrder{\vel_{k}}}{x_{k}} \,\delta_{ij} - 
-  \ndOrder{\pre}\,\delta_{ij}
+  \ndOrder{\pre}\,\delta_{ij}.
   \label{eq:TA-nd-stress}
 \end{equation}
-
-
-
-
 
 \section{Time-averaged Second Order Solution\label{Th-avg-nd-order}}
 
