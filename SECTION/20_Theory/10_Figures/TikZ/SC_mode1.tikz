@@ -122,7 +122,7 @@
   colorbar style={
     separate axis lines,
     samples=256,                        % Number of steps
-    ylabel={Acoustic Velocity $\abs{\vb{v}}$ [\si{\mm\per\second}]},
+    ylabel={Acoustic Velocity $\abs{\stOrder{\vb{v}}}$ [\si{\mm\per\second}]},
   },
   every colorbar/.append style={
     height=\pgfkeysvalueof{/pgfplots/parent axis height}%+
