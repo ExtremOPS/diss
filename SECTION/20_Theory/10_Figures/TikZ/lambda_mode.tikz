@@ -1,0 +1,73 @@
+\tikzsetnextfilename{lambda_mode}
+% Parameters for vector
+\pgfmathsetmacro{\W}{8.0}
+\pgfmathsetmacro{\Wrect}{1.0}
+\pgfmathsetmacro{\Hrect}{3.0}
+
+\pgfmathsetmacro{\freq}{pi/4}
+
+\pgfmathsetmacro{\xpOne}{\freq/pi*\W}
+\pgfmathsetmacro{\xpTwo}{\freq/pi*\W+\W/2}
+
+\begin{tikzpicture}[]
+
+  \coordinate (O) at (0,0);
+  \coordinate (TL) at (\W,\Hrect);
+
+  % coordinate system
+
+  \draw[<->] ($(-\Wrect*1.5,\Hrect/2)$) -- node[left,pos=0] {$\ez$} 
+  ++(0,-\Hrect/1.7) -- node[right,pos=1] {$\ey$} ++(\Hrect/2,0);
+
+  % fluid
+  \fill[blue!10] (O) rectangle (TL);
+
+  % middle line
+  \draw[black, thick, dotted] ($(O) + (0,\Hrect/2)$) -- ++(\W,0);
+
+  % nodal planes
+  \draw[black, dotted] ($(\xpOne,\Hrect/2)$) -- ++(0,\Hrect/2);
+  \draw[black, dotted] ($(\xpTwo,\Hrect/2)$) -- ++(0,\Hrect/2);
+
+
+  % walls
+  \draw[pattern=north west lines, pattern color=black!50] (0,0) rectangle 
+  ++(-\Wrect,\Hrect);
+  \draw[pattern=north west lines, pattern color=black!50] (\W,0) rectangle 
+  ++(\Wrect,\Hrect);
+
+  % pressure
+  \draw[blue] plot[domain=0:\W,samples=100] (\x,{cos(deg(\freq*\x))+\Hrect/2});
+  \draw[blue] plot[domain=0:\W,samples=100] 
+  (\x,{-cos(deg(\freq*\x))+\Hrect/2});
+
+  % force field
+  % \draw[red, dashdotted] plot[domain=0:\W,samples=100] 
+  % (\x,{sin(deg(2*\freq*\x))+\Hrect/2});
+
+  % particles
+  \node[shade,shading=ball,circle,ball color=black!50!white,minimum size=3mm] 
+  (positive) at  (\xpOne,\Hrect/3) {};
+  \node[shade,shading=ball,circle,ball color=black!50!white,minimum size=3mm] 
+  (positivetwo) at  (\xpTwo,\Hrect/4) {};
+
+  \node[shade,shading=ball,circle,ball color=red!50!white,minimum size=2mm] 
+  (negative) at  (\W/2,\Hrect*2/3) {};
+
+  % annotations width
+  \draw[|<->|] ($(O) - (0,0.8)$) -- node[above,midway] {$W$} ++(\W,0);
+  % annotations pressure field
+  \draw[|<->|] ($(\xpOne,\Hrect)+ (0,0.5)$) -- node[above,midway] 
+  {$\sfrac{\lambda_{\mathrm{a}}}{2}$} ++($(\W/2,0)$);
+  % annotations positive
+  \draw[thin,-](positive) to[out=-130, in=180] ++(-0.5,-0.7)
+      node[right] {$\Phi > 0$};
+  \draw[thin,-](positivetwo) to[out=300, in=180] ++(0.2,-0.4)
+      node[right] {$\Phi > 0$};
+  % annotations positive
+  \draw[-, thin] (negative) to[out=120, in=180] ++(-0.5,0.8)
+  node[right] {$\Phi < 0$};
+
+
+
+\end{tikzpicture}

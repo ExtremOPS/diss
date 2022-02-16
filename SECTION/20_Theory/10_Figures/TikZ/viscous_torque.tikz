@@ -1,0 +1,74 @@
+\tikzsetnextfilename{viscous_torque}
+{\small
+% Parameters for vector
+\pgfmathsetmacro{\W}{12.0}
+\pgfmathsetmacro{\H}{6.0}
+\pgfmathsetmacro{\B}{0.5}
+
+\pgfmathsetmacro{\fac}{2}
+\pgfmathsetmacro{\amplitude}{0.8}
+\pgfmathsetmacro{\doublefac}{2*\fac}
+
+% Syntax: [draw options] (center) (initial angle:final angle:radius)
+\def\centerarc[#1](#2)(#3:#4:#5)
+  { \draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
+
+\begin{tikzpicture}[]
+
+  \coordinate (O) at (0,0);
+  \coordinate (BL) at (-\W/2,-\H/2);
+  \coordinate (TR) at (\W/2,\H/2);
+
+  % walls
+  \draw[pattern=north west lines, pattern color=black!50] ($(BL) - (\B, 
+  \B)$) rectangle ++(2*\B+\W,2*\B+\H);
+
+  % fluid
+  \draw[fill=blue!10] (BL) rectangle (TR);
+
+  % coordinate system
+  \draw[<->] ($(-\W/2*0.9,-\H/4)$) -- node[left,pos=0] {$\ex$} ++(0,-\H/4*0.9) 
+  -- node[right,pos=1] {$\ey$} ++(\H/4,0);
+
+  % pressure field
+  \draw[blue] plot[domain=-\W/2:\W/2,samples=100] 
+  (\x,{-\amplitude*cos(deg(2*pi/(\W/\fac)*\x))});
+  \draw[blue] plot[domain=-\W/2:\W/2,samples=100] 
+  (\x,{\amplitude*cos(deg(2*pi/(\W/\fac)*\x))});
+
+  \draw[purple] plot[domain=-\H/2:\H/2,samples=100] 
+  ({-\amplitude*cos(deg(2*pi/(\H/\fac)*\x))},\x);
+  \draw[purple] plot[domain=-\H/2:\H/2,samples=100] 
+  ({\amplitude*cos(deg(2*pi/(\H/\fac)*\x))},\x);
+
+  \foreach \x in {1,2,...,\doublefac}{
+    \draw[dotted] ($(-\W/2, -\H*5/8 + \x*\H/2/\fac)$) -- ++(\W,0);
+    \draw[dotted] ($( -\W*5/8 + \x*\W/2/\fac,-\H/2)$) -- ++(0,\H);
+  }
+
+  % non-spherical particles
+  \foreach \x in {1,2,...,\doublefac}{
+  \foreach \y in {1,2,...,\doublefac}{
+    \pgfmathsetmacro{\X}{-\W*5/8 + \x*\W/2/\fac}
+    \pgfmathsetmacro{\Y}{-\H*5/8 + \y*\H/2/\fac}
+    \pgfmathparse{360 * random()}
+    \filldraw[rotate around={\pgfmathresult:(\X,\Y)}, gray, shade, 
+    shading=ball, ball color=black!50!white] (\X,\Y) ellipse (2mm and 3mm);
+  }
+  }
+
+  \coordinate (TL) at (-\W*3/8,\H*3/8);
+  \centerarc[thick,->](TL)(30:270:6mm)
+  \node at ($(TL)+(-\W/12,\H/12)$) {$\Omega\left( \zeta \right)$};
+
+
+  % annotations width
+  \draw[|<->|] (-\W/2, \H/2+1.5*\B) -- node[above,midway] {$W$} ++(\W,0);
+  \draw[|<->|] (\W/2+1.5*\B, -\H/2) -- node[right,midway] {$H$} ++(0,\H);
+  \path (-\W/2-\B,0) -- node[midway,fill=white,rounded corners] 
+  {$\propto\sin(\omega t)$} ++(\B,0);
+
+  \path (-\W/8,\H/2+\B/2) -- node[midway,fill=white,rounded corners] 
+  {$\propto\sin(\omega t + \zeta)$} ++(\W/4,0);
+\end{tikzpicture}
+}
