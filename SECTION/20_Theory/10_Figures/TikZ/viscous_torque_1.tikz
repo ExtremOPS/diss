@@ -1,0 +1,32 @@
+\tikzsetnextfilename{viscous_torque_1}
+
+\pgfplotsset{%
+    colormap={bwr}{
+      color=(blue);
+      color=(white);
+      color=(red);
+    }%
+}
+
+\begin{tikzpicture}
+  \begin{axis}[view={0}{90},
+      xlabel={ $\varphi$ [rad] },
+      xtick={0,3.1415,6.28},
+      xticklabels={0,$\pi$,$2\,\pi$},
+      height=50mm,
+      width=55mm,
+      % colorbar,
+      % colorbar horizontal,
+      % colorbar style={
+        % title={\footnotesize Acoustic pressure $p_{\MR{a}}$},
+        % at={(0,1.4)},
+        % anchor=north west,
+        % xticklabels={,,},
+        % % xtick={0,0.5,1},
+      % }
+    ]
+      \addplot3[surf,mesh/rows=50,shader=interp] table[x=phi,y=t,z=zeta1] 
+      {\relPath/10_Figures/TikZ/Viscous_Torque.dat};
+
+  \end{axis}
+\end{tikzpicture}
