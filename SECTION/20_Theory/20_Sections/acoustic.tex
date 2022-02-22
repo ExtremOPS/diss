@@ -402,8 +402,8 @@ with
 Note here, that 
 \cref{eq:TA-alpha-one,eq:TA-beta-one,eq:TA-chi-three,eq:TA-chi-four,eq:TA-beta-n} 
 are different to the equations in \cname{Doinikov1994Rigid}; Equations (3.14), 
-(3.15), (3.18), (3.19), and (3.21) respectively. We found these typos in the 
-original publication and discussed it more extensively in 
+(3.15), (3.18), (3.19), and (3.21) respectively. We discovered these typos in 
+the original publication and discussed it more extensively in 
 \cname{Fankhauser2022}.
 
 \begin{figure}
@@ -411,8 +411,8 @@ original publication and discussed it more extensively in
   \begin{subfigure}[b]{\textwidth}
     \centering
     \caption{Modes through $n=5$}
-    \input{\relPath/10_Figures/TikZ/SC_all.tikz}
-    % \includegraphics[]{Plots/cache/SC_all.pdf}
+    % \input{\relPath/10_Figures/TikZ/SC_all.tikz}
+    \includegraphics[]{Plots/cache/SC_all.pdf}
     \label{fig:TA-SC_all}
   \end{subfigure}\\%
   \begin{subfigure}[b]{\textwidth}
@@ -471,37 +471,280 @@ where the second order tress tensor (\cref{eq:TA-stress}) is
   \label{eq:TA-nd-stress}
 \end{equation}
 
-\section{Time-averaged Second Order Solution\label{Th-avg-nd-order}}
-
+For the second order velocity field one is usually interested in the 
+timeaverage of this field. This steady state is referred to as \emph{Acoustic 
+Streaming} (AS) field. Applying the timeaverage to 
+\cref{eq:TA-nd-massconservatio,eq:TA-nd-navier} and using the property
 \begin{equation}
-  \timeaverage{\pdv{t}\,f(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
-    \left[ \frac{1}{\tau}\,\left( f(\vb{x}; \tau) - f(\vb{x}; 0) \right) 
+  \timeaverage{\pdv{t}\,g(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
+    \left[ \frac{1}{\tau}\,\left( g(\vb{x}; \tau) - g(\vb{x}; 0) \right) 
   \right]} = 0
   \label{eq:TA-avg-property}
 \end{equation}
-
-timeaverage of first and second order fields is zero --> but not the product of 
-them BAASCH2020
-
+that the timeaverage of the time-derivative of a bounded, differentiable 
+function is zero~\cite{Baasch2020}, one can simplify the second order 
+massconservation and second order Navier Stokes equation further to
 \begin{equation}
   \pdv{x_{i}}\left( \timeaverage{\ndOrder{\vel_{i}}} \right) = 
   -\frac{1}{\zeOrder{\density}} \pdv{x_{i}}\left(\timeaverage{ 
   \stOrder{\density}\,\stOrder{\vel_{i}} }\right)
   \label{eq:TA-avg-massconservatio}
 \end{equation}
-
+and
 \begin{equation}
   \timeaverage{\stOrder{\density} \pdv{\stOrder{\vel_{i}}}{t}} + 
   \zeOrder{\density}\,\timeaverage{\stOrder{\vel_{j}}\,\pdv{\stOrder{\vel_{j}}}{x_{j}}} 
-  = \pdv{x_{j}}\left( \timeaverage{\ndOrder{\stress}} \right)
+  = \pdv{x_{j}}\left( \timeaverage{\ndOrder{\stress}} \right).
   \label{eq:TA-avg-navier}
 \end{equation}
 
-first term remains because it is a product of first order fields
+Note here, that the first term on the left hand side of \cref{eq:TA-nd-navier} 
+does not vanish because it is a product of two first order fields 
+\textcolor{red}{True?}.
 
-timeaverage of a constant function is the function itself
+As for the first order field, the second order velocity can be decomposed into 
+a sum of the known incident field and the unknown scattered field
+\begin{equation}
+  \timeaverage{\ndOrder{\vel_{i}}} =
+    \timeaverage{\ndOrder{\vel_{i,\MR{in}}}} +
+    \timeaverage{\ndOrder{\vel_{i,\MR{sc}}}}.
+  \label{eq:TA-nd-velocity}
+\end{equation}
+
+The timeaveraged second order incident field $\timeaverage{\ndOrder{\vel_{i}}}$ 
+is the motion of the fluid without particle. \textcolor{red}{Is that what we 
+usually see in Comsol? If so --> Figure}. The scattered field is -- as before 
+-- decomposed into the gradient of a scalar velocity potential and the curl of 
+a vector velocity potential
+\begin{equation}
+  \timeaverage{\ndOrder{\vel_{i,\MR{sc}}}} =
+  \pdv{\ndOrder{\phi}}{x_{i}} + 
+  \epsilon_{kli}\,\pdv{\ndOrder{\psi}_{l}}{x_{k}}.
+  \label{eq:TA-nd-sc-decomposition}
+\end{equation}
+
+\textcolor{red}{second order BCs?}
+
+At this point we will not repeat the calculation to solve for the second order 
+velocity field. Interested reader are pointed to \cname{Doinikov1994Rigid} 
+Equation (4.1) and following.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \caption{Modes through $n=5$}
+    % \input{\relPath/10_Figures/TikZ/SC_all.tikz}
+    % \includegraphics[]{Plots/cache/SC_all.pdf}
+    \includegraphics[width=100mm]{example-image-a}
+    % \label{fig:TA-SC_all}
+  \end{subfigure}\\%
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \caption{Single mode one $n=1$}
+    % \input{\relPath/10_Figures/TikZ/SC_mode1.tikz}
+    % \includegraphics[]{Plots/cache/SC_mode1.pdf}
+    \includegraphics[width=100mm]{example-image-b}
+    % \label{fig:TA-SC_mode1}
+  \end{subfigure}
+  \caption{First order fluid velocity field at different time steps. For both 
+  plots the same scaling applies. a) all modes through $n=5$; b) single mode 
+one for $n=1$. Material properties for the particle and the fluid are seen in 
+\cref{tab:TA-parameters,tab:TC-parameters}. The plotted data is generated with 
+the Pyhton module \emph{gorkov}~\cite{pypi}.}
+  \label{fig:TA-AS}
+\end{figure}
+
+\textcolor{red}{in \cref{fig:TA-AS} yo can asee bloah balh the time averaged 
+streaming field around the particle for}
+
+This timeaveraged streaming field causes a force onto the particle in the 
+direction of the flow. It is know as Stoke's drag force
+\begin{equation}
+  \force^{\MR{drag}}_{i} = \gamma\,\timeaverage{\ndOrder{\vel_{i}}} = 
+  6\pi\,R\,\muef\,\timeaverage{\ndOrder{\vel_{i}}}
+  \label{eq:TA-drag-force}
+\end{equation}
+where $\gamma$ is also called Stoke's drag coefficient.
+
 
 \section{Acoustic Radiation Force\label{sec:TA-ARF}}
 
+With the solution for the first and second order velocity field and hence for 
+the stress tensors of the respective orders one can calculate the ARF with 
+\cref{eq:TA-def-approx-ARF}. However, this formula and also the velocity fields 
+are cumbersome to compute. This is due to the fact that his formula as well as 
+the solutions to the velocity fields is valid for any axisymmetric incident 
+acoustic wave field and is not restricted to the ratios of the particle to the 
+viscous boundary layer thickness $\sfrac{R}{\delta}$, the ratio of the particle 
+to the acoustic wavelength $\sfrac{R}{\wavelength_{\MR{a}}} = 
+\sfrac{\R\,f}{\cfl}$, and the ratio of the viscous boundary layer to the 
+acoustic wavelength $\sfrac{\delta}{\wavelength_{\MR{a}}}$.
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/lambda_mode.tikz}
+  \includegraphics[]{Plots/cache/lambda_mode.pdf}
+  \caption{Sketch of one dimensional standing pressure wave in fluid cavity 
+  with width $W$, an acoustic wavelength $\wavelength_{\MR{a}}$, and two types 
+of particle; red (negative contrast factor $\Phi$), gray (positive contrast 
+factor $\Phi$). The depicted mode is the \emph{lambda}-mode.}
+  \label{fig:TA-lambda_mode}
+\end{figure}
+
+But for most applications the particle radius is much larger than then viscous 
+boundary layer $R \gg \delta$ and the acoustic wavelength is much larger than 
+the particle radius $\wavelength_{\MR{a}}\gg R \gg \delta$. The most common 
+formula for those restrictions and one dimension standing pressure wave is the 
+derivation by \cname{Gorkov1962}. He derives the ARF on a particle which is 
+much smaller as the acoustic wavelength ($\R\ll\lambda_{\MR{a}}$). In his 
+derivation models the fluid as well as the particle as an inviscid material. 
+The ARF is defined as the gradient of a potential
+\begin{equation}
+  \force^{\MR{rad}}_{i} = \pdv{U^{\MR{rad}}}{x_{i}}
+  \label{eq:TA-gorkov}
+\end{equation}
+where $U^{\MR{rad}}$ is the so called Gor'kov potential. It is defined as
+\begin{equation}
+  U^{\MR{rad}} = \frac{4}{3}\,\pi\,R^{3}\left\{ 
+  \frac{f_{1}}{2}\,\kappa_{\MR{f}}\timeaverage{p^{2}_{\MR{a}}} - 
+f_{2}\,\rhof\timeaverage{v^{2}_{i,\MR{in}}} \right\}
+    \label{eq:TA-gorkov-potential}
+\end{equation}
+where $\kappa_{\MR{f}}$ is the compressibility of the fluid and
+\begin{equation}
+  f_{1} = 1 - \frac{\kappa_{\MR{s}}}{\kappa_{\MR{f}}} = 1 - \tilde{\kappa}
+  \label{eq:TA-fone}
+\end{equation}
+the so-called monopole factor with $\kappa_{\MR{s}}$ being the compressibility 
+of the particle and where
+\begin{equation}
+f_{2} = \frac{2(\tilde{\rho}-1)}{2\tilde{\rho}+1}
+\label{eq:TA-ftwo}
+\end{equation}
+is the so called dipole factor with $\tilde{\rho} = \sfrac{\rhop}{\rhof}$ 
+\cite{Gorkov1962,Bruus2012}.
+
+\begin{figure}
+    % \input{\relPath/10_Figures/TikZ/SC_all.tikz}
+    % \includegraphics[]{Plots/cache/SC_all.pdf}
+    \includegraphics[width=160mm]{example-image-a}
+    \caption{ARF solution generated with \emph{gorkov}}
+  \label{fig:TA-comparision-ARF}
+\end{figure}
+
+For a plane standing wave (see \cref{fig:TA-plane_wave}) the radiation force 
+along the $\ey$ axis can be computed as~\cite{Bruus2012}
+\begin{equation}
+  \force_{y}^{\MR{rad}} = 
+  4\pi\,\Phi(\tilde{\rho},\tilde{\kappa})\,k\,R^{3}\,E_{\MR{ac}}\,\sin(2ky)
+  \label{eq:TA-ARFy}
+\end{equation}
+with $k$ being the wavenumber and with the so called acoustic energy density
+\begin{equation}
+  E_{\MR{ac}} = \frac{p_{\MR{a}}^{2}}{4\rhof\cfl^{2}}
+  \label{eq:TA-Eac}
+\end{equation}
+and with the so-called acoustic contrast factor
+\begin{equation}
+  \Phi(\tilde{\rho},\tilde{\kappa}) = \frac{1}{3}\,f_{1} + \frac{1}{2}\,f_{2}.
+  \label{eq:TA-Phi}
+\end{equation}
+
+From \cref{eq:TA-ARFy} one can deduce the following interesting properties of 
+the ARF for a plane standing wave: a) the ARF scales with the volume of the 
+spherical particle; b) the ARF is sinusoidal with double the period of the 
+incident acoustic wave; c) depending on the sign of $\Phi(\tilde{\kappa}, 
+\tilde{\rho})$ the ARF is flipped by $\pi$; d) particles with 
+$\Phi(\tilde{\kappa}, \tilde{\rho}) = 0$ are acoustically \emph{invisible} and 
+not displaced by the ARF.
+
+Particles with a positive acoustic contrast factor $\Phi(\tilde{\kappa}, 
+\tilde{\rho}) > 0$ are displaced by the ARF towards the pressure nodes (gray 
+particles in \cref{fig:TA-plane_wave}) and particles with a negative acoustic 
+contrast factor $\Phi(\tilde{\kappa}, \tilde{\rho}) < 0$ are displaced towards 
+the pressure antinode (red particle in \cref{fig:TA-plane_wave}).
 
 
+
+
+\section{Acoustic Radiation Torque\label{sec:TA-VT}}
+
+\Cref{eq:TA-ARFy} is valid for a one dimensional pressure wave. However, it is 
+possible that two one dimensional pressure waves are spatially orthogonal to 
+each other and form a two dimensional pressure field. 
+\cref{fig:TA-viscous_torque} shows such an pressure field. With the assumption 
+that the object dimension is much smaller than the acoustic wavelength, the 
+particles with positive acoustic contrast factor ( $\Phi>0$ ) will be displaced 
+into the pressure nodes of the two superimposing pressure waves and the 
+particles with negative acoustic contrast factor in the superimposed pressure 
+antinodes.
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/viscous_torque.tikz}
+  \includegraphics[]{Plots/cache/viscous_torque.pdf}
+  \caption{Sketch of two dimensional orthogonal pressure field in fluid cavity 
+  of width $W$ and height $H$ with phase difference $\zeta$. Non-spherical 
+particles gather in pressure nodes ($\Phi > 0$) along respective direction and 
+rotate with angular velocity $\Omega\left( \zeta \right)$.}
+  \label{fig:TA-viscous_torque}
+\end{figure}
+
+Besides the translation of the objects to the equilibrium pressure position 
+some of them will also rotate due to their non-spherical shape (see 
+\cref{fig:TA-viscous_torque}). There exist not an analytical closed form 
+solution to the radiation torque exerted onto the objects~\cite{Lamprecht2017}.
+
+ \begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.35\textwidth}
+    \centering
+    \caption{$\zeta = \SI{0}{\radian}$}
+    % \input{\relPath/10_Figures/TikZ/viscous_torque_0.tikz}
+    \includegraphics[]{Plots/cache/viscous_torque_0.pdf}
+    % \label{fig:TO-QPDx}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \caption{$\zeta = \sfrac{\pi}{4}\,\si{\radian}$}
+    % \input{\relPath/10_Figures/TikZ/viscous_torque_1.tikz}
+    \includegraphics[]{Plots/cache/viscous_torque_1.pdf}
+    % \label{fig:TO-QPDkky}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \caption{$\zeta = \sfrac{\pi}{2}\,\si{\radian}$}
+    % \input{\relPath/10_Figures/TikZ/viscous_torque_2.tikz}
+    \includegraphics[]{Plots/cache/viscous_torque_2.pdf}
+    % \label{fig:TO-QPDt}
+  \end{subfigure}
+  \caption{Acoustic pressure $p_{\MR{a}}$ around particle circumference 
+  ($\varphi$) in a two dimensional pressure wave field with three different 
+phase shifts $\zeta$ plotted over one excitation period. The pressure amplitude 
+is depicted qualitatively; red equals positive pressure and blue negative.}
+  \label{fig:TA-VT}
+ \end{figure}
+
+Not only non-spherical objects can rotate due to the acoustics, but also 
+spherical particles can rotate in an orthogonal two dimensional pressure wave 
+field if two conditions are met: 1) the viscous losses inside the viscous 
+boundary layer $\delta$ around the particle are high enough; 2) the excitation 
+of the two pressure waves is phase shifted.
+
+If the two conditions are met, then the by $\zeta$ phase shifted excitation 
+will lead to a continuous phase change of the pressure amplitude along the 
+surface of the particle (see \cref{fig:TA-VT}). This phase change will lead to 
+a local timeaveraged streaming in the viscous boundary layer of the particle 
+that initiate the rotation. The final rotational velocity is when the 
+accelerating local streaming flow equals the opposite directed Stoke's 
+rotational drag torque~\cite{Lamprecht2017}. This rotational velocity is -- 
+amongs other parameters -- proportional to the phase shift $\zeta$. Therefore, 
+$\zeta + \sfrac{\pi}{2}$ will cause rotations opposite to a phase shift of 
+$\zeta$. This is also true for neighboring pressure nodes of the two 
+dimensional pressure field. We will discuss this kind particle rotation more 
+extensively in \cref{ch:viscoustorque}.
+
+% \section{Python module for Acoustofluidic\label{sec:TA-python}}
