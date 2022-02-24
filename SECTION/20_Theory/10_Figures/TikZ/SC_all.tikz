@@ -20,7 +20,7 @@
   % colorbar,
   colormap = {whiteblack}{color(0cm)  = (black);color(1cm) = (white)},
   % colormap/bluered,                     % Colormap preset
-  height=4cm,
+  height=35mm,
   width=75mm,
   ]
 

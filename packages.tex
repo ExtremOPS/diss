@@ -1,5 +1,14 @@
 \usepackage{geometry}
-\geometry{a4paper,top=30mm,left=22mm,right=22mm,bottom=30mm,headsep=10mm,footskip=12mm}
+\geometry{
+  a4paper,
+  top=30mm,
+  left=22mm,
+  right=22mm,
+  bottom=30mm,
+  headsep=10mm,
+  footskip=12mm,
+  bindingoffset=10mm,
+}
 \renewcommand{\baselinestretch}{1.05}\normalsize %Zeilenabstand
 %vor Boston: 1.1 Zeilenabstand, Grösse 13 pt top=30mm,left=18mm,right=18mm,bottom=30mm,headsep=10mm,footskip=12mm
 
@@ -80,6 +89,10 @@
 \usepackage[
   backend=biber,
   hyperref,
+  % sorting=none, % sorty by appearance
+  sorting=nyt, % sirt by name year title
+  style=ieee, % use hyphons ins citation
+  citestyle=numeric-comp, % hyphons in same brackets
   giveninits=true,
   maxcitenames=2,
   doi=true,
@@ -103,9 +116,12 @@
 % subfigures
 \usepackage[
   textformat=simple,
-  font=footnotesize,
-  labelfont=bf,
-  format=hang]{caption}  %Caption options
+  font=small,
+  labelsep=endash,
+  % labelfont=bf,
+  labelfont=sc,
+  format=plain,
+]{caption}  %Caption options
 \usepackage{afterpage}
 \usepackage{subcaption}
 

@@ -24,8 +24,8 @@
       ylabel=$\sfrac{y_{0}}{\RA}$,
       point meta min=-1,
       point meta max=1,
-      height=50mm,
-      width=50mm,
+      height=48mm,
+      width=48mm,
       colorbar,
       colorbar horizontal,
       colorbar style={
