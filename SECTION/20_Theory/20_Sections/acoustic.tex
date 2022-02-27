@@ -12,7 +12,7 @@ all information for this chapter if not stated otherwise is taken from there.}.
 \section{Governing Equations}
 
 Ultimately we want to compute the force acting on the particle. This force is 
-called acoustic radiation force (ARF) and is defined as the timeaveraged 
+called acoustic radiation force (ARF) and is defined as the time-averaged 
 surface integral of the stress tensor over the time varying surface $S(t)$ of 
 the particle (see \cref{fig:TA-deformed_circle})
 \begin{equation}
@@ -22,10 +22,10 @@ the particle (see \cref{fig:TA-deformed_circle})
 \end{equation}
 where $\normal(t)$ is the time dependent outward facing normal, repetitive 
 indices imply Einstein summation notation, and the angle bracket define the 
-timeaverage over one period $T$
+time-average over one period $T$
 \begin{equation}
   \timeaverage{\Box(t)} = \frac{1}{T}\,\int\limits_{0}^{T}\Box(t)\dd{t}.
-  \label{eq:TA-timeaverage}
+  \label{eq:TA-time-average}
 \end{equation}
 
 \begin{figure}[tbp]
@@ -472,8 +472,8 @@ where the second order tress tensor (\cref{eq:TA-stress}) is
 \end{equation}
 
 For the second order velocity field one is usually interested in the 
-timeaverage of this field. This steady state is referred to as \emph{Acoustic 
-Streaming} (AS) field. Applying the timeaverage to 
+time-average of this field. This steady state is referred to as \emph{Acoustic 
+Streaming} (AS) field. Applying the time-average to 
 \cref{eq:TA-nd-massconservatio,eq:TA-nd-navier} and using the property
 \begin{equation}
   \timeaverage{\pdv{t}\,g(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
@@ -481,7 +481,7 @@ Streaming} (AS) field. Applying the timeaverage to
   \right]} = 0
   \label{eq:TA-avg-property}
 \end{equation}
-that the timeaverage of the time-derivative of a bounded, differentiable 
+that the time-average of the time-derivative of a bounded, differentiable 
 function is zero~\cite{Baasch2020}, one can simplify the second order 
 massconservation and second order Navier Stokes equation further to
 \begin{equation}
@@ -511,7 +511,7 @@ a sum of the known incident field and the unknown scattered field
   \label{eq:TA-nd-velocity}
 \end{equation}
 
-The timeaveraged second order incident field $\timeaverage{\ndOrder{\vel_{i}}}$ 
+The time-averaged second order incident field $\timeaverage{\ndOrder{\vel_{i}}}$ 
 is the motion of the fluid without particle. \textcolor{red}{Is that what we 
 usually see in Comsol? If so --> Figure}. The scattered field is -- as before 
 -- decomposed into the gradient of a scalar velocity potential and the curl of 
@@ -558,7 +558,7 @@ the Pyhton module \emph{gorkov}~\cite{pypi}.}
 \textcolor{red}{in \cref{fig:TA-AS} yo can asee bloah balh the time averaged 
 streaming field around the particle for}
 
-This timeaveraged streaming field causes a force onto the particle in the 
+This time-averaged streaming field causes a force onto the particle in the 
 direction of the flow. It is know as Stoke's drag force
 \begin{equation}
   \force^{\MR{drag}}_{i} = \gamma\,\timeaverage{\ndOrder{\vel_{i}}} = 
@@ -737,7 +737,7 @@ of the two pressure waves is phase shifted.
 If the two conditions are met, then the by $\zeta$ phase shifted excitation 
 will lead to a continuous phase change of the pressure amplitude along the 
 surface of the particle (see \cref{fig:TA-VT}). This phase change will lead to 
-a local timeaveraged streaming in the viscous boundary layer of the particle 
+a local time-averaged streaming in the viscous boundary layer of the particle 
 that initiate the rotation. The final rotational velocity is when the 
 accelerating local streaming flow equals the opposite directed Stoke's 
 rotational drag torque~\cite{Lamprecht2017}. This rotational velocity is -- 
