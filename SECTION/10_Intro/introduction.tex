@@ -105,7 +105,7 @@ together to gain further understanding of the micromeachnics inside a
 acoustocluidic device.
 
 \cyear{Thalhammer2011} were the first to combine a \SI{1064}{\nm} OT with an 
-AT.  They designed their OT such that it is a low numerical aperture (NA) OT to 
+AT. They designed their OT such that it is a low numerical aperture (NA) OT to 
 have a wider field of view. Usually, OTs need a high NA to create enough 
 trapping force magnitude. This was possible because by the usage of a mirror 
 they could mimic a dual-beam OT with a single laser beam. They used their setup 
@@ -116,7 +116,7 @@ non-spherical objects.
 
 In a similar way, \cname{Bassindale2014}~(\citeyear{Bassindale2014}) used a 
 \SI{1064}{\nm} single beam high NA OT as force sensor on \SI{5}{\um} silica 
-particles.  Furthermore, they split the measured force on the particle into a 
+particles. Furthermore, they split the measured force on the particle into a 
 contribution from AS and from the ARF. They validated their measurements by 
 comparing it to the forces retrieved from particle image velocimetry.
 
@@ -159,7 +159,7 @@ proximity of the fluid chamber.
 
 \section{Advances in Streaming Suppression}
 
-As discussed before, AS is often undesired because it can counteract the ARF.  
+As discussed before, AS is often undesired because it can counteract the ARF. 
 Besides the fluid mixer driven by AS, there are also other applications for 
 AS~\cite{Wiklund2012a}. Nevertheless, the suppression of AS is still of high 
 interest for MSAF.
@@ -175,8 +175,75 @@ could show that the secondary forces, like particle-particle interaction, are
 still present while pulsing allowing to also trap the small particles with the 
 larger ones as seed particles.
 
-\cyear{Castro2016}
+\cyear{Castro2016} extended their study of~\cite{Hoyos2013} to investigate the 
+effects of a pulsed excitation on the steady-state AS while also changing other 
+experimental parameters, like the particle size and device geometry. They show 
+that there are parameter setting for which latex particles smaller than 
+\SI{2}{\um} are manipulated by the ARF only without any AS perturbations.
+
+\cyear{Karlsen2018a} performed a theoretical, numerical and experimental study 
+on the effects of density and compressibility inhomogeneities in the fluid on 
+the boundary driven AS. The fundamental idea is to utilize the different time 
+scales for the build up of the ARF and AS. They realise the inhomogeneities in 
+the device by layering water with two sheet flows of 20\% iodixanol at the 
+respective channel walls. With this layered fluid configuration they are able 
+to suppress AS in the middle of the device almost completely. The numerical 
+model verifies their experimental results.
+
+\cyear{Bach2020} performed a numerical study with the objective to optimize the 
+cross-section of the fluid cavity to reduce streaming while still allowing ARF 
+driven particle manipulation. With the optimized shaped, they are theoretically 
+able to suppress streaming in the bulk of the homogeneous fluid by two orders 
+of magnitude. For a rectangular cross-section the minimal particle radius of a 
+polystyrene particle in water is around \SI{1}{\um} before the drag force from 
+AS dominates over the ARF. With their optimized shape they reduce the minimal 
+particle radius down to \SI{0.15}{\um}.
+
+Most recently in 2021, \cname{Winckelmann2021} investigated theoretically and 
+numerically the effects of alternating current electroosmosis (ACE) to the 
+streaming pattern within a rectangular fluid cavity. As it is for AS, the 
+streaming from ACE is also boundary driven. By analysing the form of the ACE 
+streaming they are able to suppress the streaming in the bulk of the fluid by 
+two orders of magnitude. The applied voltage for the ACE streaming to 
+successfully suppress the AS is only about \SI{125}{\milli\volt}. In addition, 
+the bulk of the fluid is charge neutral and therefore no electric charges could 
+harm possible living objects within the system.
+
 
 \section{Research Question\label{sec:I-researchquestion}}
 
+utilizing the fast opticalk detection system
+
 \section{Outline of Thesis\label{sec:I-outline}}
+
+This thesis is a cumulative thesis. Therefore, it consists out of a number of 
+peer-reviewed published papers surrounded by a extended introduction at the 
+beginning and by a summarizing discussion and outlook at the end.
+
+We describe in this manuscript the combination of an optical trap with and 
+acoustical trap. Therefore, in \cref{ch:ac-theory} we discuss and explain the 
+fundamental acoustic theory. The following \cref{ch:optic-theory} discusses the 
+optical theory relevant in the context of this thesis. The whole optical 
+trapping setup will not be explained in great detail. Interested readers are 
+pointed to the preceding thesis by \cname{Lamprecht2017} who explains the used 
+components and the whole setup.
+
+\Cref{ch:timeconstant,ch:pulsing} are two publications which investigate the 
+effects of a pulsed excitation onto the build up of the ARF and AS. The first 
+one introduces the necessary changes to the previous OT setup in order to 
+measure the build up of the two effects. In addition, the build up with a 
+continuous excitation is measured. The following publication is a direct 
+extension of the preceding because we apply this new measuring technique to 
+pulsed excitations and show that the build up of the ARF and AS are affected 
+differently.
+
+In \cref{ch:viscoustorque} the OT is utilized for measuring the rotational 
+speed of spherical particles in a viscous fluid driven by two phase-shifted 
+orthogonal standing pressure waves. The combination of high viscosity and small 
+particles lead to a viscous boundary layer thickness in the order of the 
+particles radius itself. We validate the effects of the viscosity on the 
+rotational speed in this regime and show that a theoretical formula is 
+overestimating the rotational speed by more than one order of magnitude.
+
+Finally, in \cref{ch:discussion} we summarize all presented findings, put them 
+in context, and motivate future possible research directions.
