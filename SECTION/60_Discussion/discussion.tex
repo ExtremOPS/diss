@@ -2,65 +2,71 @@
 
 \section{Discussion}
 In this thesis we presented the application of the fast position readout of a 
-trapped spherical particle within our optical trapping (OT) setup to two MSAF 
-phenomena: 1) the transient build up behaviour of acoustic streaming (AS) as 
-well as the acoustic radiation force (ARF); 2) the viscous torque induced 
-rotation of spherical particles in a viscous fluid such that the viscous 
-boundary layer is as large as the particle itself $\delta \approx R$.
+trapped spherical particle within our optical trapping (OT) setup to two micro 
+scale acoustofluidics (MSAF) phenomena: 1) the transient build up behaviour of 
+acoustic streaming (AS) as well as the acoustic radiation force (ARF); 2) the 
+viscous torque induced rotation of spherical particles in a viscous fluid where 
+the viscous boundary layer is as large as the particle radius itself $\delta 
+\approx R$.
 
 The investigations of both phenomena are possible because the laser beam which 
 is the cause for the trapping potential \emph{transfers} positional information 
-about the particles relative to the laser focal point after the actual trapping 
-takes place. In order to extract this information from the light beam, the beam 
-must be collimated after the trapping and focussed onto photo detectors. For 
-the detection of the in-plane movement, the photo detector (PD) must be a 
-quadrant photo detector (QPD) for resolving the spatial movement along two 
-orthogonal directions. For the axial movement a single photo detector is 
-sufficient because only the total intensity is needed.
+about the particles relative position to the laser focal point after the actual 
+trapping takes place. In order to extract this information from the light beam, 
+the beam must be collimated after the trapping and focused onto photo 
+detectors. For the resolution of two orthogonal directions of the in-plane 
+movement, the photo detector (PD) must be a quadrant photo detector (QPD). For 
+the axial movement a single PD is sufficient because only the total intensity 
+shine onto the PD is needed.
 
 The physical unit of the (Q)PDs output is \si{\volt}. In order to convert the 
 voltage to the unit of \si{\meter}, we take advantage of the linear regime of 
 (Q)PDs where a change in measured voltage is proportional to the movement of 
-the particle within the trap. The respective start and end point of this 
-regime is dependent on a multitude of parameters. But for our setup movements 
-of less than \SI{100}{\nm} are still linear related. The voltage-conversion 
-factor can be derived from the single-sided frequency spectrum of the trapped 
-particle. The in the fluid suspended particles are so small and light that they 
-undergo visible Brownian motion. Brownian motion is a random process with the 
-property that over a long time the particle will be back at its initial 
-position. Also while being trapped the particle is displaced by the Brownian 
-motion. The frequency content of any spatial direction follows the curve of a 
-low-pass filter. With the amplitude at zero frequency $A_{0}$ and the cutoff 
-frequency $f_{\MR{c}}$ where $A\vert_{f=f_{\MR{c}}}=\sfrac{A_{0}}{2}$ it is 
-possible to calculate the voltage-meter conversion factor for each spatial 
+the particle within the trap. In this regime, the OT can also be used as force 
+measurement device because it has the same properties as a linear mechanical 
+spring. The respective start and end point of this regime is dependent on a 
+multitude of parameters. For our setup movements of less than \SI{100}{\nm} are 
+still linear related. The voltage-conversion factor as well as the stiffness of 
+the OT can be derived from the single-sided frequency spectrum of the trapped 
+particle. The in the fluid suspended particles are so lightweight and small 
+that they undergo visible Brownian motion. Brownian motion is a random process 
+with the property that over a long time period the particle will be back at its 
+initial position. Also while being trapped the particle undergoes Brownian 
+motion. The frequency content of a trapped particle in any spatial direction 
+follows the curve of a low-pass filter. With the amplitude at zero frequency 
+$A_{0}$ and the cutoff frequency $f_{\MR{c}}$ where 
+$A\vert_{f=f_{\MR{c}}}=\sfrac{A_{0}}{2}$ it is possible to calculate the 
+voltage-meter conversion factor as well as the stiffness for each spatial 
 direction separately.
 
 Besides the size of the trapped particle the conversion factor is dependent on 
-the viscosity of the surrounding fluid. Precise knowledge of the viscosity is 
+the viscosity of the surrounding fluid. Exact knowledge of the viscosity is 
 unavoidable for quantitative precise measurements. The viscosity of the fluid 
 is in general a function of its temperature. While the ambient temperature is 
 straightforward to measure, the measurement of the temperature within a MSAF 
 device or at the focal point of the trapping laser is cumbersome. Although the 
 intensity of our laser exceeds the sun's intensity by order of magnitudes, we 
-show in \cref{sec:TO-temperature} that for our setup the laser induced 
+showed in \cref{sec:TO-temperature} that for our setup the laser induced 
 temperature change and therefore the temperature induced viscosity change is 
-negligible small for our experiments. However, this is not general for every OT 
-the case because the temperature change does not only dependent on the laser 
-power itself but even more on the laser wavelength and fluid combination, and 
-therefore the absorption at this specific wavelength.
+negligible small for all our experiments. However, this is not general for 
+every OT the case because the temperature change does not only dependent on the 
+laser power itself but even more on the laser wavelength and fluid combination, 
+and therefore the absorption at this specific wavelength.
 
-In \cref{ch:timeconstant} we first develop a new measurement method to 
-visualize the transient build up of the ARF and AS and then study in 
-\cref{ch:pulsing} the effects of a pulsed excitation on the respective build up 
-times. Key for those experiments are, that the ARF and AS induced particle 
-displacement is along orthogonal spatial direction. Moreover, the ARF 
-displacement is along on of the axis of the in-plane QPD and the AS 
-displacement is along the axial direction on another QPD. Because of that the 
-measured displacement data is also separated and cross-talk free. We validated 
-the orthogonality of the forces by force measurements with two different sized 
-particles where all experimental parameters besides the particle radius kept 
-the same. The drag force from AS scales with the particles radius, $\FAS\propto 
-R$ and the ARF with the volume of the particle, $\FARF\propto R^{3}$.
+To investigate the first MSAF phenomena, we develop a new measurement method in 
+\cref{ch:timeconstant} to visualize the transient build up of the ARF and AS 
+and then study in \cref{ch:pulsing} the effects of a pulsed excitation on the 
+respective build up times. Key for those experiments is, that the ARF and AS 
+induced particle displacement is along orthogonal spatial direction. Moreover, 
+the ARF displacement is along on of the axis of the in-plane QPD and the AS 
+displacement is along the axial direction on another QPD. Hence, the measured 
+displacement data is also separated and cross-talk free. We validated the 
+orthogonality of the ARF and the drag force from AS by steady state force 
+measurements with two different sized particles where all experimental 
+parameters besides the particle radius kept the same. The drag force from AS 
+scales with the particle radius, $\FAS\propto R$ and the ARF with the volume of 
+the particle, $\FARF\propto R^{3}$. The ratio of the measured forces along same 
+directions but of different particles sizes showed the same scaling laws. 
 
 However, without modifications on the OT we are not able to measure any of 
 those effects because the timeconstant of the OT is much larger than the 
@@ -68,14 +74,14 @@ theoretical build up time of the ARF. In fact, for our set of experimental
 parameters and our device configuration $\tOT \approx \tas \gg \tarf$ with 
 $\tas = \SI{1.59}{\ms}$ and $\tarf = \SI{1.4}{\us}$. We reduced $\tOT$ 
 effectively to zero by reducing the laser power to almost zero such that there 
-is no effective trapping by the OT. We still need some laser power because this 
+is no effective trapping by the OT. We still need some laser power because the 
 beam is the cause for the measured intensity at any of the (Q)PDs.
 
 Because of the laser power reduction, we also needed to install an optical 
 shutter right before the (Q)PDs. The laser intensity is too high for the photo 
 detectors. In normal trapping mode a set of filters reduces the intensity to 
-less than 0.1\% of the incoming intensity. The optical filter is actuated to be 
-almost completely closed such that it acts as intensity filter if the laser 
+less than 0.01\% of the incoming intensity. The optical filter is actuated to 
+be almost completely closed such that it acts as intensity filter if the laser 
 power is high (trapping) and opens as soon as the laser power is reduced for 
 the measurement itself.
 
@@ -87,46 +93,94 @@ However, this movement is only $\approx 0.05\,R$ along the axial direction and,
 hence, does not hinder the measurement; the in-plane movement is zero because 
 no forces besides gravity are acting on the particle.
 
-The (pulsed) acoustic excitation is then switched on for \SI{30}{\ms} only 
+The (pulsed) acoustic excitation is then switched on for only \SI{30}{\ms} 
 because a longer excitation would lead to such large displacements -- primarily 
 along the ARF direction -- that the particle could not be re-trapped. For our 
 studies we were not interested in the actual displacements but in the time it 
-takes until the movement along any direction starts. For the actual 
-displacements one would need to retrieve the voltage-meter conversion factor 
-but for that the particle needs to be trapped.
+takes until the movement along any direction starts. For actual displacements 
+magnitudes one would need to retrieve the voltage-meter conversion factor but 
+for that the particle needs to be trapped. Hence, only the voltage at the 
+(Q)PDs can be investigated.
 
-Because the particle is free-floating and, hence, uncontrolled in its location 
-for the first \SI{25}{\ms} we repeat the measurement multiple times per 
-location and average the measured data. To further subtract the gravity induced 
-movement from the data we perform the same amount of measurements with no 
-acoustics at all and then subtract the averaged \emph{no-acoustic} data from 
+Because the particle is free-floating and, therefore, uncontrolled in its 
+location for the first \SI{25}{\ms} we repeat the measurement multiple times 
+per location and average the measured data. To further subtract the gravity 
+induced movement from the data we perform the same amount of measurements with 
+no acoustics at all and then subtract the averaged \emph{no-acoustic} data from 
 the \emph{acoustics} data.
 
 The data for both types of experiments (non-pulsed and pulsed) shows that the 
 ARF induced displacement starts immediately whereas the AS induced displacement 
-takes significantly longer. With this measured time offset between ARF and AS 
-we are able to give an explanation why in 
-experiments~\cite{Castro2016,Hoyos2013} a pulsed acoustic excitation suppresses 
-the build up of AS whereas numerical investigations~\cite{Muller2015} with an 
-ideal fluid cavity reveal a much smaller offset which could not suppress 
-streaming. Although the data has the unit of \si{\volt} and not \si{\meter}, 
-the slope the AS and ARF induced displacement is showing that the acceleration 
-after the build up by any of two effects occurs fast and then transitions into 
-constant velocity (linear slope). This can be stated because the measured 
-voltage (within the linear regime of the (Q)PDs) is the displacement divided by 
-the voltage-meter conversion factor. And hence, the slope of the 
-voltage-over-time data equals the slope of the displacement which is the 
-velocity of the particle.
+takes significantly longer. The measured time offset between ARF and AS is an 
+explanation why in experiments~\cite{Castro2016,Hoyos2013} a pulsed acoustic 
+excitation suppresses the build up of AS whereas numerical 
+investigations~\cite{Muller2015} with an ideal fluid cavity reveal a much 
+smaller offset which does not suppress streaming. Although the data has the 
+unit of \si{\volt} and not \si{\meter}, the slope the AS and ARF induced 
+displacement is showing that the acceleration after the build up by any of two 
+effects occurs fast and then transitions into constant velocity (linear slope). 
+It is a valid statement because the measured voltage (within the linear regime 
+of the (Q)PDs) is the displacement divided by the voltage-meter conversion 
+factor. The slope of the voltage-over-time data equals the slope of the 
+displacement which is in turn the velocity of the particle.
 
-The pulsed excitation measurements reveal that a pulsed excitation leads to a 
-greater effect in terms of delaying the build up on the AS than it does on the 
-ARF. We measure this for all three pulsing frequencies we used. The pulsed 
+Additionally, the pulsed excitation measurements revealed that a pulsed 
+excitation leads to a greater reductions in terms of the final displacement at 
+the end of the measurement on the AS than it does on the ARF. We measure this 
+observation for all pulsing frequencies. The ARF and AS are linear dependent on 
+the acoustic energy density within the fluid cavity. All our data also shows 
+this relation but with a steeper slope for AS than the ARF. The pulsed 
 excitation results help to further explain the experimental shown suppression 
-of AS. However, with our measurement protocol we can only measure for the first 
-\SI{30}{\ms} of acoustic excitation. Any MSAF application is, however, operated 
-continuously where all fields have developed fully. At the moment, we cannot 
-measure these effects at this point in time.
+of AS. However, with our measurement protocol we can only measure for the 
+first \SI{30}{\ms} of acoustic excitation. However, any MSAF application is 
+operated continuously where all fields have developed fully. At the moment, we 
+cannot measure these effects during steady state.
 
+For the second MSAF phenomena, the rotational speed measurement of a spherical 
+particle driven by the viscous torque (\cref{ch:viscoustorque}), no set up 
+modifications at the OT are necessary. The two main requirements for the 
+generation of a viscous torque that is sufficiently big to initiate a particle 
+rotation are: firstly, the formation of a viscous boundary layer $\delta$ 
+around the particle; secondly, a two dimensional orthogonal acoustic excitation 
+with phase difference such that the acoustic pressure at the particle surface 
+has a continuous phase change in circumferential direction.
+
+The second requirement is straightforward to accomplish by the use of a 
+quadratic fluid cavity where the excitation is applied to the system from two 
+orthogonal directions. The phase difference of the two excitation signals is 
+easily realized with most dual channel function generators. The viscosity 
+increase of the fluid and therefore the larger viscous boundary layer around 
+the particle can be created by a glycerol water mixture (3:7 for our 
+experiments). A greater viscosity increase was not possible, because glycerol 
+has the side effect that it also increases the refractive index of the mixture.  
+For stable trapping the refractive index of the particle must be larger than of 
+the surrounding medium. For equal indices the particle is \emph{invisible} for 
+the laser beam because no path change of the light occurs at the particle-fluid 
+interface and a greater particle index leads to repulsion from the laser focal 
+point.
+
+Our measurement utilizes the property that a distinct amplitude peak appears at 
+the rotational frequency of the particle in the one sided power spectrum of the 
+trapped rotating particle. We validated this finding with deformed and partial 
+gold coated particles where the rotation is also visible optically. By having a 
+highspeed camera mounted to the OT and choosing the excitation parameters such 
+that the viscous torque induced rotation is clearly visible by analysis of the 
+single frames from the video. The deformed particles did not rotate with a 
+single constant velocity because of its non-spherical shape. Therefore, 
+multiple additional peaks were also visible in the power spectrum. The 
+partially gold coated particles, however, showed a single peak that matched the 
+rotational speed from the optical analysis.
+
+With a validated method for measuring the rotational speed of a spherical 
+particle we investigated the situation where the particle radius is as big as 
+the viscous boundary layer itself $R\approx\delta$. In the regime where $\delta 
+> \sfrac{R}{15}$ a numerical study by \cname{Hahn2016} predicts the final 
+terminal rotational velocity order of magnitudes lower than a theoretical 
+investigation by \cname{Lamprecht2015}. Note here, that~\cite{Lamprecht2015} 
+restrict their calculations to the assumption that $R\gg\delta$. Our 
+measurements of rotations up to \SI{13'700}{\rpm} confirm the results from 
+\cname{Hahn2016} and prove the invalidity of the theoretical formula of 
+\cname{Lamprecht2015} in the regime where $R\approx\delta$.
 
 \section{Outlook}
 
@@ -139,6 +193,7 @@ pulsed excitation measurement in steady-state! synchronization needed that
 laser shuts of when there is no acoustic excitation happening
 
 outlook for our setup specific and more open minded outlookl
+ - heavy particle force scaling
  - OST devices --> near walls
  - heavy particles in viscous fluids
  - SAW
