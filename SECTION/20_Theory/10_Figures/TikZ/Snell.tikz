@@ -8,7 +8,7 @@
 \tikzstyle reverse directed=[postaction={decorate,decoration={markings,
     mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
 
-\tikzset{SnellNode/.style={text width=10mm, align=center}}
+\tikzset{SnellNode/.style={text width=15mm, align=center}}
 
 \begin{tikzpicture}
   \def\W{5}
@@ -35,8 +35,8 @@
   % media
   \fill[blue!20,opacity=.3] (-\W,0) rectangle (\W,\H);
   \fill[black!10!,opacity=.3] (-\W,0) rectangle (\W,-\H);
-  \node[right, SnellNode] at (3,1.5) {{Fluid\\ $\nf$}};
-  \node[left, SnellNode] at (-2,-2) {{Particle\\ $\ns$}};
+  \node[right, SnellNode] at (3,1.5) {{fluid\\ $\nf$}};
+  \node[left, SnellNode] at (-2,-2) {{particle\\ $\ns$}};
 
   % axis
   \draw[dash pattern=on5pt off3pt] (A) -- (B) ;

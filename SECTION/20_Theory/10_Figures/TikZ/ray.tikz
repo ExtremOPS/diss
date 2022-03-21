@@ -1,4 +1,6 @@
 \tikzsetnextfilename{ray}
+{
+\small
 
 \tikzset{cross/.style={
   cross out,
@@ -69,11 +71,8 @@
   \draw[|->,>=stealth'] (I) --node[above,pos=0.9] {$\normalvector$} (28.6:3);
 
   % text
-  \node[align=center, text width=10mm] at (-0.5,1) {{Particle\\ $\ns$}};
-
-  \node[align=center, text width=10mm] at (1.5,2) {{Fluid\\ $\nf$}};
-
-
-
+  \node[align=center, text width=15mm] at (-0.5,1) {{particle\\ $\ns$}};
+  \node[align=center, text width=15mm] at (1.5,2) {{fluid\\ $\nf$}};
 
 \end{tikzpicture}
+}

@@ -29,8 +29,8 @@
 
     % \draw (O) -- node[midway, below, xshift=1mm] {$R$} (I) -- node[above, 
     % midway, xshift=-1mm] {$y$} (A) -- node[midway, left] {$a\,R$} cycle;
-    \draw (O) -- node[midway, below, xshift=1mm] {$\R$} (I) -- (A) -- 
-    node[midway, left] {$a\,\R$} cycle;
+    \draw (O) -- node[midway, below, xshift=1mm] {$R$} (I) -- (A) -- 
+    node[midway, left] {$a\,R$} cycle;
 
     % \draw[dotted] (O) rectangle (I);
     \draw[dotted] (A) -- ++(0,1);
