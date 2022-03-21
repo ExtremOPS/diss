@@ -8,13 +8,12 @@
   height=80mm,
   width=120mm,
   no markers,
-  xlabel={$\lambda$ [\si{\nm}]},
+  xlabel={$\lal$ [\si{\nm}]},
   ylabel={$n$ [-]},
-  x filter/.code={\pgfmathparse{#1*1000}\pgfmathresult}
  ]
 
     \addplot[black] table[x=wl,y=n] 
-    {\relPath/10_Figures/TikZ/Segelstein1981.dat};
+    {\relPath/10_Figures/TikZ/Segelstein1981a.dat};
 
     \label{plot_n}
     \draw[dashed,<->,latex-latex] ({axis cs:785,0}|-{rel axis cs:0,0.0}) -- 
@@ -26,23 +25,23 @@
   width=120mm,
   axis y line*=right,
   axis x line=none,
-  ylabel={$k$ [-]},
-  x filter/.code={\pgfmathparse{#1*1000}\pgfmathresult},
+  ylabel={$\alpha$ [\si{\per\meter}]},
   no markers,
   ymode = log,
 ]
     \addlegendimage{/pgfplots/refstyle=plot_n}\addlegendentry{$n$}
-    \addplot[black,dash dot] table[x=wl,y=k] 
-    {\relPath/10_Figures/TikZ/Segelstein1981.dat};
-    \addlegendentry{$k$}
+    \addplot[black,dash dot] table[x=wl,y=a] 
+    {\relPath/10_Figures/TikZ/Segelstein1981a.dat};
+    \addlegendentry{$\alpha$}
 
     \draw[dashed,<->,latex-latex] ({axis cs:785,0}|-{rel axis cs:0,0.0}) -- 
-    (785,1.339e-07) -- node[above,pos=0.73] {\footnotesize 1.339e-07} 
-    ({0,1.339e-07}-|{rel axis cs:1,0});
+    (785,2.144) -- node[above,pos=0.73] {\footnotesize 2.144} 
+    ({0,2.144}-|{rel axis cs:1,0});
+    % 2.14353e+00
 
     \draw[dotted,<->,latex-latex] ({axis cs:1060,0}|-{rel axis cs:0,0.0}) -- 
-    (1060,1.2989431e-06) -- node[above,pos=0.53,fill=white,opacity=0.8,text 
-    opacity=1] {\footnotesize 1.299-06} ({0,1.299e-06}-|{rel axis cs:1,0});
-    % 1.2989431e-06
+    (1060,15.40) -- node[above,pos=0.53,fill=white,opacity=0.8,text 
+    opacity=1] {\footnotesize 15.40} ({0,15.40}-|{rel axis cs:1,0});
+    % 1.53991e+01
 \end{axis}
 \end{tikzpicture}
