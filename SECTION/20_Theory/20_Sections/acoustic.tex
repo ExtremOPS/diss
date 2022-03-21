@@ -2,7 +2,7 @@ For the derivation and the discussion of the relevant forces coming from the
 scattering of the incident acoustic field on to the object surface, we will 
 consider a viscous fluid and a rigid spherical object. We choose this 
 combination of fluid and object material because the viscous property of the 
-fluid causes the occurrence of the so-called acoustic streaming.
+fluid causes the occurrence of the so-called acoustic streaming (AS).
 
 We will follow closely the derivations given by \cname{Doinikov1994Rigid} who 
 solves this specific problem first \footnote{We will cite publications in this 
@@ -97,8 +97,8 @@ increasing order
   \ldots \label{eq:TA-per-vel}.
 \end{alignat}
 \end{subequations}
-This method of expanding the variables is often called Pertubation expansion. 
-The superscript $\Box^{(i)}$ indicates the $i$-th order of the respective 
+This method of expanding the variables is called Pertubation expansion. The 
+superscript $\Box^{(i)}$ indicates the $i$-th order of the respective 
 parameter. The zero order fields $\zeOrder{\Box}$ are defined to be constant in 
 space and time. Additionally, we assume no constant flow of the fluid and, 
 hence, the zeroth order of the velocity $\zeOrder{\vel_{i}} = 0$.
@@ -118,8 +118,8 @@ where $\zeOrder{S}$ is the particle surface at rest (see
 
 It is possible to solve first for the first order fluid field, which is also 
 called acoustic scattering, and then use the first order solution to compute 
-the second order fields. In the following two section, we will solve those 
-sequentially.
+the second order fields, also known as AS. In the following two section, we 
+will solve those sequentially.
 
 \section{First Order Solution\label{sec:TA-firstorder}}
 
@@ -174,17 +174,15 @@ $\phi_{\MR{in}}$ and the scattered velocity potential $\phi_{\MR{sc}}$
 For the derivations we assume an axisymmetric incoming field and with the 
 wavevector $\vb{k}$ pointing along the $\ez$ direction (see 
 \cref{fig:TA-plane_wave}). Additionally, we use spherical coordinates $r, 
-\theta$, and $\varpi$ with the origin at the center of the particle in its 
+\theta$, and $\varphi$ with the origin at the center of the particle in its 
 equilibrium configuration (see \cref{fig:TA-coordinate}).
 
 \begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/plane_wave.tikz}
   \includegraphics[]{Plots/cache/plane_wave.pdf}
-  \caption{Schematic of light path from laser head to quadrant photo detectors. 
-  In the top half sketch red shading and the black lines the laser intensity 
-profile qualitatively. In the bottom half just the outer most laser rays are 
-depicted.}
+  \caption{Plane acoustic wave incident on spherical particle. Wavevector 
+  direction $\vb{e}_{\MR{k}}$ aligned with $\ez$.}
   \label{fig:TA-plane_wave}
 \end{figure}
 
@@ -194,10 +192,11 @@ The scaler incident velocity potential can be for a general case represented as
   A_{n}\,\bessel{n}{kr}\,\legendre{n}{\cos\,\theta}
   \label{eq:TA-incident-field}
 \end{equation}
-where $\omega$ is the angular velocity of the incoming acoustic wave, $t$ the 
-time, $A_{n}$ the amplitude of the incoming wave, $\bessel{n}{\Box}$ the $n$-th 
-order spherical Bessel function of first kind, $\legendre{n}{\Box}$ the 
-Legendre polynomial of order $n$, and $k$ the wavenumber
+where $\omega=2\pi\,\fex$ is the angular frequency of the incoming acoustic 
+wave, $t$ the time, $A_{n}$ the amplitude of the incoming wave, 
+$\bessel{n}{\Box}$ the $n$-th order spherical Bessel function of first kind, 
+$\legendre{n}{\Box}$ the Legendre polynomial of order $n$, and $k$ the 
+wavenumber
 \begin{equation}
   k = 
   \frac{\omega}{c}\,\frac{1}{\sqrt{1-\frac{\iu\,\omega}{\zeOrder{\density}\,c^{2}} 
@@ -205,14 +204,14 @@ Legendre polynomial of order $n$, and $k$ the wavenumber
   \label{eq:TA-wavenumber}
 \end{equation}
 
-\cref{eq:TA-incident-field} is given by the type of incident wave. 
+\cref{eq:TA-incident-field} is known by the type of incident wave. 
 $\phi_{\MR{sc}}$ and $\psi_{i}$ can be separated into two independent 
 differential equations. For $\phi_{\MR{sc}}$ we take first 
 \cref{eq:TA-scalar-potential} and plug it into the mass conservation 
 \cref{eq:TA-st-massconservation}. With the property that the divergence of the 
 curl ($\pdv{\epsilon_{kli}\,\Box_{i}}{x_{i}} = 0$) is equal to zero and the 
 definition of the first order pressure \cref{eq:TA-st-pre} one can eliminate 
-$\psi_{i}$
+$\psi_{i}$ completely
 \begin{equation}
   \pdv{\stOrder{\pre}}{t} = \zeOrder{\density}\,c^{2}\,\pdv[2]{\phi}{x_{i}}.
   \label{eq:TA-st-tmp-step}
@@ -290,8 +289,8 @@ Legendre polynomial. The sum of \cref{eq:TA-st-sol-psi} starts with $n=1$
 because $\beta_{0}=0$.
 
 The boundary condition for the combination of a rigid spherical particle and a 
-viscous fluid is that the velocity of particle $\vel_{\MR{p}}$ surface must 
-match the fluid velocity
+viscous fluid is that the velocity of the particle $\vel_{\MR{p}}$ at the 
+surface must match the fluid velocity there
 \begin{equation}
   \vel_{i,\MR{fluid}} = \vel_{i,\MR{p}}\quad\text{at}\quad r = R.
   \label{eq:TA-st-BC}
@@ -299,8 +298,8 @@ match the fluid velocity
 
 Using Newtown's second law and the first order stress tensor
 \begin{equation}
-  \frac{4}{3}\,\pi 
-  R^{3}\,\density_{\MR{p}}\,\dv{\vel_{i,\MR{p}}}{t} = 
+  \underbrace{\frac{4}{3}\,\pi\,R^{3}\,\density_{\MR{p}}}_{m}
+  \underbrace{\dv{\vel_{i,\MR{p}}}{t}}_{a} = 
   \int\limits_{\zeOrder{S}}\stOrder{\stress}\dd{\zeOrder{S}}
   \label{eq:TA-st-newton}
 \end{equation}
@@ -318,8 +317,9 @@ with $x=kR$ and $\xv=k_{\MR{v}}R$.
 
 In order to calculate the unknown constants $\alpha_{n}$ and $\beta_{n}$ one 
 needs to enforce the boundary condition of \cref{eq:TA-st-BC} for every $n$ 
-separately. Besides for $n=1$, $\vel_{\MR{p}}$ is always zero; for $n=1$, 
-$\vel_{\MR{p}}$ is given by \cref{eq:TA-st-particle-vel}.
+separately. Besides for $n=1$, $\vel_{\MR{p}}$ is always zero because the 
+multipole expansion for a rigid rigid particle has only dipole contributions; 
+for $n=1$, $\vel_{\MR{p}}$ is given by  \cref{eq:TA-st-particle-vel}.
 
 For $n=0$ and $n=1$ the constant are
 \begin{subequations}
@@ -390,7 +390,7 @@ with
     \midrule
     \textbf{Wave} & & \\
     Wavetype &  & travelling & - \\
-    Pressure & & 100.0 & \si{\kilo\pascal} \\
+    Pressure & $p_{\MR{a}}$ & 100.0 & \si{\kilo\pascal} \\
     Frequency & $f$ & 1.0 & \si{\MHz} \\
     \bottomrule
     \bottomrule
@@ -431,18 +431,18 @@ the Pyhton module \emph{gorkov}~\cite{FankhauserPython2022}.}
 \end{figure}
 
 We solved the first order velocity field for a rigid spherical particle and a 
-viscous fluid. The field inside the particle is a single velocity magnitude 
-with a distinct direction that is valid for all particle points. The particle 
-is modeled rigid and therefore it is only able to perform rigid-body motion. 
-The rigid-body mode in the multipole expansion is the so called \emph{dipole} 
-mode ($n=1$). Since the boundary conditions enforce a matching velocity at the 
-particle-fluid interface, the first order fluid velocity solution is also 
-dominated by that mode. This is also depicted in \cref{fig:TA-SC} where the 
-fluid velocity for water and a silicium dioxide particle (SiO$_{2}$) for the 
-sum of all modes through $n=5$ and the fluid velocity of the first mode $n=1$ 
-only is computed. \Cref{fig:TA-SC_all} and \Cref{fig:TA-SC_mode1} are 
-indistinguishable from each other meaning that the solution to the first order 
-velocity field is due to the rigid-body mode in the multipole expansion.
+viscous fluid. The field inside the particle has the same magnitude and 
+direction for all points because the particle is modeled rigid and therefore it 
+is only able to perform rigid-body motion. The rigid-body mode in the multipole 
+expansion is the dipole mode ($n=1$). Since the boundary conditions enforce a 
+matching velocity at the particle-fluid interface, the whole whole first order 
+fluid velocity solution is also dominated by that mode. This is also depicted 
+in \cref{fig:TA-SC} where the fluid velocity for water and a silicium dioxide 
+particle (SiO$_{2}$) for the sum of all modes through $n=5$ and the fluid 
+velocity of the first mode $n=1$ only is computed.  \Cref{fig:TA-SC_all} and 
+\Cref{fig:TA-SC_mode1} are indistinguishable from each other meaning that the 
+solution to the whole first order velocity field is due to the rigid-body mode 
+in the multipole expansion.
 
 \section{Second Order Solution\label{sec:TA-secondorder}}
 
@@ -472,18 +472,18 @@ where the second order tress tensor (\cref{eq:TA-stress}) is
 \end{equation}
 
 For the second order velocity field one is usually interested in the 
-time-average of this field. This steady state is referred to as \emph{Acoustic 
-Streaming} (AS) field. Applying the time-average to 
-\cref{eq:TA-nd-massconservatio,eq:TA-nd-navier} and using the property
+time-average of this field. This steady state is referred to as AS field. 
+Applying the time-average to \cref{eq:TA-nd-massconservatio,eq:TA-nd-navier} 
+and using the property that the time-average of the time-derivative of a 
+bounded, differentiable function is zero~\cite{Baasch2020}
 \begin{equation}
   \timeaverage{\pdv{t}\,g(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
     \left[ \frac{1}{\tau}\,\left( g(\vb{x}; \tau) - g(\vb{x}; 0) \right) 
-  \right]} = 0
+  \right]} = 0,
   \label{eq:TA-avg-property}
 \end{equation}
-that the time-average of the time-derivative of a bounded, differentiable 
-function is zero~\cite{Baasch2020}, one can simplify the second order 
-massconservation and second order Navier Stokes equation further to
+one can simplify the second order mass conservation and second order Navier 
+Stokes equation further to
 \begin{equation}
   \pdv{x_{i}}\left( \timeaverage{\ndOrder{\vel_{i}}} \right) = 
   -\frac{1}{\zeOrder{\density}} \pdv{x_{i}}\left(\timeaverage{ 
@@ -547,11 +547,11 @@ Equation (4.1) and following.
     \includegraphics[width=100mm]{example-image-b}
     % \label{fig:TA-SC_mode1}
   \end{subfigure}
-  \caption{First order fluid velocity field at different time steps. For both 
-  plots the same scaling applies. a) all modes through $n=5$; b) single mode 
-one for $n=1$. Material properties for the particle and the fluid are seen in 
-\cref{tab:TA-parameters,tab:TC-parameters}. The plotted data is generated with 
-the Pyhton module \emph{gorkov}~\cite{FankhauserPython2022}.}
+  \caption{First order fluid velocity field at different steps during one 
+period. For both plots the same scaling applies. a) all modes through $n=5$; 
+b) single mode one for $n=1$. Material properties for the particle and the 
+fluid are seen in \cref{tab:TA-parameters,tab:TC-parameters}. The plotted data 
+is generated with the Python module \emph{osaft}~\cite{FankhauserPython2022}.}
   \label{fig:TA-AS}
 \end{figure}
 
@@ -573,8 +573,8 @@ where $\gamma$ is also called Stoke's drag coefficient.
 With the solution for the first and second order velocity field and hence for 
 the stress tensors of the respective orders one can calculate the ARF with 
 \cref{eq:TA-def-approx-ARF}. However, this formula and also the velocity fields 
-are cumbersome to compute. This is due to the fact that his formula as well as 
-the solutions to the velocity fields is valid for any axisymmetric incident 
+are cumbersome to compute. It is cumbersome because his formula as well as the 
+solutions to the velocity fields is valid for any axisymmetric incident 
 acoustic wave field and is not restricted to the ratios of the particle to the 
 viscous boundary layer thickness $\sfrac{R}{\delta}$, the ratio of the particle 
 to the acoustic wavelength $\sfrac{R}{\wavelength_{\MR{a}}} = 
@@ -592,14 +592,15 @@ factor $\Phi$). The depicted mode is the \emph{lambda}-mode.}
   \label{fig:TA-lambda_mode}
 \end{figure}
 
-But for most applications the particle radius is much larger than then viscous 
-boundary layer $R \gg \delta$ and the acoustic wavelength is much larger than 
-the particle radius $\wavelength_{\MR{a}}\gg R \gg \delta$. The most common 
-formula for those restrictions and one dimension standing pressure wave is the 
-derivation by \cname{Gorkov1962}. He derives the ARF on a particle which is 
-much smaller as the acoustic wavelength ($\R\ll\lambda_{\MR{a}}$). In his 
-derivation models the fluid as well as the particle as an inviscid material. 
-The ARF is defined as the gradient of a potential
+But for most applications, firstly, the particle radius is much larger than 
+then viscous boundary layer $R \gg \delta$ and, secondly, the acoustic 
+wavelength is much larger than the particle radius $\wavelength_{\MR{a}}\gg R 
+\gg \delta$.  The most common formula for those restrictions and one dimension 
+standing pressure wave is the derivation by \cname{Gorkov1962}. He derives the 
+ARF on a particle which is much smaller as the acoustic wavelength 
+($\R\ll\lambda_{\MR{a}}$). In his derivation models the fluid as well as the 
+particle as an inviscid material.  The ARF is defined as the gradient of a 
+potential
 \begin{equation}
   \force^{\MR{rad}}_{i} = \pdv{U^{\MR{rad}}}{x_{i}}
   \label{eq:TA-gorkov}
@@ -665,7 +666,7 @@ particles in \cref{fig:TA-plane_wave}) and particles with a negative acoustic
 contrast factor $\Phi(\tilde{\kappa}, \tilde{\rho}) < 0$ are displaced towards 
 the pressure antinode (red particle in \cref{fig:TA-plane_wave}).
 
-
+\textcolor{red}{general solyution converges to Gorkov}
 
 
 \section{Acoustic Radiation Torque\label{sec:TA-VT}}
@@ -721,10 +722,11 @@ solution to the radiation torque exerted onto the objects~\cite{Lamprecht2017}.
     \includegraphics[]{Plots/cache/viscous_torque_2.pdf}
     % \label{fig:TO-QPDt}
   \end{subfigure}
-  \caption{Acoustic pressure $p_{\MR{a}}$ around particle circumference 
-  ($\varphi$) in a two dimensional pressure wave field with three different 
-phase shifts $\zeta$ plotted over one excitation period. The pressure amplitude 
-is depicted qualitatively; red equals positive pressure and blue negative.}
+  \caption{Acoustic pressure $p_{\MR{a}}$ around spherical particle 
+      circumference ($\varphi$) in a two dimensional pressure wave field with 
+      three different phase shifts $\zeta$ plotted over one excitation period.  
+      The pressure amplitude is depicted qualitatively; red equals positive 
+  pressure and blue negative.}
   \label{fig:TA-VT}
  \end{figure}
 
@@ -741,7 +743,7 @@ a local time-averaged streaming in the viscous boundary layer of the particle
 that initiate the rotation. The final rotational velocity is when the 
 accelerating local streaming flow equals the opposite directed Stoke's 
 rotational drag torque~\cite{Lamprecht2017}. This rotational velocity is -- 
-amongs other parameters -- proportional to the phase shift $\zeta$. Therefore, 
+amongst other parameters -- proportional to the phase shift $\zeta$. Therefore, 
 $\zeta + \sfrac{\pi}{2}$ will cause rotations opposite to a phase shift of 
 $\zeta$. This is also true for neighboring pressure nodes of the two 
 dimensional pressure field. We will discuss this kind particle rotation more 

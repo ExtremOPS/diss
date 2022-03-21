@@ -9,12 +9,12 @@
     axis on top=true,
     group style={
       group size=2 by 1,
-      horizontal sep = 13mm,
+      horizontal sep = 23mm,
     },
     xmin=0,
     ymin=0,
     height=55mm,
-    width=83mm,
+    width=73mm,
     no markers,
   ]
   \nextgroupplot[
