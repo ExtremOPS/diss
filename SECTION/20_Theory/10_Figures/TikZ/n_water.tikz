@@ -18,8 +18,8 @@
 
     \label{plot_n}
     \draw[dashed,<->,latex-latex] ({axis cs:785,0}|-{rel axis cs:0,0.0}) -- 
-    (785,1.326244) -- node[above,pos=0.65,fill=white] {\footnotesize 1.326} 
-    ({0,1.326244}-|{rel axis cs:0,0});
+    (785,1.326244) -- node[above,pos=0.65,fill=white,opacity=0.8,text 
+    opacity=1] {\footnotesize 1.326} ({0,1.326244}-|{rel axis cs:0,0});
 \end{axis}
 \begin{axis}[
   height=80mm,
@@ -41,8 +41,8 @@
     ({0,1.339e-07}-|{rel axis cs:1,0});
 
     \draw[dotted,<->,latex-latex] ({axis cs:1060,0}|-{rel axis cs:0,0.0}) -- 
-    (1060,1.2989431e-06) -- node[above,pos=0.53,fill=white] {\footnotesize 
-    1.299-06} ({0,1.299e-06}-|{rel axis cs:1,0});
+    (1060,1.2989431e-06) -- node[above,pos=0.53,fill=white,opacity=0.8,text 
+    opacity=1] {\footnotesize 1.299-06} ({0,1.299e-06}-|{rel axis cs:1,0});
     % 1.2989431e-06
 \end{axis}
 \end{tikzpicture}
