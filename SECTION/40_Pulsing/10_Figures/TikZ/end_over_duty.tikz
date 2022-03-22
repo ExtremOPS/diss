@@ -1,0 +1,146 @@
+\tikzsetnextfilename{end-over-duty}
+{
+  \small
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\pgfplotstableread{10_Figures/TikZ/end_over_duty.dat}{\data}
+%%%%%%%
+% LINES FOR ALL GROUPPLOTS
+%%%%%%%
+\begin{tikzpicture}
+   \begin{groupplot}[%
+       scale only axis,
+       group style={
+         group size= 2 by 3,
+         group name=plots,
+         vertical sep=4pt,%
+         horizontal sep=8pt},%
+       height=25mm,%
+       width=64mm,%
+       ymin=0, ymax=1.1,
+        xticklabel style={
+          /pgf/number format/fixed,
+          /pgf/number format/precision=2
+        }]
+
+%%%%%%
+%%% PLOT (1,1)
+%%%%%%
+
+   \nextgroupplot[%
+      legend style={
+        fill=lightgray!90!white,
+        font=\tiny,
+        at={(0.95,0.03)},
+        legend columns=3,
+        anchor=south east},
+      legend cell align={left},
+     xticklabels={,,},
+     title={ARF},%
+ ]
+
+      \addlegendimage{empty legend}
+      \addlegendimage{empty legend}
+      \addlegendimage{empty legend}
+
+      \addplot[style1000] table[x=duty, y=fp_1000_y_m06] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_y_m06] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_y_m06] {\data};
+
+      \addlegendentry{\phantom{a}}
+      \addlegendentry{\hspace{-7mm}\textbf{$\fp = \sfrac{\fex}{\bullet}$}}
+      \addlegendentry{\phantom{a}}
+      \addlegendentry{1000};
+      \addlegendentry{5000};
+      \addlegendentry{10000};
+
+
+%%%%%%
+%%% PLOT (1,2)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     yticklabels={,,},
+     % title={Data for $z$-component},
+     title={AS},
+   ]%
+
+      \addplot[style1000] table[x=duty, y=fp_1000_z_m06] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_z_m06] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_z_m06] {\data};
+
+
+%%%%%%
+%%% PLOT (2,1)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     % ylabel={max. amplitude},
+   ]
+
+      \addplot[style1000] table[x=duty, y=fp_1000_y_m05] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_y_m05] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_y_m05] {\data};
+
+
+%%%%%%
+%%% PLOT (2,2)
+%%%%%%
+
+   \nextgroupplot[%
+     xticklabels={,,},
+     yticklabels={,,},
+   ]
+
+      \addplot[style1000] table[x=duty, y=fp_1000_z_m05] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_z_m05] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_z_m05] {\data};
+
+%%%%%%
+%%% PLOT (3,1)
+%%%%%%
+
+   \nextgroupplot[%
+     % ylabel={max. amplitude},
+     xlabel={duty percentage},
+   ]
+
+      \addplot[style1000] table[x=duty, y=fp_1000_y_m04] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_y_m04] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_y_m04] {\data};
+
+
+%%%%%%
+%%% PLOT (3,2)
+%%%%%%
+
+   \nextgroupplot[%
+     yticklabels={,,},
+     xlabel={duty percentage},
+   ]
+
+      \addplot[style1000] table[x=duty, y=fp_1000_z_m04] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_z_m04] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_z_m04] {\data};
+
+
+
+  \end{groupplot}
+
+%%%%%%
+%%% TEXT NEXT TO PLOTS
+%%%%%%
+
+  \node[rotate=90] at (plots c1r2.west) [yshift=10mm] {maximal normalized 
+  amplitude};
+
+  \node[rotate=90] at (plots c2r1.east) [yshift=-10mm] {$\SI{-0.06}{\mm}$};
+  \node[rotate=90] at (plots c2r2.east) [yshift=-10mm] {$\SI{-0.05}{\mm}$};
+    \node[rotate=90] at (plots c2r2.east) [yshift=-5mm] {$\Dy=\bullet$};
+  \node[rotate=90] at (plots c2r3.east) [yshift=-10mm] {$\SI{-0.04}{\mm}$};
+
+\end{tikzpicture}
+}

@@ -1,0 +1,48 @@
+\tikzsetnextfilename{duty-cycle}
+{
+  \small
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\pgfplotstableread{\relPath/10_Figures/TikZ/duty_cycle.dat}{\data}
+
+\begin{tikzpicture}[]
+\begin{axis}[%
+  x tick label style={
+    /pgf/number format/.cd,
+    fixed,
+    fixed zerofill,
+    precision=1
+  },
+  height=30mm,%
+  width=84mm,%
+  scale only axis,
+   xlabel={Pulse cylces ($t\cdot \fp$ [-])},
+   ylabel style={align=center},
+   ylabel={},
+   yticklabels={,,},
+    legend style={
+      fill=white!80!black,
+      font=\tiny,
+      at={(0.03,0.03)},
+      anchor=south west
+    },
+   legend cell align={left},
+   title={Pulsed Excitation Signal},]
+
+
+
+      \addlegendimage{empty legend};
+
+      \addplot[p100] table[x=time, y=duty_100] {\data};
+      \addplot[p70] table[x=time, y=duty_70] {\data};
+      \addplot[p50] table[x=time, y=duty_50] {\data};
+
+      \addlegendentry{\hspace{-.6cm}Duty Cycle \%}
+      \addlegendentry{100};
+      \addlegendentry{70};
+      \addlegendentry{50};
+
+\end{axis}
+\end{tikzpicture}
+}

@@ -1,0 +1,50 @@
+\tikzsetnextfilename{flowchart}
+{
+  \footnotesize
+
+\begin{tikzpicture}[node distance=1cm]
+
+  \node (start) [startstop] {Start\\[-3.5mm] measurement};
+  \node (qpd) [io, right of=start, xshift=30mm, yshift=15mm] {Need 
+  QPD\\[-3.5mm] adjustment?};
+\node (pqpd) [process, left of=qpd, xshift=-30mm] {Adjust QPD};
+\node (mea1) [mea, right of=qpd, xshift=30mm] {Reduce $P$\\[-3.5mm] Open 
+shutter};
+\node [time,right of=mea1, xshift=6mm, anchor=west] {$t=\SI{-25}{\ms}$};
+\node (US) [io, below of=mea1, yshift=-8mm] {Ultrasound\\[-3.5mm]on?};
+\node [time,right of=US, xshift=8mm, anchor=west] {$t=\SI{0}{\ms}$};
+\node (mea2) [mea, below of=US, yshift=-8mm, xshift=20mm] {Start US};
+\node (mea3) [mea, below of=US, yshift=-8mm, xshift=-20mm] {Close 
+shutter\\[-3.5mm] Increase $P$};
+\node [time, below of=mea3, yshift=4.5mm, anchor=north] {$t=\SI{55}{\ms}$};
+\node (out) [process, left of=mea3, xshift=-30mm] {Store\\[-3.5mm] data};
+
+\draw [arrow] (start) -| (qpd);
+\draw [arrow] (qpd) -- node[anchor=south, above] {yes} (pqpd);
+\draw [arrow] (pqpd) -- (start);
+\draw [arrow] (qpd) -- node[anchor=south, above] {no} (mea1);
+\draw [arrow] (mea1) -- (US);
+\draw [arrow] (US) -- node[anchor=west, right] {yes} (mea2);
+\draw [arrow] (US) -- node[anchor=east, left] {no} (mea3);
+\draw [arrow] (mea2) -- (mea3);
+\draw [arrow] (mea3) -- (out);
+\draw [arrow] (out) -- (start);
+
+
+\node (tr) at ($(mea1.north east)+(2.5,0.3)$) {};
+\node (br) at ($(mea2.south east)+(0.5,-0.8)$) {};
+\node [left of=br, yshift=3mm, text width=30mm] (text) {\textit{particle 
+floating}};
+
+\node (tl) at ($(mea1.north west)+(-0.1,0.3)$) {};
+\node (ml) at ($(mea3.north west)+(-0.3,0.5)$) {};
+\node (bl) at ($(mea3.south west)+(-0.3,-0.8)$) {};
+
+\begin{scope}[on background layer]
+  \draw[orange, thick, dotted, fill=orange!5] (bl.center) -- (ml.center) -- 
+  (tl.center) -- (tr.center) -- (br.center) -- (bl.center);
+\end{scope}
+
+
+\end{tikzpicture}
+}

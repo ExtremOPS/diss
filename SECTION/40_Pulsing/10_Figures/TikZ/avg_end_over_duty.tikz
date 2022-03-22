@@ -1,0 +1,78 @@
+\tikzsetnextfilename{avg-end-over-duty}
+{
+  \small
+%%%%%%%
+% READ TABLE
+%%%%%%%
+\pgfplotstableread{\relPath/10_Figures/TikZ/avg_end_over_duty.dat}{\data}
+%%%%%%%
+% LINES FOR ALL GROUPPLOTS
+%%%%%%%
+\begin{tikzpicture}
+   \begin{groupplot}[%
+       scale only axis,
+       group style={
+         group size= 2 by 1,
+         group name=plots,
+         vertical sep=4pt,%
+         horizontal sep=20pt},%
+       height=35mm,%
+       width=64mm,%
+       ymin=0, ymax=1.1,
+        xticklabel style={
+          /pgf/number format/fixed,
+          /pgf/number format/precision=2
+        }]
+
+%%%%%%
+%%% PLOT (1,1)
+%%%%%%
+
+   \nextgroupplot[%
+      legend style={
+        fill=lightgray!90!white,
+        font=\footnotesize,
+        at={(0.95,0.03)},
+        legend columns=3,
+        anchor=south east},
+      legend cell align={left},
+     title={ARF},%
+     ylabel style={align=center},
+     ylabel={{Normalized\\[-2.5mm] maximal amplitude}},
+     xlabel={Duty width [\%]},
+ ]
+
+      \addlegendimage{empty legend}
+      \addlegendimage{empty legend}
+      \addlegendimage{empty legend}
+
+      \addplot[style1000] table[x=duty, y=fp_1000_y] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_y] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_y] {\data};
+
+      \addlegendentry{\phantom{a}}
+      \addlegendentry{\hspace{-7mm}\textbf{$k$}}
+      \addlegendentry{\phantom{a}}
+      \addlegendentry{1000};
+      \addlegendentry{5000};
+      \addlegendentry{10000};
+
+
+%%%%%%
+%%% PLOT (1,2)
+%%%%%%
+
+   \nextgroupplot[%
+     yticklabels={,,},
+     xlabel={Duty width [\%]},
+     title={AS},
+   ]%
+
+      \addplot[style1000] table[x=duty, y=fp_1000_z] {\data};
+      \addplot[style5000] table[x=duty, y=fp_5000_z] {\data};
+      \addplot[style10000] table[x=duty, y=fp_10000_z] {\data};
+
+  \end{groupplot}
+
+\end{tikzpicture}
+}

@@ -58,7 +58,10 @@
     calc,
     arrows,
     arrows.meta,
+    backgrounds,
+    patterns,
     shapes,
+    shapes.geometric,
     positioning,
     decorations.markings,
     angles,
@@ -80,6 +83,81 @@
   % \tikzsetexternalprefix{Plots/Cache/}
 
 \tikzset{>=latex}
+
+\definecolor{p100}{HTML}{989898}
+\definecolor{p90}{HTML}{808080}
+\definecolor{p80}{HTML}{696969}
+\definecolor{p70}{HTML}{484848}
+\definecolor{p60}{HTML}{202020}
+\definecolor{p50}{HTML}{000000}
+
+\tikzstyle{style100}=[p100, solid, thick]
+\tikzstyle{style90}=[p90, dashdotted, thick]
+\tikzstyle{style80}=[p80, dotted, thick]
+\tikzstyle{style70}=[p70, dashed, thick]
+\tikzstyle{style60}=[p60, loosely dashdotted, thick]
+\tikzstyle{style50}=[p50, solid, thick]
+
+\tikzstyle{moptions}=[mark options={
+  scale=1,
+  fill=white,
+  solid,
+  }]
+\tikzstyle{style1000}=[p50, dashdotted, thick, moptions, mark=square*]
+\tikzstyle{style5000}=[p50, dotted, thick, moptions, mark=diamond*]
+\tikzstyle{style10000}=[p50, dashed, thick, moptions, mark=triangle*]
+
+\tikzstyle{startstop} = [
+  rectangle,
+  rounded corners,
+  minimum width=25mm,
+  text width=25mm,
+  minimum height=1cm,
+  text centered,
+  draw=black,
+  fill=red!30]
+
+\tikzstyle{time} = [
+  rectangle,
+  rounded corners,
+  minimum width=5mm,
+  minimum height=5mm,
+  text centered,
+  draw=black,
+  pattern=north east lines,
+  pattern color=black!30,
+  ]
+
+\tikzstyle{io} = [
+  trapezium,
+  trapezium left angle=70,
+  trapezium right angle=110,
+  text width=25mm,
+  minimum width=3cm,
+  minimum height=1cm,
+  text centered,
+  draw=black,
+  fill=blue!30]
+
+\tikzstyle{process} = [
+  rectangle,
+  pattern=north west lines,
+  pattern color=black!30,
+  minimum width=25mm,
+  minimum height=1cm,
+  text centered,
+  text width=25mm,
+  draw=black]
+
+\tikzstyle{mea} = [
+  rectangle,
+  minimum width=3cm,
+  minimum height=1cm,
+  text centered,
+  text width=25mm,
+  draw=black,
+  fill=black!30]
+
 
 \colorlet{colParticle}{black!10!}
 \colorlet{colFluid}{blue!20!white}
