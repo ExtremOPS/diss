@@ -79,8 +79,7 @@
   pdflatex \tikzexternalcheckshellescape -halt-on-error
   -interaction=batchmode -jobname "\image" "\texsource" && % or ;
   pdftops -eps "\image".pdf}}
-  \tikzexternalize[prefix=Plots/cache/]
-  % \tikzsetexternalprefix{Plots/Cache/}
+  \tikzexternalize[prefix=External/]
 
 \tikzset{>=latex}
 
