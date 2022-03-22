@@ -1,0 +1,61 @@
+\makeatletter
+\newcommand\tabfill[1]{%
+  \dimen@\linewidth
+  \advance\dimen@\@totalleftmargin
+  \advance\dimen@-\dimen\@curtab
+  \parbox[t]\dimen@{#1\ifhmode\strut\fi}%
+}
+\makeatother
+
+\begin{floatingfigure}{4.5cm} %Abstand vom rechten Rand (formerly 3.5)
+\centerline{ \includegraphics[width=3.7cm]{SECTION/Portrait.png}} 
+\label{portrait}
+\end{floatingfigure}
+
+\noindent\textbf{ \\ \underline{Christoph} Ludwig Georg Ananda Goering} \\
+\begin{flushleft}
+\noindent  Born on 17$^\mathrm{th}$ of August, 1991 in Augsburg, Germany \\
+\end{flushleft}
+
+\vspace{2.8cm} \noindent
+\textbf{Education}                                        \\
+\vspace{-0.5cm} \noindent
+
+
+\begin{tabbing}
+  \hspace{25mm} \=   \kill
+
+
+2018--2022 \> \tabfill{PhD student in Prof. J. Dual's group, Institute of 
+Mechanical Systems, Swiss Federal Institute of Technology (ETH) Zurich, 
+Switzerland}\\
+2015--2017 \> \tabfill{M.Sc. in mechanical engineering at the Technical 
+University of Munich (TUM), Germany.}\\
+2011--2014 \> \tabfill{B.Eng. in \emph{Maschinenbau -- Konstruktion und 
+Entwicklung} at Dualen Hochschule Baden-Württemberg (DHBW), Ravensburg, 
+Germany.}\\
+2002--2011 \> \tabfill{Gymnasium bei St. Stephan, Augsburg; graduation with the 
+German Abitur.}\\
+\end{tabbing}
+
+\vspace{-0.5cm} \noindent
+\textbf{Professional experience}\\
+\vspace{-0.8cm} \noindent
+\begin{tabbing}
+  \hspace{25mm} \=   \kill
+  2015--2017 \> \tabfill{Werksstudent at BMW AG, Munich, Germany.}\\
+  2011--2014 \> \tabfill{Dualer Student at Zeppelin Systems GmbH, 
+  Friedrichshafen, Germany.}\\
+  2011--2017 \> \tabfill{Auxiliary staff at MABRIS, Augsburg, Germany.}\\
+\end{tabbing}
+
+\vspace{-0.5cm} \noindent
+\textbf{Extra curricular activities}\\
+\vspace{-0.8cm} \noindent
+\begin{tabbing}
+  \hspace{25mm} \=   \kill
+  2012--2015 \> \tabfill{Member of Global Formula Racing (GFR); winner of 
+  multiple events overall in the Formula Student.}\\
+  1991-- \> \tabfill{Being outdoors.}\\
+
+\end{tabbing}

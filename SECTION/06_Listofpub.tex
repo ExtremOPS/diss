@@ -1,0 +1,43 @@
+\chapter*{List of Publications}
+\markboth{List of Publications}{List of Publications}                     % heading
+\addcontentsline{toc}{chapter}{List of Publications}          % list in table 
+
+
+\makeatletter
+\DeclareCiteCommand{\fullcite}
+  {\defcounter{maxnames}{\blx@maxbibnames}%
+    \usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
+  {\defcounter{maxnames}{\blx@maxbibnames}%
+    \usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\makeatotherts
+
+%as first author}
+\addsec{Publications in Peer-Reviewed Scientific Journals}
+\begin{itemize}
+  \item \fullcite{Lamprecht2021}\footnote{A.L. and C.G. shared first author}
+  \item \fullcite{Goering2021}
+  \item \fullcite{Goering2022}
+  \item \fullcite{Fankhauser2022}\footnote{J.F. and C.G. shared first author}
+\end{itemize}
+
+
+\addsec{Oral Presentations at International Conferences}
+C. Goering, A. Lamprecht, I.A.T. Schaap, and J. Dual.  \emph{"Direct 
+Measurement of Small Spherical Particle Rotation driven by the Acoustic Viscous 
+Torque"} Acoustics Virtually Everywhere, 07-11 December 2020, Virtual 
+Conference.\\
+  \\
+C. Goering and J. Dual.\emph{"Measuring the temporal difference in build up 
+between the acoustic radiation force and acoustic streaming with an optical 
+tweezer."} Acoustofluidics, 26-27 August 2021, Virtual Conference.\\
