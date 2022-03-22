@@ -5,6 +5,8 @@
   \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
 
+{
+  \small
 \begin{tikzpicture}
 
   \shade[top color=white,bottom color=white,middle color=red] (3,-0.15) 
@@ -49,7 +51,7 @@
   \draw[black,thin,->] (M) -- node[above,pos=0.9] {\tiny$\ez$} ++(-0.5,0);
   \shade[ball color=black!10] (M) circle (.25);
 
-  \path (8.25,-4.5) -- ++(0.5,0) node[below, midway] {particle};
+  \path (8.25,-4.5) -- ++(0.5,0) node[below, midway] {Particle};
 
   \fill[tempcolor] (7.0,-4) ellipse (0.15 and 0.75);
   \path (6.5,-3.25) -- ++(1,0) node[above, midway, anchor=south] {Condensor 
@@ -130,3 +132,4 @@
 \end{axis}
 
 \end{tikzpicture}
+}

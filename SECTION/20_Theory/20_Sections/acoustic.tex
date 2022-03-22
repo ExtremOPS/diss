@@ -1,5 +1,5 @@
 For the derivation and the discussion of the relevant forces coming from the 
-scattering of the incident acoustic field on to the object surface, we will 
+scattering of the incident acoustic field onto the object surface, we will 
 consider a viscous fluid and a rigid spherical object. We choose this 
 combination of fluid and object material because the viscous property of the 
 fluid causes the occurrence of the so-called acoustic streaming (AS).
@@ -80,7 +80,7 @@ With the assumption, that the density $\density$ is constant in time and space
 \end{equation}
 
 This set of equations (\cref{eq:TA-massconservation,eq:TA-state} and 
-\cref{eq:TA-navierconservative} or \cref{eq:TA-navier})solve the problem of a 
+\cref{eq:TA-navierconservative} or \cref{eq:TA-navier}) solve the problem of a 
 free floating rigid particle in a viscous fluid but are impossible to solve 
 analytically without further simplification. Most common is the expansion of 
 the unknowns into a converging -- not guaranteed~\cite{Baasch2020} -- series of 
@@ -104,7 +104,7 @@ space and time. Additionally, we assume no constant flow of the fluid and,
 hence, the zeroth order of the velocity $\zeOrder{\vel_{i}} = 0$.
 
 This series expansion is useful because it is known that the ARF occurs due to 
-second order effects. With that is possible to approximate 
+second order effects. With that it is possible to approximate 
 \cref{eq:TA-def-rad} as
 \begin{equation}
   F^{\MR{rad}}_{i} \approx
@@ -161,10 +161,10 @@ The first order velocity field $\stOrder{\vel_{i}}$ can be approximated as
   \epsilon_{kli}\,\pdv{\stOrder{\psi}_{l}}{x_{k}}
   \label{eq:TA-st-vel}
 \end{equation}
-where $\phi$ is the scalar velocity potential, $\psi_{i}$ the vector 
-velocity potential, and $\psi_{kli}$ the Levi-Civita symbol to express the curl 
-of the vector velocity potential in index notation. Furthermore, the scalar can 
-be split up into the contributions from the incident velocity potential 
+where $\phi$ is the scalar velocity potential, $\psi_{i}$ the vector velocity 
+potential, and $\epsilon_{kli}$ the Levi-Civita symbol to express the curl of 
+the vector velocity potential in index notation. Furthermore, the scalar can be 
+split up into the contributions from the incident velocity potential 
 $\phi_{\MR{in}}$ and the scattered velocity potential $\phi_{\MR{sc}}$
 \begin{equation}
   \stOrder{\phi} = \phi_{\MR{in}} + \phi_{\MR{sc}}.
@@ -186,7 +186,8 @@ equilibrium configuration (see \cref{fig:TA-coordinate}).
   \label{fig:TA-plane_wave}
 \end{figure}
 
-The scaler incident velocity potential can be for a general case represented as
+For the general case, the scaler incident velocity potential can be represented 
+as
 \begin{equation}
   \phi_{\MR{in}} = \exp\left( -\iu\omega t \right) \sum\limits_{n=0}^{\infty} 
   A_{n}\,\bessel{n}{kr}\,\legendre{n}{\cos\,\theta}
