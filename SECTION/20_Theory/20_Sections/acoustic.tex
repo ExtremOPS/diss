@@ -480,7 +480,7 @@ Applying the time-average to \cref{eq:TA-nd-massconservatio,eq:TA-nd-navier}
 and using the property that the time-average of the time-derivative of a 
 bounded, differentiable function is zero~\cite{Baasch2020}
 \begin{equation}
-  \timeaverage{\pdv{t}\,g(\vb{x};t)} = \lim\limits_{\tau \rightarrow \infty}{\,
+  \timeaverage{\pdv{t}\,g(\vb{x};t)} = \lim\limits_{\tau \rightarrow T}{\,
     \left[ \frac{1}{\tau}\,\left( g(\vb{x}; \tau) - g(\vb{x}; 0) \right) 
   \right]} = 0,
   \label{eq:TA-avg-property}
@@ -540,9 +540,34 @@ a sum of the known incident field and the unknown scattered field
 
 The time-averaged second order incident field 
 $\timeaverage{\ndOrder{\vel_{i,\MR{in}}}}$ is the motion of the fluid without 
-particle. \textcolor{red}{Is that what we usually see in Comsol? If so --> 
-Figure}. The scattered field is -- as before -- decomposed into the gradient of 
-a scalar velocity potential and the curl of a vector velocity potential
+particle. For our assumption of a spherical particle in a unbounded fluid this 
+type of AS is called \emph{Eckart streaming} named after the person who the 
+derived it for the first time~\cname{Eckart1948}. However, this type of AS is 
+uncommon in MSAF devices because the fluid is always in some kind of cavity.  
+The AS pattern that usually appears in MSAF devices is a combination of 
+\emph{Schlichting streaming} at the fluid-structure interface and 
+\emph{Rayleigh streaming} in the bulk of the fluid. This interaction of 
+streaming fields is named after \cname{Schlichting1932} and 
+\cname{Rayleigh1894}, respectively, and qualitatively depicted in 
+\cref{fig:TA-acoustic_streaming} for a plane standing pressure wave with a 
+single nodal pressure plane. In order to visualize those fields, one needs to 
+perform a numerical simulation and solve for the time-averaged fields.
+
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/acoustic_streaming.tikz}
+  \includegraphics[]{External/acoustic_streaming.pdf}
+  \caption{Schlichting and Rayleigh acoustic streaming for an one-dimensional 
+    standing pressure wave. In the darker boundary regions with width $\delta$ 
+    Schlichting streaming (\textcolor{red}{red arrows}) is present and in the 
+    bulk of the fluid Rayleigh acoustic streaming (\textcolor{olive}{olive 
+  arrows}).}
+  \label{fig:TA-acoustic_streaming}
+\end{figure}
+
+The scattered field is -- as before -- decomposed into the gradient of a scalar 
+velocity potential and the curl of a vector velocity potential
 \begin{equation}
   \timeaverage{\ndOrder{\vel_{i,\MR{sc}}}} =
   \pdv{\ndOrder{\phi}}{x_{i}} + 
@@ -550,7 +575,20 @@ a scalar velocity potential and the curl of a vector velocity potential
   \label{eq:TA-nd-sc-decomposition}
 \end{equation}
 
-\textcolor{red}{second order BCs?}
+The boundary conditions for the time-averaged second order velocity field is 
+defined at the particle-fluid interface and enforces the equality of the second 
+order Eulerian velocity to the negative Stokes drift
+\begin{equation}
+  \timeaverage{\ndOrder{\vel_{i}}}
+  =
+  -
+  \underbrace{
+    \timeaverage{\frac{1}{-\iu\omega}\,\vel_{i}\,\pdv{\vel_{i}}{x_{j}}}
+  }_{\text{Stokes drift}}
+  \quad\text{at~}r=R.
+  \label{eq:TA-nd-BCs}
+\end{equation}
+
 
 At this point we will not repeat the calculation to solve for the second order 
 velocity field. Interested reader are pointed to \cname{Doinikov1994Rigid} 
@@ -629,7 +667,7 @@ ARF on a particle which is much smaller as the acoustic wavelength
 particle as an inviscid material. The ARF is defined as the gradient of a 
 potential
 \begin{equation}
-  \force^{\MR{rad}}_{i} = \pdv{U^{\MR{rad}}}{x_{i}}
+  \force^{\MR{rad}}_{i} = \pdv{x_{i}}U^{\MR{rad}}
   \label{eq:TA-gorkov}
 \end{equation}
 where $U^{\MR{rad}}$ is the so called Gor'kov potential. It is defined as
@@ -693,7 +731,8 @@ particles in \cref{fig:TA-plane_wave}) and particles with a negative acoustic
 contrast factor $\Phi(\tilde{\kappa}, \tilde{\rho}) < 0$ are displaced towards 
 the pressure antinode (red particle in \cref{fig:TA-plane_wave}).
 
-\textcolor{red}{general solyution converges to Gorkov}
+\textcolor{red}{general solyution converges to Gorkov 
+\cref{fig:TA-comparision-ARF}}
 
 
 \section{Acoustic Radiation Torque\label{sec:TA-VT}}
