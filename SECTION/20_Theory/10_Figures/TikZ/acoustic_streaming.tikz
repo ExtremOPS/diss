@@ -1,0 +1,93 @@
+\tikzsetnextfilename{acoustic_streaming}
+{\small
+% Parameters for vector
+\pgfmathsetmacro{\W}{12.0}
+\pgfmathsetmacro{\H}{6.0}
+\pgfmathsetmacro{\B}{0.5}
+
+\pgfmathsetmacro{\d}{1.1}
+
+\pgfmathsetmacro{\fac}{0.5}
+\pgfmathsetmacro{\amplitude}{1.8}
+\pgfmathsetmacro{\doublefac}{2*\fac}
+
+% Syntax: [draw options] (center) (initial angle:final angle:radius)
+\def\centerarc[#1](#2)(#3:#4:#5)
+  { \draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
+
+\newcommand{\leftstreaming}[4]{
+  \draw[-latex] (#1,#2) ellipse (0.9*\W/4 and 0.4*#4);
+
+  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=205:285:0.9*\W/4 and 
+  0.4*#4];
+  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=305:425:0.9*\W/4 and 
+  0.4*#4];
+  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=435:515:0.9*\W/4 and 
+  0.4*#4];
+}
+
+\newcommand{\rightstreaming}[4]{
+  \draw[-latex] (#1,#2) ellipse (0.9*\W/4 and 0.4*#4);
+  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=105:25:0.9*\W/4 and 
+  0.4*#4];
+  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=225:125:0.9*\W/4 and 
+  0.4*#4];
+  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=345:255:0.9*\W/4 and 
+  0.4*#4];
+}
+
+\newcommand{\streamingOne}[4]{
+  \leftstreaming{#1}{#2}{#3}{#4}
+  \rightstreaming{#1+\W/2}{#2}{#3}{#4}
+}
+
+\newcommand{\streamingTwo}[4]{
+  \rightstreaming{#1}{#2}{#3}{#4}
+  \leftstreaming{#1+\W/2}{#2}{#3}{#4}
+}
+
+
+\begin{tikzpicture}[]
+
+  \coordinate (O) at (0,0);
+  \coordinate (BL) at (-\W/2,-\H/2);
+  \coordinate (TR) at (\W/2,\H/2);
+
+  % walls
+  \draw[pattern=north west lines, pattern color=black!50] ($(BL) - (\B, 
+  \B)$) rectangle ++(2*\B+\W,2*\B+\H);
+
+  % fluid
+  \draw[fill=blue!10] (BL) rectangle (TR);
+  % boundary layer
+  \path[fill=blue!20] (BL) rectangle ($(BL) + (\W,\d)$);
+  \path[fill=blue!20] (TR) rectangle ($(TR) - (\W,\d)$);
+
+
+  % coordinate system
+  \draw[<->] ($(-\W/2*0.9,-\H/4)$) -- node[left,pos=0] {$\ez$} ++(0,-\H/4*0.9) 
+  -- node[above,pos=1] {$\ey$} ++(\H/7,0);
+
+  % pressure field
+  \draw[blue] plot[domain=-\W/2:\W/2,samples=100] 
+  (\x,{+\amplitude*sin(deg(2*pi/(\W/\fac)*\x))});
+  \draw[blue] plot[domain=-\W/2:\W/2,samples=100] 
+  (\x,{-\amplitude*sin(deg(2*pi/(\W/\fac)*\x))});
+
+
+  % annotations width
+  \draw[|<->|] (-\W/2, \H/2+1.5*\B) -- node[above,midway] {$W$} ++(\W,0);
+  \draw[|<->|] (\W/2+1.5*\B, -\H/2) -- node[right,midway] {$H$} ++(0,\H);
+
+  \draw[|<->|] (-\W/2-1.5*\B, -\H/2) -- node[left,midway] {$\delta$} ++(0,\d);
+  \draw[|<->|] (-\W/2-1.5*\B, +\H/2) -- node[left,midway] {$\delta$} ++(0,-\d);
+
+  % schlichting streaming
+  \streamingOne{-\W/4}{\H/2-\d/2}{red}{\d}
+  \streamingTwo{-\W/4}{-\H/2+\d/2}{red}{\d}
+
+  % rayleigh streaming
+  \streamingTwo{-\W/4}{\H/4-\d/2}{olive}{\H/2-\d/3}
+  \streamingOne{-\W/4}{-\H/4+\d/2}{olive}{\H/2-\d/3}
+\end{tikzpicture}
+}
