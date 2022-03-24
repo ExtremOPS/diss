@@ -27,7 +27,7 @@
   \draw[fill=blue!10] (BL) rectangle (TR);
 
   % coordinate system
-  \draw[<->] ($(-\W/2*0.9,-\H/4)$) -- node[left,pos=0] {$\ex$} ++(0,-\H/4*0.9) 
+  \draw[<->] ($(-\W/2*0.9,-\H/4)$) -- node[left,pos=0] {$\ez$} ++(0,-\H/4*0.9) 
   -- node[right,pos=1] {$\ey$} ++(\H/4,0);
 
   % pressure field
