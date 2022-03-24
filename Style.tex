@@ -162,6 +162,12 @@
 \colorlet{colFluid}{blue!20!white}
 
 \tikzset{
+    partial ellipse/.style args={#1:#2:#3}{
+        insert path={+ (#1:#3) arc (#1:#2:#3)}
+    }
+}
+
+\tikzset{
   fluid/.style = {
     fill=colFluid,
     fill opacity=.3,
