@@ -1,8 +1,10 @@
 For the derivation and the discussion of the relevant forces coming from the 
-scattering of the incident acoustic field onto the object surface, we will 
-consider a viscous fluid and a rigid spherical object. We choose this 
-combination of fluid and object material because the viscous property of the 
-fluid causes the occurrence of the so-called acoustic streaming (AS).
+scattering of an axissymmetric incident acoustic field onto the object surface, 
+we will consider a viscous fluid and a rigid spherical object. The spherical 
+object is freely floating in the fluid and far away from any boundaries. We 
+choose this combination of fluid and object material because the viscous 
+property of the fluid causes the occurrence of the so-called acoustic streaming 
+(AS).
 
 We will follow closely the derivations given by \cname{Doinikov1994Rigid} who 
 solves this specific problem first \footnote{We will cite publications in this 
@@ -320,7 +322,7 @@ In order to calculate the unknown constants $\alpha_{n}$ and $\beta_{n}$ one
 needs to enforce the boundary condition of \cref{eq:TA-st-BC} for every $n$ 
 separately. Besides for $n=1$, $\vel_{\MR{p}}$ is always zero because the 
 multipole expansion for a rigid rigid particle has only dipole contributions; 
-for $n=1$, $\vel_{\MR{p}}$ is given by  \cref{eq:TA-st-particle-vel}.
+for $n=1$, $\vel_{\MR{p}}$ is given by \cref{eq:TA-st-particle-vel}.
 
 For $n=0$ and $n=1$ the constant are
 \begin{subequations}
@@ -440,7 +442,7 @@ matching velocity at the particle-fluid interface, the whole whole first order
 fluid velocity solution is also dominated by that mode. This is also depicted 
 in \cref{fig:TA-SC} where the fluid velocity for water and a silicium dioxide 
 particle (SiO$_{2}$) for the sum of all modes through $n=5$ and the fluid 
-velocity of the first mode $n=1$ only is computed.  \Cref{fig:TA-SC_all} and 
+velocity of the first mode $n=1$ only is computed. \Cref{fig:TA-SC_all} and 
 \Cref{fig:TA-SC_mode1} are indistinguishable from each other meaning that the 
 solution to the whole first order velocity field is due to the rigid-body mode 
 in the multipole expansion.
@@ -499,9 +501,33 @@ and
   \label{eq:TA-avg-navier}
 \end{equation}
 
-Note here, that the first term on the left hand side of \cref{eq:TA-nd-navier} 
-does not vanish because it is a product of two first order fields 
-\textcolor{red}{True?}.
+Note here, that the first term on the left hand side of \cref{eq:TA-avg-navier} 
+does not vanish. Taking the partial time derivative of the time-averaged 
+product of the two first order fields 
+$\left(\stOrder{\density}\,\stOrder{\vel_{i}}\right)$
+\begin{equation}
+  \timeaverage{\pdv{t}\left( \stOrder{\density}\,\stOrder{\vel_{i}} \right)}
+  =
+  \timeaverage{\stOrder{\vel_{i}}\,\pdv{\stOrder{\density}}{t}}
+  +
+  \timeaverage{\stOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{t}}
+\end{equation}
+and re-arranging it to
+\begin{equation}
+  \timeaverage{\stOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{t}}
+  =
+  \underbrace{
+  \timeaverage{\pdv{t}\left( \stOrder{\density}\,\stOrder{\vel_{i}} \right)}
+}_{=0}
+  -
+  \underbrace{
+  \timeaverage{\stOrder{\vel_{i}}\,\pdv{\stOrder{\density}}{t}}
+}_{\neq 0}
+  \label{eq:TA-non-zero-term}
+\end{equation}
+reveals that the first term on the right hand side of 
+\cref{eq:TA-non-zero-term} vanishes because of the property explained in 
+\cref{eq:TA-avg-property} and the second term is non-zero.
 
 As for the first order field, the second order velocity can be decomposed into 
 a sum of the known incident field and the unknown scattered field
@@ -512,11 +538,11 @@ a sum of the known incident field and the unknown scattered field
   \label{eq:TA-nd-velocity}
 \end{equation}
 
-The time-averaged second order incident field $\timeaverage{\ndOrder{\vel_{i}}}$ 
-is the motion of the fluid without particle. \textcolor{red}{Is that what we 
-usually see in Comsol? If so --> Figure}. The scattered field is -- as before 
--- decomposed into the gradient of a scalar velocity potential and the curl of 
-a vector velocity potential
+The time-averaged second order incident field 
+$\timeaverage{\ndOrder{\vel_{i,\MR{in}}}}$ is the motion of the fluid without 
+particle. \textcolor{red}{Is that what we usually see in Comsol? If so --> 
+Figure}. The scattered field is -- as before -- decomposed into the gradient of 
+a scalar velocity potential and the curl of a vector velocity potential
 \begin{equation}
   \timeaverage{\ndOrder{\vel_{i,\MR{sc}}}} =
   \pdv{\ndOrder{\phi}}{x_{i}} + 
@@ -596,11 +622,11 @@ factor $\Phi$). The depicted mode is the \emph{lambda}-mode.}
 But for most applications, firstly, the particle radius is much larger than 
 then viscous boundary layer $R \gg \delta$ and, secondly, the acoustic 
 wavelength is much larger than the particle radius $\wavelength_{\MR{a}}\gg R 
-\gg \delta$.  The most common formula for those restrictions and one dimension 
+\gg \delta$. The most common formula for those restrictions and one dimension 
 standing pressure wave is the derivation by \cname{Gorkov1962}. He derives the 
 ARF on a particle which is much smaller as the acoustic wavelength 
 ($\R\ll\lambda_{\MR{a}}$). In his derivation models the fluid as well as the 
-particle as an inviscid material.  The ARF is defined as the gradient of a 
+particle as an inviscid material. The ARF is defined as the gradient of a 
 potential
 \begin{equation}
   \force^{\MR{rad}}_{i} = \pdv{U^{\MR{rad}}}{x_{i}}
@@ -725,7 +751,7 @@ solution to the radiation torque exerted onto the objects~\cite{Lamprecht2017}.
   \end{subfigure}
   \caption{Acoustic pressure $p_{\MR{a}}$ around spherical particle 
       circumference ($\varphi$) in a two dimensional pressure wave field with 
-      three different phase shifts $\zeta$ plotted over one excitation period.  
+      three different phase shifts $\zeta$ plotted over one excitation period. 
       The pressure amplitude is depicted qualitatively; red equals positive 
   pressure and blue negative.}
   \label{fig:TA-VT}
