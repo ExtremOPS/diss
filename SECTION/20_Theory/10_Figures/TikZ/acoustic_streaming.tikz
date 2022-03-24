@@ -5,7 +5,7 @@
 \pgfmathsetmacro{\H}{6.0}
 \pgfmathsetmacro{\B}{0.5}
 
-\pgfmathsetmacro{\d}{1.1}
+\pgfmathsetmacro{\d}{0.9}
 
 \pgfmathsetmacro{\fac}{0.5}
 \pgfmathsetmacro{\amplitude}{1.8}
@@ -16,24 +16,19 @@
   { \draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
 
 \newcommand{\leftstreaming}[4]{
-  \draw[-latex] (#1,#2) ellipse (0.9*\W/4 and 0.4*#4);
-
-  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=205:285:0.9*\W/4 and 
-  0.4*#4];
-  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=305:425:0.9*\W/4 and 
-  0.4*#4];
-  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=435:515:0.9*\W/4 and 
-  0.4*#4];
+  % \draw[-latex] (#1,#2) ellipse (0.9*\W/4 and 0.4*#4);
+  \foreach \x in {0,90,180,270}{
+    \draw[ultra thick, #3, -latex] (#1,#2) [partial 
+    ellipse=\x-30:\x+30:0.9*\W/4 and 0.4*#4];
+  }
 }
 
 \newcommand{\rightstreaming}[4]{
-  \draw[-latex] (#1,#2) ellipse (0.9*\W/4 and 0.4*#4);
-  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=105:25:0.9*\W/4 and 
-  0.4*#4];
-  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=225:125:0.9*\W/4 and 
-  0.4*#4];
-  \draw[ultra thick, #3, -latex] (#1,#2) [partial ellipse=345:255:0.9*\W/4 and 
-  0.4*#4];
+  % \draw[-latex] (#1,#2) ellipse (0.9*\W/4 and 0.4*#4);
+  \foreach \x in {0,90,180,270}{
+    \draw[ultra thick, #3, -latex] (#1,#2) [partial 
+    ellipse=\x+30:\x-30:0.9*\W/4 and 0.4*#4];
+  }
 }
 
 \newcommand{\streamingOne}[4]{
@@ -58,15 +53,17 @@
   \B)$) rectangle ++(2*\B+\W,2*\B+\H);
 
   % fluid
-  \draw[fill=blue!10] (BL) rectangle (TR);
+  \path[fill=blue!10] (BL) rectangle (TR);
   % boundary layer
   \path[fill=blue!20] (BL) rectangle ($(BL) + (\W,\d)$);
   \path[fill=blue!20] (TR) rectangle ($(TR) - (\W,\d)$);
+  % cavity outline
+  \draw[] (BL) rectangle (TR);
 
 
   % coordinate system
-  \draw[<->] ($(-\W/2*0.9,-\H/4)$) -- node[left,pos=0] {$\ez$} ++(0,-\H/4*0.9) 
-  -- node[above,pos=1] {$\ey$} ++(\H/7,0);
+  \draw[<->] ($(-\W/2*0.9,-\H/3)$) -- node[left,pos=0] {$\ez$} ++(0,-7*\H/60) 
+  -- node[right,pos=1] {$\ey$} ++(\H/5,0);
 
   % pressure field
   \draw[blue] plot[domain=-\W/2:\W/2,samples=100] 
