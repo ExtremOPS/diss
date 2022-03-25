@@ -25,4 +25,8 @@
   \path[very thick, name path=line] (0:0) -- (60:3.5);
   \draw [name intersections={of=curve and line, by=x}];
   \draw[-] (x) to[out=-35, in=180] ++(.6*\R,-.25*\R) node[right] {$S(t)$};
+
+  \path[very thick, name path=line] (0:0) -- (10:3.5);
+  \draw [name intersections={of=curve and line, by=x}];
+  \draw[thick, |->] (x) to (13:3.5) node[right] {$\normal(t)$};
 \end{tikzpicture}
