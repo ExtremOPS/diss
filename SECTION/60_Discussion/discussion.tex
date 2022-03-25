@@ -3,7 +3,7 @@
 \section{Discussion}
 In this thesis we presented the application of the fast position readout of a 
 trapped spherical particle within our optical trapping (OT) setup to two micro 
-scale acoustofluidics (MSAF) phenomena: 1) the transient build up behaviour of 
+scale Acoustofluidics (MSAF) phenomena: 1) the transient build up behaviour of 
 acoustic streaming (AS) as well as of the acoustic radiation force (ARF); 2) 
 the viscous torque induced rotation of spherical particles in a viscous fluid 
 where the viscous boundary layer is as large as the particle radius itself 
@@ -16,7 +16,7 @@ information from the light beam, the beam must be collimated after the trapping
 and focused onto photo detectors. For the resolution of two orthogonal 
 directions of the in-plane movement, the photo detector (PD) must be a quadrant 
 photo detector (QPD). For the axial movement a single PD is sufficient because 
-only the total intensity shine onto the PD is needed.
+only the total intensity onto the PD is needed.
 
 The physical unit of the (Q)PDs output is \si{\volt}. In order to convert the 
 voltage to the unit of \si{\meter}, we take advantage of the linear regime of 
@@ -24,16 +24,16 @@ voltage to the unit of \si{\meter}, we take advantage of the linear regime of
 the particle within the trap. In this regime, the OT can also be used as force 
 measurement device because it has the same properties as a linear mechanical 
 spring. The respective start and end point of this regime is dependent on a 
-multitude of parameters. For our setup movements of less than \SI{100}{\nm} are 
-still linear related. The voltage-conversion factor as well as the stiffness of 
-the OT can be derived from the single-sided frequency spectrum of the trapped 
-particle. The particles in the fluid suspended are so lightweight and small 
-that they undergo visible Brownian motion. Brownian motion is a random process 
-with the property that over a long time period the particle will be back at its 
-initial position. Also while being trapped the particle undergoes Brownian 
-motion. The frequency content of a trapped particle in any spatial direction 
-follows the curve of a low-pass filter. With the amplitude at zero frequency 
-$A_{0}$ and the cutoff frequency $f_{\MR{c}}$ where 
+multitude of parameters. Movements of less than \SI{100}{\nm} are still linear 
+related for our OT setup. The voltage-conversion factor as well as the 
+stiffness of the OT can be derived from the single-sided frequency spectrum of 
+the trapped particle.  The particles in the fluid suspended are so lightweight 
+and small that they undergo visible Brownian motion. Brownian motion is a 
+random process with the property that over a long time period the particle will 
+be back at its initial position. Also while being trapped the particle 
+undergoes Brownian motion. The frequency content of a trapped particle in any 
+spatial direction follows the curve of a low-pass filter. With the amplitude at 
+zero frequency $A_{0}$ and the cutoff frequency $f_{\MR{c}}$ where 
 $A\vert_{f=f_{\MR{c}}}=\sfrac{A_{0}}{2}$ it is possible to calculate the 
 voltage-meter conversion factor as well as the stiffness for each spatial 
 direction separately.
@@ -71,10 +71,10 @@ However, without modifications on the OT we are not able to measure any of
 those effects because the timeconstant of the OT $\tOT$ is much larger than the 
 theoretical build up time of the ARF. In fact, for our set of experimental 
 parameters and our device configuration $\tOT \approx \tas \gg \tarf$ with 
-$\tas = \SI{1.59}{\ms}$ and $\tarf = \SI{1.4}{\us}$. We reduced $\tOT$ 
-effectively to zero by reducing the laser power to almost zero such that there 
-is no effective trapping by the OT. We still need some laser power because the 
-beam is the cause for the measured intensity at any of the (Q)PDs.
+$\tas = \SI{1.59}{\ms}$ and $\tarf = \SI{1.4}{\us}$, respectively. We reduced 
+$\tOT$ effectively to zero by reducing the laser power to almost zero such that 
+there is no effective trapping by the OT. We still need some laser power 
+because the beam is the cause for the measured intensity at any of the (Q)PDs.
 
 Because of the laser power reduction, we also needed to install an optical 
 shutter right before the (Q)PDs. The laser intensity is too high for the photo 
@@ -108,7 +108,7 @@ induced movement from the data we perform the same amount of measurements with
 no acoustics at all and then subtract the averaged \emph{no-acoustic} data from 
 the \emph{acoustics} data.
 
-The data for both types of experiments (non-pulsed and pulsed) shows that the 
+The data for both types of experiments (non-pulsed and pulsed) showed that the 
 ARF induced displacement starts immediately whereas the AS induced displacement 
 takes significantly longer. The measured time offset between ARF and AS is an 
 explanation why in experiments~\cite{Castro2016,Hoyos2013} a pulsed acoustic 
@@ -127,23 +127,24 @@ Additionally, the pulsed excitation measurements revealed that a pulsed
 excitation leads to a greater reductions in terms of the final displacement at 
 the end of the measurement on the AS than it does on the ARF. We measure this 
 observation for all pulsing frequencies. The ARF and AS are linear dependent on 
-the acoustic energy density within the fluid cavity. All our data also shows 
+the acoustic energy density within the fluid cavity. All our data also showed 
 this relation but with a steeper slope for AS than the ARF. The pulsed 
 excitation results help to further explain the experimental shown suppression 
 of AS. However, with our measurement protocol we can only measure for the first 
 \SI{30}{\ms} of acoustic excitation, and any MSAF application is operated 
 continuously where all fields have developed fully. At the moment, we cannot 
-measure these effects during steady state.
+measure these effects during steady-state.
 
 
-No set up modifications at the OT are necessary for the second MSAF phenomena, 
-the rotational speed measurement of a spherical particle driven by the viscous 
-torque (\cref{ch:viscoustorque}). The two main requirements for the generation 
-of a viscous torque that is sufficiently big to initiate a particle rotation 
-are: firstly, the formation of a viscous boundary layer $\delta$ around the 
-particle; secondly, a two dimensional orthogonal acoustic excitation with phase 
-difference such that the acoustic pressure at the particle surface has a 
-continuous phase change in circumferential direction.
+Compared to the first phenomena, no set up modifications at the OT are 
+necessary for the second MSAF phenomena: the rotational speed measurement of a 
+spherical particle driven by the viscous torque (\cref{ch:viscoustorque}). The 
+two main requirements for the generation of a viscous torque that is 
+sufficiently big to initiate a particle rotation are: firstly, the formation of 
+a viscous boundary layer $\delta$ around the particle; secondly, a two 
+dimensional orthogonal acoustic excitation with phase difference such that the 
+acoustic pressure at the particle surface has a continuous phase change in 
+circumferential direction.
 
 The second requirement is straightforward to accomplish by the use of a 
 quadratic fluid cavity where the excitation is applied to the system from two 
@@ -152,11 +153,12 @@ easily realized with most dual channel function generators. The viscosity
 increase of the fluid and therefore the larger viscous boundary layer around 
 the particle can be created by a glycerol water mixture (3:7 for our 
 experiments). A greater viscosity increase was not possible, because glycerol 
-has the side effect that it also increases the refractive index of the mixture. 
-For stable trapping the refractive index of the particle must be larger than of 
-the surrounding medium. For equal indices the particle is \emph{invisible} for 
-the laser beam because no path change of the light occurs at the particle-fluid 
-interface and a greater particle index leads to repulsion from the laser focal 
+has the side effect that the glycerol also increases the refractive index of 
+the mixture.  For stable trapping the refractive index of the particle must be 
+larger than of the surrounding medium. For equal indices the particle is 
+\emph{invisible} for the laser beam because no path change of the light occurs 
+at the particle-fluid interface. A greater index of refraction of the particle 
+than the fluid index leads to repulsion of the particle from the laser focal 
 point.
 
 Our measurement utilizes the property that a distinct amplitude peak appears at 
@@ -233,26 +235,26 @@ calibration.
 
 \subsection{How should I call you?}
 
-Although we could answer and investigate two MSAF phenomena with our OT setup, 
-there are many more open questions and interesting projects. We select three 
-projects which we think are of great interest for the MSAF community and also 
-achievable without modifications with our setup.
+Although we investigated two MSAF phenomena with our OT setup, there are many 
+more open questions and interesting projects. We select three projects which we 
+think are of great interest for the MSAF community and also achievable without 
+any modifications to our present OT setup.
 
-The first is a variation of the transient behavior of AS and the ARF. In a 
-first step we were able to measure the build up of the two effects, but only 
-for the first 120'000 excitation periods ($\approx \SI{30}{\ms}$). Although we 
-could show that AS is significantly slower in its build up than the ARF, we 
-could not investigate the steady-state behavior of a pulsed excitation. 
-Therefore, we suggest to measure the steady-state forces exerted on a single 
-particle for various pulse frequencies settings and compare the forces to a 
-non-pulsed measurement. To reduce uncertainties between different settings one 
-should create a protocol where all data that will be compared to each other is 
+The first is a variation of \cref{ch:timeconstant,ch:pulsing}. In a first step 
+we were able to measure the build up of the two effects, but only for the first 
+120'000 excitation periods ($\approx \SI{30}{\ms}$). Although we could show 
+that AS is significantly slower in its build up than the ARF, we could not 
+investigate the steady-state behavior of a pulsed excitation.  Therefore, we 
+suggest to measure the steady-state forces exerted on a single particle for 
+various pulse frequencies settings and compare the forces to a non-pulsed 
+measurement. To reduce uncertainties between different settings one should 
+create a protocol where all data that will be compared to each other is 
 measured in one device initialization.
 
 The second possible field of interest is also investigating AS and the ARF.  
 However this time, one would be investigating the scaling laws of AS and the 
-ARF. From theory we know that they scale $\propto R$ and $\propto R^{3}$, 
-respectively, for a spherical particle. The total acoustic force 
+ARF. From theory we know that they scale $\propto R$ and $\propto R^{3}$ for a 
+spherical particle, respectively. The total acoustic force 
 $\forcevector^{\MR{ac}}$ is understood to contain a linear part from AS and a 
 cubic part due to the ARF
 \begin{equation}
@@ -295,28 +297,28 @@ For the final part of this thesis we will motivate three possible studies that
 are not applicable to our specific OT setup. For the first one, the main 
 limitation is not directly our OT but the devices we use. The main requirement 
 for our devices is that they are transparent from top to bottom for our laser 
-light as well as being wide enough to accommodate the laser beam. Therefore, we 
-cannot measure close to walls because because the silicon walls are 
-non-transparent for our laser wavelength and hinder the laser beam and, hence, 
-would violate the assumption of a symmetrical trapping potential which is the 
-basis for the trap calibration. Acoustic wall effects are an interesting 
-phenomena that is important for narrow channels and could lead to further 
-applications. Devices where also the channel side walls are made out of glass 
-(all-glass devices) might be an interesting opportunity for studying these 
-effects. However, one would need to investigate the refractive index of the 
-fluid and the specific glass carefully.
+light as well as being wide enough to accommodate the converging cone of the 
+laser beam.  Therefore, we cannot measure close to walls because because the 
+silicon walls are non-transparent for our laser wavelength and hinder the laser 
+beam and, hence, would violate the assumption of a symmetrical trapping 
+potential which is the basis for the trap calibration. Acoustic wall effects 
+are an interesting phenomena that is important for narrow channels and could 
+lead to further applications. Devices where also the channel side walls are 
+made out of glass (all-glass devices) might be an interesting opportunity for 
+studying these effects. However, one would need to investigate the refractive 
+index of the fluid and the specific glass carefully.
 
 For our investigated applications this is not a problem because the two 
 interfaces of the top cover glass with the immersion oil layer and the fluid 
 inside the cavity are parallel. Therefore, the beam passes this interface 
-without a change in direction. However, in an all-glass device which is used 
-for measuring close to the channel wall some parts of the laser beam will be 
-going through the channel wall. For different refractive indices of the fluid 
-and the glass this fact will lead to a deflection of the laser which in turn 
-will violate the assumption of a symmetric optical potential. The magnitude of 
-the violating is proportional to the index difference. For matching indices of 
-the device material and the fluid no deflection at any of those interfaces 
-occurs.
+without a change in direction. However, in an all-glass device which would be 
+used for measuring close to the channel wall some parts of the laser beam will 
+be going through the channel wall. For different refractive indices of the 
+fluid and the glass this fact will lead to a deflection of the laser which in 
+turn will violate the assumption of a symmetric optical potential. The 
+magnitude of the violation is proportional to the index difference. For 
+matching indices of the device material and the fluid no deflection at any of 
+those interfaces occurs.
 
 Secondly, with a OT consisting of two lasers where one is creating the optical 
 potential for trapping and the other is the light source for the position 
