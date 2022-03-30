@@ -66,9 +66,9 @@
   \draw[|<->|] (-\W/2, \L/2+1.5*\B) -- node[above,midway] {$W$} ++(\W,0);
   \draw[|<->|] (\W/2+1.5*\B, -\L/2) -- node[right,midway] {$L$} ++(0,\L);
   \path (-\W/2-\B,0) -- node[midway,fill=white,rounded corners] 
-  {$\propto\sin(\omega t)$} ++(\B,0);
+  {$\propto\sin(\omega_{1} t)$} ++(\B,0);
 
   \path (-\W/8,\L/2+\B/2) -- node[midway,fill=white,rounded corners] 
-  {$\propto\sin(\omega t + \zeta)$} ++(\W/4,0);
+  {$\propto\sin(\omega_{2} t + \zeta)$} ++(\W/4,0);
 \end{tikzpicture}
 }
