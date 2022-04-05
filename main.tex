@@ -15,12 +15,13 @@
 
 \begin{document}
 
-\hyphenation{ acou-sto-pho-re-sis re-so-na-tors wave-length quar-ter}
+\hyphenation{ acou-sto-pho-re-sis re-so-na-tors wave-length quar-ter gly-cerol}
 \pagenumbering{roman}
-\pagestyle{fancy}                   % Special headings
 
 \setlength{\parindent}{4mm} % Paragraph Einzug am Anfang jedes Paragraphen
 \input{SECTION/00_Titlepage}
+\pagestyle{fancy}
+% \pagestyle{plain}
 \input{SECTION/01_Preface}
 
 \tableofcontents
@@ -30,7 +31,9 @@
 \include{SECTION/30_Zusammenfassung}
 \include{SECTION/40_Nomenclature}
 
+\clearpage
 \cleardoublepage
+\pagestyle{fancy}
 \pagenumbering{arabic}
 \include{SECTION/10_Intro/introduction}
 
