@@ -266,7 +266,7 @@ called the viscous wavenumber and is defined as
   \sqrt{\frac{\omega\,\mu}{\zeOrder{\density}}}
   \label{eq:TA-st-visc-wavenumber}
 \end{equation}
-where $\delta$ is also known as viscous boundary layer thickness.
+where $\delta$ is also known as VBL thickness.
 
 With the requirement that the solutions to \cref{eq:TA-st-phi,eq:TA-st-psi} 
 satisfy Sommerfeldt's radiation condition and using multipole expansion one 
@@ -642,9 +642,9 @@ the stress tensors of the respective orders one can calculate the ARF with
 are cumbersome to compute. It is cumbersome because his formula as well as the 
 solutions to the velocity fields is valid for any axisymmetric incident 
 acoustic wave field and is not restricted to the ratios of the particle to the 
-viscous boundary layer thickness $\sfrac{R}{\delta}$, the ratio of the particle 
+VBL thickness $\sfrac{R}{\delta}$, the ratio of the particle 
 to the acoustic wavelength $\sfrac{R}{\wavelength_{\MR{a}}} = 
-\sfrac{\R\,f}{\cfl}$, and the ratio of the viscous boundary layer thickness to 
+\sfrac{\R\,f}{\cfl}$, and the ratio of the VBL thickness to 
 the acoustic wavelength $\sfrac{\delta}{\wavelength_{\MR{a}}}$.
 
 \begin{figure}[tbp]
@@ -659,14 +659,14 @@ factor $\Phi$). The depicted mode is the \emph{lambda}-mode.}
 \end{figure}
 
 But for most applications, firstly, the particle radius is much larger than 
-then viscous boundary layer thickness $R \gg \delta$ and, secondly, the 
+then VBL thickness $R \gg \delta$ and, secondly, the 
 acoustic wavelength is much larger than the particle radius 
 $\wavelength_{\MR{a}}\gg R \gg \delta$. The most common formula for those 
 restrictions and an one dimensional standing pressure wave is the derivation by 
 \cname{Gorkov1962}. He derives the ARF on a particle which is much smaller as 
 the acoustic wavelength ($\R\ll\lambda_{\MR{a}}$). In his derivations, he 
 models the fluid as well as the particle as an inviscid material. Hence, no 
-viscous boundary layer can be formed The ARF is defined as the gradient of a 
+VBL can be formed The ARF is defined as the gradient of a 
 potential
 \begin{equation}
   \force^{\MR{rad}}_{i} = \pdv{x_{i}}U^{\MR{rad}}
@@ -810,7 +810,7 @@ excitation of the two pressure waves is phase shifted.
 If the two conditions are met, then the by $\zeta$ phase shifted excitation 
 will lead to a continuous phase change of the pressure amplitude along the 
 surface of the particle (see \cref{fig:TA-VT}). This phase change will lead to 
-a local time-averaged streaming in the viscous boundary layer of the particle 
+a local time-averaged streaming in the VBL of the particle 
 that initiate the rotation. The final rotational velocity is when the 
 accelerating local streaming flow equals the opposite directed Stoke's 
 rotational drag torque~\cite{Lamprecht2017}. This rotational velocity is -- 
