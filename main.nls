@@ -1,0 +1,64 @@
+
+\begin{thenomenclature} 
+\nomgroup{A}
+  \item [{ARF}]\begingroup acoustic radiation force\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{AS}]\begingroup acoustic streaming\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{AT}]\begingroup acoustic trap\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{MSAF}]\begingroup micro-scale Acoustofluidics\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{NA}]\begingroup numerical aperture\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{OT}]\begingroup optical trap\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{QPD}]\begingroup quadrant photo detector\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{SiO$_{2}$}]\begingroup Silicon Dioxide\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{US}]\begingroup ultrasound\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+\nomgroup{G}
+  \item [{\(\alpha \)}]\begingroup optical absorption coefficient\nomunit {\si {\per \m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\density \)}]\begingroup density\nomunit {\si {\kg \per \cubic \m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\kinematicviscosity \)}]\begingroup kinematic viscosity\nomunit {\si {\pascal \s }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\lambda \)}]\begingroup wavelength\nomunit {\si {\m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\lbeta \)}]\begingroup half cone laser angle\nomunit {\si {\radian }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\omega \)}]\begingroup angular frequency\nomunit {\si {\radian \per \s }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\stress , \stresstensor \)}]\begingroup stress tensor\nomunit {\si {\newton \per \square \m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\theta \)}]\begingroup ray angle measured to surface normal\nomunit {\si {\radian }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\vbl \)}]\begingroup viscous boundary layer thickness\nomunit {\si {\m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\velpotential \)}]\begingroup velocity potential\nomunit {\si {\square \m \per \s }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\viscosity \)}]\begingroup dynamic viscosity\nomunit {\si {\pascal \s }}\nomeqref {0.0}\nompageref{xvii}
+\nomgroup{O}
+  \item [{\(\conj {\Box }\)}]\begingroup complex conjugate of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\curl \Box \)}]\begingroup curl of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\div \Box \)}]\begingroup divergence of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\grad \Box \)}]\begingroup gradient of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\imaginary {\{\Box }\}\)}]\begingroup imaginary part of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\iu \)}]\begingroup imaginary unit ($\sqrt {-1}$)\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\laplacian \Box \)}]\begingroup laplacian of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\normalized {\Box }\)}]\begingroup normalized quantity\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\order {\Box }\)}]\begingroup order of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\real {\{\Box }\}\)}]\begingroup real part of $\Box $\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\timeaverage {\Box }\)}]\begingroup time-average ($\sfrac {1}{T}\int _{T}\Box (t)\dd {t}$)\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+\nomgroup{R}
+  \item [{\(\cNA \)}]\begingroup numerical aperture value\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\ex , \ey , \ez \)}]\begingroup unit vector along $x, y,$ and $z$ coordinate\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\force ^{\MR {drag}}, \FAS \)}]\begingroup drag force from acoustic streaming\nomunit {\si {\newton }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\force ^{\MR {rad}}, \FARF \)}]\begingroup acoustic radiation force\nomunit {\si {\newton }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\fresnelR \)}]\begingroup Fresnel coefficient of reflection\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\fresnelT \)}]\begingroup Fresnel coefficient of transmission\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\intensity \)}]\begingroup laser intensity\nomunit {\si {\watt \per \square \m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\normal , \normalvector \)}]\begingroup surface normal\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\pre \)}]\begingroup pressure\nomunit {\si {\pascal }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\R \)}]\begingroup particle radius\nomunit {\si {\m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\refraction \)}]\begingroup index of refraction\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\speed \)}]\begingroup speed of light\nomunit {\si {\m \per \s }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\speed _{\Box }\)}]\begingroup speed of sound\nomunit {\si {\m \per \s }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\vel _{i}, \velvector \)}]\begingroup fluid velocity\nomunit {\si {\m \per \s }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\wavenumber , \wavevector \)}]\begingroup wavenumber\nomunit {\si {\per \m }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(f, \fex \)}]\begingroup excitation frequency\nomunit {\si {\hertz }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(P\)}]\begingroup laser power\nomunit {\si {\watt }}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(t\)}]\begingroup time\nomunit {\si {\s }}\nomeqref {0.0}\nompageref{xvii}
+\nomgroup{S}
+  \item [{\(\Box ^{(i)}\)}]\begingroup $i$-th order term in perturbation theory\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\boxsubscript {F}\)}]\begingroup force quantity\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\boxsubscript {f}\)}]\begingroup fluid quantity\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\boxsubscript {i}, \boxsubscript {r}, \boxsubscript {t}\)}]\begingroup incident, reflected, and transmitted quantity\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\boxsubscript {l}\)}]\begingroup laser quantity\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+  \item [{\(\boxsubscript {s}\)}]\begingroup solid quantity\nomunit {\si {}}\nomeqref {0.0}\nompageref{xvii}
+
+\end{thenomenclature}
