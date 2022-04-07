@@ -29,5 +29,12 @@
       ]
       \addplot3[surf,mesh/rows=51,shader=interp] table[x=a,y=beta,z=theta] 
       {\relPath/10_Figures/TikZ/angles_mat.dat};
+
+      % lines
+       \addplot3[
+         mesh/rows=51,
+         mesh/cols=50,
+         contour gnuplot={levels={1,2,5,15,10,20},draw color=black},
+     ] table[x=a,y=beta,z=theta] {\relPath/10_Figures/TikZ/angles_mat.dat};
     \end{axis}
 \end{tikzpicture}

@@ -22,8 +22,15 @@
         xtick={0.2,0.5,1.0,1.5,2.0,2.5},
       },
     ]
+      % contourf
       \addplot3[surf,mesh/rows=21,shader=interp] table[x=R,y=a,z=alpha] 
       {\relPath/10_Figures/TikZ/absorbed_energies.dat};
+      % lines
+       \addplot3[
+         mesh/rows=21,
+         mesh/cols=20,
+         contour gnuplot={draw color=black},
+     ] table[x=R,y=a,z=alpha] {\relPath/10_Figures/TikZ/absorbed_energies.dat};
 
   \end{axis}
 \end{tikzpicture}

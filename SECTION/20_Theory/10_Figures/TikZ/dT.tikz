@@ -10,7 +10,7 @@
         width=100mm,
         point meta min=0,
         point meta max=70,
-        colormap = {whiteblack}{
+        colormap = {whitered}{
           color(0cm) = (white);
           color(1cm) = (red)},
         colorbar,
@@ -20,7 +20,17 @@
         },
         xtick={1,5,10},
       ]
-      \addplot3[surf,mesh/rows=21,shader=interp] table[x=R,y=P,z=dT] 
-      {\relPath/10_Figures/TikZ/dT.dat};
+      % contourf
+      \addplot3[
+        surf,
+        mesh/rows=21,
+        shader=interp
+      ] table[x=R,y=P,z=dT] {\relPath/10_Figures/TikZ/dT.dat};
+      % lines
+       \addplot3[
+         mesh/rows=21,
+         mesh/cols=20,
+         contour gnuplot={levels={15,30,45,60},draw color=black},
+     ] table[x=R,y=P,z=dT] {\relPath/10_Figures/TikZ/dT.dat};
     \end{axis}
 \end{tikzpicture}

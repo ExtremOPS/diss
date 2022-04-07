@@ -27,7 +27,15 @@
         ytick={0,24,48,72},
         xtick={0,0.25,0.5},
       ]
+      % countourf
       \addplot3[surf,mesh/rows=51,shader=interp] table[x=a,y=beta,z=gamma] 
       {\relPath/10_Figures/TikZ/angles_mat.dat};
+      % lines
+       \addplot3[
+         mesh/rows=51,
+         mesh/cols=50,
+         contour gnuplot={levels={9,18,36,54},draw color=black},
+     ] table[x=a,y=beta,z=gamma] {\relPath/10_Figures/TikZ/angles_mat.dat};
+
     \end{axis}
 \end{tikzpicture}
