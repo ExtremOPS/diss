@@ -7,7 +7,8 @@ stages:
 pdf:
   stage: build
   script:
-    - apt install latexmk
+    - apt install latexmk -y
+    - apt install gnuplot -y
     - pdflatex main.tex
     - makeindex main.nlo -s nomencl.ist -o main.nls
     - latexmk -pdf -f main.tex
