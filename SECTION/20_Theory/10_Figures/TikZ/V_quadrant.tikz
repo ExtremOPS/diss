@@ -33,8 +33,8 @@
     group/xlabels at = edge bottom,
     group style = {
       group size = 2 by 2,
-      horizontal sep=4mm,
-      vertical sep=3mm,
+      horizontal sep=5mm,
+      vertical sep=5mm,
       xlabels at = edge bottom,
       ylabels at = edge bottom
     }]
@@ -51,7 +51,7 @@
       xticklabels={,,},
       colorbar right,
       every colorbar/.append style={
-        ylabel={Normalized Intensity $\normalized{\intensity}$},
+        ylabel={Normalized Voltage $\normalized{V}$},
         height=2*\pgfkeysvalueof{/pgfplots/parent axis height}+
         \pgfkeysvalueof{/pgfplots/group/vertical sep}}]
         \addplot3[surf,mesh/rows=99,shader=interp] table[x=x,y=y,z=V1] {\data};
