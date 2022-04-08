@@ -38,23 +38,23 @@
   at (F) {};
 
   % rays
-  \coordinate (I) at (28.6:2) ;
-  \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=above:{$I$}] at 
-  (I) {};
+  \coordinate (A) at (28.6:2) ;
+  \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=above:{$A$}] at 
+  (A) {};
   \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=right:{$N$}] at 
   (N) {};
-  \draw[directed,red] (2.5,1.3) -- node[below, midway] {$\power{i}{1}$} (I);
+  \draw[directed,red] (2.5,1.3) -- node[below, midway] {$\power{i}{1}$} (A);
   \draw[directed,red] (N) -- node[left,xshift=-0.1mm] {$\power{t}{2}$} 
   (258:2.8);
 
-  \draw[directed, blue] (I) -- node[right,midway,xshift=0.1mm] 
+  \draw[directed, blue] (A) -- node[right,midway,xshift=0.1mm] 
   {$\power{t}{1}=\power{i}{2}$} (N);
 
   \draw[directed, blue] (N) -- node[left,midway,xshift=-0.1mm] 
   {$\power{r}{2}=\power{i}{3}$} (131.4:2);
 
   % arcs
-  \draw[<-,>=stealth'] ([shift=(234:0.5)]I) arc (234:209:0.5);
+  \draw[<-,>=stealth'] ([shift=(234:0.5)]A) arc (234:209:0.5);
 
   \draw[<->,>=stealth'] ([shift=(55:0.5)]N) arc (55:105:0.5);
 
@@ -63,12 +63,12 @@
   \node[] at (254:1.22) {$\reflected^{2}$};
 
   % middle to hitting point
-  \draw[densely dotted] (O) -- node[below,pos=0.3] {$\R$} (I);
+  \draw[densely dotted] (O) -- node[below,pos=0.3] {$\R$} (A);
   \draw[densely dotted] (O) -- node[left,pos=0.3] {$\R$} (N);
-  \draw[red, dotted] (I) -- (F);
+  \draw[red, dotted] (A) -- (F);
   % surface normal
   \draw[|->,>=stealth'] (N) -- node[right,pos=0.9] {$\normalvector$} (260:3);
-  \draw[|->,>=stealth'] (I) --node[above,pos=0.9] {$\normalvector$} (28.6:3);
+  \draw[|->,>=stealth'] (A) --node[above,pos=0.9] {$\normalvector$} (28.6:3);
 
   % text
   \node[align=center, text width=15mm] at (-0.5,1) {{particle\\ $\ns$}};

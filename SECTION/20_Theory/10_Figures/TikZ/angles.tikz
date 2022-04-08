@@ -24,13 +24,13 @@
     at (O) {};
     \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=left:{$f$}] at 
     (A) {};
-    \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=above:{$I$}] 
+    \node[circle,fill=black,inner sep=0pt,minimum size=3pt,label=above:{$A$}] 
     at (I) {};
 
     % \draw (O) -- node[midway, below, xshift=1mm] {$R$} (I) -- node[above, 
     % midway, xshift=-1mm] {$y$} (A) -- node[midway, left] {$a\,R$} cycle;
     \draw (O) -- node[midway, below, xshift=1mm] {$R$} (I) -- (A) -- 
-    node[midway, left] {$a\,R$} cycle;
+    node[midway, left] {$\Rprime$} cycle;
 
     % \draw[dotted] (O) rectangle (I);
     \draw[dotted] (A) -- ++(0,1);
