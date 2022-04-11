@@ -1,6 +1,6 @@
 For the derivation and the discussion of the relevant forces coming from the 
-scattering of an axissymmetric incident acoustic field onto the object surface, 
-we will consider a viscous fluid and a rigid spherical object. The spherical 
+scattering of an axisymmetric incident acoustic field at the object surface, we 
+will consider a viscous fluid and a rigid spherical particle. The spherical 
 object is freely floating in the fluid and far away from any boundaries. We 
 choose this combination of fluid and object material because the viscous 
 property of the fluid causes the occurrence of the so-called acoustic streaming 
@@ -24,9 +24,11 @@ the particle (see \cref{fig:TA-deformed_circle})
 \end{equation}
 where $\normal(t)$ is the time dependent outward facing normal, repetitive 
 indices imply Einstein summation notation, and the angle bracket define the 
-time-average over one period $T$
+time-average over one period $T_{\MR{ex}}$ of the fundamental excitation 
+frequency of the acoustic field
 \begin{equation}
-  \timeaverage{\Box(t)} = \frac{1}{T}\,\int\limits_{0}^{T}\Box(t)\dd{t}.
+  \timeaverage{\Box(t)} = 
+  \frac{1}{T_{\MR{ex}}}\,\int\limits_{0}^{T_{\MR{ex}}}\Box(t)\dd{t}.
   \label{eq:TA-time-average}
 \end{equation}
 
@@ -48,7 +50,7 @@ For a viscous fluid the stress tensor is given as
 \end{equation}
 where $\muef$ is the fluid dynamic viscosity, $\mu_{\MR{B}}$ the fluid bulk 
 viscosity, $\vel_{i}$ the $i$-th component of the fluid velocity, $\pre$ the 
-acoustic pressure, and $\delta_{ij}$ the Kronecker delta.
+pressure, and $\delta_{ij}$ the Kronecker delta.
 
 For the stress tensor the fluid velocity $\vel_{i}$ and the acoustic pressure 
 $\pre$ must be computed. These four unknowns (three as $\vel_{i}$ and one as 
@@ -72,21 +74,22 @@ fluid
     \label{eq:TA-navierconservative}
 \end{equation}
 
-With the assumption, that the density $\density$ is constant in time and space 
-($\pdv{\density}{t} = 0$, $\pdv{\density}{x_{i}} =0$)
-\cref{eq:TA-navierconservative} can be rearranged to
-\begin{equation}
-  \density\left( \pdv{\vel_{i}}{t} + \vel_{i}\pdv{\vel_{j}}{x_{j}}\right) = 
-  \pdv{\stress}{x_{j}}.
-  \label{eq:TA-navier}
-\end{equation}
+% With the assumption, that the density $\density$ is constant in time and space 
+% ($\pdv{\density}{t} = 0$, $\pdv{\density}{x_{i}} =0$)
+% \cref{eq:TA-navierconservative} can be rearranged to
+% \begin{equation}
+  % \density\left( \pdv{\vel_{i}}{t} + \vel_{i}\pdv{\vel_{j}}{x_{j}}\right) = 
+  % \pdv{\stress}{x_{j}}.
+  % \label{eq:TA-navier}
+% \end{equation}
 
 This set of equations (\cref{eq:TA-massconservation,eq:TA-state} and 
-\cref{eq:TA-navierconservative} or \cref{eq:TA-navier}) solve the problem of a 
-free floating rigid particle in a viscous fluid but are impossible to solve 
-analytically without further simplification. Most common is the expansion of 
-the unknowns into a converging -- not guaranteed~\cite{Baasch2020} -- series of 
-increasing order
+\cref{eq:TA-navierconservative}) solve the problem of a free floating rigid 
+particle in a viscous fluid but are impossible to solve analytically without 
+further simplification. Most common is the expansion of the unknowns into a 
+converging 
+% -- not guaranteed~\cite{Baasch2020} --
+series of increasing order
 \begin{subequations}
 \begin{alignat}{4}
   \pre & = \zeOrder{\pre} & + \stOrder{\pre} & + \ndOrder{\pre} & + \ldots 
@@ -99,10 +102,10 @@ increasing order
   \ldots \label{eq:TA-per-vel}.
 \end{alignat}
 \end{subequations}
-This method of expanding the variables is called Pertubation expansion. The 
+This method of expanding the variables is called pertubation expansion. The 
 superscript $\Box^{(i)}$ indicates the $i$-th order of the respective 
-parameter. The zero order fields $\zeOrder{\Box}$ are defined to be constant in 
-space and time. Additionally, we assume no constant flow of the fluid and, 
+parameter. The zeroth order fields $\zeOrder{\Box}$ are defined to be constant 
+in space and time. Additionally, we assume no constant flow of the fluid and, 
 hence, the zeroth order of the velocity $\zeOrder{\vel_{i}} = 0$.
 
 This series expansion is useful because it is known that the ARF occurs due to 
@@ -126,8 +129,8 @@ will solve those two orders sequentially.
 \section{First Order Solution\label{sec:TA-firstorder}}
 
 By applying the Pertubation expansion to \cref{eq:TA-massconservation} and by 
-only collecting terms that are equal or less than first order the mass 
-conservation is
+only collecting terms that are equal to the first order the mass conservation 
+is
 \begin{equation}
   \pdv{\stOrder{\density}}{t} + 
   \zeOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{x_{i}} = 0.
@@ -135,7 +138,7 @@ conservation is
 \end{equation}
 
 With the same procedure the general Navier Stockes equation 
-(\cref{eq:TA-navier}) is
+(\cref{eq:TA-navierconservative}) is
 \begin{equation}
   \zeOrder{\density} \pdv{\stOrder{\vel_{i}}}{t} = 
   \pdv{\stOrder{\stress}}{x_{j}}.
@@ -263,13 +266,13 @@ by using $\epsilon_{kli}\,\pdv{x_{k}}\left( \pdv{\Box}{x_{l}} \right) = 0$
 called the viscous wavenumber and is defined as
 \begin{equation}
   k_{\MR{v}} = \frac{1 + \iu}{\delta} = \left( 1 + \iu \right)\, 
-  \sqrt{\frac{\omega\,\mu}{\zeOrder{\density}}}
+  \sqrt{\frac{\omega\,\zeOrder{\density}}{2\rhof}}
   \label{eq:TA-st-visc-wavenumber}
 \end{equation}
-where $\delta$ is also known as VBL thickness.
+where $\delta$ is also known as the VBL thickness.
 
 With the requirement that the solutions to \cref{eq:TA-st-phi,eq:TA-st-psi} 
-satisfy Sommerfeldt's radiation condition and using multipole expansion one 
+satisfy Sommerfeld's radiation condition and using multipole expansion one 
 finds
 \begin{equation}
   \phi_{\MR{sc}} = \exp\left( -\iu\omega t \right)\,
@@ -321,10 +324,10 @@ with $x=kR$ and $\xv=k_{\MR{v}}R$.
 In order to calculate the unknown constants $\alpha_{n}$ and $\beta_{n}$ one 
 needs to enforce the boundary condition of \cref{eq:TA-st-BC} for every $n$ 
 separately. Besides for $n=1$, $\vel_{\MR{p}}$ is always zero because the 
-multipole expansion for a rigid rigid particle has only a dipole contribution; 
-for $n=1$, $\vel_{\MR{p}}$ is given by \cref{eq:TA-st-particle-vel}.
+multipole expansion for a rigid particle has only a dipole contribution; for 
+$n=1$, $\vel_{\MR{p}}$ is given by \cref{eq:TA-st-particle-vel}.
 
-For $n=0$ and $n=1$ the constant $\alpha_{0}, \alpha_{1}, \beta_{0},$ and 
+For $n=0$ and $n=1$ the constants $\alpha_{0}, \alpha_{1}, \beta_{0},$ and 
 $\beta_{1}$ are
 \begin{subequations}
 \begin{align}
@@ -356,7 +359,7 @@ where $\trho = \sfrac{\rhof}{\density_{\MR{p}}}$ and
 where the prime $\Box^{\prime}$ indicates the differentiation, e.g. 
 $\dbessel{n}{\xv}=\dv{\bessel{n}{\xv}}{\xv}$.
 
-For $n > 1$, one finds the coefficient $\alpha_{n}$ and $\beta_{n}$ to be
+For $n > 1$, one finds the coefficients $\alpha_{n}$ and $\beta_{n}$ to be
 \begin{subequations}
 \begin{align}
   \alpha_{n} & =
@@ -414,23 +417,23 @@ the original publication and discussed it more extensively in
   \centering
   \begin{subfigure}[b]{\textwidth}
     \centering
-    \caption{Modes through $n=5$}
+    \caption{Modes up to $n=5$}
     % \input{\relPath/10_Figures/TikZ/SC_all.tikz}
     \includegraphics[]{External/SC_all.pdf}
     \label{fig:TA-SC_all}
   \end{subfigure}\\%
   \begin{subfigure}[b]{\textwidth}
     \centering
-    \caption{Single mode one $n=1$}
+    \caption{Single mode $n=1$}
     % \input{\relPath/10_Figures/TikZ/SC_mode1.tikz}
     \includegraphics[]{External/SC_mode1.pdf}
     \label{fig:TA-SC_mode1}
   \end{subfigure}
-  \caption{First order fluid velocity field at different time steps. For both 
-  plots the same scaling applies. a) all modes through $n=5$; b) single mode 
-one for $n=1$. Material properties for the particle and the fluid are given in 
-\cref{tab:TA-parameters,tab:TC-parameters}. The plotted data is generated with 
-the Pyhton module \emph{osaft}~\cite{FankhauserPython2022}.}
+  \caption{First order absolute fluid velocity field at different time steps. 
+  For both plots the same scaling applies. a) all modes up to $n=5$; b) single 
+  mode for $n=1$. Material properties for the particle and the fluid are given 
+  in \cref{tab:TA-parameters,tab:TC-parameters}. The plotted data is generated 
+  with the Pyhton module \emph{osaft}~\cite{FankhauserPython2022}.}
   \label{fig:TA-SC}
 \end{figure}
 
@@ -451,14 +454,14 @@ in the multipole expansion.
 \section{Second Order Solution\label{sec:TA-secondorder}}
 
 Similar to the first order equations one can collect all terms up to second 
-order. The general mass conservation (\cref{eq:TA-massconservation}) transform 
+order. The general mass conservation (\cref{eq:TA-massconservation}) transforms 
 to
 \begin{equation}
   \pdv{\ndOrder{\density}}{t} + \pdv{x_{i}}\left(\stOrder{\density}\,\stOrder{\vel_{i}} 
   + \zeOrder{\density}\,\ndOrder{\vel_{i}} \right) = 0
   \label{eq:TA-nd-massconservatio}
 \end{equation}
-and the second order Navier Stokes (\cref{eq:TA-navier}) becomes
+and the second order Navier-Stokes (\cref{eq:TA-navierconservative}) becomes
 \begin{equation}
   \stOrder{\density}\,\pdv{\stOrder{\vel_{i}}}{t} + \zeOrder{\density} 
   \pdv{\ndOrder{\vel_{i}}}{t} + 
@@ -466,7 +469,7 @@ and the second order Navier Stokes (\cref{eq:TA-navier}) becomes
   \pdv{\ndOrder{\stress}}{x_{j}}
   \label{eq:TA-nd-navier}
 \end{equation}
-where the second order tress tensor (\cref{eq:TA-stress}) is
+where the second order stress tensor (\cref{eq:TA-stress}) is
 \begin{equation}
   \ndOrder{\stress} = \muef\left[ \pdv{\ndOrder{\vel_{i}}}{x_{j}} + 
   \pdv{\ndOrder{\vel_{j}}}{x_{i}} \right] + \left[ \mu_{\MR{B}} - 
@@ -486,8 +489,8 @@ bounded, differentiable function is zero~\cite{Baasch2020}
   \right]} = 0,
   \label{eq:TA-avg-property}
 \end{equation}
-one can simplify the second order mass conservation and second order Navier 
-Stokes equation further to
+one can simplify the second order mass conservation and second order 
+Navier-Stokes equation further to
 \begin{equation}
   \pdv{x_{i}}\left( \timeaverage{\ndOrder{\vel_{i}}} \right) = 
   -\frac{1}{\zeOrder{\density}} \pdv{x_{i}}\left(\timeaverage{ 
@@ -531,7 +534,8 @@ reveals that the first term on the right hand side of
 \cref{eq:TA-avg-property} and the second term is non-zero.
 
 As for the first order field, the second order velocity can be decomposed into 
-a sum of the known incident field and the unknown scattered field
+a sum of a streaming velocity driven solely by the known incident field and an 
+unknown streaming velocity due to the scattered field
 \begin{equation}
   \timeaverage{\ndOrder{\vel_{i}}} =
     \timeaverage{\ndOrder{\vel_{i,\MR{in}}}} +
@@ -540,19 +544,24 @@ a sum of the known incident field and the unknown scattered field
 \end{equation}
 
 The time-averaged second order incident field 
-$\timeaverage{\ndOrder{\vel_{i,\MR{in}}}}$ is the motion of the fluid without 
-particle. For our assumption of a spherical particle in a unbounded fluid this 
-type of AS is called \emph{Eckart streaming} named after \cname{Eckart1948} who 
-the derived it for the first time. However, this type of AS is uncommon in MSAF 
-devices because the fluid is always in some kind of cavity. The AS pattern 
-that usually appears in MSAF devices is a combination of \emph{Schlichting 
-streaming} at the fluid-structure interface and \emph{Rayleigh streaming} in 
-the bulk of the fluid. This interaction of streaming fields is named after 
-\cname{Schlichting1932} and \cname{Rayleigh1894}, respectively, and 
-qualitatively depicted in \cref{fig:TA-acoustic_streaming} for a plane standing 
-pressure wave with a single nodal pressure plane. In order to visualize those 
-fields, one needs to perform a numerical simulation and solve for the 
-time-averaged fields.
+$\timeaverage{\ndOrder{\vel_{i,\MR{in}}}}$ is the time-averaged motion of the 
+fluid without particle. For our assumption of a spherical particle in a 
+unbounded fluid this type of AS is called \emph{Eckart streaming} named after 
+\cname{Eckart1948} who derived it for the first time. However, this type of AS 
+is uncommon in MSAF devices because the fluid is always in some kind of a 
+cavity. The AS pattern that usually appears in MSAF devices is a combination 
+of \emph{Schlichting streaming} at the fluid-structure interface and 
+\emph{Rayleigh streaming} in the bulk of the fluid. Rayleigh streaming is 
+driven by the boundary near Schlichting streaming. This interaction of the two 
+streaming fields is named after \cname{Schlichting1932} and 
+\cname{Rayleigh1894}, respectively, and qualitatively depicted in 
+\cref{fig:TA-acoustic_streaming} for a plane standing pressure wave with a 
+single pressure nodal plane. Note here, that this interaction can also occur at 
+the particle-fluid interface. Depending on the material parameter of the fluid 
+and the particle, the streaming contribution around the particle can become 
+large enough and substantially contribute to the total force~\cite{Baasch2019}. 
+In order to visualize any of the mentioned streaming fields, one needs to 
+perform a numerical simulation and solve for the time-averaged fields.
 
 
 \begin{figure}[tbp]
@@ -560,10 +569,11 @@ time-averaged fields.
   % \input{\relPath/10_Figures/TikZ/acoustic_streaming.tikz}
   \includegraphics[]{External/acoustic_streaming.pdf}
   \caption{Schlichting and Rayleigh acoustic streaming for an one-dimensional 
-    standing pressure wave. In the viscous boundary layer $\delta$ (darker 
+      standing pressure wave (blue line) in a rectangular fluid cavity of width 
+      $W$ and heigth $H$. Near the viscous boundary layer $\delta$ (darker 
   regions at the boundary) Schlichting streaming (\textcolor{red}{red arrows}) 
-is present and in the bulk of the fluid Rayleigh acoustic streaming 
-(\textcolor{olive}{olive arrows}).}
+  is present and in the bulk of the fluid Rayleigh acoustic streaming 
+  (\textcolor{olive}{olive arrows}).}
   \label{fig:TA-acoustic_streaming}
 \end{figure}
 
@@ -584,7 +594,7 @@ order Eulerian velocity to the negative Stokes drift
   =
   -
   \underbrace{
-    \timeaverage{\frac{1}{-\iu\omega}\,\vel_{i}\,\pdv{\vel_{i}}{x_{j}}}
+    \timeaverage{\frac{1}{-\iu\omega}\,\vel_{j}\,\pdv{\vel_{i}}{x_{j}}}
   }_{\text{Stokes drift}}
   \quad\text{at~}r=R.
   \label{eq:TA-nd-BCs}
@@ -592,8 +602,8 @@ order Eulerian velocity to the negative Stokes drift
 
 
 At this point we will not repeat the calculation to solve for the second order 
-velocity field. Interested reader are pointed to \cname{Doinikov1994Rigid} 
-Equation (4.1) and following.
+velocity field. Interested readers are pointed to \cname{Doinikov1994Rigid} 
+Equation (4.1) through (4.34).
 
 \begin{figure}
   \centering
@@ -625,13 +635,15 @@ is generated with the Python module \emph{osaft}~\cite{FankhauserPython2022}.}
 streaming field around the particle for}
 
 This time-averaged streaming field causes a force onto the particle in the 
-direction of the flow which is know as Stoke's drag force
+direction of the flow which is know as Stokes' drag force
 \begin{equation}
   \force^{\MR{drag}}_{i} = \gamma\,\timeaverage{\ndOrder{\vel_{i}}} = 
-  6\pi\,R\,\muef\,\timeaverage{\ndOrder{\vel_{i}}}
+  6\pi\,R\,\muef\,
+  \left( \timeaverage{\ndOrder{\vel_{i}}} - \vel_{i,\MR{p}} \right)
   \label{eq:TA-drag-force}
 \end{equation}
-where $\gamma$ is also called Stoke's drag coefficient.
+where $\gamma$ is also called Stokes' drag coefficient and $\vel_{i,\MR{p}}$ 
+the particle velocity.
 
 
 \section{Acoustic Radiation Force\label{sec:TA-ARF}}
@@ -639,40 +651,40 @@ where $\gamma$ is also called Stoke's drag coefficient.
 With the solution for the first and second order velocity field and hence for 
 the stress tensors of the respective orders one can calculate the ARF with 
 \cref{eq:TA-def-approx-ARF}. However, this formula and also the velocity fields 
-are cumbersome to compute. It is cumbersome because his formula as well as the 
-solutions to the velocity fields is valid for any axisymmetric incident 
-acoustic wave field and is not restricted to the ratios of the particle to the 
-VBL thickness $\sfrac{R}{\delta}$, the ratio of the particle 
-to the acoustic wavelength $\sfrac{R}{\wavelength_{\MR{a}}} = 
-\sfrac{\R\,f}{\cfl}$, and the ratio of the VBL thickness to 
-the acoustic wavelength $\sfrac{\delta}{\wavelength_{\MR{a}}}$.
+are cumbersome to compute. It is cumbersome because \cname{Doinikov1994Rigid} 
+formula as well as the solutions to the velocity fields are valid for any 
+axisymmetric incident acoustic wave field and are not restricted to the ratios 
+of the particle radius to the VBL thickness $\sfrac{R}{\delta}$, the ratio of 
+the particle radius to the acoustic wavelength $\sfrac{R}{\wavelength_{\MR{a}}} 
+= \sfrac{\R\,f}{\cfl}$, and the ratio of the VBL thickness to the acoustic 
+wavelength $\sfrac{\delta}{\wavelength_{\MR{a}}}$.
 
 \begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/lambda_mode.tikz}
   \includegraphics[]{External/lambda_mode.pdf}
-  \caption{Sketch of one dimensional standing pressure wave in fluid cavity 
-  with width $W$, an acoustic wavelength $\wavelength_{\MR{a}}$, and two types 
-of particle; red (negative contrast factor $\Phi$), gray (positive contrast 
-factor $\Phi$). The depicted mode is the \emph{lambda}-mode.}
+  \caption{Sketch of one-dimensional standing pressure wave (blue line) in a 
+      fluid cavity with width $W$, an acoustic wavelength 
+      $\wavelength_{\MR{a}}$, and two types of particle; red (negative contrast 
+      factor $\Phi$), gray (positive contrast factor $\Phi$). The depicted mode 
+  is the \emph{lambda}-mode.}
   \label{fig:TA-lambda_mode}
 \end{figure}
 
-But for most applications, firstly, the particle radius is much larger than 
-then VBL thickness $R \gg \delta$ and, secondly, the 
-acoustic wavelength is much larger than the particle radius 
-$\wavelength_{\MR{a}}\gg R \gg \delta$. The most common formula for those 
-restrictions and an one dimensional standing pressure wave is the derivation by 
-\cname{Gorkov1962}. He derives the ARF on a particle which is much smaller as 
-the acoustic wavelength ($\R\ll\lambda_{\MR{a}}$). In his derivations, he 
-models the fluid as well as the particle as an inviscid material. Hence, no 
-VBL can be formed The ARF is defined as the gradient of a 
-potential
+But for most applications, firstly, the particle radius is much larger than the 
+VBL thickness $R \gg \delta$ and, secondly, the acoustic wavelength is much 
+larger than the particle radius $\wavelength_{\MR{a}}\gg R \gg \delta$. The 
+most common formula for those restrictions and an one-dimensional standing 
+pressure wave is the derivation by \cname{Gorkov1962}. He derives the ARF on a 
+particle which is much smaller than the acoustic wavelength 
+($\R\ll\lambda_{\MR{a}}$). In his derivations, he models the fluid as well as 
+the particle as an inviscid compressible fluid. Hence, no VBL can be formed.  
+The ARF is defined as the negative gradient of a potential
 \begin{equation}
-  \force^{\MR{rad}}_{i} = \pdv{x_{i}}U^{\MR{rad}}
+  \force^{\MR{rad}}_{i} = -\pdv{x_{i}}U^{\MR{rad}}
   \label{eq:TA-gorkov}
 \end{equation}
-where $U^{\MR{rad}}$ is the so called \emph{Gor'kov potential}. It is defined 
+where $U^{\MR{rad}}$ is the so-called \emph{Gor'kov potential}. It is defined 
 as
 \begin{equation}
   U^{\MR{rad}} = \frac{4}{3}\,\pi\,R^{3}\left\{ 
@@ -702,14 +714,16 @@ is the so called dipole factor with $\tilde{\rho} = \sfrac{\rhop}{\rhof}$
   \label{fig:TA-comparision-ARF}
 \end{figure}
 
-For a plane standing wave (see \cref{fig:TA-plane_wave}) the radiation force 
-along the $\ey$ axis can be computed as~\cite{Bruus2012}
+For a plane standing wave, where the wave vector is aligned with $\ez$, (see 
+\cref{fig:TA-plane_wave}) the radiation force along the $\ez$ axis can be 
+computed as~\cite{Bruus2012}
 \begin{equation}
-  \force_{y}^{\MR{rad}} = 
-  4\pi\,\Phi(\tilde{\rho},\tilde{\kappa})\,k\,R^{3}\,E_{\MR{ac}}\,\sin(2ky)
+  \force_{z}^{\MR{rad}} = 
+  4\pi\,\Phi(\tilde{\rho},\tilde{\kappa})\,k\,R^{3}\,E_{\MR{ac}}\,\sin(2kz)
   \label{eq:TA-ARFy}
 \end{equation}
-with the so called acoustic energy density
+where $z$ denotes the position along $ez$ and with the so called acoustic 
+energy density
 \begin{equation}
   E_{\MR{ac}} = \frac{p_{\MR{a}}^{2}}{4\rhof\cfl^{2}}
   \label{eq:TA-Eac}
@@ -724,9 +738,10 @@ From \cref{eq:TA-ARFy} one can deduce the following interesting properties of
 the ARF for a plane standing wave: a) the ARF scales with the volume of the 
 spherical particle; b) the ARF is sinusoidal with double the period of the 
 incident acoustic wave; c) depending on the sign of $\Phi(\tilde{\kappa}, 
-\tilde{\rho})$ the ARF is flipped by $\pi$; d) particles with 
-$\Phi(\tilde{\kappa}, \tilde{\rho}) = 0$ are acoustically \emph{invisible} and 
-not displaced by the ARF.
+\tilde{\rho})$ the ARF changes the sign; d) particles with 
+$\Phi(\tilde{\kappa}, \tilde{\rho}) = 0$ are acoustically 
+$\wavelength_{\MR{a}}$
+\emph{invisible} and not displaced by the ARF.
 
 Particles with a positive acoustic contrast factor $\Phi(\tilde{\kappa}, 
 \tilde{\rho}) > 0$ are displaced by the ARF towards the pressure nodes (gray 
@@ -740,15 +755,15 @@ the pressure antinode (red particle in \cref{fig:TA-plane_wave}).
 
 \section{Acoustic Radiation Torque\label{sec:TA-VT}}
 
-\Cref{eq:TA-ARFy} is valid for an one dimensional pressure wave. However, for 
-the configuration of two one dimensional pressure waves which are orthogonal to 
+\Cref{eq:TA-ARFy} is valid for an one-dimensional pressure wave. However, for 
+the configuration of two one-dimensional pressure waves which are orthogonal to 
 each other a two dimensional pressure field is formed (see 
 \cref{fig:TA-viscous_torque}). With the assumption that the object dimension is 
 much smaller than the acoustic wavelength of both pressure fields separately, 
 the particles with positive acoustic contrast factor ( $\Phi>0$ ) will be 
-displaced into the pressure nodes of the two superimposing pressure waves and 
-the particles with negative acoustic contrast factor in the superimposed 
-pressure antinodes.
+displaced into the pressure nodes of the two superposing pressure waves and the 
+particles with negative acoustic contrast factor in the superposed pressure 
+antinodes.
 
 \begin{figure}[tbp]
   \centering
@@ -757,7 +772,7 @@ pressure antinodes.
   \caption{Sketch of a two dimensional orthogonal pressure field in a fluid 
     cavity of width $W$ and length $L$ with phase difference $\zeta$ and 
     acoustic excitation frequencies $\omega_{1}$ and $\omega_{2}$ along $W$ and 
-  $L$, respectively.  Particles gather in pressure nodes ($\Phi > 0$) along 
+  $L$, respectively. Particles gather in pressure nodes ($\Phi > 0$) along 
 respective direction and non-spherical particles rotate with angular velocity 
 $\Omega\left( \zeta \right)$.}
   \label{fig:TA-viscous_torque}
@@ -765,7 +780,7 @@ $\Omega\left( \zeta \right)$.}
 
 Besides the translation of the objects to the equilibrium pressure position 
 some of them will also rotate due to their non-spherical shape (see 
-\cref{fig:TA-viscous_torque}). There exist not an analytical closed form 
+\cref{fig:TA-viscous_torque}). There does not exist an analytical closed form 
 solution to the radiation torque exerted onto the objects~\cite{Lamprecht2017}.
 
  \begin{figure}
@@ -803,21 +818,21 @@ solution to the radiation torque exerted onto the objects~\cite{Lamprecht2017}.
 
 Not only non-spherical objects can rotate due to the acoustics, but also 
 spherical particles can rotate in an orthogonal two dimensional pressure wave 
-field if two conditions are met: 1) the viscous losses inside the viscous 
-boundary layer thickness $\delta$ around the particle are high enough; 2) the 
-excitation of the two pressure waves is phase shifted.
+field if two conditions are met: 1) the viscous losses inside the VBL $\delta$ 
+around the particle are high enough; 2) the excitation of the two pressure 
+waves is phase shifted.
 
 If the two conditions are met, then the by $\zeta$ phase shifted excitation 
 will lead to a continuous phase change of the pressure amplitude along the 
 surface of the particle (see \cref{fig:TA-VT}). This phase change will lead to 
-a local time-averaged streaming in the VBL of the particle 
-that initiate the rotation. The final rotational velocity is when the 
-accelerating local streaming flow equals the opposite directed Stoke's 
+a local time-averaged streaming in the VBL of the particle that initiates the 
+rotation. The final rotational velocity is when the particle accelerating 
+torque form the local streaming flow equals the opposite directed Stokes' 
 rotational drag torque~\cite{Lamprecht2017}. This rotational velocity is -- 
 amongst other parameters -- proportional to the phase shift $\zeta$. Therefore, 
 $\zeta + \sfrac{\pi}{2}$ will cause rotations opposite to a phase shift of 
 $\zeta$. For neighboring superimposed pressure nodes along $\ex$ or $\ey$ the 
-rotational direction is also opposite. We will discuss this kind particle 
+rotational direction is also opposite. We will discuss this kind of particle 
 rotation more extensively in \cref{ch:viscoustorque}.
 
 % \section{Python module for Acoustofluidic\label{sec:TA-python}}
