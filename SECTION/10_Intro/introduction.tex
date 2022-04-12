@@ -1,55 +1,57 @@
 \chapter{Introduction\label{ch:intro}}
 \section{Acoustofluidics}
 
-During the second half of this doctoral thesis the global pandemic of Corona 
+During the second half of this doctoral thesis the global pandemic of Covid-19 
 was ongoing. The symptoms and the course of the disease depends on the variant 
 of the virus. Fortunately up to now, all Corona variants were not highly 
 lethal. Nevertheless, the pandemic could not be stopped within 2 years 
-although researches managed to engineer working vaccinations against 
+although researchers managed to engineer working vaccinations against 
 it~\cite{Polack2020,Mahase2020,Voysey2021}. One of the reasons for that is, 
-that Covid-19 has a rather long incubation period where people often do not 
-feel sick, yet, but can already transmit the diseases. Especially in the early 
-stages of this pandemic the key for preventing further spreading was testing of 
-people.
+that Covid-19 has a rather long incubation period when people often do not 
+experience any symptoms, yet, but can already transmit the diseases. 
+Especially in the early stages of this pandemic the key for preventing further 
+spreading was testing of people.
 
 Besides finding an useful and working test procedure for detection of infected 
 people, another problem was the decentralized testing facilities. At the 
 moment, the most accurate test is a polymerase chain reaction (PCR) test that 
-is conducted in biomedical lab. These labs are already rare in the northern 
+is conducted in biomedical labs. These labs are already rare in the northern 
 hemisphere but almost non-existing in developing countries. With the invention 
-of rapid antigen tests that could be performed at home and by everybody without 
-a special training the testing was decentralized and multiplied. Having a rapid 
-test that is precise~\cite{Albert2021} and that gives results within about 
-\SI{15}{\minute} helps further spreading of the disease because it is much 
-faster than the \SI{24}{\hour} to \SI{48}{\hour} that a PCR test usually takes. 
-Also, the rapid antigen test is more convenient because it can be taken 
-everywhere and by anyone.
+of a rapid antigen test for Covid-19 that could be performed at home and by 
+everybody without a special training, the testing was decentralized and rapidly 
+increased in total number of persons tested. Having a rapid test that is 
+precise~\cite{Albert2021} and that gives results within about \SI{15}{\minute} 
+constrains further spreading of the disease because it is much faster than the 
+\SI{24}{\hour} to \SI{48}{\hour} that a PCR test usually takes. Also, the 
+rapid antigen test is more convenient because it can be taken everywhere and by 
+anyone.
 
 Corona is one good example that one of the keys for the prevention of local and 
-global spreading of any disease is fast and easy detection of ill people. 
+global spreading of any disease is fast and easy detection of infected people. 
 During the beginning of the Corona pandemic a major hindering factor was the 
 availability of biomedical testing facilities. Micro-scale acoustofluidics 
 (MSAF) offers the possibility to miniaturize whole biomedical labs onto a 
-single chip. This technology posses the ability to manipulate in a controlled 
-way objects that are immersed in a fluid. The two main forces causing the 
-manipulation is the so called acoustic radiation force (ARF) and the drag force 
-from acoustic streaming (AS). The manipulation is -- amongst others -- 
-lable-free and biocompatible and hence interesting for biological and medical 
-applications. The forces in MSAF devices can also be that strong such that 
-objects are stably trapped against background fluid flows. The effect of object 
-manipulation by means of acoustic waves is also know under the phrase 
-\emph{acoustic traps} (ATs).
+single chip. MSAF possesses the ability to manipulate micro-meter sized objects 
+in a controlled way that are immersed in a fluid. The two main forces causing 
+the manipulation is the so called acoustic radiation force (ARF) and the drag 
+force from acoustic streaming (AS). The manipulation is -- amongst others -- 
+label-free and biocompatible and hence interesting for biological and medical 
+applications. Stable trapping against background fluid flows is also possible 
+with MSAF devices. The effect of object manipulation and trapping by means of 
+acoustic waves is also know under the phrase \emph{acoustic traps} (ATs).
 
-The mini-labs are often referred to as \emph{Lab on a Chip} and are not bounded 
+The mini-labs are often referred to as \emph{Lab on a Chip} and are not bound 
 to a central testing facility because the final chip usually does not need the 
-working environment of biological or medical lab and can be therefore be used 
+working environment of a biological or medical lab and can therefore be used 
 everywhere. The target object size for MSAF devices is in the \si{\um} range; 
-therefore this technology is not yet suitable for viral diseases like Covid-19. 
-However, recently \cname{Gu2020} were able to also handle objects in the 
-\si{\nano\meter} range, \cname{Gerlt2022} successfully manipulated polystyrene 
-and metal particles with a radius of \SI{500}{\nm} in two dimensions in a glass 
-capillary, and \cname{Evander2015} captured platelet-derived microparticles of 
-\si{\nm} size from human plasma samples.
+therefore this technology is not yet suitable for viral diseases like Covid-19 
+where the virus has a diameter between \SI{60}{\nm} to 
+\SI{140}{\nm}~\cite{Bar-On2020}. However, recently \cname{Gu2020} were able to 
+also handle objects in the \si{\nano\meter} range, \cname{Gerlt2022} 
+successfully manipulated polystyrene (PS) and metal particles with a radius of 
+\SI{500}{\nm} in two dimensions in a glass capillary, and \cname{Evander2015} 
+captured platelet-derived microparticles of \si{\nm} size from human plasma 
+samples.
 
 MSAF is a rather new technology that is also depending on the advances in 
 microfabrication. Up to now, the fabrication process of MSAF devices is mainly 
@@ -57,19 +59,19 @@ done in clean rooms offering the possibility to fabricate very precisely
 \si{\um}- but also \si{\nm}-structures. However, clean rooms are very expensive 
 and not available everywhere. In addition, the needed know-how for the 
 production is high. More recently, there emerges the trend to investigate also 
-other fabrication techniques like using standard glass capillary as fluid 
-cavities~\cite{Wiklund2001,Hammarstrom2010,Hammarstrom2012,Mishra2014,Gralinski2014,Gerlt2022}, 
-producing MSAF devices with rapid prototyping~\cite{Adams2012}, using micro 
+other fabrication techniques: using standard glass capillary as fluid 
+cavities~\cite{Wiklund2001,Hammarstrom2010,Hammarstrom2012,Mishra2014,Gralinski2014,Gerlt2022}; 
+producing MSAF devices with rapid prototyping~\cite{Adams2012}; using micro 
 machined fluid channels in aluminum with Polydimethylsiloxane (PDMS) 
-coverslips~\cite{Gautam2018}, building a glass-PDMS-glass chip with standard 
-glass coverslips~\cite{Xu2019}, directly machined fluid channels into Poly 
-Methyl Methacrylate (PMMA)~\cite{Harris2012}, building microfluidic devices out 
-of paper~\cite{Martinez2010}, bonding two parts out of thermoplastics together 
-to create closed microfluidic structures~\cite{Mueller2013}, or, last but not 
+coverslips~\cite{Gautam2018}; building a glass-PDMS-glass chip with standard 
+glass coverslips~\cite{Xu2019}; directly machined fluid channels into Poly 
+Methyl Methacrylate (PMMA)~\cite{Harris2012}; building microfluidic devices out 
+of paper~\cite{Martinez2010}; bonding two parts out of thermoplastics together 
+to create closed microfluidic structures~\cite{Mueller2013}; or, last but not 
 least, directly using devices made out of PMMA~\cite{Gonzalez2015,Yang2017}.
 
 At the moment MSAF is at a point in time where the citations with the keyword 
-\emph{acoustocluidics} increased by one order of magnitude over the past 10 
+\emph{acoustofluidics} increased by one order of magnitude over the past 10 
 years (2012-2021)~\cite{Novotny2021} and where the research turns from pure 
 observations of MSAF phenomena like particle 
 manipulation~\cite{Wiklund2012a,Laurell2007,Collins2016,Gedge2012,Ding2012b,Cetin2016b,Aubert2016,Novotny2021}, 
@@ -82,34 +84,34 @@ technology for bio(-medical) are:
 MSAF is already used (1) as a handling toolbox for cancer 
 research~\cite{Antfolk2015,Wu2021,Wang2020,Nguyen2021}, (2) for the analysis of 
 single cells suspended in \si{\nano\liter} droplets~\cite{Gerlt2020a}, (3) for 
-the approximation of the compressibility of \emph{Caenorhabditis 
+the measurement of the compressibility of \emph{Caenorhabditis 
 elegans}~\cite{Baasch2018} which is a model organism frequently used for 
 biomedical studies, (4) for the focusing of metal particles to possibly 
 increase the resolution of three dimensional metal printing~\cite{Gerlt2022}, 
 (5) as mixer of fluids utilizing 
 AS~\cite{Patel2014,Ozcelik2014,Bachman2020,Zhang2021}, (6) for single cell 
 analysis of HeLa cancer cells by controlled acoustic induced 
-rotation~\cite{Laeubli2021}, and last but not least (7) as a tool for 
-continuous exchange of medium for bacteria~\cite{Gerlt2021}.
+rotation~\cite{Laeubli2021}, and (7) as a tool for continuous exchange of 
+medium for bacteria~\cite{Gerlt2021}.
 
-Often the limiting factor of MSAF applications is the size of the object. One 
-reason is that the drag force from AS scales linearly with the object 
-cross-sectional area subjected to the fluid flow and the ARF scales linearly 
-with the object volume. For spherical objects the critical radius where those 
-two force are equal in magnitude is about \SI{1}{\um} for water-like fluids. 
-Bigger objects are dominated by the ARF and smaller by the drag force from AS. 
-In most cases AS is undesired because the shape and the occurrence of the flow 
-is hard to control. Therefore, a good understanding of the pressure and the 
-fluid flow field inside the devices is key for further advances in MSAF 
-applications.
+Often the limiting factor of MSAF applications is the size of the 
+object~\cite{Barnkob2012}. One reason is that the drag force from AS scales 
+linearly with the object radius and the ARF scales linearly with the object 
+volume. For spherical objects made out silicone-dioxide (SiO$_{2}$) the 
+critical radius where those two force are equal in magnitude is about 
+\SI{1}{\um} for water-like fluids and a typical excitation frequency in the low 
+\si{\mega\hertz} range. Bigger objects are dominated by the ARF and smaller by 
+the drag force from AS. In most cases AS is undesired because the 
+directionality and the occurrence of the flow is hard to control. Therefore, a 
+good understanding of the pressure and the fluid flow field inside the devices 
+is key for further advances in MSAF applications.
 
 \section{Optical Trapping for Acoustics}
 
 With the Noble Prize winning technology of optical trapping by Arthur 
 Ashkin~\cite{Ashkin1978,Ashkin1987,Ashkin2002,Ashkin1986,Ashkin1992,Ashkin1997} 
-there exist the possibility to combine the acoustic and optical trap (OT) 
-together to gain further understanding of the micromeachnics inside an 
-acoustocluidic device.
+the possibility exists to combine the acoustic and optical trap (OT) to gain 
+further understanding of the physics inside an acoustofluidic device.
 
 \cyear{Thalhammer2011} were the first to combine a \SI{1064}{\nm} OT with an 
 AT. They designed their OT such that it is a low numerical aperture (NA) OT 
@@ -123,7 +125,7 @@ used the OT as a force sensor for the AT to measure the acoustic forces acting
 on non-spherical objects.
 
 In a similar way, \cname{Bassindale2014}~(\citeyear{Bassindale2014}) used a 
-\SI{1064}{\nm} single beam high NA OT as force sensor on \SI{5}{\um} silica 
+\SI{1064}{\nm} single beam high NA OT as a force sensor on \SI{5}{\um} silica 
 particles. Furthermore, they split the measured force on the particle into a 
 contribution from AS and from the ARF. They validated their measurements by 
 comparing it to the forces retrieved from particle image velocimetry.
@@ -136,13 +138,13 @@ fine spatial resolution of the OT. Additionally, they measured the forces
 subjected to the microbubble for varying parameters of the AT and OT (acoustic 
 frequency, excitation voltage, laser power, beam diameter).
 
-\cyear{Lakaemper2015} build a \SI{980}{\nm} single beam high NA OT to 
-characterize in two dimensions the time-averaged forces on \si{\um} particles 
-in a standing pressure wave field. They measured the acoustic forces at 
-different positions in the standing pressure wave on a single particle while 
+\cyear{Lakaemper2015} built a \SI{980}{\nm} single beam high NA OT to 
+characterize in two dimensions the time-averaged acoustic forces on \si{\um} 
+particles in a standing pressure wave field. They measured the acoustic forces 
+at different positions in the standing pressure wave on a single particle while 
 sweeping the frequency. They compared their results with numerical simulations 
 and found good agreement. With the measured force amplitudes they were also 
-able to approximate the acoustic pressure inside the acoustofluidic device.
+able to measure the acoustic pressure inside the acoustofluidic device.
 
 \cyear{Lamprecht2016} extended the work of~\cite{Lakaemper2015} to measure with 
 a \SI{785}{\nm} single beam high NA OT the acoustic forces in all three spatial 
@@ -152,17 +154,17 @@ same experimental settings the acoustic forces with two different sizes of
 particle in order to split the total measured forces into linear contributions 
 from AS and cubic contributions due to the ARF. They also used two devices with 
 different channel widths (\SI{2}{\mm} and \SI{4}{\mm}) to show the scaling of 
-the pressure wavelength with the channel dimension.
+the acoustic wavelength with the channel width.
 
 \cyear{Thalhammer2016} used a \SI{1064}{\nm} single beam high NA OT with a 
-layered AT to measure primarily the axial forces on a particle. Furthermore, 
-they investigate the influence of the oil immersion layer of the lens on to the 
-acoustic resonances and defined design guides for limiting the perturbations on 
-the acoustic field of the immersion oil. Their force measurement technique is 
-independent of the particle shape allowing force measurements of arbitrary 
-shaped small objects. Additionally, their driving acoustic transducer is 
-transparent for the laser wavelength such that it can be placed in close 
-proximity of the fluid chamber.
+layered AT to measure primarily the axial acoustic forces on a particle. 
+Furthermore, they investigated the influence of the oil immersion layer of the 
+lens on to the acoustic resonances and defined design guides for limiting the 
+perturbations on the acoustic field of the immersion oil. Their force 
+measurement technique is independent of the particle shape allowing force 
+measurements of arbitrary shaped small objects. Additionally, their driving 
+acoustic transducer is transparent for the laser wavelength such that it can be 
+placed in close proximity of the fluid chamber.
 
 
 \section{Advances in Streaming Suppression}
@@ -176,13 +178,13 @@ applications.
 \cyear{Hoyos2013} demonstrated that a pulsed ultrasound excitation can reduce 
 and suppress AS while the ARF is still present. They studied in two MSAF 
 devices the effects of different pulse settings to the steady-state streaming 
-velocity and the ARF. Both geometries yield similar results showing that is not 
-geometry dependent. To visualize both effects simultaneously they used 
-\SI{800}{\nm} and \SI{15}{\um} latex particles. The smaller ones are dominated 
-by the drag force from AS and the larger one by the ARF. In addition, they 
-could show that the secondary forces, like particle-particle interaction, are 
-still present while pulsing which allows trapping of small particles with 
-larger ones as seed particles.
+velocity and the ARF. Both device designs yielded similar results showing that 
+it is not geometry dependent. To visualize both effects simultaneously they 
+used \SI{800}{\nm} and \SI{15}{\um} latex particles. The smaller ones are 
+dominated by the drag force from AS and the larger ones by the ARF. In 
+addition, they could show that the secondary forces, like particle-particle 
+interaction, are still present while pulsing which allows trapping of small 
+particles with larger ones as seed particles.
 
 \cyear{Castro2016} extended their study of~\cite{Hoyos2013} to investigate the 
 effects of a pulsed excitation on the steady-state AS while also changing other 
@@ -193,20 +195,21 @@ showed that there are parameter settings for which latex particles smaller than
 \cyear{Karlsen2018a} performed a theoretical, numerical, and experimental study 
 on the effects of density and compressibility inhomogeneities in the fluid on 
 the boundary driven AS. The fundamental idea is to utilize the different time 
-scales for the build up of the ARF and AS. They realise the inhomogeneities in 
-the device by layering water with two sheet flows of 20\% iodixanol at the 
+scales for the build up of the ARF and AS. They realised the inhomogeneities in 
+the device by layering water with two sheath flows of 20\% iodixanol at the 
 respective channel walls. With this layered fluid configuration they are able 
 to suppress AS in the middle of the device almost completely. The numerical 
 model verifies their experimental results.
 
 \cyear{Bach2020} performed a numerical study with the objective to optimize the 
 cross-section of the fluid cavity to reduce streaming while still allowing ARF 
-driven particle manipulation. With the optimized shaped, they are theoretically 
+driven particle manipulation. With the optimized shape, they are theoretically 
 able to suppress streaming in the bulk of the homogeneous fluid by two orders 
-of magnitude. For a rectangular cross-section the minimal particle radius of a 
-polystyrene particle in water is around \SI{1}{\um} before the drag force from 
-AS dominates over the ARF. With their optimized shape they reduce the minimal 
-particle radius down to \SI{0.15}{\um}.
+of magnitude. For a rectangular cross-section and an acoustic frequency of 
+\SI{1.95}{\mega\hertz} the minimal particle radius of a PS particle in water is 
+around \SI{1}{\um} before the drag force from AS dominates over the ARF. With 
+their optimized shape they reduce the minimal particle radius down to 
+\SI{0.15}{\um}.
 
 Most recently in 2021, \cname{Winckelmann2021} investigated theoretically and 
 numerically the effects of alternating current electroosmosis (ACE) to the 
@@ -215,26 +218,26 @@ streaming from ACE is also boundary driven. By analysing the form of the ACE
 streaming they are able to suppress the streaming in the bulk of the fluid by 
 two orders of magnitude. The applied voltage for the ACE streaming to 
 successfully suppress the AS is only about \SI{125}{\milli\volt}. In addition, 
-the bulk of the fluid is charge neutral and therefore no electric charges could 
-harm possible living objects within the system.
+the bulk of the fluid is of neutral charge and therefore no electric charges 
+could harm possible living objects within the system.
 
 These five publications show the rising interest in the topic of acoustic 
-streaming suppression and the necessity to further investigate its origin and 
-build up experimentally.
+streaming suppression and the necessity to further investigate AS; especially 
+its origin and its build up experimentally.
 
 \section{Viscous Torque induced Spherical Particle Rotation}
 
-\cyear{Lamprecht2015} investigated the final rotational velocity of spherical 
-particles that are within two orthogonal standing pressure wave fields. In 
-addition to being orthogonal to each other, the phase of the acoustic 
-excitation was shifted such that a continuous change of pressure phase is 
-present at the circumference of the particle. They call this driving torque 
-acoustic viscous torque. For the limitation that the radius of the particle is 
-much larger than the viscous boundary layer (VBL) thickness $\R\gg\delta$ they 
-derived an analytical formula for the steady-state rotational speed where the 
-driving acoustic viscous torque equals the opposite directed viscous drag 
-torque. They validated their findings with experiments of different sized 
-particles in water.
+\cyear{Lamprecht2015} investigated the equilibrium rotational velocity of 
+spherical particles that are within two orthogonal standing pressure wave 
+fields of same frequency. In addition to being orthogonal to each other, the 
+phase of the acoustic excitation was shifted such that a continuous change of 
+pressure phase is present at the circumference of the particle. They call this 
+driving torque acoustic viscous torque. Under the assumption that the radius of 
+the particle is much larger than the viscous boundary layer (VBL) thickness 
+$\R\gg\delta$ they derived an analytical formula for the steady-state 
+rotational speed where the driving acoustic viscous torque equals the 
+oppositely directed viscous drag torque. They validated their findings with 
+experiments of different sized particles in water.
 
 \cyear{Hahn2016} conducted a numerical study on spherical and non-spherical 
 particles that are subjected to the same configuration of two standing pressure 
@@ -246,7 +249,7 @@ unsurprisingly, large deviations between the numerical and analytical model for
 the regime $\R\leq\delta$. However, they could not validate their numerical 
 findings with an experiments because it was not possible to measure the high 
 steady-state rotational speeds of small particles with the property 
-$\R\leq\delta$.
+$\R\leq\delta$ due to the required minimal frame rate of the camera.
 
 \section{Scope of this Thesis}
 
@@ -255,24 +258,24 @@ detection system in the back focal plane. Although the OT is based on an
 optical effect, the detection is performed by photo detectors which convert the 
 incoming laser intensity to a voltage. Fast measurements of voltages with time 
 resolutions smaller than $\Delta t < \SI{1}{\us}$ are straightforward and 
-inexpensive. Here, we utilize the fast measuring capabilities property of our 
-OT to measure for the first time two MSAF phenomena (one transient MSAF 
-phenomena and one steady-state MSAF phenomena) that cannot be measured 
-optically otherwise.
+inexpensive. Here, we utilize the fast measuring capabilities of our OT to 
+measure for the first time two MSAF phenomena (one transient MSAF phenomenon 
+and one steady-state MSAF phenomenon) that cannot be measured optically 
+otherwise.
 
-The transient phenomena is the build up of the acoustic radiation force and the 
-drag force from acoustic streaming for a continuous and pulsed acoustic 
-excitation. And the steady-state phenomena is the rotational speed measurement 
-of spherical particles driven by the acoustic viscous torque where the particle 
-radius is as big as the VBL thickness $\R\approx\delta$.
+The transient phenomenon is the build up of the acoustic radiation force and 
+the drag force from acoustic streaming for a continuous and pulsed acoustic 
+excitation. And the steady-state phenomenon is the rotational speed 
+measurement of spherical particles driven by the acoustic viscous torque where 
+the particle radius is as big as the VBL thickness $\R\approx\delta$.
 
 \section{Outline of Thesis\label{sec:I-outline}}
 
 This thesis is a cumulative thesis. It consists out of three peer-reviewed 
-published papers surrounded by a extended introduction at the beginning and by 
+published papers surrounded by an extended introduction at the beginning and by 
 a summarizing discussion and outlook at the end.
 
-We describe in this manuscript the combination of an optical trap with and 
+We describe in this manuscript the combination of an optical trap with an 
 acoustical trap. Therefore, in \cref{ch:ac-theory} we discuss and explain the 
 fundamental acoustic theory. The following \cref{ch:optic-theory} discusses the 
 optical theory relevant in the context of this thesis. The whole optical 
@@ -292,7 +295,7 @@ differently.
 In \cref{ch:viscoustorque} the OT is utilized for measuring the rotational 
 speed of spherical particles in a viscous fluid driven by two phase-shifted 
 orthogonal standing pressure waves. The combination of high viscosity and small 
-particles lead to a VBL thickness in the order of the particles radius itself.  
+particles leads to a VBL thickness in the order of the particle radius itself. 
 We validate the effects of the viscosity on the rotational speed in this regime 
 and show that a theoretical formula is overestimating the rotational speed by 
 more than one order of magnitude.
