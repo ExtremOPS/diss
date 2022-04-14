@@ -25,26 +25,27 @@
 
 % roman alphabet
 \nomenR[\m]{\R}{particle radius}
-\nomenR[\per\m]{\wavenumber, \wavevector}{wavenumber}
+\nomenR[\per\m]{\wavenumber_{i}, \wavevector}{wavenumber}
 \nomenR[\watt\per\square\m]{\intensity}{laser intensity}
 \nomenR[\hertz]{f, \fex}{excitation frequency}
 \nomenR[\s]{t}{time}
-\nomenR[\m\per\s]{\speed}{speed of light}
+\nomenR[\m\per\s]{\tilde{\speed}}{speed of light}
 \nomenR[\pascal]{\pre}{pressure}
 \nomenR[\m\per\s]{\speed_{\Box}}{speed of sound}
 \nomenR[\watt]{P}{laser power}
 \nomenR{\ex, \ey, \ez}{unit vector along $x, y,$ and $z$ coordinate}
-\nomenR{\refraction}{index of refraction}
+\nomenR{\refraction_{\Box}}{index of refraction}
 \nomenR{\normal, \normalvector}{surface normal}
 \nomenR[\m\per\s]{\vel_{i}, \velvector}{fluid velocity}
-\nomenR[\newton]{\force^{\MR{rad}}, \FARF}{acoustic radiation force}
-\nomenR[\newton]{\force^{\MR{drag}}, \FAS}{drag force from acoustic streaming}
+\nomenR[\newton]{\force^{\MR{rad}_{i}}, \FARF}{acoustic radiation force}
+\nomenR[\newton]{\force^{\MR{drag}_{i}}, \FAS}{drag force from acoustic 
+streaming}
 \nomenR{\fresnelR}{Fresnel coefficient of reflection}
 \nomenR{\fresnelT}{Fresnel coefficient of transmission}
 \nomenR{\cNA}{numerical aperture value}
 
 % greek alphabet
-\nomenG[\radian]{\theta}{ray angle measured to surface normal}
+\nomenG[\radian]{\theta_{\Box}}{ray angle measured to surface normal}
 \nomenG[\radian]{\lbeta}{half cone laser angle}
 \nomenG[\per\m]{\alpha}{optical absorption coefficient}
 \nomenG[\m]{\vbl}{viscous boundary layer thickness}
@@ -59,6 +60,7 @@
 \newcommand{\boxsubscript}[1]{\Box_{\mathrm{#1}}}
 % sub and superscripot
 \nomenS{\boxsubscript{f}}{fluid quantity}
+\nomenS{\Box_{i}}{$i$-th coordinate direction of Cartesian system}
 \nomenS{\boxsubscript{F}}{force quantity}
 \nomenS{\boxsubscript{l}}{laser quantity}
 \nomenS{\boxsubscript{i}, \boxsubscript{r}, \boxsubscript{t}}{incident, 
@@ -75,14 +77,14 @@ reflected, and transmitted quantity}
 \nomenO{\curl\Box}{curl of $\Box$}
 \nomenO{\laplacian\Box}{laplacian of $\Box$}
 \nomenO{\order{\Box}}{order of $\Box$}
-\nomenO{\real{\{\Box}\}}{real part of $\Box$}
-\nomenO{\imaginary{\{\Box}\}}{imaginary part of $\Box$}
+% \nomenO{\real{\{\Box}\}}{real part of $\Box$}
+% \nomenO{\imaginary{\{\Box}\}}{imaginary part of $\Box$}
 \nomenO{\conj{\Box}}{complex conjugate of $\Box$}
 
 % abbreviations
 \nomenA{ARF}{acoustic radiation force}
 \nomenA{AS}{acoustic streaming}
-\nomenA{MSAF}{micro-scale Acoustofluidics}
+\nomenA{MSAF}{micro-scale acoustofluidics}
 % \nomenA{PMMA}{Poly Methyl Methacrylate}
 % \nomenA{PDMS}{Polydimethylsiloxane}
 \nomenA{US}{ultrasound}
