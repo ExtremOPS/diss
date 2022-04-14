@@ -1,5 +1,6 @@
 \tikzsetnextfilename{viscous_torque_0}
-
+{
+  \small
 \pgfplotsset{%
     colormap={bwr}{
       color=(blue);
@@ -11,7 +12,7 @@
 \begin{tikzpicture}
   \begin{axis}[view={0}{90},
       xlabel={ $\varphi$ [rad] },
-      ylabel={Period  $t\cdot f$ [-]},
+      ylabel={Period  $t\cdot\fex$ [-]},
       xtick={0,3.1415,6.28},
       xticklabels={0,$\pi$,$2\,\pi$},
       height=50mm,
@@ -31,3 +32,4 @@
 
   \end{axis}
 \end{tikzpicture}
+}
