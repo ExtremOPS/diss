@@ -8,9 +8,9 @@ the physical properties are continuous in the neighbourhood of the point of
 interest~\cite{Born1980Ch1}
 \begin{subequations}
   \begin{align}
-    \curl{\vb{H}} - \frac{1}{c}\pdv{t}\vb{D} &=\frac{4\pi}{c}\vb{J} 
-    \label{eq:TO-ampere} \\
-    \curl{\vb{E}} - \frac{1}{c}\pdv{t}\vb{B} &=  0
+    \curl{\vb{H}} - \frac{1}{\tilde{\speed}}\pdv{t}\vb{D} 
+    &=\frac{4\pi}{c}\vb{J} \label{eq:TO-ampere} \\
+    \curl{\vb{E}} - \frac{1}{\tilde{\speed}}\pdv{t}\vb{B} &=  0
     \label{eq:TO-faraday} \\
     \div{\vb{D}} &= 4\pi\rho_{\MR{E}}
     \label{eq:TO-gauss} \\
@@ -18,8 +18,8 @@ interest~\cite{Born1980Ch1}
     \label{eq:TO-gauss-mag}
   \end{align}
 \end{subequations}
-with $c$ being the speed of light and $\rho_{\MR{E}}$ the total electric charge 
-density. Although, 
+with $\tilde{\speed}$ being the speed of light and $\rho_{\MR{E}}$ the total 
+electric charge density. Although, 
 \cref{eq:TO-ampere,eq:TO-faraday,eq:TO-gauss,eq:TO-gauss-mag} describe the 
 behavior of light to great extent, it is often more convenient to think of 
 light as a collection of single rays. In the limit of a vanishing small light 
@@ -31,7 +31,7 @@ Our laser has a wavelength of $\lal=\SI{785}{\nm}$ and the smallest object we
 use has a radius of $R=\SI{1.03}{\um}$. The ratio $\nicefrac{2R}{\lal}\approx 
 2.6$ is close to unity and the application of ray optics in our case might be 
 questionable. However, previous work with our optical trap
-\cite{Lakaemper2015,Lamprecht2016,Lamprecht2017} has shown that the ray 
+\cite{Lakaemper2015,Lamprecht2016,Lamprecht2017} have shown that the ray 
 approximation is a reasonable approach for our setup.
 % In addition, one has to differentiate between quantitative and qualitative 
 % analysis. For most results in our thesis we use our optical trapping setup as 
@@ -59,29 +59,29 @@ complete overview of our setup with a list and explanation of every used part
 is available in~\cite{Lamprecht2017}. In the following, we will highlight the 
 path of the light from the laser source to the QPDs.
 
-Our laser diode emits a tightly confined laser beam in the near-infrared regime 
-(non-visible) with a wavelength of $\lal=\SI{785}{\nm}$ and a maximal power of 
-$P=\SI{200}{\milli\watt}$ and with a transverse electromagnetic mode of order 
-00 (TEM$_{00}$). This laser profile is axisymmetric with respect to the light 
-propagation direction and can be visualized with a rotating Gaussian bell 
-curve. Next, the beam is expanded such that it is much larger than the opening 
-of the microscope housing. The magnitude of the trapping forces are 
-proportional to the laser intensity of the beam. The biggest contribution to 
-the total trapping force stems from the outer parts of the beam because there 
-greater incident angles are present. Therefore, the beam is broadened before 
-guiding it to the focusing lens. The opening of the microscope is overfilled by 
-the broadened beam such that the laser intensity is cutoff and can be 
-approximated with a flat-top profile. Hence, every light ray (also the ones 
-contributing most to the total trapping force) carry the same power.
+Our laser diode emits a tightly confined laser beam in the non-visible 
+near-infrared regime with a wavelength of $\lal=\SI{785}{\nm}$ and a maximal 
+power of $P=\SI{200}{\milli\watt}$. This laser profile is axisymmetric with 
+respect to the light propagation direction and can be visualized with a 
+rotating Gaussian bell curve (TEM$_{00}$). Next, the beam is expanded such 
+that it is much larger than the opening of the microscope housing. The 
+magnitude of the trapping forces are proportional to the laser intensity of the 
+beam. The biggest contribution to the total trapping force stems from the outer 
+parts of the beam because greater incident angles are present there. Therefore, 
+the beam is broadened before guiding it to the focusing lens. The opening of 
+the microscope is overfilled by the broadened beam such that the laser 
+intensity is cutoff and can be approximated with a flat-top profile. Hence, 
+every light ray (also the ones contributing most to the total trapping force) 
+carry the same power.
 
 The next step is the focusing of the beam with a high numerical aperture (NA) 
 oil immersion lens. At the focal point, the actual trapping of the particle 
 occurs. If also the position of the trapped object relative to the focal point 
-is of interest and not only the trapping of particles, the laser beam after the 
-trapping needs to be investigated further. The relative movement of the 
-particle within the trap changes the path of the beam ever so slightly that 
-this deflection contains the necessary information for the movement analysis. 
-In order to image the movement in all three spatial directions the beam is 
+is of interest and not only the trapping of particles, the laser beam needs to 
+be investigated further after the trapping. The relative particle movement 
+within the trap changes the path of the beam ever so slightly that this 
+deflection contains the necessary information for the movement analysis. In 
+order to image the movement in all three spatial directions the beam is 
 collimated again by the condensor lens after it passed by the particle and is 
 filtered to reduce its total intensity to prevent damage of the QPDs. Before 
 the beam is focussed, it is split into two parts because the axial movement 
@@ -94,18 +94,17 @@ certain quadrants it is possible to retrieve the information about the movement
 in each direction separately. For the axial direction the opening of the QPDz 
 is overfilled. An axial movement of the particle causes a change of total 
 intensity on this QPD. By measuring the QPDz total intensity we have the 
-information about the relative movement of the particle within the 
-trap~\cite{Felgner1995a}. After the calibration of the OT the measured 
-voltages that are proportional to the particle movement can be converted to the 
-physical unit meter. The calibration process itself is not relevant for this 
-thesis but is available in~\cite{Lamprecht2017}. A discussion of different 
-calibration options is available from 
-\citeauthor{Svoboda1994}~\cite{Svoboda1994} and 
+information about the relative particle movement within the trap along the 
+axial $\ez$-direction~\cite{Felgner1995a}. For a conversion of the measured 
+voltage to meter the OT needs to be calibrated. The calibration process itself 
+is not relevant for this thesis but is described extensively 
+in~\cite{Lamprecht2017}. A discussion of different calibration options is 
+available from \citeauthor{Svoboda1994}~\cite{Svoboda1994} and 
 \citeauthor{Jun2004}~\cite{Jun2004}.
 
-In the following, we will always assume water as fluid medium and Silicon 
-Dioxide (SiO$_{2}$) as particle material. All calculations are also applicable 
-to other fluid-particle material combinations with adapted material parameters.
+In the following, we will always assume water as fluid medium and silicon 
+dioxide (\SiO) as particle material. All calculations are also applicable to 
+other fluid-particle material combinations with adapted material parameters.
 
 \section{Ray Optics\label{sec:TO-rayoptics}}
 
@@ -187,7 +186,7 @@ possible to define the most important relation in the ray optics regime:
 This law connects the angle of incident $\incident$ with the transmitted angle 
 $\transmitted$ at an interface of two different media with refractive indices 
 $\nf$ and $\ns$, respectively. This law is based on the fact that a ray of 
-light travels on the fastest path (not the shortest) between two 
+light travels on the fastest and not the shortest path between two 
 points~\cite{Born1980Ch3}. The angle of the reflected ray is equal to the 
 incident angle ($\reflected=\incident$).
 
@@ -200,7 +199,7 @@ Another angle of special interest is the angle of total internal reflection
 \end{equation}
 For incident angles of this magnitude or greater 
 ($\incident\geq\theta_{\MR{TIR}}$), no ray is transmitted into the other 
-medium; only reflection is happening. This only occurs if the index of 
+medium; only reflection is occurring. It can only occur if the index of 
 refraction of the incident medium is greater than the transmitted medium 
 ($\nf>\ns$ in \cref{fig:TO-Snell}) otherwise the ratio $\sfrac{\nf}{\ns}$ of 
 \cref{eq:TO-TIR} is always smaller than unity and there is physically no total 
@@ -261,9 +260,9 @@ $\fresnelr_{i}$ and $\fresnelt_{i}$ does not add up to one.
 
 For \cref{sec:TO-temperature}, it is necessary to know how much of the incident 
 power $P_{\MR{i}}$ is transmitted and how much is reflected. The power 
-$P=\intensity A$ is a product of the intensity $\intensity$ and the area $A$ it 
-is acting on. The intensity is defined as the time-average of the Ponyting 
-vector $\vb{S}$
+$P=\intensity A$ is a product of the intensity $\intensity$ and the area $A$ 
+the power is acting on. The intensity is defined as the time-average of the 
+Ponyting vector $\vb{S}$
 \begin{equation}
   \intensity = \timeaverage{\abs{\vb{S}}} = 
   \timeaverage{\abs{\vb{E}_{0}\times\vb{H}_{0}}} = 
@@ -295,8 +294,8 @@ power $P_{\MR{r}}$ to the incident power $P_{\MR{i}}$ as
   \fresnelr_{i}^{2}
   \label{eq:TO-fresnelR}
 \end{equation}
-where again the italic $i$ in the subscript ($\Box_{i}$) is the polarization. 
-Similarly one finds the transmittance $\fresnelT_{i}$ as
+where again the italic $i$ in the subscript ($\Box_{i}$) indicates the 
+polarization. Similarly one finds the transmittance $\fresnelT_{i}$ as
 \begin{equation}
   \fresnelT_{i} = \frac{P_{\MR{t}}}{P_{\MR{i}}} = 
   \frac{\intensity_{\MR{t}}\,\ns\,w_{\MR{t}}}{\intensity_{\MR{i}}\,\nf\,w_{\MR{i}}} 
@@ -335,9 +334,9 @@ traveling through a medium. The attenuation of intensity will lead to an
 increase of temperature in the absorbing medium.
 
 The intensity of a focused laser is highest in the region of the focal point 
-because all of its power is confined to a small area width of about one 
+because all of its power is confined to a small area with a width of about one 
 wavelength. Direct temperature measurements in the vicinity of the focussed 
-laser are due to the microscopic region of interest up to now not possible.  
+laser are due to the microscopic region of interest up to now not possible. 
 Precise knowledge of the temperature change is of interest, e.g., for the 
 calibration process of the OT but also for objects that need to stay below a 
 certain temperature, e.g. living cells.
@@ -348,23 +347,23 @@ and then motivate a temperature approximation based on simple ray optics.
 
 \subsection{State of the Art}\label{sec:TO-state}
 
-\cyear{Liu1995} measured the temperature dependent change in fluorescence of 
-biological cells while being trapped with a wavelength of 
+\cyear{Liu1995} measured the temperature dependent change in the fluorescence 
+of biological cells while being trapped with a wavelength of 
 $\lal=\SI{1064}{\nm}$. They found a linear relation between temperature 
 increase and applied laser power of about \SI{15}{\degreeCelsius\per\watt}. In 
 addition, they solved the heat problem also analytically. For that, they 
 neglected the trapped object and modeled it as water because their cells of 
-interest consist mainly of water. The experiments as well as the analytical 
-solution show an almost instantaneous change in temperature after the laser is 
+interest consisted mainly of water. The experiments as well as the analytical 
+solution show an almost instantaneous change in temperature after the laser was 
 switched on.
 
 \cyear{Celliers2000} measured the local change in the index of refraction for 
 water while being subjected to a laser with a wavelength of \SI{985}{\nm}. 
 During the measurements no objects were trapped in the laser focus. They 
 measured a temperature increase of \SI{4}{\degreeCelsius} with a laser power of 
-\SI{55}{\milli\watt} in the focus of the laser. An analytical model that 
-utilized an improved source term compared to \cite{Liu1995} validated their 
-results.
+\SI{55}{\milli\watt} in the focus of the laser leading to a heating coefficient 
+of \SI{72}{\degreeCelsius\per\watt}. An analytical model that utilized an 
+improved source term compared to \cite{Liu1995} validated their results.
 
 \cyear{Peterman2003} measured with a OT of $\lal=\SI{1064}{\nm}$ wavelength the 
 effects of the temperature increase in the vicinity of the laser focus. A 
@@ -373,7 +372,7 @@ viscosity. The viscosity change alters the calibration parameters of the OT. By
 fitting the calibration parameters for different laser powers to the 
 theoretical relation they found a temperature increase of roughly 
 \SI{8}{\degreeCelsius\per\watt} for water as fluid medium and silica beads as 
-trapped object. More interestingly, their analytical model revealed that most 
+trapped objects. More interestingly, their analytical model revealed that most 
 of the heat absorption is in the fluid rather than the trapped object. In 
 addition, usual glass coverslips act as fast heat conductor compared to water 
 such that measurements close to the top or bottom surface of the fluid cavity 
@@ -384,7 +383,7 @@ temperature change of an OT with $\lal=\SI{800}{\nm}$ wavelength. RhB is a
 temperature sensitive dye which changes its fluorescence linearly with the 
 temperature. Since they injected the RhB into the cell the measured 
 temperature difference was close to the focal point. As before, the increase of 
-the temperature occurs almost instantaneously and is about 
+the temperature occurred almost instantaneously and was about 
 \SI{9}{\degreeCelsius\per\watt}.
 
 Lastly, in \citeyear{Catala2017}, \cname{Catala2017} studied the effects of 
@@ -392,7 +391,7 @@ different experimental parameters (NA, material of trapped object, distance to
 coverslips, object radius) to the magnitude of the temperature increase with an 
 OT of $\lal=\SI{1064}{\nm}$ wavelength. A numerical model validated their 
 experimental findings. Their source term which is an extension to 
-\cname{Peterman2003} takes account of the NA, the finite focal spot size, and 
+\cname{Peterman2003} took account of the NA, the finite focal spot size, and 
 the wavelength of the laser itself. In agreement to the others they found the 
 heat increase to be about \SI{20}{\degreeCelsius\per\watt}.
 
@@ -410,23 +409,27 @@ studies operate at a wavelength of \SI{1064}{\nm}. Our OT operates at
 wavelength and for water is about one order of magnitude smaller than it is at 
 \SI{1064}{\nm},
 $\alpha_{\MR{f}}(\SI{785}{\nm}) \approx \SI{2.14}{\per\meter} $ and 
-$\alpha_{\MR{f}}(\SI{1064}{\nm}) \approx \SI{15.4}{\per\meter} $ respectively. 
-The magnitude of the absorption coefficient $\alpha_{\MR{f}}$ is the measure 
-for how much power gets absorbed by the fluid.
+$\alpha_{\MR{f}}(\SI{1064}{\nm}) \approx \SI{15.4}{\per\meter} $ respectively 
+(see \cref{fig:TO-n_water}).
+% The magnitude of the absorption coefficient $\alpha_{\MR{f}}$ is the measure 
+% for how much power gets absorbed by the fluid.
 % The parameter $\alpha_{\MR{f}}$ contributes linear to the source term in the 
 % heat equation.
 
 Besides the results of \cname{Peterman2003} the measured temperature increase 
 is larger for the wavelength of \SI{1064}{\nm}. The magnitudes of the 
-respective absorption coefficients $\alpha$ ($\nicefrac{15.4}{2.14}\approx 
-7.2$) suggest a seven times greater heating for the larger wavelength. However, 
-only the results of \cname{Celliers2000} compared to \cname{Moreau2015} match 
-this interpolation. But \cname{Celliers2000} used an inherently different 
-method for approximating the temperature increase where no object was trapped 
-during the measurement. Despite having non-coherent results, we take a heating 
-value of \SI{10}{\degreeCelsius\per\watt} for water and our wavelength of 
-\SI{785}{\nm} as given for the following section if the focus of the OT is at 
-least \SI{10}{\um} away from any surrounding surface.
+respective absorption coefficients $\alpha_{\Box}$ 
+($\nicefrac{15.4}{2.14}\approx 7.2$) suggest a seven times greater heating for 
+the \SI{1064}{\nm} wavelength. However, only the results of 
+\cname{Celliers2000} compared to \cname{Moreau2015} match this interpolation. 
+But \cname{Celliers2000} used an inherently different method for approximating 
+the temperature increase where no object was trapped during the measurement. 
+Despite having non-coherent results, we take a heating value of 
+\SI{10}{\degreeCelsius\per\watt} for water and our wavelength of \SI{785}{\nm} 
+as given for the following section if the focus of the OT is at least 
+\SI{10}{\um} away from any surrounding surface. With a peak power of 
+$\SI{0.2}{\watt}$ the water temperature will not increase by more than 
+\SI{2}{\degreeCelsius} for our OT setup.
 
 \begin{table}
   \centering
@@ -493,7 +496,7 @@ Our lens has a $\cNA$ of 1.27 and water has a refractive index of $\nf=1.33$
 $\beta_{\MR{max}} \approx \SI{72}{\degree}$.
 
 By knowing $\transmitted^{1}$ the path of the ray inside the particle is 
-determined.  At the next intersection point of the ray with the particle 
+determined. At the next intersection point of the ray with the particle 
 surface $N$, the ray is again partly transmitted into the fluid and partly 
 reflected. Since the triangle $\bigtriangleup_{AMN}$ is an isosceles triangle 
 (two sides have the same length $R$) and since per definition the reflected 
@@ -528,11 +531,10 @@ after each reflection is
   \label{fig:TO-angles}
 \end{figure}
 
-If a particle is stably trapped the distance $\Rprime$ of the particle center 
-point $M$ and the focal point $f$ (see also \cref{fig:TO-angles}) is about 
-$\Rprime \approx 0.1R$~\cite{Lamprecht2017}. During the trapping process and 
-due to external forces this distances changes. If the focal point is outside 
-the particle, the forces from the laser beam are too small to trap objects.
+If a particle is stably trapped the distance $\Rprime$ is about $\Rprime 
+\approx 0.1R$~\cite{Lamprecht2017}. During the trapping process and due to 
+external forces this distances changes. If the focal point is outside the 
+particle, the forces from the laser beam are too small to trap objects.
 
 \cref{fig:TO-gamma_theta} depicts the values of $\gamma$ and $\incident$, 
 respectively, for different combinations of $a$ and $\beta$. As pointed out 
@@ -557,8 +559,8 @@ incident angle $\incident$ over the whole range of $\beta$ is less than
     \caption{}
     \label{fig:TO-theta_i}
   \end{subfigure}
-    \caption{Magnitude of $\gamma$ and $\incident$ for different values of $a$ 
-    and $\beta$ (see also \cref{fig:TO-angles}).}
+    \caption{Magnitude of $\gamma$ and $\incident$ for different values of 
+    $a=\nicefrac{\Rprime}{\R}$ and $\beta$ (see also \cref{fig:TO-angles}).}
   \label{fig:TO-gamma_theta}
 \end{figure}
 
@@ -657,7 +659,7 @@ can be applied to \cref{eq:TO-total-absorbed} to simplify the double sum to
   \left[ 1 - \exp\left( -\alpha_{\MR{s}}\,s\left( \beta_{n} \right) \right) 
   \right]
   \,\frac{1}{1-\fresnelR_{\MR{s}\rightarrow\MR{f}}\left( \beta_{n} \right)}.
-  \label{eq:TO-total-absorbed-simp}k
+  \label{eq:TO-total-absorbed-simp}
 \end{equation}
 
 \cref{fig:TO-fresnel} depicts the values for $\fresnelT$ and $\fresnelR$ for 
@@ -675,20 +677,20 @@ for an incident angle of $\incident=\SI{10}{\degree}$ is $\approx 2.07\cdot
   % \input{\relPath/10_Figures/TikZ/absorbed_energies.tikz}
   \includegraphics[]{External/absorbed_energies.pdf}
   \caption{Results of \cref{eq:TO-total-absorbed-simp} of SiO$_{2}$ for various 
-    relative distances $a$ and radii $R$ with $N=500$. The optical absorption 
-    $\alpha_{\MR{s}}$ of Si0$_{2}$ at $\lal=\SI{785}{\nm}$ is about 
-  \SI{2.08}{\per\meter}~\cite{Kitamura2007}.}
+  values of $a=\nicefrac{\Rprime}{\R}$ and radii $R$ with $N=500$. The optical 
+absorption $\alpha_{\MR{s}}$ of Si0$_{2}$ at $\lal=\SI{785}{\nm}$ is about 
+\SI{2.08}{\per\meter}~\cite{Kitamura2007}.}
   \label{fig:TO-absorbed_energies}
 \end{figure}
 
 \cref{fig:TO-absorbed_energies} shows the relative absorbed energy $\Xi$ inside 
-a particle for various radii $R$ and distances $aR$. As \cref{fig:TO-fresnel} 
-already suggested only a little fraction of the trapping energy is absorbed by 
-the particle itself.
+a particle for various radii $R$ and distances $\Rprime$. As 
+\cref{fig:TO-fresnel} already suggested only a little fraction of the trapping 
+energy is absorbed by the particle itself.
 
 \subsection{Ray Optics Heat Approximation}
 
-With the knowledge of the relative absorbed energy $\Xi$ of the particle, we 
+With the knowledge of the relative absorbed energy $\Xi$ by the particle, we 
 solve the heat equation for the particle
 \begin{equation}
   \laplacian{T} = \frac{1}{\kappa} \pdv{T}{t} - \frac{q}{K}
@@ -696,16 +698,16 @@ solve the heat equation for the particle
 \end{equation}
 where $T$ is the temperature inside the particle, $q$ is the absorbed energy 
 per unit volume, $K$ the thermal conductivity, and $\kappa$ the thermal 
-diffusivity. Further, we neglect the time-dependence $\pdv{T}{t}= 0$ because 
-all publications presented in \cref{sec:TO-state} state that the heating occurs 
-within \si{\ms} and the temperature does not change afterwards anymore 
-\begin{equation}
+diffusivity. Going further, we neglect the time-dependence $\pdv{T}{t}= 0$ 
+because all publications presented in \cref{sec:TO-state} state that the 
+heating occurs within \si{\ms} and the temperature does not change afterwards 
+anymore \begin{equation}
   \laplacian{T} = - \frac{q}{K}.
   \label{eq:TO-heat-stat}
 \end{equation}
  In addition, we assume a spherical particle and solve the problem with a 
  spherical coordinate system (see \cref{fig:TA-coordinate}) with its origin at 
- the particle center. Furthermore, we take the source term $q$ to be constant 
+ the particle center. Additionally, we take the source term $q$ to be constant 
  throughout the particle. Therefore, we neglect all partial derivatives with 
  respect to the angles $\varphi$ and $\theta$ and solve a second order ordinary 
  differential equation
@@ -718,51 +720,51 @@ with two boundary conditions
 \begin{subequations}
 \begin{align}
   \eval{\pdv{T}{r}}_{r=0} &= 0\\[3mm]
-  \eval{T}_{r=R_{0}} &= T_{0}.
+  \eval{T}_{r=\R} &= T_{0}.
 \end{align}
 \end{subequations}
 The first one ensures that there is no heat flux in and out of a single point, 
 the origin of the particle ($r=0$). And the second boundary condition fixes the 
-temperature at the surface of the particle ($r=R_{0}$). It implies that the 
+temperature at the surface of the particle ($r=\R$). It implies that the 
 temperature at the surface of the particle is constant and is not influenced by 
 the particle temperature distribution.
 
 After two consecutive integration and the enforcement of the boundary 
 conditions one finds the difference temperature to be
 \begin{equation}
-  \Delta T(r) = T(r) - T_{0} = \frac{q}{6K}\left( R_0^2 - r^{2} \right).
+ \Delta T(r) = T(r) - T_{0} = \frac{q}{6K}\left(\R^2 - r^{2} \right).
   \label{eq:TO-heat-sol}
 \end{equation}
 The average temperature increase over the whole particle is the volume integral 
 of \cref{eq:TO-heat-sol}
 \begin{equation}
   \overline{\Delta T} = \frac{1}{V}\int_{V}\Delta T(r) \dd{V} = 
-  \frac{1}{15}\,\frac{q}{K}\,R^{2}_{0}.
+  \frac{1}{15}\,\frac{q}{K}\,R^{2}.
   \label{eq:TO-heat-avg}
 \end{equation}
 This can be further simplified since $q$ is the absorbed energy per unit volume
 \begin{equation}
-  q = \frac{\Xi\,P}{V} = \frac{3}{4}\,\frac{\Xi\,P}{\pi\,R_{0}^{3}}
+  q = \frac{\Xi\,P}{V} = \frac{3}{4}\,\frac{\Xi\,P}{\pi\,\R^{3}}
 \end{equation}
 where $P$ is the incident power of the laser and $V$ the volume of the 
 particle. Finally, the average temperature increase of the spherical particle 
 is
 \begin{equation}
-  \overline{\Delta T} = \frac{1}{20\,\pi}\,\frac{\Xi\,P}{R_{0}\,K}.
+  \overline{\Delta T} = \frac{1}{20\,\pi}\,\frac{\Xi\,P}{\R\,K}.
   \label{eq:TO-heat-sol-simp}
 \end{equation}
 Interestingly, \cref{eq:TO-heat-sol-simp} seems to scale with $\propto 
-\nicefrac{1}{R_{0}}$. However, the relative total absorbed energy $\Xi$ is also 
-dependent on $R_{0}$ because the travelled distance of a ray within the 
+\nicefrac{1}{\R}$. However, the relative total absorbed energy $\Xi$ is also 
+dependent on $\R$ because the travelled distance of a ray within the 
 particle $s$ increases with the particle size linearly. But $\Xi$ scales with 
-$\left[  1-\exp\left( -\alpha_{\MR{f}}\,R_{0} \right)\right]$ and therefore the 
+$\left[  1-\exp\left( -\alpha_{\MR{f}}\,\R \right)\right]$ and therefore the 
 average difference temperature $\overline{\Delta T}$ is proportional to 
-$\nicefrac{\left[ 1-\exp\left( -\alpha_{\MR{f}}\,R_{0} \right) 
-\right]}{R_{0}}$. This seems counter-intuitive, that bigger particle sizes lead 
-to less temperature increase. But this only holds for the average temperature 
-difference $\overline{\Delta T}$, the maximal temperature distribution 
-$T\vert_{r=0}$ (\cref{eq:TO-heat-sol}) increases with the particle size 
-($T\vert_{r=0}\propto\R_{0}^{2}$).
+$\nicefrac{\left[ 1-\exp\left( -\alpha_{\MR{f}}\,\R \right) \right]}{\R}$. This 
+seems counter-intuitive, that a bigger particle size lead to less temperature 
+increase. But it only holds for the average temperature difference 
+$\overline{\Delta T}$, the maximal temperature distribution $T\vert_{r=0}$ 
+(\cref{eq:TO-heat-sol}) increases with the particle size 
+($T\vert_{r=0}\propto\\R^{2}$).
 
 \begin{figure}[tbp]
   \centering
@@ -788,8 +790,8 @@ absorption of the fluid around the particle \begin{equation}
   =
   \SI{2}{\celsius}
 \end{equation}
-with \SI{200}{\milli\watt} maximal available laser power for our setup and the 
-SiO$_{2}$ particles gets only further heated by values smaller than 
+with a maximal available laser power of \SI{200}{\milli\watt} for our setup and 
+the \SiO particles gets only further heated by values smaller than 
 \SI{70}{\milli\celsius}.
 
 Having established an upper bound for the laser induced temperature increase, 
@@ -814,13 +816,13 @@ and use the ambient room temperature as reference.
 \section{Optical Position Detection\label{sec:TO-QPD}}
 
 Besides trapping objects, the OT can also measure the relative movement of the 
-trapped object within the trap. After a calibration of the OT, it is also 
-possible to convert the movement into the physical unit of meter and then also 
-convert it into a force with unit Newton. Besides tracking the movement 
-visually with, e.g., a high-speed camera, the most common approach is to 
-utilize QPDs. The latter is superior to the camera because higher sampling 
-rates are easily to achieve, less data is produced during the measurement and a 
-full three dimensional resolution is possible.
+trapped object within the trap. After a calibration of the OT, it is possible 
+to convert the movement into the physical unit of meter and then also convert 
+it into a force with unit Newton. Besides tracking the movement visually with, 
+e.g., a high-speed camera, the most common approach is to utilize QPDs. The 
+latter is superior to the camera because higher sampling rates are easily to 
+achieve, less data is produced during the measurement and a full three 
+dimensional resolution is possible.
 
 In order to do so, the laser beam must be collimated after the object trapping 
 region and then focussed with separate lenses onto two QPDs (see 
@@ -848,8 +850,9 @@ The normalized intensity distribution of the laser can be modeled as
 \end{equation}
 where the radius of the spot is $R_{\MR{spot}}=\sfrac{\RA}{5}$ and the property 
 \begin{equation}
-  \int\limits_{\dd{A}}\tilde{\intensity}\dd{A} = 1.
+  \int\limits_{\dd{A}}\tilde{\intensity}\dd{A} = 1
 \end{equation}
+holds.
 
 \begin{figure}[tbp]
   \centering
@@ -909,8 +912,8 @@ respective area.
 
 With these four separate values for $V_{1}$ through $V_{4}$, one can create a 
 measure that is proportional to the movement of the laser image center $M$ 
-along the $\ex$- and $\ey$-direction, respectively. The measure is an addition 
-and subtraction of the quadrants along one direction
+along the $\ex$- and $\ey$-direction, respectively. These measures are 
+additions and subtractions of the quadrants along one direction
 \begin{subequations}
 \begin{align}
   V_{\MR{x}} & = \left( V_{\MR{1}}+V_{\MR{4}} \right) - \left( V_{\MR{2}} + 
@@ -970,15 +973,16 @@ $V_{\MR{y}}$ change their behavior. There is a linear region for which a small
 movement of the laser image middle point $M$ is converted into a proportional 
 change in the measured intensity on the QPD. However, this linear regime from 
 $-0.15\,R_{\MR{QPD}}$ to $0.15\,R_{\MR{QPD}}$ is rather small. Therefore, it is 
-very important to check and adjust the offset of the QPD before each 
-measurement to ensure interpretability of the results.
+very important to check and adjust the laser spot center position $M$ to be in 
+the middle of the QPD before each measurement to ensure interpretability of the 
+results.
 
 Noteworthy is that for values of $\sfrac{\abs{x_{0}}}{R_{\MR{QPD}}} > 0.5$ a 
 further outwards movement does not lead to an increase of the respective 
 measure but to a decrease. If just one of the voltages, here $V_{\MR{y}}$, is 
 taken into account then this decrease ($\sfrac{x_{0}}{R_{\MR{QPD}} > 0.5}$) is 
 not distinguishable from the increase coming from the middle 
-($\sfrac{x_{0}}{R_{\MR{QPD}} < 0.5}$).  However, by also looking at the 
+($\sfrac{x_{0}}{R_{\MR{QPD}} < 0.5}$). However, by also looking at the 
 evolution of $V_{\MR{t}}$ it is possible to identify in which direction the 
 laser image is moving on the QPD because this measure does not change its 
 magnitude for $\abs{x_{0}} < 0.5\,R_{\MR{QPD}} $.
