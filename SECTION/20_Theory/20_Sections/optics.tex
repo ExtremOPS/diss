@@ -113,11 +113,12 @@ As mentioned before, in the regime of ray optics the propagation of light is
 visualized by single rays. The interaction of a single ray at an interface is 
 then studied geometrically. The defining property for ray optics is the so 
 called refractive index $\refraction$. Light travels at the speed of light 
-$c=\SI{299792458}{\m\per\s}$ in vacuum. Outside of vacuum the speed of light 
-has a smaller magnitude. The refractive index relates the speed of light of 
-vacuum $c$ to any other material $c_{\Box}$
+$\tilde{\speed}=\SI{299792458}{\m\per\s}$ in vacuum. Outside of vacuum the 
+speed of light has a smaller magnitude. The refractive index relates the speed 
+of light of vacuum $\tilde{\speed}$ to any other material 
+$\tilde{\speed}_{\Box}$
 \begin{equation}
-  c_{\Box} = \frac{c}{n_{\Box}}.
+  \tilde{\speed}_{\Box} = \frac{\tilde{\speed}}{n_{\Box}}.
   \label{eq:TO-lightspeed}
 \end{equation}
 Since there is nothing faster than the speed of light in vacuum, the refractive 
@@ -132,8 +133,8 @@ refractive index is in general a complex quantity
 where $\tilde{\refraction}$ is called the extinction 
 coefficient~\cite{Jackson2013}. The absorption coefficient~\cite{Hecht2017}
 \begin{equation}
-  \alpha = \frac{4\pi f \tilde{\refraction}}{c} = 
-  \frac{4\pi}{\lal}\tilde{\refraction}\quad\text{with}\quad\lal=\frac{c}{f}
+  \alpha = \frac{4\pi f \tilde{\refraction}}{\tilde{\speed}} = 
+  \frac{4\pi}{\lal}\tilde{\refraction}\quad\text{with}\quad\lal=\frac{\tilde{\speed}}{f}
   \label{eq:TO-alpha}
 \end{equation}
 converts the dimensionless quantity $\tilde{\refraction}$ into a physical 
