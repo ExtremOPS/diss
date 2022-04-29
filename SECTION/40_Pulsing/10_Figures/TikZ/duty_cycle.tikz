@@ -1,4 +1,4 @@
-\tikzsetnextfilename{duty-cycle}
+\tikzsetnextfilename{PU-duty-cycle}
 {
   \small
 %%%%%%%
@@ -14,7 +14,7 @@
     fixed zerofill,
     precision=1
   },
-  height=30mm,%
+  height=40mm,%
   width=84mm,%
   scale only axis,
    xlabel={Pulse cylces ($t\cdot \fp$ [-])},

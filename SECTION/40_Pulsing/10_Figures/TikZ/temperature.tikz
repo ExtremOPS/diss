@@ -1,0 +1,38 @@
+\tikzsetnextfilename{PU-temperature}
+{
+  \small
+\begin{tikzpicture}
+
+\begin{axis}[
+  axis on top,
+  height=60mm,%
+  width=140mm,%
+  ymin = 24.8,
+  ymax = 25.8,
+  title={Ambient Temperature $T$},
+  ylabel={T [\si{\celsius}]},
+  xlabel={Time},
+  date coordinates in=x,
+  xticklabel={\hour:\minute},
+  x tick label style={align=center},
+  date ZERO=2021-04-27 12:00, 
+  xtick={
+    2021-04-27 13:00,
+    2021-04-27 14:00,
+    2021-04-27 15:00,
+    2021-04-27 16:00,
+    2021-04-27 17:00},
+]
+
+\draw[color=black!10,fill=black!10] (axis cs:2021-04-27 14:00,24.8) rectangle 
+(axis cs:2021-04-27 15:00,25.8);
+
+\addplot table [mark=none,col sep=comma,trim 
+cells=true,x=timestamp,y=temperature] 
+{\relPath/10_Figures/TikZ/2021_04_27_temperature.csv};
+
+
+\end{axis}
+
+\end{tikzpicture}
+}

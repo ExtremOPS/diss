@@ -1,4 +1,4 @@
-\tikzsetnextfilename{duty-m05}
+\tikzsetnextfilename{PU-duty-m05}
 {
   \small
 %%%%%%%
@@ -29,9 +29,9 @@
        group style={
          group size= 2 by 3,
          group name=plots,
-         vertical sep=4pt,%
+         vertical sep=6pt,%
          horizontal sep=8pt},%
-       height=30mm,%
+       height=40mm,%
        width=64mm,%
         xticklabel style={
           /pgf/number format/fixed,

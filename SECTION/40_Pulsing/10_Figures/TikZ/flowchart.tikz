@@ -1,23 +1,23 @@
-\tikzsetnextfilename{flowchart}
+\tikzsetnextfilename{PU-flowchart}
 {
   \footnotesize
 
-\begin{tikzpicture}[node distance=1cm]
+  \begin{tikzpicture}[scale=1.0,node distance=1cm]
 
-  \node (start) [startstop] {Start\\[-3.5mm] measurement};
+  \node (start) [startstop] {Start\\[-1mm] measurement};
   \node (qpd) [io, right of=start, xshift=30mm, yshift=15mm] {Need 
-  QPD\\[-3.5mm] adjustment?};
+  QPD\\[-1mm] adjustment?};
 \node (pqpd) [process, left of=qpd, xshift=-30mm] {Adjust QPD};
-\node (mea1) [mea, right of=qpd, xshift=30mm] {Reduce $P$\\[-3.5mm] Open 
+\node (mea1) [mea, right of=qpd, xshift=30mm] {Reduce $P$\\[-1mm] Open 
 shutter};
 \node [time,right of=mea1, xshift=6mm, anchor=west] {$t=\SI{-25}{\ms}$};
-\node (US) [io, below of=mea1, yshift=-8mm] {Ultrasound\\[-3.5mm]on?};
+\node (US) [io, below of=mea1, yshift=-8mm] {Ultrasound\\[-1mm]on?};
 \node [time,right of=US, xshift=8mm, anchor=west] {$t=\SI{0}{\ms}$};
 \node (mea2) [mea, below of=US, yshift=-8mm, xshift=20mm] {Start US};
 \node (mea3) [mea, below of=US, yshift=-8mm, xshift=-20mm] {Close 
-shutter\\[-3.5mm] Increase $P$};
+shutter\\[-1mm] Increase $P$};
 \node [time, below of=mea3, yshift=4.5mm, anchor=north] {$t=\SI{55}{\ms}$};
-\node (out) [process, left of=mea3, xshift=-30mm] {Store\\[-3.5mm] data};
+\node (out) [process, left of=mea3, xshift=-30mm] {Store\\[-1mm] data};
 
 \draw [arrow] (start) -| (qpd);
 \draw [arrow] (qpd) -- node[anchor=south, above] {yes} (pqpd);

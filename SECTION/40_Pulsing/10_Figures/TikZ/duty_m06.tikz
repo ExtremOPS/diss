@@ -1,12 +1,12 @@
-\tikzsetnextfilename{duty-m06}
+\tikzsetnextfilename{PU-duty-m06}
 {
   \small
 %%%%%%%
 % READ TABLE
 %%%%%%%
-\pgfplotstableread{10_Figures/TikZ/duty_fp_1000.dat}{\dataOne}
-\pgfplotstableread{10_Figures/TikZ/duty_fp_5000.dat}{\dataTwo}
-\pgfplotstableread{10_Figures/TikZ/duty_fp_10000.dat}{\dataThree}
+\pgfplotstableread{\relPath/10_Figures/TikZ/duty_fp_1000.dat}{\dataOne}
+\pgfplotstableread{\relPath/10_Figures/TikZ/duty_fp_5000.dat}{\dataTwo}
+\pgfplotstableread{\relPath/10_Figures/TikZ/duty_fp_10000.dat}{\dataThree}
 %%%%%%%
 % LINES FOR ALL GROUPPLOTS
 %%%%%%%
@@ -25,12 +25,13 @@
 \begin{tikzpicture}
    \begin{groupplot}[%
        scale only axis,
+       axis on top,
        group style={
          group size= 2 by 3,
          group name=plots,
-         vertical sep=4pt,%
+         vertical sep=6pt,%
          horizontal sep=8pt},%
-       height=25mm,%
+       height=40mm,%
        width=64mm,%
         xticklabel style={
           /pgf/number format/fixed,
@@ -138,7 +139,7 @@
 
    \nextgroupplot[%
      ylabel={$\sfrac{\DV_{j}}{\DV_{100,\text{max}}}$ },
-     xlabel={$10^{3}\,\sfrac{t}{t_{0}}$ },
+     xlabel={$10^{3}\,\sfrac{t}{t_{0}}$ [-]},
    ]
 
       \tikzHelper
@@ -163,7 +164,7 @@
 
    \nextgroupplot[%
      yticklabels={,,},
-     xlabel={$10^{3}\,\sfrac{t}{t_{0}}$ },
+     xlabel={$10^{3}\,\sfrac{t}{t_{0}}$ [-]},
    ]
 
       \tikzHelper
@@ -184,8 +185,10 @@
   \node[above] at ($(plots c1r1.north west)!0.5!(plots c2r1.north east)$) 
   [yshift=10mm] {$\Dy = \SI{-0.\tmp}{\mm}$};
 
-  \node[rotate=90] at (plots c2r2.east) [yshift=-5mm] 
-  {$\fp=\sfrac{\fex}{\bullet}$};
+  \node[below] at ($(plots c1r3.south west)!0.5!(plots c2r3.south east)$) 
+  [yshift=-10mm] {Excitation period};
+
+  \node[rotate=90] at (plots c2r2.east) [yshift=-5mm] {$k$};
   \node[rotate=90] at (plots c2r1.east) [yshift=-10mm] {1000};
   \node[rotate=90] at (plots c2r2.east) [yshift=-10mm] {5000};
   \node[rotate=90] at (plots c2r3.east) [yshift=-10mm] {10000};

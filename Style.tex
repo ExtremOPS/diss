@@ -82,6 +82,7 @@
   \tikzexternalize[prefix=External/]
 
 \tikzset{>=latex}
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 \definecolor{p100}{HTML}{989898}
 \definecolor{p90}{HTML}{808080}
@@ -186,6 +187,7 @@
   % \usepgfplotslibrary{external}
   % \tikzexternalize
   \usepgfplotslibrary{groupplots}
+  \usepgfplotslibrary{dateplot}
   \usepgfplotslibrary{colormaps}
   % Define layers
   \pgfdeclarelayer{background}
