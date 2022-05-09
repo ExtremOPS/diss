@@ -20,6 +20,7 @@
     width=120mm,
     ymin=-1.1,
     ymax=1.1,
+    % legend style={fill=black,draw=white,},
     ]
     \nextgroupplot[
     % ylabel={$\tilde{I}$},
@@ -28,9 +29,9 @@
       title style={yshift=-2mm},
       ]
       \tikzHelper
-      \addplot[dotted] table[x=x,y=Vx_3] {\data};
-      \addlegendentry{$V_{\MR{x}}$};
       \addplot[] table[x=x,y=Vy_3] {\data};
+      \addlegendentry{$V_{\MR{x}}$};
+      \addplot[dotted] table[x=x,y=Vx_3] {\data};
       \addlegendentry{$V_{\MR{y}}$};
       \addplot[dashed] table[x=x,y=V_3] {\data};
       \addlegendentry{$V_{\MR{t}}$};
@@ -47,8 +48,8 @@
       every axis y label/.append style={at=(ticklabel cs:0.5)}
       ]
       \tikzHelper
-      \addplot[dotted] table[x=x,y=Vx_2] {\data};
       \addplot[] table[x=x,y=Vy_2] {\data};
+      \addplot[dotted] table[x=x,y=Vx_2] {\data};
       \addplot[dashed] table[x=x,y=V_2] {\data};
 
       \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.4795) -- (axis 
@@ -60,8 +61,8 @@
       title style={yshift=-2mm},
       ]
       \tikzHelper
-      \addplot[dotted] table[x=x,y=Vx_1] {\data};
       \addplot[] table[x=x,y=Vy_1] {\data};
+      \addplot[dotted] table[x=x,y=Vx_1] {\data};
       \addplot[dashed] table[x=x,y=V_1] {\data};
 
       \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.4026) -- (axis 
