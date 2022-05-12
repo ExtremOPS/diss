@@ -2,8 +2,10 @@ For the derivation and the discussion of the relevant forces coming from the
 scattering of an axisymmetric incident acoustic field at the object surface, we 
 will consider a viscous fluid and a rigid spherical particle. The particle is 
 freely floating in the fluid and far away from any boundaries. We choose this 
-combination of fluid and particle material because the viscous property of the 
-fluid causes the occurrence of the so-called acoustic streaming (AS).
+combination of fluid and particle model for two reasons: 1) we discovered 
+errors that we corrected in the publication solving this problem 
+first~\cite{Doinikov1994Rigid}; 2) the viscous property of the fluid causes the 
+occurrence of the so-called acoustic streaming (AS).
 
 We will follow closely the derivations given by \cname{Doinikov1994Rigid} who 
 solves this specific problem first \footnote{We will cite publications in this 
@@ -83,10 +85,10 @@ fluid
 % \end{equation}
 
 This set of equations 
-(\cref{eq:TA-massconservation,eq:TA-state,eq:TA-navierconservative}) solve the 
-problem of a free floating rigid particle in a viscous fluid but are impossible 
-to solve analytically without further simplification. Most common is the 
-expansion of the unknowns into a converging 
+(\cref{eq:TA-massconservation,eq:TA-state,eq:TA-navierconservative}) describe 
+the problem of a free floating rigid particle in a viscous fluid but are 
+impossible to solve analytically without further simplification. Most common is 
+the expansion of the unknowns into a converging 
 % -- not guaranteed~\cite{Baasch2020} --
 series of increasing order
 \begin{subequations}
@@ -108,8 +110,7 @@ in space and time. Additionally, we assume no constant flow of the fluid and,
 hence, the zeroth order of the velocity $\zeOrder{\vel_{i}} = 0$.
 
 This series expansion is useful because it is known that the ARF occurs due to 
-second order effects. With that it is the ARF is approximated 
-\cref{eq:TA-def-rad} as
+second order effects. With that the ARF is approximated \cref{eq:TA-def-rad} as
 \begin{equation}
   F^{\MR{rad}}_{i} \approx
   \timeaverage{\int_{S(t)}\,\stOrder{\stress}\,\normal(t)\,\dd{S(t)}} +
@@ -120,10 +121,10 @@ second order effects. With that it is the ARF is approximated
 where $\zeOrder{S}$ is the particle surface at rest (see 
 \cref{fig:TA-deformed_circle}).
 
-It is possible to solve first for the first order fluid field, which is also 
-called acoustic scattering, and then use the first order solution to compute 
-the second order fields, also known as AS. In the following two section, we 
-will solve those two orders sequentially.
+It is possible to solve first for the first order fluid field, which is the 
+acoustic field including scattering, and then use the first order solution to 
+compute the second order fields, also known as AS. In the following two 
+section, we will solve those two orders sequentially.
 
 \section{First Order Solution\label{sec:TA-firstorder}}
 
@@ -190,7 +191,7 @@ equilibrium configuration (see \cref{fig:TA-coordinate}).
   \label{fig:TA-plane_wave}
 \end{figure}
 
-For the general case, the scaler incident velocity potential can be represented 
+For the general case, the scalar incident velocity potential can be represented 
 as
 \begin{equation}
   \phi_{\MR{in}} = \exp\left( -\iu\omega t \right) \sum\limits_{n=0}^{\infty} 
@@ -211,14 +212,18 @@ wavenumber
 
 The amplitudes $A_{n}$ of \cref{eq:TA-incident-field} are known by the type of 
 incident wave (traveling, standing, spherical). $\phi_{\MR{sc}}$ and 
-$\psi_{i}$ can be separated into two independent differential equations. For 
-$\phi_{\MR{sc}}$ we take first \cref{eq:TA-scalar-potential} and plug it into 
-the mass conservation \cref{eq:TA-st-massconservation}. With the property that 
-the divergence of the curl ($\pdv{\epsilon_{kli}\,\Box_{i}}{x_{i}} = 0$) is 
-equal to zero and the definition of the first order pressure 
-\cref{eq:TA-st-pre} one can eliminate $\psi_{i}$ completely
+$\stOrder{\psi_{i}}$ can be separated into two independent differential 
+equations. For $\phi_{\MR{sc}}$ we take first \cref{eq:TA-scalar-potential} 
+and plug it into the mass conservation \cref{eq:TA-st-massconservation}. With 
+the property that the divergence of the curl is equal to zero
 \begin{equation}
-  \pdv{\stOrder{\pre}}{t} = \zeOrder{\density}\,c^{2}\,\pdv[2]{\phi}{x_{i}}.
+  \pdv{x_{i}}\left[\epsilon_{kli}\pdv{\Box_{l}}{x_{k}}\right] = 0
+\end{equation}
+and the definition of the first order pressure \cref{eq:TA-st-pre} one can 
+eliminate $\psi_{i}$ completely
+\begin{equation}
+  \pdv{\stOrder{\pre}}{t} = 
+  \zeOrder{\density}\,c^{2}\,\pdv[2]{\stOrder{phi}}{x_{i}}.
   \label{eq:TA-st-tmp-step}
 \end{equation}
 The next step is to take \cref{eq:TA-st-tmp-step} and plug it into the partial 
@@ -230,19 +235,20 @@ $\pdv[2]{\vel_{i}}{t}\propto \omega^{2}$
 \begin{equation}
   \label{eq:TA-st-nd-tmp-step}
 \begin{split}
-  \zeOrder{\density}\,\pdv[2]{\vel_{i}}{t} = & 
-  \zeOrder{\density}\,c^{2}\pdv{x_{i}}\left( \pdv[2]{\phi}{x_{j}} \right) \\
-  + & \mu\,\pdv[2]{x_{i}}\left( \pdv{\vel_{k}}{t} \right) \\
+  \zeOrder{\density}\,\pdv[2]{\stOrder{\vel_{i}}}{t} = & 
+  \zeOrder{\density}\,c^{2}\pdv{x_{i}}\left( \pdv[2]{\stOrder{\phi}}{x_{j}} 
+  \right) \\
+  + & \mu\,\pdv[2]{x_{i}}\left( \pdv{\stOrder{\vel_{k}}}{t} \right) \\
     + & \left(\mu_{\MR{B}} + \frac{\mu}{3}\right)\pdv{t}
-    \left( \pdv{x_{i}}\left( \pdv[2]{\phi}{x_{j}} \right) \right).
+    \left( \pdv{x_{i}}\left( \pdv[2]{\stOrder{\phi}}{x_{j}} \right) \right).
 \end{split}
 \end{equation}
 
 The last step is to take the divergence of \cref{eq:TA-st-nd-tmp-step} to 
-eliminate $\psi_{i}$. Finally, the equations for $\phi$ is given as a Helmholtz 
-equation
+eliminate $\stOrder{\psi_{i}}$. Finally, the equation for $\stOrder{\phi}$ is 
+given as a Helmholtz equation
 \begin{equation}
-  \pdv[2]{\phi}{x_{i}} + k^{2}\,\phi = 0.
+  \pdv[2]{\stOrder{\phi}}{x_{i}} + k^{2}\,\stOrder{\phi} = 0.
   \label{eq:TA-st-phi}
 \end{equation}
 
@@ -255,9 +261,9 @@ equation
 \end{figure}
 
 Instead of taking the divergence of \cref{eq:TA-st-nd-tmp-step} but taking the 
-curl one gets a Helmholtz equation for $\psi_{i}$
+curl one gets a Helmholtz equation for $\stOrder{\psi_{i}}$
 \begin{equation}
-  \pdv[2]{\psi_{j}}{x_{i}} + k_{\MR{v}}^{2}\,\psi_{i} = 0
+  \pdv[2]{\stOrder{\psi_{j}}}{x_{i}} + k_{\MR{v}}^{2}\,\stOrder{\psi_{i}} = 0
   \label{eq:TA-st-psi}
 \end{equation}
 by using $\epsilon_{kli}\,\pdv{x_{k}}\left( \pdv{\Box}{x_{l}} \right) = 0$ 
@@ -301,17 +307,19 @@ surface must match the fluid velocity there
   \label{eq:TA-st-BC}
 \end{equation}
 
-Using Newtown's second law and the first order stress tensor
+Using Newton's second law, the first order stress tensor, and the equilibrium 
+particle surface $\zeOrder{S}$ as integration boundary such that the formula is 
+accurate up to first order, one finds
 \begin{equation}
   \underbrace{\frac{4}{3}\,\pi\,R^{3}\,\density_{\MR{p}}}_{m}
-  \underbrace{\dv{\vel_{i,\MR{p}}}{t}}_{a} = 
+  \underbrace{\dv{\stOrder{\vel_{i,\MR{p}}}}{t}}_{a} = 
   \int\limits_{\zeOrder{S}}\stOrder{\stress}\normal\dd{\zeOrder{S}}
   \label{eq:TA-st-newton}
 \end{equation}
 where $\density_{\MR{p}}$ is the particle density, one finds the particle 
 velocity along the direction of the wave vector $\vb{e}_{k}$ as
 \begin{equation}
-  \vel_{\MR{p}} = \frac{\zeOrder{\density}A_{1}k}{x}\,
+  \stOrder{\vel_{\MR{p}}} = \frac{\zeOrder{\density}A_{1}k}{x}\,
   \left[
     \bessel{1}{x} + \alpha_{1}\hankel{1}{x} + 2\beta_{1}\hankel{1}{\xv}
   \right]
@@ -324,7 +332,7 @@ In order to calculate the unknown constants $\alpha_{n}$ and $\beta_{n}$ one
 needs to enforce the boundary condition of \cref{eq:TA-st-BC} for every $n$ 
 separately. Besides for $n=1$, $\vel_{\MR{p}}$ is always zero because the 
 multipole expansion for a rigid particle has only a dipole contribution; for 
-$n=1$, $\vel_{\MR{p}}$ is given by \cref{eq:TA-st-particle-vel}.
+$n=1$, $\stOrder{\vel_{\MR{p}}}$ is given by \cref{eq:TA-st-particle-vel}.
 
 For $n=0$ and $n=1$ the constants $\alpha_{0}, \alpha_{1}, \beta_{0},$ and 
 $\beta_{1}$ are
@@ -392,9 +400,18 @@ with
     Unit}\\
     \midrule
     \textbf{Fluid} & & \\
-    Bulk viscosity & $\mu_{\MR{B}}$ & 2.47 & \si{\milli\pascal\second} \\
+    Density & $\rhof$ & 1000 & \si{\kg\per\cubic\meter} \\
+    Speed of sound & $\cfl$ & 1500 & \si{\m\per\s} \\
+    Dynamic viscosity (\SI{25}{\degreeCelsius}) & $\muef$ & 0.89 & 
+    \si{\milli\pascal\second} \\
+    Bulk viscosity (\SI{25}{\degreeCelsius}) & $\mu_{\MR{B}}$ & 2.47 & 
+    \si{\milli\pascal\second} \\
     \midrule
-    \textbf{Wave} & & \\
+    \textbf{Particle} & & \\
+    Density & $\rhop$ & 1850 & \si{\kg\per\cubic\meter} \\
+    Radius & $\R& 1.03 & \si{\um}\\
+    \midrule
+    \textbf{Acoustic Field} & & \\
     Wavetype &  & travelling & - \\
     Pressure & $p_{\MR{a}}$ & 100.0 & \si{\kilo\pascal} \\
     Frequency & $\fex$ & 1.0 & \si{\MHz} \\
@@ -407,9 +424,9 @@ with
 
 Note here, that 
 \cref{eq:TA-alpha-one,eq:TA-beta-one,eq:TA-chi-three,eq:TA-chi-four,eq:TA-beta-n} 
-are different to the equations in \cname{Doinikov1994Rigid}; Equations (3.14), 
-(3.15), (3.18), (3.19), and (3.21) respectively. We discovered these typos in 
-the original publication and discussed it more extensively in 
+are different from the equations in \cname{Doinikov1994Rigid} (Equations 
+(3.14), (3.15), (3.18), (3.19), and (3.21), respectively). We discovered these 
+typos in the original publication and discussed it more extensively in 
 \cname{Fankhauser2022}.
 
 \begin{figure}
@@ -431,12 +448,12 @@ the original publication and discussed it more extensively in
   \caption{First order absolute fluid velocity field at different time steps. 
   For both plots the same scaling applies. a) all modes up to $n=5$; b) single 
   mode for $n=1$. Material properties for the particle and the fluid are given 
-  in \cref{tab:TA-parameters,tab:TC-parameters}. The plotted data is generated 
-  with the Pyhton module \emph{osaft}~\cite{FankhauserPython2022}.}
+in \cref{tab:TA-parameters}. The plotted data is generated with the Python 
+module \emph{osaft}~\cite{FankhauserPython2022}.}
   \label{fig:TA-SC}
 \end{figure}
 
-Wit the solution to the constants $\alpha_{n}$ and $\beta_{n}$ the first order 
+With the solution to the constants $\alpha_{n}$ and $\beta_{n}$ the first order 
 velocity field for a rigid spherical particle and a viscous fluid is solved. 
 The field inside the particle has the same magnitude and direction for all 
 points because the particle is modeled rigid and therefore it is only able to 
@@ -560,7 +577,7 @@ single pressure nodal plane. Note here, that this interaction can also occur at
 the particle-fluid interface. Depending on the material parameter of the fluid 
 and the particle, the streaming contribution around the particle can become 
 large enough and substantially contribute to the total acoustic 
-force~\cite{Baasch2019}.  In order to visualize any of the mentioned streaming 
+force~\cite{Baasch2019}. In order to visualize any of the mentioned streaming 
 fields, one needs to perform a numerical simulation and solve for the 
 time-averaged fields.
 
@@ -784,38 +801,38 @@ some of them will also rotate due to their non-spherical shape (see
 \cref{fig:TA-viscous_torque}). No analytical closed form solution exists for to 
 the radiation torque exerted onto the objects~\cite{Lamprecht2017}.
 
- \begin{figure}
-  \centering
-  \begin{subfigure}[b]{0.35\textwidth}
-    \centering
-    \caption{$\zeta = \SI{0}{\radian}$}
-    % \input{\relPath/10_Figures/TikZ/viscous_torque_0.tikz}
-    \includegraphics[]{/viscous_torque_0.pdf}
-    % \label{fig:TO-QPDx}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.3\textwidth}
-    \centering
-    \caption{$\zeta = \sfrac{\pi}{4}\,\si{\radian}$}
-    % \input{\relPath/10_Figures/TikZ/viscous_torque_1.tikz}
-    \includegraphics[]{/viscous_torque_1.pdf}
-    % \label{fig:TO-QPDkky}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.3\textwidth}
-    \centering
-    \caption{$\zeta = \sfrac{\pi}{2}\,\si{\radian}$}
-    % \input{\relPath/10_Figures/TikZ/viscous_torque_2.tikz}
-    \includegraphics[]{/viscous_torque_2.pdf}
-    % \label{fig:TO-QPDt}
-  \end{subfigure}
-  \caption{Acoustic pressure $p_{\MR{a}}$ around spherical particle 
-      circumference ($\varphi$) in a two dimensional pressure wave field with 
-      three different phase shifts $\zeta$ plotted over one excitation period. 
-      The pressure amplitude is depicted qualitatively; red equals positive 
-  pressure and blue negative.}
-  \label{fig:TA-VT}
- \end{figure}
+ % \begin{figure}
+  % \centering
+  % \begin{subfigure}[b]{0.35\textwidth}
+    % \centering
+    % \caption{$\zeta = \SI{0}{\radian}$}
+    % % \input{\relPath/10_Figures/TikZ/viscous_torque_0.tikz}
+    % \includegraphics[]{/viscous_torque_0.pdf}
+    % % \label{fig:TO-QPDx}
+  % \end{subfigure}
+  % \hfill
+  % \begin{subfigure}[b]{0.3\textwidth}
+    % \centering
+    % \caption{$\zeta = \sfrac{\pi}{4}\,\si{\radian}$}
+    % % \input{\relPath/10_Figures/TikZ/viscous_torque_1.tikz}
+    % \includegraphics[]{/viscous_torque_1.pdf}
+    % % \label{fig:TO-QPDkky}
+  % \end{subfigure}
+  % \hfill
+  % \begin{subfigure}[b]{0.3\textwidth}
+    % \centering
+    % \caption{$\zeta = \sfrac{\pi}{2}\,\si{\radian}$}
+    % % \input{\relPath/10_Figures/TikZ/viscous_torque_2.tikz}
+    % \includegraphics[]{/viscous_torque_2.pdf}
+    % % \label{fig:TO-QPDt}
+  % \end{subfigure}
+  % \caption{Acoustic pressure $p_{\MR{a}}$ around spherical particle 
+      % circumference ($\varphi$) in a two dimensional pressure wave field with 
+      % three different phase shifts $\zeta$ plotted over one excitation period. 
+      % The pressure amplitude is depicted qualitatively; red equals positive 
+  % pressure and blue negative.}
+  % \label{fig:TA-VT}
+ % \end{figure}
 
 Not only non-spherical objects can rotate due to the acoustics, but also 
 spherical particles can rotate in an orthogonal two dimensional pressure wave 
@@ -824,16 +841,14 @@ around the particle are high enough; 2) the excitation of the two pressure
 waves is phase shifted.
 
 If the two conditions are met, then the by $\zeta$ phase shifted excitation 
-will lead to a continuous phase change of the pressure amplitude along the 
-surface of the particle (see \cref{fig:TA-VT}). This phase change will lead to 
-a local time-averaged streaming in the VBL of the particle that initiates the 
-rotation. The final rotational velocity is when the particle accelerating 
-torque form the local streaming flow equals the opposite directed Stokes' 
-rotational drag torque~\cite{Lamprecht2017}. This rotational velocity is -- 
-amongst other parameters -- proportional to the phase shift $\zeta$. Therefore, 
-$\zeta + \sfrac{\pi}{2}$ will cause rotations opposite to a phase shift of 
-$\zeta$. For neighboring superimposed pressure nodes along $\ex$ or $\ey$ the 
-rotational direction is also opposite. We will discuss this kind of particle 
-rotation more extensively in \cref{ch:viscoustorque}.
+will lead to a local time-averaged streaming in the VBL of the particle that 
+initiates the rotation. The final rotational velocity is when the particle 
+accelerating torque form the local streaming flow equals the opposite directed 
+Stokes' rotational drag torque~\cite{Lamprecht2017}. This rotational velocity 
+is -- amongst other parameters -- proportional to the phase shift $\zeta$. 
+Therefore, $\zeta + \sfrac{\pi}{2}$ will cause rotations opposite to a phase 
+shift of $\zeta$. For neighboring superimposed pressure nodes along $\ex$ or 
+$\ey$ the rotational direction is also opposite. We will discuss this kind of 
+particle rotation more extensively in \cref{ch:viscoustorque}.
 
 % \section{Python module for Acoustofluidic\label{sec:TA-python}}
