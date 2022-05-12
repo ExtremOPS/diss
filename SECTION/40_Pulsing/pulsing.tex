@@ -139,14 +139,15 @@ measurements (BM). A more extensive explanation of each step can be found in
 build up of the ARF and AS separately because we determined our BM locations 
 such that those two effects are orthogonal to each other; i.e., the ARF points 
 in the direction of our $y$ coordinate and the AS points along $z$ (see 
-\cref{fig:PU-device}). Our setup (see 
-\cref{fig:PU-protocol,fig:PU-app-OT,fig:PU-app-device}) has in its back focal plane two 
-quadrant photo detectors (QPDs) for detecting the movement in each spatial 
-direction separately 
+\cref{fig:PU-device}). Our setup (see \cref{fig:PU-app-OT}, 
+\cref{fig:PU-app-device}, and \cref{fig:PU-protocol}) has in its back focal 
+plane two quadrant photo detectors (QPDs) for detecting the movement in each 
+spatial direction separately 
 \cite{Lakaemper2015,Goering2021,Lamprecht2021,Lamprecht2016}. One QPD measures 
 the information of the $x$ and $y$ coordinate and the other QPD measures the 
 $z$ information. Hence, the build up information of the ARF and AS are also 
 separated in the data.
+
 
 \begin{figure*}[tbp]
   \centering
@@ -159,7 +160,7 @@ separated in the data.
     laser power is reduced as low as possible, the shutter is opened to allow 
     optical position detection on the quadrant photo detectors (QPDs), and the 
     ultrasound is switched on; hence there acts an acoustic force 
-    $F_{\mathrm{ac}}$ on the particle. Before and after the BM all states are 
+  $F_{\mathrm{ac}}$ on the particle. Before and after the BM all states are 
 switched to their respective opposite.}\label{fig:PU-protocol}
 \end{figure*}
 
@@ -246,11 +247,11 @@ respectively.
   \includegraphics[width=\textwidth]{/PU-flowchart.pdf}
   \caption{Process diagram for one measurement cycle. The gray rectangles 
     represent the processes during the build up measurement (BM). During this 
-    time the particle is free floating (orange area). All process steps others 
-    are before or after a BM. The timestamps in the hatched rounded 
-    rectangles represent the times when the process attached to them is 
-    executed. One measurement cycle takes about \SI{2}{\s} to be executed. The 
-  BM itself is less than \SI{100}{\ms}.}\label{fig:PU-flowchart}
+    time the particle is free floating (orange area). All others process steps 
+    are before or after a BM. The timestamps in the hatched rounded rectangles 
+    represent the times when the process attached to them is executed. One 
+    measurement cycle takes about \SI{2}{\s} to be executed. The BM itself is 
+  less than \SI{100}{\ms}.}\label{fig:PU-flowchart}
 \end{figure*}
 
 One whole measurement series consists of 6 different $\Dy_{i}$ positions, one 
@@ -468,10 +469,15 @@ limited the changes of the experimental settings between measurement series to
 a minimum, there are slight differences in the amplitude of the incident 
 acoustic pressure field which cause these different values of the 50\% 
 criteria. This is also the reason why for increasing values of $k$  the start 
-time of the AS induced displacement is at a later point in time. In the 
-appendix are two additional plots for $\Dy_{i} = \SI{-0.6}{\mm}$ and $\Dy_{i}= 
-\SI{-0.4}{\mm}$ that show qualitatively and quantitatively the same behavior 
-(\cref{fig:PU-duty-m04,fig:PU-duty-m06}).
+time of the AS induced displacement is at a later point in time. The results 
+for the three locations $\Dy_{i} = \SI{-0.4}{\mm}$, $\Dy_{i} = \SI{-0.5}{\mm}$, 
+and $\Dy_{i} = \SI{-0.6}{\mm}$ show qualitatively and quantitatively the same 
+behavior.
+
+% All three plots for $\Dy_{i} = \SI{-0.6}{\mm}$ and $\Dy_{i}= \SI{-0.4}{\mm}$
+% (\cref{fig:duty-m04,fig:duty-m06}) show qualitatively and quantitatively the
+% same behavior as the results for $\Dy_{i}=\SI{-0.5}{\mm}$
+% (\cref{fig:duty-m05}).
 
 For all data series in all three plots, the normalized data is zero for 
 $\sfrac{t}{t_{0}}=t\,\fex<0$ (gray shaded area). This is the time span where 
