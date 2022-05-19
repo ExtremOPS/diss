@@ -189,11 +189,23 @@
   \usepgfplotslibrary{groupplots}
   \usepgfplotslibrary{dateplot}
   \usepgfplotslibrary{colormaps}
+  \usepgfplotslibrary{colorbrewer}
   % Define layers
   \pgfdeclarelayer{background}
   \pgfdeclarelayer{foreground}
   \pgfsetlayers{background,main,foreground}
 
+
+\pgfplotsset{
+  /pgfplots/colormap = {WhiteOr}{
+        rgb255=(247,247,247)
+        rgb255=(254,224,182)
+        rgb255=(253,184,99)
+        rgb255=(224,130,20)
+        rgb255=(179,88,6)
+        rgb255=(127,59,8)
+      }
+  }
 \usepackage{tkz-euclide, tikz-cd}
 \usepackage{tikz-3dplot}
 

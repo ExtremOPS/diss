@@ -22,8 +22,7 @@
     width=5cm,
     point meta min=0,
     point meta max=1,
-    % colormap={}{ gray(0cm)=(1); gray(1cm)=(0);},
-    colormap = {whiteblack}{color(0cm)  = (white);color(1cm) = (red)},
+    colormap name=WhiteOr,
     group/xlabels at = edge bottom,
     group style = {
       group size = 2 by 2,

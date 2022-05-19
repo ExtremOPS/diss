@@ -6,8 +6,8 @@
       yticklabels={,,},
       height=48mm,
       width=48mm,
+      colormap name=WhiteOr,
       colorbar,
-      colormap = {whiteblack}{color(0cm)  = (white);color(1cm) = (red)},
       colorbar horizontal,
       colorbar style={
         title={\footnotesize Normalized Voltage $\normalized{V}_{t}$},

@@ -10,14 +10,6 @@
   \draw[black, dotted] (-1.5,0.6,0) -- (1.5,0.6,0);
 }
 
-\pgfplotsset{%
-    colormap={bwr}{
-      color=(blue);
-      color=(white);
-      color=(red);
-    }%
-}
-
 \begin{tikzpicture}
   \begin{axis}[view={0}{90},
       xlabel=$\sfrac{x_{0}}{\RA}$,
@@ -28,6 +20,7 @@
       width=48mm,
       colorbar,
       colorbar horizontal,
+      colormap/PuOr-11,
       colorbar style={
         title={\footnotesize Normalized Voltage $\normalized{V}_{y}$},
         at={(0,1.4)},

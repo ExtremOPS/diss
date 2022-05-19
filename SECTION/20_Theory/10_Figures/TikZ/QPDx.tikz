@@ -10,14 +10,6 @@
   \draw[black, dotted] (-1.5,0.6,0) -- (1.5,0.6,0);
 }
 
-\pgfplotsset{%
-    colormap={bwr}{
-      color=(blue);
-      color=(white);
-      color=(red);
-    }%
-}
-
 \begin{tikzpicture}
   \begin{axis}[view={0}{90},
       xlabel=$\sfrac{x_{0}}{\RA}$,
@@ -26,6 +18,7 @@
       point meta max=1,
       height=48mm,
       width=48mm,
+      colormap/PuOr-11,
       colorbar,
       colorbar horizontal,
       colorbar style={
