@@ -7,7 +7,7 @@
       height=48mm,
       width=48mm,
       colorbar,
-      colormap = {whiteblack}{color(0cm)  = (black);color(1cm) = (white)},
+      colormap = {whiteblack}{color(0cm)  = (white);color(1cm) = (red)},
       colorbar horizontal,
       colorbar style={
         title={\footnotesize Normalized Voltage $\normalized{V}$},
