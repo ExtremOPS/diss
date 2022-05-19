@@ -10,13 +10,6 @@
   \draw[black] (0,0,0) circle (1);
   }
 
-\pgfplotsset{%
-    colormap={bwr}{
-      color=(blue);
-      color=(white);
-      color=(red);
-    }%
-}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Voltages per Quadrant
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -29,7 +22,8 @@
     width=5cm,
     point meta min=0,
     point meta max=1,
-    colormap={}{ gray(0cm)=(1); gray(1cm)=(0);},
+    % colormap={}{ gray(0cm)=(1); gray(1cm)=(0);},
+    colormap = {whiteblack}{color(0cm)  = (white);color(1cm) = (red)},
     group/xlabels at = edge bottom,
     group style = {
       group size = 2 by 2,
@@ -51,7 +45,7 @@
       xticklabels={,,},
       colorbar right,
       every colorbar/.append style={
-        ylabel={Normalized Voltage $\normalized{V}$},
+        ylabel={Normalized Voltage $\normalized{V}_{i}$},
         height=2*\pgfkeysvalueof{/pgfplots/parent axis height}+
         \pgfkeysvalueof{/pgfplots/group/vertical sep}}]
         \addplot3[surf,mesh/rows=99,shader=interp] table[x=x,y=y,z=V1] {\data};

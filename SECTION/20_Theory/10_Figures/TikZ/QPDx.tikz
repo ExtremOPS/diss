@@ -29,7 +29,7 @@
       colorbar,
       colorbar horizontal,
       colorbar style={
-        title={\footnotesize Normalized Voltage $\normalized{V}$},
+        title={\footnotesize Normalized Voltage $\normalized{V}_{x}$},
         at={(0,1.4)},
         anchor=north west,
         xtick={-1,0,1},

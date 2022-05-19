@@ -10,7 +10,7 @@
       colormap = {whiteblack}{color(0cm)  = (white);color(1cm) = (red)},
       colorbar horizontal,
       colorbar style={
-        title={\footnotesize Normalized Voltage $\normalized{V}$},
+        title={\footnotesize Normalized Voltage $\normalized{V}_{t}$},
         at={(0,1.4)},
         anchor=north west,
         xtick={0,0.5,1},
