@@ -30,11 +30,11 @@
       ]
       \tikzHelper
       \addplot[] table[x=x,y=Vy_3] {\data};
-      \addlegendentry{$V_{\MR{x}}$};
+      \addlegendentry{$\normalized{V}_{\MR{x}}$};
       \addplot[dotted] table[x=x,y=Vx_3] {\data};
-      \addlegendentry{$V_{\MR{y}}$};
+      \addlegendentry{$\normalized{V}_{\MR{y}}$};
       \addplot[dashed] table[x=x,y=V_3] {\data};
-      \addlegendentry{$V_{\MR{t}}$};
+      \addlegendentry{$\normalized{V}_{\MR{t}}$};
 
       \draw[ultra thick, red, dashdotted] (axis cs:-0.4,-1.4026) -- (axis 
       cs:0.4,1.4026);
@@ -44,7 +44,7 @@
       title={$y_{0} = \sfrac{0}{\RA}$},
       title style={yshift=-2mm},
       xticklabels={,,},
-      ylabel={Normalized Intensity $\normalized{\intensity}$},
+      ylabel={Normalized Voltages $\normalized{V}_i$},
       every axis y label/.append style={at=(ticklabel cs:0.5)}
       ]
       \tikzHelper
