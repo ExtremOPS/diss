@@ -10,9 +10,7 @@
       point meta min=0.2,
       point meta max=2.7,
       colorbar,
-      colormap = {whiteblack}{
-        color(0cm) = (white);
-        color(1cm) = (black)},
+      colormap/BuPu-9,
       colorbar horizontal,
       colorbar style={
         title={\footnotesize Relative absorbed Energy $\Xi$ ($\times 

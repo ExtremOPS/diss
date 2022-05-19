@@ -10,9 +10,7 @@
         width=100mm,
         point meta min=0,
         point meta max=70,
-        colormap = {whitered}{
-          color(0cm) = (white);
-          color(1cm) = (red)},
+        colormap/YlOrRd-9,
         colorbar,
         colorbar style={
           ytick={0,35,70},
