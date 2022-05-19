@@ -17,9 +17,7 @@
   point meta max=75,
   point meta min=4,
   view={0}{90},
-  % colorbar,
-  colormap = {whiteblack}{color(0cm)  = (black);color(1cm) = (white)},
-  % colormap/bluered,                     % Colormap preset
+  colormap/GnBu-9,
   height=35mm,
   width=75mm,
   ]
@@ -115,8 +113,7 @@
   xshift=60mm,
   point meta min=4.0,
   point meta max=75.0,
-  % colormap/bluered,                     % Colormap preset
-  colormap = {whiteblack}{color(0cm)  = (black);color(1cm) = (white)},
+  colormap/GnBu-9,
   colorbar right,                  % Active colorbar
   colorbar sampled,                     % Steps in colorbar
   colorbar style={
