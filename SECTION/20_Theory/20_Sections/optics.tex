@@ -40,18 +40,6 @@ approximation is a reasonable approach for our setup.
 % analysis. For most results in our thesis we use our optical trapping setup as 
 % tool for relating results qualitatively.
 
-\section{Optical Trap Calibration}
-
-\begin{figure}[tbp]
-  \centering
-  % \input{\relPath/10_Figures/TikZ/calibration.tikz}
-  \includegraphics[]{External/calibration.pdf}
-  \caption{Fast Fourier Transform (FFT) of Brownian motion along the $\ex$ 
-  direction from a trapped \SiO~particle with radius $\SI{1.03}{\um}$. The gray 
-shaded region \SIrange{20}{6000}{\hertz} depicts the data points taken for the 
-fit (\textcolor{red}{red}).}
-  \label{fig:TO-calibration}
-\end{figure}
 
 \section{Experimental Setup}
 
@@ -112,16 +100,100 @@ is overfilled. An axial movement of the particle causes a change of total
 intensity on this QPD. By measuring the QPDz total intensity we have the 
 information about the relative particle movement within the trap along the 
 axial $\ez$-direction~\cite{Felgner1995a}. For a conversion of the measured 
-voltage to meter the OT needs to be calibrated. The calibration process itself 
-is not relevant for this thesis but is described extensively 
-in~\cite{Lamprecht2017}. A discussion of different calibration options is 
-available from \citeauthor{Svoboda1994}~\cite{Svoboda1994} and 
-\citeauthor{Jun2004}~\cite{Jun2004}.
+voltage to meter the OT needs to be calibrated.
 
 In the following, we will always assume water as fluid medium and silicon 
 dioxide (\SiO) as particle material. All calculations are also applicable to 
 other fluid-particle material combinations with adapted material parameters.
 
+\section{Optical Trap Calibration}
+
+\begin{figure}[tbp]
+  \centering
+  % \input{\relPath/10_Figures/TikZ/calibration.tikz}
+  \includegraphics[]{External/calibration.pdf}
+  \caption{Fast Fourier Transform (FFT) of over 10 cycles averaged Brownian 
+    motion along the $\ex$ direction from a trapped \SiO~particle with of 
+    $\SI{1.03}{\um}$. The gray shaded region \SIrange{20}{6000}{\hertz} depicts 
+    the data points taken for the fit (\textcolor{red}{red}). The sampling 
+  frequency of the DAQ system is \SI{1.25}{\mega\hertz} and the frequency 
+resolution $\Delta f=\SI{2}{\hertz}$.}
+  \label{fig:TO-calibration}
+\end{figure}
+
+There exist different methods to calibrate an OT. A discussion of different 
+calibration options is available from \cname{Svoboda1994} and \cname{Jun2014}. 
+Our calibration is based on the passive power spectrum of a trapped particle 
+that is still moving due to Brownian motion. The motion of the trapped particle 
+is described by
+\begin{equation}
+  \gamma\dot{q_{i}} + \kappa_{i}q_{i} = \FLangevin(t)
+  \label{eq:TO-cal-eom}
+\end{equation}
+where $q_{i}$ is the position of the trapped particle along any of the 
+orthogonal directions $\ex, \ey$ and $\ez$, $\gamma$ is Stokes' drag 
+coefficient, $\kappa_{i}$ the stiffness of the OT, and $\FLangevin(t)$ the time 
+dependent Langevin force. The correction by including the inertia term 
+$m\ddot{q_{i}}$ for the calculation is negligible small because the particle 
+masses are negligible small.
+
+By solving \cref{eq:TO-cal-eom} in the frequency domain
+\begin{equation}
+  \hat{q}_{i}(f) = \frac{\hat{F}_{\MR{Langevin}}}{\gamma\left( 2\pi \cutoff - 
+  \iu 2\pi f \right)}
+  \label{eq:TO-cal-Fdomain}
+\end{equation}
+where $\hat{\Box}$ denotes a quantity in the frequency domain and $\cutoff$ the 
+cut off frequency. Taking the Lorentzian power spectrum of 
+\cref{eq:TO-cal-Fdomain} and using the relation
+\begin{equation}
+  \abs{\hat{F}_{\MR{Langevin}}}^{2} = 2\,\gamma\,k_{\MR{Bo}}T
+\end{equation}
+where $T$ is the temperature and $k_{\MR{Bo}}$ the Boltzmann constant one finds 
+\begin{equation}
+  \mathcal{F}_{i}=\frac{k_{\MR{Bo}}T}{2\pi^{2}\gamma\left( \cutoff^{2}+ f^{2} 
+  \right)}
+\end{equation}
+where $\mathcal{F}_{i}$ is the Lorentzian power spectrum~\cite{Lamprecht2017}. 
+The power spectrum of the trapped particle resembles the curve of a lowpass 
+filter and can, hence, be fitted to
+\begin{equation}
+  \mathcal{F}_{\MR{Lowpass}}(f) = \frac{A_{0}}{f^{2} + \cutoff^{2}}
+\end{equation}
+where $A_{0}$ is the amplitude at $f=0$. \cref{fig:TO-calibration} depicts the 
+Fast Fourier Transform (FFT) of the Brownian motion along $\ex$ of a trapped 
+\SiO~particle with \SI{1.03}{\um} radius and water as surrounding medium, as 
+well as, the fitted lowpass curve and its fitting parameter. The FFT and the 
+fit of the Brownian motion along $\ey$ is very similar to the depicted one 
+because the in-plane optical potential is axissymmetric to $\ez$. Since it is 
+known, that the OT is weaker along the axial $\ez$ direction, a FFT of the 
+Brownian motion along $\ez$ looks qualitatively the same to the one in 
+\cref{fig:TO-calibration} but shifted a little to lower frequencies; hence, the 
+respective $\cutoff$ frequency is also less.
+
+With the fitting parameters $A_{0}$ and $\cutoff$ it is possible to calculate 
+the stiffness of the OT
+\begin{equation}
+  \kappa_{i} = 2\pi\,\gamma\,\cutoff,
+\end{equation}
+as well as the conversion factor
+\begin{equation}
+  \Upsilon_{i} = \frac{1}{\pi\cutoff}\,
+  \sqrt{\frac{k_{\MR{Bo}}T}{\gamma A_{0}}}
+  \label{eq:TO-cal-Upsilon}
+\end{equation}
+which has the unit [\si{\meter\per\volt}] and converts the measured voltage at 
+the QPDs to a particle displacement relative to the trap center. For 
+\cref{eq:TO-cal-Upsilon} the Equiparation Thoerem~\cite{Wang1945} is utilized 
+which relates the product of the time-averaged variance of the trapped particle 
+position with the OT stiffness to its energy content.
+\begin{equation}
+  \kappa_{i}\,\timeaverage{q_{i}^{2}} = k_{\MR{Bo}}T.
+\end{equation}
+
+
+
+to the energy content.
 \section{Ray Optics\label{sec:TO-rayoptics}}
 
 As mentioned before, in the regime of ray optics the propagation of light is 
@@ -1022,7 +1094,7 @@ $y=\sfrac{0.6}{R_{\MR{QPD}}}$ respectively.}
  \end{figure}
 
 As for the measured intensity per quadrant, the measured values are highest if 
-the laser image is over the respective quadrants (see \cref{fig:TO-QPDs}).  
+the laser image is over the respective quadrants (see \cref{fig:TO-QPDs}). 
 However, since the to the maximal value of $V_{\MR{t}}$ normalized 
 $\normalized{V}_{\MR{x}}$ and $\normalized{V}_{\MR{y}}$ are composed by 
 addition and subtraction of the strictly positive values $V_{i}$ the magnitude 
