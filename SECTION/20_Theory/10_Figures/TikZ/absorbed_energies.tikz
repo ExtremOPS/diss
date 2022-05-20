@@ -3,7 +3,7 @@
 \begin{tikzpicture}
   \begin{axis}[
       view={0}{90},
-      ylabel={$a$ [-]},
+      ylabel={$\nicefrac{\Rprime}{\R}$ [-]},
       xlabel={$R$ [\si{\um}]},
       height=50mm,
       width=100mm,
