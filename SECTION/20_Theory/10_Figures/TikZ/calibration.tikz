@@ -1,0 +1,45 @@
+\tikzsetnextfilename{calibration}
+%%%%%%%
+% READ TABLE
+%%%%%%%
+{\small
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\pgfplotstableread[col 
+sep=comma]{\relPath/10_Figures/TikZ/12_ohneVerstaerker.dat}{\data}
+
+\tikzstyle{lowpass}=[dashed, ultra thick, green!70!black]
+
+\begin{tikzpicture}
+\begin{loglogaxis}[
+    width=140mm,
+    height=70mm,
+    title={FFT of Brownian Motion},
+    xlabel={Frequency $f$ [Hz]},
+    ylabel={Amplitude $A$ [Hz V$^{-2}$]},
+    ymin=5e-14,
+    ymax=1e-6,
+    axis on top,
+]
+
+    \filldraw[black!10!white] (20,5e-14) rectangle (6000,1e-6);
+
+    \addplot[thin] table[x=f, y=raw] {\data};
+    \addlegendentry{raw};
+
+    \addplot[red, thick] table[x=f, y=fit] {\data};
+    \addlegendentry{fit};
+
+    \draw[lowpass] ({axis cs:136,0}|-{rel axis cs:0,0}) -- (axis 
+    cs:136,3.4289e-8) node [midway,right] {$f_c=136$};
+
+    \draw[lowpass] ({axis cs:0,3.4289e-8}-|{rel axis cs:0,0}) -- (axis 
+    cs:136,3.4289e-8) node[midway, above] {$A_{0}\approx \num{3.4e-8}$};
+
+    \draw[lowpass] (axis cs:136,3.4289e-8) -- (axis cs:1e4,6.32e-12) 
+    node[midway, sloped, above] {$\propto \nicefrac{1}{f^{2}}$};
+
+\end{loglogaxis}
+\end{tikzpicture}
+}
