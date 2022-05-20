@@ -9,7 +9,7 @@
   width=120mm,
   no markers,
   xlabel={$\lal$ [\si{\nm}]},
-  ylabel={$n$ [-]},
+  ylabel={$\nreal$ [-]},
  ]
 
     \addplot[black] table[x=wl,y=n] 
@@ -29,7 +29,7 @@
   no markers,
   ymode = log,
 ]
-    \addlegendimage{/pgfplots/refstyle=plot_n}\addlegendentry{$n$}
+    \addlegendimage{/pgfplots/refstyle=plot_n}\addlegendentry{$\nreal$}
     \addplot[black,dash dot] table[x=wl,y=a] 
     {\relPath/10_Figures/TikZ/Segelstein1981a.dat};
     \addlegendentry{$\alpha$}
