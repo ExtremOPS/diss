@@ -5,7 +5,7 @@
 
 \begin{tikzpicture}
     \begin{axis}[view={0}{90},
-        xlabel={$a$ [-]},
+        xlabel={$\nicefrac{\Rprime}{\R}$ [-]},
         ylabel={$\beta$ [\si{\degree}]},
         xmax=0.5,
         height=60mm,
