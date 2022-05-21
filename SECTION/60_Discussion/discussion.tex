@@ -217,13 +217,13 @@ before, interested readers are pointed to the thesis of \cname{Lamprecht2017}
 (Section 3.2.4) where our calibration process is explained in great detail. The 
 basic procedure is to fit a low-pass filter to the frequency content of a 
 trapped particle. This fitting is based on two parameters: the amplitude 
-$A_{0}$ at zero frequency and the cut-off frequency $f_{\MR{c}}$. With those 
-two parameters the stiffness $\kappa_{i}\propto f_{\MR{c}}$ and the 
-voltage-meter conversion factor $r_{i}\propto \sfrac{1}{(f_{\MR{c}}\sqrt{A_{0}} 
-)}$ can be calculated for all three spatial directions separately. The total 
-force is then simply the product of the measured voltage times the two factors 
-and, hence, \begin{equation}
-  \force_{i,\MR{measured}}\propto \kappa_{i}\,r_{i}\propto 
+$A_{0}$ at zero frequency and the cut off frequency $\cutoff$. With those two 
+parameters the stiffness $\kappa_{i}\propto\cutoff$ and the voltage-meter 
+conversion factor $\Upsilon_{i}\propto \sfrac{1}{(\cutoff\sqrt{A_{0}} )}$ can 
+be calculated for all three spatial directions separately. The total force is 
+then simply the product of the measured voltage times the two factors and, 
+hence, \begin{equation}
+  \force_{i,\MR{measured}}\propto \kappa_{i}\,\Upsilon_{i}\propto 
   \sfrac{1}{\sqrt{A_{0}}}.
 \end{equation}
 Interestingly, the measured force is only proportional to one of those fitting 
