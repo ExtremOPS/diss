@@ -137,7 +137,7 @@ dependent Langevin force. The correction by including the inertia term
 $m\ddot{q_{i}}$ for the calculation is negligible small because the particle 
 masses are negligible small.
 
-By solving \cref{eq:TO-cal-eom} in the frequency domain
+By solving \cref{eq:TO-cal-eom} in the frequency domain one finds
 \begin{equation}
   \hat{q}_{i}(f) = \frac{\hat{F}_{\MR{Langevin}}}{\gamma\left( 2\pi \cutoff - 
   \iu 2\pi f \right)}
@@ -149,30 +149,31 @@ cut off frequency. Taking the Lorentzian power spectrum of
 \begin{equation}
   \abs{\hat{F}_{\MR{Langevin}}}^{2} = 2\,\gamma\,k_{\MR{Bo}}T
 \end{equation}
-where $T$ is the temperature and $k_{\MR{Bo}}$ the Boltzmann constant one finds 
+where $T$ is the temperature and $k_{\MR{Bo}}$ the Boltzmann constant the 
+Lorentzian power spectrum of \cref{eq:TO-cal-Fdomain} is~\cite{Lamprecht2017}
 \begin{equation}
   \mathcal{F}_{i}=\frac{k_{\MR{Bo}}T}{2\pi^{2}\gamma\left( \cutoff^{2}+ f^{2} 
-  \right)}
+  \right)}.
 \end{equation}
-where $\mathcal{F}_{i}$ is the Lorentzian power spectrum~\cite{Lamprecht2017}. 
 The power spectrum of the trapped particle resembles the curve of a lowpass 
 filter and can, hence, be fitted to
 \begin{equation}
-  \mathcal{F}_{\MR{Lowpass}}(f) = \frac{A_{0}}{f^{2} + \cutoff^{2}}
+  \mathcal{F}_{\MR{Lowpass},i}(f) = \frac{A_{0}}{f^{2} + \cutoff^{2}}
 \end{equation}
-where $A_{0}$ is the amplitude at $f=0$. \cref{fig:TO-calibration} depicts the 
-Fast Fourier Transform (FFT) of the Brownian motion along $\ex$ of a trapped 
-\SiO~particle with \SI{1.03}{\um} radius and water as surrounding medium, as 
-well as, the fitted lowpass curve and its fitting parameter. The FFT and the 
-fit of the Brownian motion along $\ey$ is very similar to the depicted one 
-because the in-plane optical potential is axissymmetric to $\ez$. Since it is 
-known, that the OT is weaker along the axial $\ez$ direction, a FFT of the 
-Brownian motion along $\ez$ looks qualitatively the same to the one in 
-\cref{fig:TO-calibration} but shifted a little to lower frequencies; hence, the 
-respective $\cutoff$ frequency is also less.
+where $A_{0}$ is the amplitude at $f=0$. \cref{fig:TO-calibration} depicts 
+qualitatively the Fast Fourier Transform (FFT) of the Brownian motion along 
+$\ex$ of a trapped \SiO~particle with \SI{1.03}{\um} radius and water as 
+surrounding medium, as well as, the fitted lowpass curve and its fitting 
+parameter. The FFT and the fit of the Brownian motion along $\ey$ is very 
+similar to the depicted one because the in-plane optical potential is 
+axissymmetric to $\ez$. Since it is known, that the OT is weaker along the 
+axial $\ez$ direction, a FFT of the Brownian motion along $\ez$ looks 
+qualitatively the same to the one in \cref{fig:TO-calibration} but shifted a 
+little to lower frequencies; hence, the respective $\cutoff$ frequency is also 
+less.
 
 With the fitting parameters $A_{0}$ and $\cutoff$ it is possible to calculate 
-the stiffness of the OT
+the stiffness of the OT~\cite{Lamprecht2017}
 \begin{equation}
   \kappa_{i} = 2\pi\,\gamma\,\cutoff,
 \end{equation}
@@ -191,9 +192,6 @@ position with the OT stiffness to its energy content.
   \kappa_{i}\,\timeaverage{q_{i}^{2}} = k_{\MR{Bo}}T.
 \end{equation}
 
-
-
-to the energy content.
 \section{Ray Optics\label{sec:TO-rayoptics}}
 
 As mentioned before, in the regime of ray optics the propagation of light is 

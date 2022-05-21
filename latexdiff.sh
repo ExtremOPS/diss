@@ -30,25 +30,23 @@ else
     NEW_COMMIT_ID=$3
 fi
 
+# only problem is that file must be named 'main'.tex
+FILTER="./fix_tex.sh"
+
 OPTIONS="--flatten --latexmk --cleanup keeppdf --no-view --whole-tree"
-# OPTIONS="$OPTIONS -V "
-# OPTIONS="$OPTIONS -V"
-# OPTIONS="$OPTIONS --biber"
+
+OPTIONS="$OPTIONS -V"
+# OPTIONS="$OPTIONS --filter $FILTER"
+
 OPTIONS="$OPTIONS --disable-citation-markup"
-# OPTIONS="$OPTIONS --exclude-safecmd=\"svgwidth\""
-# OPTIONS="$OPTIONS -c \"FLOATENV=(?:figure|figure*|subfigure|table|plate)[\w\d*@]*\""
-# OPTIONS="$OPTIONS -c \"PICTUREENV=(?:picture|DIFnomarkup|tabular|tikzpicture)[\w\d*@]*\""
-# --exclude-textcmd=\"cite,subfigure,subfigure*,equation,align,figure,figure*,label\"" 
-# OPTIONS="$OPTIONS --exclude-textcmd=\"SI\""
-OPTIONS="$OPTIONS --exclude-safecmd=\"cite,cref,Cref,label\""
-OPTIONS="$OPTIONS --append-mboxsafecmd=\"SI,addplot\""
+OPTIONS="$OPTIONS --latexopt -shell-escape"
+OPTIONS="$OPTIONS --ignore-latex-errors"
 OPTIONS="$OPTIONS --tmpdirprefix $PWD"
 OPTIONS="$OPTIONS -o diff_$FILENAME.pdf"
 OPTIONS="$OPTIONS --main $FILENAME.tex"
 #echo $OPTIONS
 
 #get id of the last commit
-#PREVIOUS_COMMIT_ID=`git log --skip 1 -n 1 --oneline --no-abbrev-commit | awk '{print $1}'`
 echo "The options are"
 echo $OPTIONS
 echo ""
@@ -56,11 +54,5 @@ echo -e "Comparing commit $NEW_COMMIT_ID with the $OLD_COMMIT_ID of file
 $FILENAME.tex\n"
 echo "Starting git-latexdiff"
 echo "Please be patient..."
-git latexdiff --prepare 'python3 10_Figures/ConvertAndFix.py' $OPTIONS $OLD_COMMIT_ID $NEW_COMMIT_ID
-perl -pne 's/\\SI\{(.*?)}{(.*?)\}/\\mbox{\\SI{$1}{$2}}/g' git-latexdiff*/new/$FILENAME.tex > new-mod.tex
-mv new-mod.tex git-latexdiff*/new/$FILENAME.tex
-latexmk -pdf git-latexdiff*/new/$FILENAME.tex -outdir=./compile/
-mv compile/$FILENAME.pdf diff_$FILENAME.pdf
-rm -rf git-latexdiff*
-rm -rf compile
-# git latexdiff $OPTIONS $OLD_COMMIT_ID $NEW_COMMIT_ID
+export $FILENAME
+git latexdiff $OPTIONS $OLD_COMMIT_ID $NEW_COMMIT_ID
