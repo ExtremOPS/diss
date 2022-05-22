@@ -9,7 +9,11 @@
 \pgfplotstableread[col 
 sep=comma]{\relPath/10_Figures/TikZ/12_ohneVerstaerker.dat}{\data}
 
-\tikzstyle{lowpass}=[dashed, ultra thick, green!70!black]
+\definecolor{clowpass}{HTML}{4daf4a}
+\definecolor{cfit}{HTML}{E41A1C}
+\definecolor{cdata}{HTML}{377eb8}
+
+\tikzstyle{lowpass}=[dashed, ultra thick, black]
 
 \begin{tikzpicture}
 \begin{loglogaxis}[
@@ -25,10 +29,10 @@ sep=comma]{\relPath/10_Figures/TikZ/12_ohneVerstaerker.dat}{\data}
 
     \filldraw[black!10!white] (20,5e-14) rectangle (6000,1e-6);
 
-    \addplot[thin] table[x=f, y=raw] {\data};
+    \addplot[cdata] table[x=f, y=raw] {\data};
     \addlegendentry{raw};
 
-    \addplot[red, thick] table[x=f, y=fit] {\data};
+    \addplot[cfit, thick] table[x=f, y=fit] {\data};
     \addlegendentry{fit};
 
     \draw[lowpass] ({axis cs:136,0}|-{rel axis cs:0,0}) -- (axis 
