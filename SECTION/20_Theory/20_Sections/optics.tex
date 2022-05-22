@@ -147,12 +147,12 @@ where $\hat{\Box}$ denotes a quantity in the frequency domain and $\cutoff$ the
 cut off frequency. Taking the Lorentzian power spectrum of 
 \cref{eq:TO-cal-Fdomain} and using the relation
 \begin{equation}
-  \abs{\hat{F}_{\MR{Langevin}}}^{2} = 2\,\gamma\,k_{\MR{Bo}}T
+  \abs{\hat{F}_{\MR{Langevin}}}^{2} = 2\,\gamma\,C_{\MR{Bo}}T
 \end{equation}
-where $T$ is the temperature and $k_{\MR{Bo}}$ the Boltzmann constant the 
+where $T$ is the temperature and $C_{\MR{Bo}}$ the Boltzmann constant the 
 Lorentzian power spectrum of \cref{eq:TO-cal-Fdomain} is~\cite{Lamprecht2017}
 \begin{equation}
-  \mathcal{F}_{i}=\frac{k_{\MR{Bo}}T}{2\pi^{2}\gamma\left( \cutoff^{2}+ f^{2} 
+  \mathcal{F}_{i}=\frac{C_{\MR{Bo}}T}{2\pi^{2}\gamma\left( \cutoff^{2}+ f^{2} 
   \right)}.
 \end{equation}
 The power spectrum of the trapped particle resembles the curve of a lowpass 
@@ -180,7 +180,7 @@ the stiffness of the OT~\cite{Lamprecht2017}
 as well as the conversion factor
 \begin{equation}
   \Upsilon_{i} = \frac{1}{\pi\cutoff}\,
-  \sqrt{\frac{k_{\MR{Bo}}T}{\gamma A_{0}}}
+  \sqrt{\frac{C_{\MR{Bo}}T}{\gamma A_{0}}}
   \label{eq:TO-cal-Upsilon}
 \end{equation}
 which has the unit [\si{\meter\per\volt}] and converts the measured voltage at 
@@ -189,7 +189,7 @@ the QPDs to a particle displacement relative to the trap center. For
 which relates the product of the time-averaged variance of the trapped particle 
 position with the OT stiffness to its energy content.
 \begin{equation}
-  \kappa_{i}\,\timeaverage{q_{i}^{2}} = k_{\MR{Bo}}T.
+  \kappa_{i}\,\timeaverage{q_{i}^{2}} = C_{\MR{Bo}}T.
 \end{equation}
 
 \section{Ray Optics\label{sec:TO-rayoptics}}
