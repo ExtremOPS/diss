@@ -108,16 +108,20 @@ other fluid-particle material combinations with adapted material parameters.
 
 \section{Optical Trap Calibration}
 
+\definecolor{clowpass}{HTML}{4daf4a}
+\definecolor{cfit}{HTML}{E41A1C}
+\definecolor{cdata}{HTML}{377eb8}
+
 \begin{figure}[tbp]
   \centering
   % \input{\relPath/10_Figures/TikZ/calibration.tikz}
   \includegraphics[]{External/calibration.pdf}
   \caption{Fast Fourier Transform (FFT) of over 10 cycles averaged Brownian 
-    motion along the $\ex$ direction from a trapped \SiO~particle with of 
-    $\SI{1.03}{\um}$. The gray shaded region \SIrange{20}{6000}{\hertz} depicts 
-    the data points taken for the fit (\textcolor{red}{red}). The sampling 
-  frequency of the DAQ system is \SI{1.25}{\mega\hertz} and the frequency 
-resolution $\Delta f=\SI{2}{\hertz}$.}
+    motion (\textcolor{cdata}{blue}) along the $\ex$ direction from a trapped 
+    \SiO~particle with of $\SI{1.03}{\um}$. The gray shaded region 
+    \SIrange{20}{6000}{\hertz} depicts the data points taken for the fit 
+  (\textcolor{cfit}{red}). The sampling frequency of the DAQ system is 
+\SI{1.25}{\mega\hertz} and the frequency resolution $\Delta f=\SI{2}{\hertz}$.}
   \label{fig:TO-calibration}
 \end{figure}
 
