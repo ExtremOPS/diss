@@ -22,7 +22,7 @@
        width="271.92816"
        height="200.60274"
        id="rect4828" /><color-profile
-       id="color-profile22043"
+       id="color-profile6460"
        name="Blue-Tone"
        xlink:href="file:///Library/ColorSync/Profiles/Blue%20Tone.icc" /><g
        id="g25326"><g
@@ -2098,10 +2098,10 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.44864791"
-     inkscape:cx="585.09132"
-     inkscape:cy="524.9105"
-     inkscape:current-layer="layer1"
+     inkscape:zoom="0.63853305"
+     inkscape:cx="508.19609"
+     inkscape:cy="431.4577"
+     inkscape:current-layer="g679"
      id="namedview835"
      inkscape:document-rotation="0"
      showgrid="true"
@@ -2122,9 +2122,9 @@
      inkscape:snap-object-midpoints="true"
      inkscape:snap-text-baseline="true"
      inkscape:snap-page="true"
-     inkscape:window-width="2354"
-     inkscape:window-height="1329"
-     inkscape:window-x="384"
+     inkscape:window-width="1680"
+     inkscape:window-height="997"
+     inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:showpageshadow="2"
@@ -2186,7 +2186,7 @@
        width="12.259842"
        height="8.5039368"
        id="page28098"
-       inkscape:export-filename="Umschlagseite.jpg"
+       inkscape:export-filename="Umschlagseite.pdf"
        inkscape:export-xdpi="600"
        inkscape:export-ydpi="600" /><inkscape:page
        x="22.259842"
@@ -2230,7 +2230,7 @@
            id="tspan6561"
            x="-510.6825"
            y="454.35623"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Experimental Validation of Acoustofluidic Thoery and Simulations using an Optical Trapping Set-Up</tspan></text></g><g
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Experimental Validation of Acoustofluidic Theory and Simulations using an Optical Trapping Set-Up</tspan></text></g><g
        id="g711"
        transform="matrix(0.01388889,0,0,0.01388889,-0.05666636,2.4410552)"><g
          style="fill:#191917;fill-opacity:1"
